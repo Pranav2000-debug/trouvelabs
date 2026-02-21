@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function SdkGridSection({ SDK_CARDS }: { SDK_CARDS: any[] }) {
   return (
     <section className="px-6 py-24">
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl">
         <FadeIn>
           <h2 className="text-center text-3xl font-bold sm:text-4xl">Core SDKs.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">

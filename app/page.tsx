@@ -5,6 +5,7 @@ import { Eye, Network, Lock, Sparkles, Server } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import SdkGridSection from "@/components/home-comps/sdkGrid";
 import Image from "next/image";
+import Particles from "@/components/Particles";
 
 /* ──────────────────────────── Types ──────────────────────────── */
 
@@ -76,11 +77,8 @@ const USE_CASES: UseCaseData[] = [
 
 function HeroSection() {
   return (
-    <section className="flex min-h-screen items-center justify-center overflow-hidden px-6 pt-32 pb-20">
+    <section className="flex min-h-screen items-center justify-center px-6 pt-32 pb-20">
       {/* Prism WebGL background */}
-      <div className="pointer-events-none absolute inset-0 opacity-40 z-10">
-        <Prism animationType="rotate" timeScale={0.5} height={3.5} baseWidth={5.5} scale={3.6} hueShift={0} colorFrequency={1} noise={0} glow={1} />
-      </div>
 
       <div className="relative z-10 mx-auto max-w-4xl text-center z-20">
         <FadeIn>
@@ -214,8 +212,22 @@ function FinalCtaSection() {
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <SdkGridSection SDK_CARDS={SDK_CARDS} />
+      <div className="relative">
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <Particles
+            particleColors={["#ffffff"]}
+            particleCount={500}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover
+            disableRotation={false}
+            pixelRatio={1}
+          />
+        </div>
+        <HeroSection />
+        <SdkGridSection SDK_CARDS={SDK_CARDS} />
+      </div>
       <MobilityContextSection />
       <UseCasePreviewSection />
       <FinalCtaSection />
