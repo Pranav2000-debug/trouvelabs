@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 import { Suspense } from "react";
 
 const poppins = Poppins({
@@ -25,12 +26,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={poppins.variable}>
-        <Navbar />
+        <LazyMotionProvider>
+          <Navbar />
 
-        <main className="min-h-screen">{children}</main>
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+          <main className="min-h-screen">{children}</main>
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
+        </LazyMotionProvider>
       </body>
     </html>
   );

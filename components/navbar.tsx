@@ -62,7 +62,7 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
       </button>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 pt-4 -translate-x-1/2">
+        <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/6">
           <div className="min-w-[280px] rounded-xl border border-white/10 bg-white/5 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
         </div>
       )}
