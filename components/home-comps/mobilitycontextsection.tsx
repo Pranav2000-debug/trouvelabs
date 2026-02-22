@@ -1,6 +1,7 @@
+"use cache";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
 
-export default function MobilityContextSection() {
+export default async function MobilityContextSection() {
   return (
     <section className="relative mb-20 px-4 py-16 sm:px-6 sm:py-24">
       <div className="relative z-10 mx-auto max-w-7xl">

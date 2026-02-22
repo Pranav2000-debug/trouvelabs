@@ -1,7 +1,8 @@
+"use cache";
 import Image from "next/image";
-import { FadeIn, FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
+import { FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
 
-export default function AboutBento() {
+export default async function AboutBento() {
   return (
     <section className="relative bg-background px-6 py-20 overflow-hidden">
       {/* BG pattern mask — topographic contour lines, darkened & faded */}
@@ -45,7 +46,7 @@ export default function AboutBento() {
 
           {/* Squiggly arrow — row 2, col 1 */}
           <FadeInStaggerItem>
-            <div className="flex h-full items-center justify-center rounded-2xl p-6">
+            <div className="md:flex hidden h-full items-center justify-center rounded-2xl p-6">
               <Image src="/image 27.png" alt="Route direction" width={200} height={80} className="object-contain" />
             </div>
           </FadeInStaggerItem>

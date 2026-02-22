@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 
@@ -30,7 +29,7 @@ const RESOURCE_LINKS: FooterLinkItem[] = [
 
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
-  { href: "mailto:Hood@MailAhoy.com", label: "Contact" },
+  { href: "https://example.com", label: "Contact" },
   { href: "/enterprise", label: "Enterprise" },
   { href: "/benchmarks", label: "Benchmarks" },
 ];
@@ -53,6 +52,7 @@ function FooterColumn({ title, links }: FooterColumnProps) {
 }
 
 export function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-white/6 bg-[#0e1015]">
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -66,8 +66,8 @@ export function Footer() {
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              <Link href="mailto:Hood@MailAhoy.com" className="transition-colors hover:text-trouve-teal">
-                Hood@MailAhoy.com
+              <Link href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
+                example.com
               </Link>
             </p>
           </div>
@@ -80,7 +80,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-trouve-border pt-8 sm:flex-row">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Trouve Labs. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {year} Trouve Labs. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">
             Part of the <span className="font-medium text-trouve-teal">AHOY Ecosystem</span>
           </p>

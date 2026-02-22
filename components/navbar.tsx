@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Eye, Network, Lock, Sparkles, Server, ChevronDown } from "lucide-react";
@@ -76,6 +76,15 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      setMobileProductsOpen(false);
+      setMobileUseCasesOpen(false);
+    }
+  }, [mobileOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
@@ -126,7 +135,7 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Link href="/docs/quickstart" className="text-sm text-white/60 transition-colors hover:text-white">
+          <Link href="/docs/quickstart" target="_blank" className="text-sm text-white/60 transition-colors hover:text-white">
             Docs
           </Link>
         </div>
@@ -151,28 +160,44 @@ export function Navbar() {
               </Link>
             </li>
             <li>
-              <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-trouve-teal">Products</span>
-              <ul className="flex flex-col gap-2 pl-3">
-                {PRODUCTS.map((p) => (
-                  <li key={p.href}>
-                    <Link href={p.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
-                      {p.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
+                Products
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileProductsOpen && (
+                <ul className="mt-2 flex flex-col gap-2 pl-3">
+                  {PRODUCTS.map((p) => (
+                    <li key={p.href}>
+                      <Link href={p.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
             <li>
-              <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-trouve-teal">Use Cases</span>
-              <ul className="flex flex-col gap-2 pl-3">
-                {USE_CASES.map((uc) => (
-                  <li key={uc.href}>
-                    <Link href={uc.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
-                      {uc.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <button
+                type="button"
+                onClick={() => setMobileUseCasesOpen(!mobileUseCasesOpen)}
+                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
+                Use Cases
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileUseCasesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {mobileUseCasesOpen && (
+                <ul className="mt-2 flex flex-col gap-2 pl-3">
+                  {USE_CASES.map((uc) => (
+                    <li key={uc.href}>
+                      <Link href={uc.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                        {uc.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
             <li>
               <Link href="/about" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">

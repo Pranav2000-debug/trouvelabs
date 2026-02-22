@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/motion-wrapper";
+import Teams from "@/components/home-comps/teams";
 
 export const metadata: Metadata = {
   title: "About — Trouve Labs",
@@ -147,7 +148,9 @@ function PillarsSection() {
 
 /* ──────────────────────────── Page ────────────────────────────── */
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  "use cache";
+
   return (
     <>
       <AboutHero />
@@ -155,6 +158,7 @@ export default function AboutPage() {
       <VisionSection />
       <StatsSection />
       <PillarsSection />
+      <Teams />
     </>
   );
 }

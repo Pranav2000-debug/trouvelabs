@@ -1,28 +1,20 @@
+"use cache";
 import Link from "next/link";
 import { FadeIn } from "../motion-wrapper";
-import ShinyText from "@/components/ui/ShinyText";
+import { AuroraText } from "@/components/ui/aurora-text";
 import { ArrowUpRight } from "lucide-react";
 
-export default function HeroSection() {
+export default async function HeroSection() {
   return (
     <section className="flex min-h-screen items-center justify-center px-6 pt-32 pb-20">
-      {/* Prism WebGL background */}
-
       <div className="relative z-10 mx-auto max-w-4xl text-center z-20">
         <FadeIn>
-          <ShinyText
-            text="Finding Efficiencies at Every Curve."
+          <AuroraText
             className="text-4xl font-bold uppercase leading-tight tracking-tight sm:text-7xl lg:text-8xl"
-            speed={3}
-            delay={0}
-            color="#b5b5b5"
-            shineColor="#ffffff"
-            spread={120}
-            direction="left"
-            yoyo={false}
-            pauseOnHover={false}
-            disabled={false}
-          />
+            colors={["#ffffffff", "#dfdfdfff", "#c8cacbff", "#3d8585ff"]}
+            speed={1}>
+            Finding Efficiencies at Every Curve <span className="pl-8">.</span>
+          </AuroraText>
         </FadeIn>
 
         <FadeIn delay={0.3}>
