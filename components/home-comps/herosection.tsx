@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FadeIn } from "../motion-wrapper";
-import ShinyText from "../ShinyText";
+import ShinyText from "@/components/ui/ShinyText";
 
 export default function HeroSection() {
   return (

@@ -1,18 +1,16 @@
-import SdkGridSection from "@/components/home-comps/sdkGrid";
+import SmoothStackScroll from "@/components/ui/smooth-stack-scroll";
 import HeroSection from "@/components/home-comps/herosection";
-import UseCasePreviewSection from "@/components/home-comps/usecasepreview";
 import MobilityContextSection from "@/components/home-comps/mobilitycontextsection";
 import { BackgroundPaths } from "@/components/ui/gradient-flow";
 
 export default function HomePage() {
   return (
     <>
-      <div className="relative overlow-hidden">
-        <BackgroundPaths className="absolute inset-0 -z-10 text-white" />
-        <HeroSection />
-      </div>
-      <SdkGridSection />
-      <UseCasePreviewSection />
+      {/* Fixed gradient background — flows behind all sections */}
+      <BackgroundPaths className="fixed inset-0 -z-10 text-white" />
+
+      <HeroSection />
+      <SmoothStackScroll />
       <MobilityContextSection />
     </>
   );
