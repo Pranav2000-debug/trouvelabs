@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FadeIn } from "../motion-wrapper";
+import ShinyText from "../ShinyText";
 
 export default function HeroSection() {
   return (
@@ -8,7 +9,19 @@ export default function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center z-20">
         <FadeIn>
-          <h1 className="text-5xl font-bold uppercase leading-tight tracking-tight sm:text-7xl lg:text-8xl">Finding Efficiencies at Every Curve.</h1>
+          <ShinyText
+            text="Finding Efficiencies at Every Curve."
+            className="text-4xl font-bold uppercase leading-tight tracking-tight sm:text-7xl lg:text-8xl"
+            speed={3}
+            delay={0}
+            color="#b5b5b5"
+            shineColor="#ffffff"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
         </FadeIn>
 
         <FadeIn delay={0.3}>
