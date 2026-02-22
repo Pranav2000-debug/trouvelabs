@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FadeIn } from "../motion-wrapper";
 import ShinyText from "@/components/ui/ShinyText";
+import { ArrowUpRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -34,13 +35,23 @@ export default function HeroSection() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row z-20">
             <Link
               href="mailto:Hood@MailAhoy.com"
-              className="inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
-              Request a Demo
+              className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/90">
+              <span>Request a Demo</span>
+              <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
             </Link>
             <Link
               href="/docs/quickstart"
-              className="inline-flex h-11 items-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-colors hover:border-trouve-teal hover:text-trouve-teal">
-              Explore Docs
+              className="group inline-flex h-11 items-center justify-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
+              <span>Explore Docs</span>
+              <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
             </Link>
           </div>
         </FadeIn>

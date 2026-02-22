@@ -60,8 +60,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2">
-              <Image src="/LOGO ICON.png" alt="Trouve Labs" width={28} height={28} className="h-7 w-7" />
-              <Image src="/LOGO TEXT.png" alt="Trouve Labs" width={100} height={20} className="h-5 w-auto" />
+              <Image src="/image 44.png" alt="Trouve Labs" width={100} height={100} className="h-22 w-20" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.

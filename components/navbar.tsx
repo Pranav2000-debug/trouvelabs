@@ -62,8 +62,10 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
       </button>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/6">
-          <div className="min-w-[280px] rounded-xl border border-white/10 bg-white/5 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
+        <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/2">
+          <div className="min-w-[280px] rounded-xl border border-white/10 bg-black/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
+            {children}
+          </div>
         </div>
       )}
     </div>
@@ -90,7 +92,9 @@ export function Navbar() {
           <Link href="/" className="text-sm text-white/60 transition-colors hover:text-white">
             Home
           </Link>
-
+          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-white">
+            About
+          </Link>
           <Dropdown label="Products">
             <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
               {PRODUCTS.map((p) => {
@@ -122,9 +126,6 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-white">
-            About
-          </Link>
           <Link href="/docs/quickstart" className="text-sm text-white/60 transition-colors hover:text-white">
             Docs
           </Link>
