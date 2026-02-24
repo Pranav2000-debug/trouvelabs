@@ -1,5 +1,5 @@
-"use cache";
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn } from "../motion-wrapper";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { ArrowUpRight } from "lucide-react";
@@ -7,13 +7,19 @@ import { ArrowUpRight } from "lucide-react";
 export default async function HeroSection() {
   return (
     <section className="flex min-h-screen items-center justify-center px-6 pt-32 pb-20">
-      <div className="relative z-10 mx-auto max-w-4xl text-center z-20">
+      <div className="relative mx-auto max-w-4xl text-center z-20">
         <FadeIn>
+          <div className="mb-2">
+            <Image src="/image 51.png" alt="Trouve logo" width={120} height={120} className="mx-auto" />
+            <span className="text-sm font-bold">Trouve Labs.</span>
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.2}>
           <AuroraText
-            className="text-4xl font-bold uppercase leading-tight tracking-tight sm:text-7xl lg:text-8xl"
-            colors={["#ffffffff", "#dfdfdfff", "#c8cacbff", "#3d8585ff"]}
+            className="text-2xl font-bold uppercase leading-tight tracking-tight sm:text-4xl lg:text-6xl"
+            colors={["#ffffffff", "#9fcfebff", "#c8cacbff", "#3d8585ff"]}
             speed={1}>
-            Finding Efficiencies at Every Curve <span className="pl-8">.</span>
+            Finding Efficiencies at Every Curve
           </AuroraText>
         </FadeIn>
 
@@ -26,7 +32,8 @@ export default async function HeroSection() {
         <FadeIn delay={0.45}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row z-20">
             <Link
-              href="mailto:Hood@MailAhoy.com"
+              prefetch={false}
+              href=""
               className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/90">
               <span>Request a Demo</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
@@ -36,6 +43,7 @@ export default async function HeroSection() {
               </div>
             </Link>
             <Link
+              prefetch={false}
               href="/docs/quickstart"
               className="group inline-flex h-11 items-center justify-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
               <span>Explore Docs</span>

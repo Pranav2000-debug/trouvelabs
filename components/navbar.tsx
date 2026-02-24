@@ -91,14 +91,14 @@ export function Navbar() {
       {/* Floating pill */}
       <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/5 px-6 backdrop-blur-xl">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/image 51.png" alt="Trouve Labs" width={120} height={24} className="h-7 w-auto" />
           <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" />
         </Link>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-6 md:flex">
-          <Link href="/" className="text-sm text-white/60 transition-colors hover:text-white">
+          <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-white">
             Home
           </Link>
           <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-white">
@@ -109,7 +109,7 @@ export function Navbar() {
               {PRODUCTS.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <Link key={p.title} href={p.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
+                  <Link prefetch={false} key={p.title} href={p.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
                     <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
                       <Icon className="h-3.5 w-3.5 text-trouve-teal" />
                     </div>
@@ -126,7 +126,11 @@ export function Navbar() {
           <Dropdown label="Use Cases">
             <div className="grid gap-1 w-[320px]">
               {USE_CASES.map((uc) => (
-                <Link key={uc.title} href={uc.href} className="flex flex-col gap-1 rounded-lg p-2.5 transition-colors hover:bg-white/5">
+                <Link
+                  prefetch={false}
+                  key={uc.title}
+                  href={uc.href}
+                  className="flex flex-col gap-1 rounded-lg p-2.5 transition-colors hover:bg-white/5">
                   <span className="text-[10px] font-medium uppercase tracking-wider text-trouve-teal">{uc.sdks}</span>
                   <div className="text-sm font-medium text-white">{uc.title}</div>
                   <p className="text-xs text-white/40">{uc.description}</p>
@@ -135,7 +139,7 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Link href="/docs/quickstart" target="_blank" className="text-sm text-white/60 transition-colors hover:text-white">
+          <Link prefetch={false} href="/docs/quickstart" target="_blank" className="text-sm text-white/60 transition-colors hover:text-white">
             Docs
           </Link>
         </div>
@@ -155,7 +159,7 @@ export function Navbar() {
         <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-white/10 bg-[#111318]/98 p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-4">
             <li>
-              <Link href="/" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
+              <Link prefetch={false} href="/" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
                 Home
               </Link>
             </li>
@@ -171,7 +175,7 @@ export function Navbar() {
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
                   {PRODUCTS.map((p) => (
                     <li key={p.href}>
-                      <Link href={p.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                      <Link prefetch={false} href={p.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
                         {p.title}
                       </Link>
                     </li>
@@ -191,7 +195,7 @@ export function Navbar() {
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
                   {USE_CASES.map((uc) => (
                     <li key={uc.href}>
-                      <Link href={uc.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                      <Link prefetch={false} href={uc.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
                         {uc.title}
                       </Link>
                     </li>
@@ -200,18 +204,27 @@ export function Navbar() {
               )}
             </li>
             <li>
-              <Link href="/about" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
+              <Link
+                prefetch={false}
+                href="/about"
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-white/70 hover:text-white">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/docs/quickstart" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
+              <Link
+                prefetch={false}
+                href="/docs/quickstart"
+                onClick={() => setMobileOpen(false)}
+                className="text-base font-medium text-white/70 hover:text-white">
                 Docs
               </Link>
             </li>
           </ul>
           <div className="mt-6 border-t border-white/10 pt-6">
             <Link
+              prefetch={false}
               href="mailto:Hood@MailAhoy.com"
               onClick={() => setMobileOpen(false)}
               className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90">

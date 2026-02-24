@@ -1,4 +1,3 @@
-"use cache";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
 
 export default async function MobilityContextSection() {
@@ -6,11 +5,13 @@ export default async function MobilityContextSection() {
     <section className="relative mb-20 px-4 py-16 sm:px-6 sm:py-24">
       <div className="relative z-10 mx-auto max-w-7xl">
         <FadeIn>
-          <h2 className="text-3xl font-bold sm:text-4xl">Mobility is the domain.</h2>
-          <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
-            Everything in motion creates value. We transform mathematical algorithms into applied intelligence for supply chains, traffic
-            optimization, and logistics systems.
-          </p>
+          <div className="flex flex-col items-center text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">Mobility is the domain.</h2>
+            <p className="mt-4 max-w-3xl text-lg text-muted-foreground">
+              Everything in motion creates value. We transform mathematical algorithms into applied intelligence for supply chains, traffic
+              optimization, and logistics systems.
+            </p>
+          </div>
         </FadeIn>
 
         <FadeInStagger className="mt-10 grid gap-5 sm:mt-16 sm:gap-8 sm:grid-cols-3">

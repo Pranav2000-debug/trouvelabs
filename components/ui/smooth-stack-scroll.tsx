@@ -1,6 +1,3 @@
-"use client";
-
-import { ReactLenis } from "lenis/react";
 import Link from "next/link";
 import { Eye, Network, Lock, Sparkles, Server } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -46,11 +43,8 @@ const USE_CASES: UseCaseData[] = [
   },
 ];
 
-/* ──────── Component ──────── */
-
 export default function SmoothStackScroll(): React.JSX.Element {
   return (
-    <ReactLenis root>
       <main>
         <div className="wrapper">
           {/* ── Section 1: SDK Cards ── */}
@@ -69,6 +63,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   const IconComponent = sdk.icon;
                   return (
                     <Link
+                      prefetch={false}
                       key={sdk.slug}
                       href={`/products/${sdk.slug}`}
                       className="group flex flex-col rounded-xl border border-trouve-border bg-trouve-surface/70 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/5 cursor-pointer">
@@ -94,6 +89,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                     const IconComponent = sdk.icon;
                     return (
                       <Link
+                        prefetch={false}
                         key={sdk.slug}
                         href={`/products/${sdk.slug}`}
                         className="group flex flex-col snap-center shrink-0 w-[75vw] rounded-xl border border-trouve-border bg-trouve-surface/70 backdrop-blur-sm p-5 transition-all cursor-pointer">
@@ -124,6 +120,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
               <div className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
                 {USE_CASES.map((uc) => (
                   <Link
+                    prefetch={false}
                     key={uc.slug}
                     href={`/use-cases/${uc.slug}`}
                     className="group flex flex-col rounded-xl border border-trouve-border bg-trouve-surface/70 backdrop-blur-sm p-5 sm:p-8 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/5">
@@ -140,6 +137,5 @@ export default function SmoothStackScroll(): React.JSX.Element {
           </section>
         </div>
       </main>
-    </ReactLenis>
   );
 }

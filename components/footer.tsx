@@ -41,7 +41,7 @@ function FooterColumn({ title, links }: FooterColumnProps) {
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-trouve-teal">
+            <Link prefetch={false} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-trouve-teal">
               {link.label}
             </Link>
           </li>
@@ -59,14 +59,14 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2">
+            <Link prefetch={false} href="/" className="inline-flex items-center gap-2">
               <Image src="/image 44.png" alt="Trouve Labs" width={100} height={100} className="h-22 w-20" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              <Link href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
+              <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
                 example.com
               </Link>
             </p>
@@ -82,7 +82,7 @@ export function Footer() {
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-trouve-border pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">© {year} Trouve Labs. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">
-            Part of the <span className="font-medium text-trouve-teal">AHOY Ecosystem</span>
+            Part of the <span className="font-medium text-trouve-teal"><a target="_blank" href="https://ahoy.technology/">AHOY Ecosystem</a></span>
           </p>
         </div>
       </div>
