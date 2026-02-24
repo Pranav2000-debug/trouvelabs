@@ -80,7 +80,7 @@ function DesktopSdkGrid() {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: `${SDK_CARDS.length * 100}vh` }}>
-      <div className="sticky top-0 flex h-[90vh] flex-col items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex h-[80vh]  flex-col items-center justify-center overflow-hidden">
         <div className="mb-12 text-center px-6">
           <h2 className="text-3xl font-bold sm:text-4xl">Core SDKs.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">Modular, composable AI building blocks designed for mobility intelligence.</p>

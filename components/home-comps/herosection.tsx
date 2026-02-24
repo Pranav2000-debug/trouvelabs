@@ -1,27 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn } from "../motion-wrapper";
-import ShinyText from "../ShinyText";
+import { AuroraText } from "@/components/ui/aurora-text";
+import { ArrowUpRight } from "lucide-react";
 
-export default function HeroSection() {
+export default async function HeroSection() {
   return (
     <section className="flex min-h-screen items-center justify-center px-6 pt-32 pb-20">
-      {/* Prism WebGL background */}
-
-      <div className="relative z-10 mx-auto max-w-4xl text-center z-20">
+      <div className="relative mx-auto max-w-4xl text-center z-20">
         <FadeIn>
-          <ShinyText
-            text="Finding Efficiencies at Every Curve."
-            className="text-4xl font-bold uppercase leading-tight tracking-tight sm:text-7xl lg:text-8xl"
-            speed={3}
-            delay={0}
-            color="#b5b5b5"
-            shineColor="#ffffff"
-            spread={120}
-            direction="left"
-            yoyo={false}
-            pauseOnHover={false}
-            disabled={false}
-          />
+          <div className="mb-2">
+            <Image src="/image 51.png" alt="Trouve logo" width={120} height={120} className="mx-auto" />
+            <span className="text-sm font-bold">Trouve Labs.</span>
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.2}>
+          <AuroraText
+            className="text-2xl font-bold uppercase leading-tight tracking-tight sm:text-4xl lg:text-6xl"
+            colors={["#ffffffff", "#9fcfebff", "#c8cacbff", "#3d8585ff"]}
+            speed={1}>
+            Finding Efficiencies at Every Curve
+          </AuroraText>
         </FadeIn>
 
         <FadeIn delay={0.3}>
@@ -33,14 +32,26 @@ export default function HeroSection() {
         <FadeIn delay={0.45}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row z-20">
             <Link
-              href="mailto:Hood@MailAhoy.com"
-              className="inline-flex h-11 items-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
-              Request a Demo
+              prefetch={false}
+              href=""
+              className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/90">
+              <span>Request a Demo</span>
+              <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
             </Link>
             <Link
+              prefetch={false}
               href="/docs/quickstart"
-              className="inline-flex h-11 items-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-colors hover:border-trouve-teal hover:text-trouve-teal">
-              Explore Docs
+              className="group inline-flex h-11 items-center justify-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
+              <span>Explore Docs</span>
+              <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </div>
+              </div>
             </Link>
           </div>
         </FadeIn>

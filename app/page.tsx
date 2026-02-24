@@ -1,19 +1,37 @@
-import SdkGridSection from "@/components/home-comps/sdkGrid";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/home-comps/herosection";
-import UseCasePreviewSection from "@/components/home-comps/usecasepreview";
+import AboutBento from "@/components/home-comps/about-bento";
 import MobilityContextSection from "@/components/home-comps/mobilitycontextsection";
 import { BackgroundPaths } from "@/components/ui/gradient-flow";
+import {ReactLenis} from "lenis/react";
 
-export default function HomePage() {
+// Lazy load heavy interactive scroll component, SSR comp.
+const SmoothStackScroll = dynamic(() => import("@/components/ui/smooth-stack-scroll"), {
+  loading: () => <div className="min-h-screen w-full bg-background/80" />,
+});
+
+export default async function HomePage() {
+  "use cache";
+
   return (
-    <>
-      <div className="relative overlow-hidden">
-        <BackgroundPaths className="absolute inset-0 -z-10 text-white" />
-        <HeroSection />
-      </div>
-      <SdkGridSection />
-      <UseCasePreviewSection />
+    <ReactLenis root>
+      {/* Fixed gradient background — client-only animation, doesn't block static shell */}
+      <Suspense fallback={null}>
+        <BackgroundPaths className="fixed inset-0 -z-10 text-[#4EC9D4]" />
+      </Suspense>
+
+      <HeroSection />
+
+      <AboutBento />
+
+      {/* Interactive scroll section — streams in via Suspense */}
+      <Suspense fallback={null}>
+        <SmoothStackScroll />
+      </Suspense>
+
       <MobilityContextSection />
-    </>
+      {/* Teams Hub and Spoke Section */}
+    </ReactLenis>
   );
 }

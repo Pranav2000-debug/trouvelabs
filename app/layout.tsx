@@ -30,6 +30,7 @@ export default function RootLayout({
           <Navbar />
 
           <main className="min-h-screen">{children}</main>
+          
           <Suspense fallback={null}>
             <Footer />
           </Suspense>

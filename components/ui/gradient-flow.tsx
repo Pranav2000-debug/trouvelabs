@@ -75,7 +75,7 @@ export function BackgroundPaths({ className, children }: BackgroundPathsProps) {
         style={{
           width: "min(60vw, 60vh)",
           height: "min(60vw, 60vh)",
-          background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)",
+
         }}
       />
 
