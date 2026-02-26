@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 function FloatingPaths({ position }: { position: number }) {
   const paths = useMemo(
     () =>
-      Array.from({ length: 36 }, (_, i) => {
+      Array.from({ length: 30 }, (_, i) => {
         const p = position;
         const s = i * 6; // vertical spacing between lines
         const drift = i * 5 * p; // horizontal drift per line
