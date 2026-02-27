@@ -1,5 +1,5 @@
 import Teams from "@/components/about-comps/teams";
-import { CombinedAboutSection } from "@/components/about-comps/combinedAboutSection";
+import { AboutTabbedSection } from "@/components/about-comps/aboutTabbedSection";
 import { PillarsSection } from "@/components/about-comps/pillarsSection";
 import { StatsSection } from "@/components/about-comps/statsSection";
 
@@ -8,7 +8,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <CombinedAboutSection />
+      <AboutTabbedSection />
       <StatsSection />
       <PillarsSection />
       <Teams />

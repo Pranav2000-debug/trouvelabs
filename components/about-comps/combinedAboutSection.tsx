@@ -1,4 +1,4 @@
-import { FadeIn } from "../motion-wrapper";
+import { FadeIn } from "../ui/motion-wrapper";
 
 export function CombinedAboutSection() {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FadeIn } from "../motion-wrapper";
+import { FadeIn } from "../ui/motion-wrapper";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { ArrowUpRight } from "lucide-react";
 
@@ -10,7 +10,7 @@ export default async function HeroSection() {
       <div className="relative mx-auto max-w-4xl text-center z-20">
         <FadeIn>
           <div className="mb-2">
-            <Image src="/image 51.png" alt="Trouve logo" width={120} height={120} className="mx-auto" />
+            <Image src="/image 51.png" alt="Trouve logo" width={120} height={78} className="mx-auto" />
             <span className="text-sm font-bold">Trouve Labs.</span>
           </div>
         </FadeIn>

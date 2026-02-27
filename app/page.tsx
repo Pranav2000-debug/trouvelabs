@@ -7,7 +7,7 @@ import { BackgroundPaths } from "@/components/ui/gradient-flow";
 import {ReactLenis} from "lenis/react";
 
 // Lazy load heavy interactive scroll component, SSR comp.
-const SmoothStackScroll = dynamic(() => import("@/components/ui/smooth-stack-scroll"), {
+const SmoothStackScroll = dynamic(() => import("@/components/home-comps/product-preview-sec"), {
   loading: () => <div className="min-h-screen w-full bg-background/80" />,
 });
 
@@ -26,8 +26,9 @@ export default async function HomePage() {
       <AboutBento />
 
       {/* Interactive scroll section — streams in via Suspense */}
+      {/* SmoothStackScroll showcases product cards and use-cases cards */}
       <Suspense fallback={null}>
-        <SmoothStackScroll />
+        <SmoothStackScroll /> 
       </Suspense>
 
       <MobilityContextSection />

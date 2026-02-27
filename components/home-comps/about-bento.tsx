@@ -1,6 +1,6 @@
 "use cache";
 import Image from "next/image";
-import { FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
+import { FadeInStagger, FadeInStaggerItem } from "../ui/motion-wrapper";
 
 export default async function AboutBento() {
   return (
@@ -47,7 +47,7 @@ export default async function AboutBento() {
           {/* Squiggly arrow — row 2, col 1 */}
           <FadeInStaggerItem>
             <div className="md:flex hidden h-full items-center justify-center rounded-2xl p-6">
-              <Image src="/image 27.png" alt="Route direction" width={200} height={80} className="object-contain" />
+              <Image src="/image 27.png" alt="Route direction" width={200} height={195} className="object-contain" />
             </div>
           </FadeInStaggerItem>
 
@@ -59,7 +59,7 @@ export default async function AboutBento() {
                 src="/image 51.png"
                 alt=""
                 width={120}
-                height={120}
+                height={78}
                 className="pointer-events-none absolute right-6 bottom-4 object-contain opacity-[0.06]"
               />
               <h3 className="mb-4 text-lg font-semibold text-trouve-teal">Development</h3>

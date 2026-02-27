@@ -1,4 +1,4 @@
-import { FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
+import { FadeInStagger, FadeInStaggerItem } from "../ui/motion-wrapper";
 
 interface StatItem {
   value: string;

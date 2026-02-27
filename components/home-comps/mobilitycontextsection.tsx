@@ -1,4 +1,4 @@
-import { FadeIn, FadeInStagger, FadeInStaggerItem } from "../motion-wrapper";
+import { FadeIn, FadeInStagger, FadeInStaggerItem } from "../ui/motion-wrapper";
 
 export default async function MobilityContextSection() {
   return (

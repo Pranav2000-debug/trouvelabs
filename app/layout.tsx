@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { LazyMotionProvider } from "@/components/lazy-motion-provider";
+import { LazyMotionProvider } from "@/components/ui/lazy-motion-provider";
 import { Suspense } from "react";
 
 const poppins = Poppins({

@@ -3,16 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Eye, Network, Lock, Sparkles, Server, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { PRODUCTS } from "@/lib/products";
 
 /* ──────── Types ──────── */
-
-type Product = {
-  title: string;
-  href: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-};
 
 type UseCase = {
   title: string;
@@ -22,14 +16,6 @@ type UseCase = {
 };
 
 /* ──────── Data ──────── */
-
-const PRODUCTS: Product[] = [
-  { title: "Vision SDK", href: "/products/vision-sdk", description: "Computer vision capabilities for intelligent visual processing.", icon: Eye },
-  { title: "Graph RAG SDK", href: "/products/graph-rag-sdk", description: "Knowledge graph + retrieval-augmented generation.", icon: Network },
-  { title: "Tokenization SDK", href: "/products/tokenization-sdk", description: "Secure data tokenization and orchestration at scale.", icon: Lock },
-  { title: "GenAI SDK", href: "/products/genai-sdk", description: "Multimodal generative AI capabilities.", icon: Sparkles },
-  { title: "LLM Service", href: "/products/llm-service", description: "Managed large language model infrastructure.", icon: Server },
-];
 
 const USE_CASES: UseCase[] = [
   {
@@ -109,7 +95,11 @@ export function Navbar() {
               {PRODUCTS.map((p) => {
                 const Icon = p.icon;
                 return (
-                  <Link prefetch={false} key={p.title} href={p.href} className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
+                  <Link
+                    prefetch={false}
+                    key={p.slug}
+                    href={`/products/${p.slug}`}
+                    className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
                     <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
                       <Icon className="h-3.5 w-3.5 text-trouve-teal" />
                     </div>
@@ -174,8 +164,12 @@ export function Navbar() {
               {mobileProductsOpen && (
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
                   {PRODUCTS.map((p) => (
-                    <li key={p.href}>
-                      <Link prefetch={false} href={p.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                    <li key={p.slug}>
+                      <Link
+                        prefetch={false}
+                        href={`/products/${p.slug}`}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-sm text-white/50 hover:text-white">
                         {p.title}
                       </Link>
                     </li>
