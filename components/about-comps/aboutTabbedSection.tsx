@@ -5,6 +5,7 @@ import { AnimatePresence } from "motion/react";
 import * as m from "motion/react-m";
 import { cn } from "@/lib/utils";
 import { FadeIn } from "../ui/motion-wrapper";
+import Image from "next/image";
 
 interface AboutSection {
   title: string;
@@ -46,36 +47,45 @@ export function AboutTabbedSection() {
   const activeSection = useMemo(() => TAB_SECTIONS.find((section) => section.title === activeTab) ?? TAB_SECTIONS[0], [activeTab]);
 
   return (
-    <section className="border-b border-trouve-border px-6 py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-16">
-        <FadeIn>
+    <section className="overflow-hidden border-b border-trouve-border py-20 sm:py-24 relative min-h-screen">
+      <div className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/3 z-0 pointer-events-none opacity-5 xl:-translate-x-1/4">
+        <Image src="/image 22.png" alt="About Background" width={400} height={400} className="object-contain" />
+      </div>
+      <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:gap-16 relative z-10">
+        <FadeIn className="px-6 lg:w-[45%] lg:shrink-0">
           <div className="lg:sticky lg:top-28 h-fit">
-            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{WHY_SECTION.title}</h1>
+            <div className="flex items-center gap-3 sm:block">
+              <Image src="/image 22.png" alt="Trouve Labs Icon" width={48} height={48} className="object-contain sm:hidden" />
+              <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{WHY_SECTION.title}</h1>
+            </div>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{WHY_SECTION.body}</p>
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.3}>
-          <div className="rounded-2xl border border-trouve-border bg-card/70 p-4 sm:p-6">
-            <div className="grid gap-3 sm:grid-cols-2">
-              {TAB_SECTIONS.map((section) => {
-                const isActive = section.title === activeTab;
-                return (
-                  <button
-                    key={section.title}
-                    type="button"
-                    onClick={() => setActiveTab(section.title)}
-                    className={cn(
-                      "rounded-xl border px-4 py-3 text-left text-sm font-semibold transition-colors sm:text-base",
-                      isActive
-                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary))]"
-                        : "border-trouve-border bg-secondary/30 text-foreground hover:border-primary/60 hover:text-primary",
-                    )}
-                    aria-pressed={isActive}>
-                    {section.title}
-                  </button>
-                );
-              })}
+        <FadeIn delay={0.3} className="min-w-0 px-2 lg:flex-1">
+          <div className="rounded-2xl p-4 sm:p-6 w-full">
+            <div className="w-full relative min-w-0 flex flex-col sm:flex-row">
+              <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 sm:snap-none">
+                {TAB_SECTIONS.map((section) => {
+                  const isActive = section.title === activeTab;
+                  return (
+                    <button
+                      key={section.title}
+                      type="button"
+                      onClick={() => setActiveTab(section.title)}
+                      className={cn(
+                        "shrink-0 snap-start whitespace-nowrap rounded-xl border px-4 py-3 text-left text-sm font-semibold transition-colors sm:shrink sm:whitespace-normal sm:text-base",
+                        isActive
+                          ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_1px_hsl(var(--primary))]"
+                          : "border-trouve-border bg-secondary/30 text-foreground hover:border-primary/60 hover:text-primary",
+                      )}
+                      aria-pressed={isActive}>
+                      {section.title}
+                    </button>
+                  );
+                })}
+              </div>
+              <span className="text-xs text-muted-foreground sm:hidden self-center">scroll to view more →</span>
             </div>
 
             <div className="mt-5">
@@ -86,7 +96,7 @@ export function AboutTabbedSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="rounded-xl border border-trouve-border bg-background/50 p-5 sm:p-6">
+                  className="rounded-xl border bg-background/50 p-5 sm:p-6 border-trouve-teal/60 hover:text-primary">
                   <h2 className="text-xl font-bold sm:text-2xl">{activeSection?.title}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">{activeSection?.body}</p>
                 </m.div>

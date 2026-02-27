@@ -121,7 +121,7 @@ export default function Teams() {
   return (
     <section className="relative overflow-hidden bg-background px-6 py-20">
       <div className="absolute inset-0 z-0">
-        <Image src="/gradient-mesh.png" alt="About Background" width={2000} height={2000} className="object-cover" />
+        <Image src="/gradient-mesh.png" alt="About Background" width={2000} height={2000} className="object-cover opacity-40" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(280px,1fr)_minmax(420px,1.4fr)] lg:gap-16">

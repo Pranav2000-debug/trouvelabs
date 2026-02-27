@@ -92,7 +92,7 @@
   --popover: #141821;
   --popover-foreground: #f2f2f2;
 
-  /* Primary = yellow accent (buttons, active states) */
+  /* Primary = teal accent (buttons, active states) */
   --primary: #4ec9d4;
   --primary-foreground: #09090b;
 
@@ -135,10 +135,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   * {
     @apply border-border outline-ring/50;
   }
