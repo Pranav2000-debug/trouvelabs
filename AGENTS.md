@@ -1,41 +1,45 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-This repository is a Next.js 16 App Router project with TypeScript.
-- `app/`: route entrypoints, layouts, and global styles (`app/globals.css`).
-- `components/`: reusable UI and page sections, grouped by domain (for example `components/home-comps/` and `components/ui/`).
-- `lib/`: shared utilities (for example `lib/utils.ts`).
-- `public/`: static assets and images.
-- `agent-docs/`: internal notes and design references for contributors.
+This is a Next.js 16 App Router project.
+- `app/`: route entries (`app/page.tsx`, `app/about/page.tsx`) and global styles in `app/globals.css`.
+- `components/`: reusable UI and page sections, grouped by feature (`home-comps/`, `about-comps/`, `ui/`).
+- `lib/`: shared data and utilities (`products.ts`, `use-cases.ts`, `utils.ts`).
+- `public/`: static images and brand assets.
+- Root config: `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `components.json`.
 
-Use the `@/*` import alias defined in `tsconfig.json` for cross-folder imports.
+Use the `@/*` import alias from `tsconfig.json` (example: `@/components/navbar`).
 
 ## Build, Test, and Development Commands
-- `npm run dev`: start local development server.
-- `npm run build`: build production assets.
-- `npm run start`: run the production server from the last build.
-- `npm run lint`: run ESLint with Next.js Core Web Vitals + TypeScript rules.
+- `npm run dev`: start local development server with hot reload.
+- `npm run build`: create production build.
+- `npm run start`: run the built app.
+- `npm run prod`: convenience command for `build` then `start`.
+- `npm run lint`: run ESLint (Next core-web-vitals + TypeScript rules).
 
 Run `npm run lint` before opening a PR.
 
 ## Coding Style & Naming Conventions
-- Language: TypeScript (`.ts`/`.tsx`) with `strict` mode enabled.
-- Indentation: 2 spaces; keep imports grouped and sorted logically.
-- Components: `PascalCase` file and export names for React components (example: `HeroSection`).
-- Helpers/utilities: `camelCase` function names and lower-case file names where appropriate.
-- Styling: keep Tailwind utility usage consistent with existing component patterns.
+- Language: TypeScript/TSX with React 19 and Next.js conventions.
+- Indentation: 2 spaces; keep semicolons enabled.
+- Components: PascalCase for exported component names (`HeroSection`, `Navbar`).
+- Files: existing feature files use kebab-case or lowercase (for example `about-bento.tsx`, `herosection.tsx`); follow the local folder pattern when adding files.
+- Utilities/constants: descriptive camelCase exports and UPPER_SNAKE_CASE for fixed constant maps.
+- Styling: Tailwind utility classes; prefer composition over long inline duplication.
 
 ## Testing Guidelines
-There is currently no dedicated automated test suite configured (`jest`, `vitest`, and `playwright` are not present).
-- Minimum requirement: lint clean (`npm run lint`) and manual verification in `npm run dev`.
-- If adding tests, place them alongside source files as `*.test.ts` or `*.test.tsx` and document the command in `package.json`.
+There is currently no wired test runner (`npm test` is not defined). For now:
+- Treat linting as the minimum quality gate.
+- Manually verify affected routes in `npm run dev` (at least `/` and `/about`).
+- If you add tests, place them near the feature or under a dedicated `tests/` folder and document the command in `package.json`.
 
 ## Commit & Pull Request Guidelines
-Recent commits use short, imperative summaries (examples: `fix mobile card stacks`, `add grad behind stacks`).
-- Keep commit subjects concise, present tense, and scoped to one change.
-- PRs should include: purpose, key UI/behavior changes, affected paths, and screenshots/GIFs for visual updates.
-- Link related issues/tasks when applicable and note any follow-up work.
+Recent history favors short, imperative commit messages (examples: `fix eslint and update about`, `extract types to lib`).
+- Keep commits focused and scoped to one logical change.
+- Use present-tense, concise subjects (`add`, `fix`, `refactor`).
+- In PRs, include: purpose, impacted routes/components, validation steps, and screenshots/GIFs for UI changes.
+- Link related issues/tasks when available.
 
-## Security & Configuration Tips
-- Do not commit secrets; use environment variables via local `.env*` files.
-- Treat `.next/` as build output only; do not edit generated artifacts.
+## Repository Notes
+- `test.jsx` appears to be scratch/diff content, not production code.
+- Keep large media additions in `public/` optimized to protect build and page performance.
