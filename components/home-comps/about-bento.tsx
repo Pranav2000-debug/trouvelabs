@@ -4,7 +4,7 @@ import { FadeInStagger, FadeInStaggerItem } from "../ui/motion-wrapper";
 
 export default async function AboutBento() {
   return (
-    <section className="relative bg-background px-6 py-20 overflow-hidden">
+    <section className="relative bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8 overflow-hidden">
       {/* BG pattern mask — topographic contour lines, darkened & faded */}
       <Image
         src="/BG PATTERN MASK.png"

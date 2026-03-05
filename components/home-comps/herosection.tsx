@@ -45,7 +45,7 @@ export default async function HeroSection() {
             <Link
               prefetch={false}
               href="/docs/quickstart"
-              className="group inline-flex h-11 items-center justify-center rounded-md border border-trouve-border px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
+              className="group inline-flex h-11 items-center justify-center rounded-md border bg-background/40 backdrop-blur-3xl border-trouve-teal/40 px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
               <span>Explore Docs</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">

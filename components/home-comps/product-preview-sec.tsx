@@ -4,9 +4,9 @@ import { USE_CASES } from "@/lib/use-cases";
 
 export default function SmoothStackScroll(): React.JSX.Element {
   return (
-    <main>
+    <div className="w-full">
       {/* ── Section 1: SDK Cards ── */}
-      <section className="text-white h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl">
+      <section className="text-white h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-trouve-navy/70">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Core SDKs.</h2>
@@ -89,6 +89,6 @@ export default function SmoothStackScroll(): React.JSX.Element {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -49,7 +49,7 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
 
       {open && (
         <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/2">
-          <div className="min-w-[280px] rounded-xl border border-white/10 bg-black/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
+          <div className="min-w-[280px] rounded-xl border border-white/10 bg-white/3 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
             {children}
           </div>
         </div>
@@ -73,9 +73,9 @@ export function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/5 px-6 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/3 px-8 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/image 51.png" alt="Trouve Labs" width={120} height={24} className="h-7 w-auto" />
