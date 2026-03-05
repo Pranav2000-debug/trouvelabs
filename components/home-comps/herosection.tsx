@@ -34,7 +34,7 @@ export default async function HeroSection() {
             <Link
               prefetch={false}
               href=""
-              className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/90">
+              className="group inline-flex h-11 items-center justify-center rounded-md bg-trouve-teal px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-trouve-teal/90">
               <span>Request a Demo</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">

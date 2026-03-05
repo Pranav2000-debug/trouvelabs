@@ -32,7 +32,7 @@ export default async function HomePage() {
       </Suspense>
 
       <MobilityContextSection />
-      {/* Teams Hub and Spoke Section */}
+
     </ReactLenis>
   );
 }

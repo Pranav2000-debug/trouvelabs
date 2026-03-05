@@ -6,14 +6,11 @@ export default async function AboutBento() {
   return (
     <section className="relative bg-background px-6 py-20 overflow-hidden">
       {/* BG pattern mask — topographic contour lines, darkened & faded */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage: "url('/BG PATTERN MASK.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          filter: "invert(1)",
-        }}
+      <Image
+        src="/BG PATTERN MASK.png"
+        alt="Background pattern mask"
+        fill
+        className="pointer-events-none object-cover object-center opacity-[0.07] invert-[1]"
       />
       <div className="text-center text-4xl font-bold mb-10">What we do</div>
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -21,7 +18,7 @@ export default async function AboutBento() {
         <FadeInStagger className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-2">
           {/* Enablement — spans 2 cols on row 1 */}
           <FadeInStaggerItem className="md:col-span-2 md:row-span-1">
-            <div className="flex h-full flex-col rounded-2xl border border-trouve-border bg-trouve-surface p-8">
+            <div className="flex h-full flex-col rounded-2xl border bg-trouve-surface/90 p-8">
               <h3 className="mb-4 text-lg font-semibold text-trouve-teal">Enablement</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Trouve Labs is centred on designing innovative solutions in the mobility space, driven by the philosophy that everything in motion
@@ -35,7 +32,7 @@ export default async function AboutBento() {
 
           {/* Research — row 1, col 3 */}
           <FadeInStaggerItem>
-            <div className="flex h-full flex-col rounded-2xl border border-trouve-border bg-trouve-surface p-8">
+            <div className="flex h-full flex-col rounded-2xl border bg-trouve-surface/90 p-8">
               <h3 className="mb-4 text-lg font-semibold text-trouve-teal">Research</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 We believe in the power of movement to drive progress, and our solutions reflect this belief, ensuring that every journey, delivery,
@@ -44,24 +41,18 @@ export default async function AboutBento() {
             </div>
           </FadeInStaggerItem>
 
-          {/* Squiggly arrow — row 2, col 1 */}
-          <FadeInStaggerItem>
-            <div className="md:flex hidden h-full items-center justify-center rounded-2xl p-6">
-              <Image src="/image 27.png" alt="Route direction" width={200} height={195} className="object-contain" />
+          {/* teal right arrow — row 2, col 1 */}
+          <FadeInStaggerItem className="hidden md:block">
+            <div className="h-full items-center justify-center rounded-2xl p-6">
+              <Image src="/image 27.png" alt="Route direction" width={200} height={195} className="mx-auto" />
             </div>
           </FadeInStaggerItem>
 
           {/* Development — row 2, spans col 2-3 (wide) */}
           <FadeInStaggerItem className="relative md:col-span-2">
-            <div className="flex h-full flex-col rounded-2xl border border-trouve-border bg-trouve-surface p-8 overflow-hidden">
+            <div className="flex h-full flex-col rounded-2xl border bg-trouve-surface/90 p-8 overflow-hidden">
               {/* Dog logo watermark */}
-              <Image
-                src="/image 51.png"
-                alt=""
-                width={120}
-                height={78}
-                className="pointer-events-none absolute right-6 bottom-4 object-contain opacity-[0.06]"
-              />
+              <Image src="/image 51.png" alt="" width={120} height={78} className="pointer-events-none absolute right-6 bottom-4 opacity-[0.06]" />
               <h3 className="mb-4 text-lg font-semibold text-trouve-teal">Development</h3>
               <p className="relative text-sm leading-relaxed text-muted-foreground">
                 We leverage tools like AI, machine learning, GIS, data science, operations research, and applied mathematics to transform how people

@@ -221,7 +221,7 @@ export function Navbar() {
               prefetch={false}
               href="mailto:Hood@MailAhoy.com"
               onClick={() => setMobileOpen(false)}
-              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90">
+              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-trouve-teal text-sm font-semibold text-primary-foreground hover:bg-trouve-teal/90">
               Request a Demo
             </Link>
           </div>
