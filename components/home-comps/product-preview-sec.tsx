@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PRODUCTS } from "@/lib/products";
+import { PROJECTS } from "@/lib/projects";
 import { USE_CASES } from "@/lib/use-cases";
 
 export default function SmoothStackScroll(): React.JSX.Element {
@@ -17,13 +17,13 @@ export default function SmoothStackScroll(): React.JSX.Element {
 
           {/* Desktop: grid layout */}
           <div className="hidden sm:grid w-full max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PRODUCTS.map((product) => {
+            {PROJECTS.map((product) => {
               const IconComponent = product.icon;
               return (
                 <Link
                   prefetch={false}
                   key={product.slug}
-                  href={`/products/${product.slug}`}
+                  href={`/projects/${product.slug}`}
                   className="group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer">
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
                     <IconComponent className="h-5 w-5 text-trouve-teal" />
@@ -41,13 +41,13 @@ export default function SmoothStackScroll(): React.JSX.Element {
           {/* Mobile: horizontal snap-scroll strip */}
           <div className="sm:hidden w-full">
             <div className="flex gap-4 overflow-x-scroll snap-x snap-mandatory pb-4 px-1" style={{ WebkitOverflowScrolling: "touch" }}>
-              {PRODUCTS.map((product) => {
+              {PROJECTS.map((product) => {
                 const IconComponent = product.icon;
                 return (
                   <Link
                     prefetch={false}
                     key={product.slug}
-                    href={`/products/${product.slug}`}
+                    href={`/projects/${product.slug}`}
                     className="flex flex-col snap-center shrink-0 w-[75vw] rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all cursor-pointer">
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
                       <IconComponent className="h-4 w-4 text-trouve-teal" />

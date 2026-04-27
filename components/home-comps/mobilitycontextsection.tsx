@@ -16,7 +16,7 @@ export default async function MobilityContextSection() {
 
         <FadeInStagger className="mt-10 flex flex-col gap-5 sm:mt-16 sm:gap-8 sm:flex-row">
           <FadeInStaggerItem>
-            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-[10rem]">
+            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-40">
               <h3 className="text-lg font-semibold text-trouve-yellow">Enablement.</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Technical integration frameworks that embed AI intelligence directly into mobility infrastructure.
@@ -24,7 +24,7 @@ export default async function MobilityContextSection() {
             </div>
           </FadeInStaggerItem>
           <FadeInStaggerItem>
-            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-[10rem]">
+            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-40">
               <h3 className="text-lg font-semibold text-trouve-yellow">Research.</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 10+ research papers driving innovation at the intersection of AI, mobility, and movement-driven efficiency.
@@ -32,7 +32,7 @@ export default async function MobilityContextSection() {
             </div>
           </FadeInStaggerItem>
           <FadeInStaggerItem>
-            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-[10rem]">
+            <div className="rounded-xl border bg-card p-5 sm:p-6 sm:min-h-40">
               <h3 className="text-lg font-semibold text-trouve-yellow">Development.</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Community-driven SDK development powering the intelligence layer within AMS-built solutions and beyond.

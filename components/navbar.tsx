@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { PRODUCTS } from "@/lib/products";
+import { PROJECTS } from "@/lib/projects";
 
 /* ──────── Types ──────── */
 
@@ -49,7 +49,7 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
 
       {open && (
         <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/2">
-          <div className="min-w-[280px] rounded-xl border border-white/10 bg-white/3 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
+          <div className="min-w-[280px] rounded-xl border border-white/10 bg-background p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
             {children}
           </div>
         </div>
@@ -62,12 +62,12 @@ function Dropdown({ label, children }: { label: string; children: React.ReactNod
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
   const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
 
   useEffect(() => {
     if (!mobileOpen) {
-      setMobileProductsOpen(false);
+      setMobileProjectsOpen(false);
       setMobileUseCasesOpen(false);
     }
   }, [mobileOpen]);
@@ -90,15 +90,15 @@ export function Navbar() {
           <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-white">
             About
           </Link>
-          <Dropdown label="Products">
+          <Dropdown label="Projects">
             <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
-              {PRODUCTS.map((p) => {
+              {PROJECTS.map((p) => {
                 const Icon = p.icon;
                 return (
                   <Link
                     prefetch={false}
                     key={p.slug}
-                    href={`/products/${p.slug}`}
+                    href={`/projects/${p.slug}`}
                     className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
                     <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
                       <Icon className="h-3.5 w-3.5 text-trouve-teal" />
@@ -156,18 +156,18 @@ export function Navbar() {
             <li>
               <button
                 type="button"
-                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
                 className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
-                Products
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`} />
+                Projects
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileProjectsOpen ? "rotate-180" : ""}`} />
               </button>
-              {mobileProductsOpen && (
+              {mobileProjectsOpen && (
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
-                  {PRODUCTS.map((p) => (
+                  {PROJECTS.map((p) => (
                     <li key={p.slug}>
                       <Link
                         prefetch={false}
-                        href={`/products/${p.slug}`}
+                        href={`/projects/${p.slug}`}
                         onClick={() => setMobileOpen(false)}
                         className="text-sm text-white/50 hover:text-white">
                         {p.title}

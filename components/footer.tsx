@@ -13,11 +13,11 @@ interface FooterColumnProps {
 }
 
 const PRODUCT_LINKS: FooterLinkItem[] = [
-  { href: "/products/vision-sdk", label: "Vision SDK" },
-  { href: "/products/graph-rag-sdk", label: "Graph RAG SDK" },
-  { href: "/products/tokenization-sdk", label: "Tokenization SDK" },
-  { href: "/products/genai-sdk", label: "GenAI SDK" },
-  { href: "/products/llm-service", label: "LLM Service" },
+  { href: "/projects/vision-sdk", label: "Vision SDK" },
+  { href: "/projects/graph-rag-sdk", label: "Graph RAG SDK" },
+  { href: "/projects/tokenization-sdk", label: "Tokenization SDK" },
+  { href: "/projects/genai-sdk", label: "GenAI SDK" },
+  { href: "/projects/llm-service", label: "LLM Service" },
 ];
 
 const RESOURCE_LINKS: FooterLinkItem[] = [
@@ -73,7 +73,7 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <FooterColumn title="Products" links={PRODUCT_LINKS} />
+          <FooterColumn title="Projects" links={PRODUCT_LINKS} />
           <FooterColumn title="Resources" links={RESOURCE_LINKS} />
           <FooterColumn title="Company" links={COMPANY_LINKS} />
         </div>
