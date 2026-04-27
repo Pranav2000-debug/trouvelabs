@@ -14,14 +14,14 @@ interface FooterColumnProps {
 
 const PRODUCT_LINKS: FooterLinkItem[] = [
   { href: "/projects/vision-sdk", label: "Vision SDK" },
-  { href: "/projects/graph-rag-sdk", label: "Graph RAG SDK" },
+  { href: "/projects/data-intelligence-sdk", label: "Data Intelligence SDK" },
   { href: "/projects/tokenization-sdk", label: "Tokenization SDK" },
   { href: "/projects/genai-sdk", label: "GenAI SDK" },
   { href: "/projects/llm-service", label: "LLM Service" },
 ];
 
 const RESOURCE_LINKS: FooterLinkItem[] = [
-  { href: "/docs/quickstart", label: "Documentation" },
+  { href: "/projects", label: "Documentation" },
   { href: "/blog", label: "Blog" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/architecture", label: "Architecture" },
@@ -37,7 +37,7 @@ const COMPANY_LINKS: FooterLinkItem[] = [
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-semibold text-trouve-teal uppercase tracking-wider text-foreground">{title}</h3>
+      <h3 className="mb-4 text-sm font-semibold text-trouve-teal uppercase tracking-wider">{title}</h3>
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.href}>

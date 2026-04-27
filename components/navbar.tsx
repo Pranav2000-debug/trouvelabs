@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { PROJECTS } from "@/lib/projects";
+import { cn } from "@/lib/utils";
 
 /* ──────── Types ──────── */
 
@@ -34,24 +35,28 @@ const USE_CASES: UseCase[] = [
 
 /* ──────── Dropdown ──────── */
 
-function Dropdown({ label, children }: { label: string; children: React.ReactNode }) {
+function Dropdown({ label, children, dropdownType }: { label: string; children: React.ReactNode; dropdownType?: "docs" | "use-cases" }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         type="button"
-        className="flex items-center gap-1 text-sm text-white/60 transition-colors hover:text-white"
+        className="flex items-center gap-1 text-sm text-white/60 transition-colors hover:text-trouve-teal"
         onClick={() => setOpen(!open)}>
         {label}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (
-        <div className="absolute left-1/2 top-full z-50 pt-5 -translate-x-1/2">
-          <div className="min-w-[280px] rounded-xl border border-white/10 bg-background p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
-            {children}
-          </div>
+        <div
+          className={cn(
+            "absolute top-full z-50 pt-5",
+            dropdownType === "docs" && "-right-5",
+            dropdownType === "use-cases" && "left-1/3 -translate-x-1/2",
+            !dropdownType && "left-1/2 -translate-x-1/2",
+          )}>
+          <div className="w-max rounded-xl border border-white/10 bg-background p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
         </div>
       )}
     </div>
@@ -75,36 +80,35 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/3 px-8 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-transparent px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
-          <Image loading="eager" src="/image 51.png" alt="Trouve Labs" width={120} height={24} className="h-7 w-auto" priority />
           <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
         </Link>
 
         {/* Desktop links */}
         <div className="hidden items-center gap-6 md:flex">
-          <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-white">
+          <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-trouve-teal">
             Home
           </Link>
-          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-white">
+          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-trouve-teal">
             About
           </Link>
-          <Dropdown label="Projects">
+          <Dropdown label="Documentation" >
             <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
               {PROJECTS.map((p) => {
                 const Icon = p.icon;
                 return p.comingSoon ? (
-                  <div
-                    key={p.slug}
-                    className="flex gap-3 rounded-lg p-2.5 opacity-50 cursor-default select-none">
+                  <div key={p.slug} className="flex gap-3 rounded-lg p-2.5 opacity-50 cursor-default select-none">
                     <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
                       <Icon className="h-3.5 w-3.5 text-trouve-teal" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-white">{p.title}</span>
-                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/60">Soon</span>
+                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/60">
+                          Soon
+                        </span>
                       </div>
                       <p className="mt-0.5 text-xs text-white/40">{p.description}</p>
                     </div>
@@ -128,7 +132,7 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Use Cases">
+          <Dropdown label="Use Cases" dropdownType="use-cases">
             <div className="grid gap-1 w-[320px]">
               {USE_CASES.map((uc) => (
                 <Link
@@ -144,9 +148,6 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Link prefetch={false} href="/docs/quickstart" target="_blank" className="text-sm text-white/60 transition-colors hover:text-white">
-            Docs
-          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -173,7 +174,7 @@ export function Navbar() {
                 type="button"
                 onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
                 className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
-                Projects
+                Documentation
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileProjectsOpen ? "rotate-180" : ""}`} />
               </button>
               {mobileProjectsOpen && (
@@ -182,7 +183,9 @@ export function Navbar() {
                     p.comingSoon ? (
                       <li key={p.slug} className="flex items-center gap-2 text-sm text-white/30 cursor-default select-none">
                         {p.title}
-                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/40">Soon</span>
+                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/40">
+                          Soon
+                        </span>
                       </li>
                     ) : (
                       <li key={p.slug}>
@@ -194,7 +197,7 @@ export function Navbar() {
                           {p.title}
                         </Link>
                       </li>
-                    )
+                    ),
                   )}
                 </ul>
               )}
@@ -226,15 +229,6 @@ export function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="text-base font-medium text-white/70 hover:text-white">
                 About
-              </Link>
-            </li>
-            <li>
-              <Link
-                prefetch={false}
-                href="/docs/quickstart"
-                onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-white/70 hover:text-white">
-                Docs
               </Link>
             </li>
           </ul>

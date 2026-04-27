@@ -17,10 +17,16 @@ export const PROJECTS: Project[] = [
     icon: Eye,
   },
   {
-    title: "Graph RAG SDK",
-    slug: "graph-rag-sdk",
+    title: "Data Intelligence SDK",
+    slug: "data-intelligence-sdk",
     description: "Knowledge graph + retrieval-augmented generation for context-aware AI.",
     icon: Network,
+  },
+  {
+    title: "Voice SDK",
+    slug: "voice-sdk",
+    description: "Advanced voice processing and understanding capabilities.",
+    icon: Sparkles,
   },
   {
     title: "Tokenization SDK",

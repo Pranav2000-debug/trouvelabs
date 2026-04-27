@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 import { USE_CASES } from "@/lib/use-cases";
+import { cn } from "@/lib/utils";
 
 export default function SmoothStackScroll(): React.JSX.Element {
   return (
@@ -15,14 +16,19 @@ export default function SmoothStackScroll(): React.JSX.Element {
             </p>
           </div>
 
-          {/* Desktop: grid layout */}
-          <div className="hidden sm:grid w-full max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PROJECTS.map((product) => {
+          {/* Desktop: 3 + 2 grid (5 cards centered) */}
+          <div className="hidden sm:grid w-full max-w-7xl gap-5 grid-cols-6">
+            {PROJECTS.map((product, i) => {
               const IconComponent = product.icon;
+              const span = cn(
+                "col-span-3 md:col-span-2",
+                i === 3 && "md:col-start-2",
+                i === 4 && "col-span-6 md:col-span-2",
+              );
               return product.comingSoon ? (
                 <div
                   key={product.slug}
-                  className="relative flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none">
+                  className={cn(span, "relative flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
                   <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
                     <IconComponent className="h-5 w-5 text-trouve-teal" />
@@ -35,7 +41,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   prefetch={false}
                   key={product.slug}
                   href={`/projects/${product.slug}`}
-                  className="group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer">
+                  className={cn(span, "group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer")}>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
                     <IconComponent className="h-5 w-5 text-trouve-teal" />
                   </div>
@@ -49,15 +55,17 @@ export default function SmoothStackScroll(): React.JSX.Element {
             })}
           </div>
 
-          {/* Mobile: horizontal snap-scroll strip */}
+          {/* Mobile: 2-row horizontal snap-scroll grid */}
           <div className="sm:hidden w-full">
-            <div className="flex gap-4 overflow-x-scroll snap-x snap-mandatory pb-4 px-1" style={{ WebkitOverflowScrolling: "touch" }}>
+            <div
+              className="grid grid-flow-col grid-rows-2 auto-cols-[70vw] gap-3 overflow-x-scroll snap-x snap-mandatory pb-4 px-1"
+              style={{ WebkitOverflowScrolling: "touch" }}>
               {PROJECTS.map((product) => {
                 const IconComponent = product.icon;
                 return product.comingSoon ? (
                   <div
                     key={product.slug}
-                    className="relative flex flex-col snap-center shrink-0 w-[75vw] rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none">
+                    className="relative flex h-full flex-col snap-center rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
                     <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
                       <IconComponent className="h-4 w-4 text-trouve-teal" />
@@ -70,7 +78,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                     prefetch={false}
                     key={product.slug}
                     href={`/projects/${product.slug}`}
-                    className="flex flex-col snap-center shrink-0 w-[75vw] rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all cursor-pointer">
+                    className="flex h-full flex-col snap-center rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-5 transition-all cursor-pointer">
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
                       <IconComponent className="h-4 w-4 text-trouve-teal" />
                     </div>
