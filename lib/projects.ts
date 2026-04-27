@@ -6,6 +6,7 @@ export type Project = {
   slug: string;
   description: string;
   icon: LucideIcon;
+  comingSoon?: boolean;
 };
 
 export const PROJECTS: Project[] = [
@@ -26,11 +27,13 @@ export const PROJECTS: Project[] = [
     slug: "tokenization-sdk",
     description: "Secure data tokenization and orchestration at scale.",
     icon: Lock,
+    comingSoon: true,
   },
   {
     title: "GenAI SDK",
     slug: "genai-sdk",
     description: "Multimodal generative AI capabilities for diverse applications.",
     icon: Sparkles,
+    comingSoon: true,
   },
 ];

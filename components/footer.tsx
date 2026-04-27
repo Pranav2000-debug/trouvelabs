@@ -37,7 +37,7 @@ const COMPANY_LINKS: FooterLinkItem[] = [
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">{title}</h3>
+      <h3 className="mb-4 text-sm font-semibold text-trouve-teal uppercase tracking-wider text-foreground">{title}</h3>
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.href}>
@@ -66,9 +66,9 @@ export function Footer() {
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
+              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
                 example.com
-              </Link>
+              </Link> */}
             </p>
           </div>
 

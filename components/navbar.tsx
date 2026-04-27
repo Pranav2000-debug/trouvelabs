@@ -19,10 +19,10 @@ type UseCase = {
 
 const USE_CASES: UseCase[] = [
   {
-    title: "Agentic Video",
-    href: "/use-cases/agentic-video",
-    description: "Autonomous video analysis and generation.",
-    sdks: "Vision SDK + GenAI SDK",
+    title: "Data Intelligence",
+    href: "/use-cases/data-intelligence",
+    description: "Intelligent data processing and analysis with graph-based retrieval.",
+    sdks: "Graph RAG SDK",
   },
   {
     title: "Voice Agent",
@@ -78,8 +78,8 @@ export function Navbar() {
       <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-white/3 px-8 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/image 51.png" alt="Trouve Labs" width={120} height={24} className="h-7 w-auto" />
-          <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" />
+          <Image loading="eager" src="/image 51.png" alt="Trouve Labs" width={120} height={24} className="h-7 w-auto" priority />
+          <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
         </Link>
 
         {/* Desktop links */}
@@ -94,7 +94,22 @@ export function Navbar() {
             <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
               {PROJECTS.map((p) => {
                 const Icon = p.icon;
-                return (
+                return p.comingSoon ? (
+                  <div
+                    key={p.slug}
+                    className="flex gap-3 rounded-lg p-2.5 opacity-50 cursor-default select-none">
+                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
+                      <Icon className="h-3.5 w-3.5 text-trouve-teal" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium text-white">{p.title}</span>
+                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/60">Soon</span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-white/40">{p.description}</p>
+                    </div>
+                  </div>
+                ) : (
                   <Link
                     prefetch={false}
                     key={p.slug}
@@ -163,17 +178,24 @@ export function Navbar() {
               </button>
               {mobileProjectsOpen && (
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
-                  {PROJECTS.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        prefetch={false}
-                        href={`/projects/${p.slug}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="text-sm text-white/50 hover:text-white">
+                  {PROJECTS.map((p) =>
+                    p.comingSoon ? (
+                      <li key={p.slug} className="flex items-center gap-2 text-sm text-white/30 cursor-default select-none">
                         {p.title}
-                      </Link>
-                    </li>
-                  ))}
+                        <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/40">Soon</span>
+                      </li>
+                    ) : (
+                      <li key={p.slug}>
+                        <Link
+                          prefetch={false}
+                          href={`/projects/${p.slug}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="text-sm text-white/50 hover:text-white">
+                          {p.title}
+                        </Link>
+                      </li>
+                    )
+                  )}
                 </ul>
               )}
             </li>

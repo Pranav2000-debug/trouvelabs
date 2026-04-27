@@ -7,10 +7,10 @@ export interface UseCaseData {
 
 export const USE_CASES: UseCaseData[] = [
   {
-    name: "Agentic Video",
-    slug: "agentic-video",
-    builtWith: "Vision SDK + GenAI SDK",
-    description: "Autonomous video analysis and generation powered by composable AI pipelines.",
+    name: "Data Intelligence",
+    slug: "data-intelligence",
+    builtWith: "Graph RAG SDK",
+    description: "Intelligent data processing and analysis with graph-based retrieval.",
   },
   {
     name: "Voice Agent",

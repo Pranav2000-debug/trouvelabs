@@ -19,7 +19,18 @@ export default function SmoothStackScroll(): React.JSX.Element {
           <div className="hidden sm:grid w-full max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROJECTS.map((product) => {
               const IconComponent = product.icon;
-              return (
+              return product.comingSoon ? (
+                <div
+                  key={product.slug}
+                  className="relative flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none">
+                  <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
+                    <IconComponent className="h-5 w-5 text-trouve-teal" />
+                  </div>
+                  <h3 className="text-lg font-semibold">{product.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
+                </div>
+              ) : (
                 <Link
                   prefetch={false}
                   key={product.slug}
@@ -43,7 +54,18 @@ export default function SmoothStackScroll(): React.JSX.Element {
             <div className="flex gap-4 overflow-x-scroll snap-x snap-mandatory pb-4 px-1" style={{ WebkitOverflowScrolling: "touch" }}>
               {PROJECTS.map((product) => {
                 const IconComponent = product.icon;
-                return (
+                return product.comingSoon ? (
+                  <div
+                    key={product.slug}
+                    className="relative flex flex-col snap-center shrink-0 w-[75vw] rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none">
+                    <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
+                      <IconComponent className="h-4 w-4 text-trouve-teal" />
+                    </div>
+                    <h3 className="text-base font-semibold">{product.title}</h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{product.description}</p>
+                  </div>
+                ) : (
                   <Link
                     prefetch={false}
                     key={product.slug}

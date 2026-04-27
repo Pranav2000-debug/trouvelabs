@@ -52,7 +52,7 @@ export default async function AboutBento() {
           <FadeInStaggerItem className="relative md:col-span-2">
             <div className="flex h-full flex-col rounded-2xl border bg-trouve-surface/90 p-8 overflow-hidden">
               {/* Dog logo watermark */}
-              <Image src="/image 51.png" alt="" width={120} height={78} className="pointer-events-none absolute right-6 bottom-4 opacity-[0.06]" />
+              <Image src="/image 51.png" alt="" width={120} height={78} className="pointer-events-none absolute right-6 bottom-4 opacity-[0.06]" loading="lazy" />
               <h3 className="mb-4 text-lg font-semibold text-trouve-teal">Development</h3>
               <p className="relative text-sm leading-relaxed text-muted-foreground">
                 We leverage tools like AI, machine learning, GIS, data science, operations research, and applied mathematics to transform how people

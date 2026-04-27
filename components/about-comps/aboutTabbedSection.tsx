@@ -47,7 +47,7 @@ export function AboutTabbedSection() {
   const activeSection = useMemo(() => TAB_SECTIONS.find((section) => section.title === activeTab) ?? TAB_SECTIONS[0], [activeTab]);
 
   return (
-    <section className="overflow-hidden border-b border-trouve-border py-20 sm:py-24 relative min-h-screen">
+    <section className="overflow-hidden border-b border-trouve-border py-20 sm:py-24 relative">
       <div className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/3 z-0 pointer-events-none opacity-5 xl:-translate-x-1/4">
         <Image src="/image 22.png" alt="About Background" width={400} height={400} className="object-contain" />
       </div>
