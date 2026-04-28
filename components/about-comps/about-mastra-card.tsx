@@ -7,7 +7,7 @@ interface AboutMastraCardProps {
 
 /**
  * Reusable Mastra-style section card for the About page.
- * Large rounded shell with subtle border and surface fill — composed
+ * Large rounded shell with subtle border and surface fill - composed
  * by each About-page section to render label + heading + visual.
  */
 export function AboutMastraCard({ className, children }: AboutMastraCardProps) {

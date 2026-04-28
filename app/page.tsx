@@ -22,7 +22,7 @@ export default async function HomePage() {
 
   return (
     <ReactLenis root>
-      {/* Fixed gradient background — client-only animation, doesn't block static shell */}
+      {/* Fixed gradient background - client-only animation, doesn't block static shell */}
       <Suspense fallback={null}>
         <BackgroundPaths className="fixed inset-0 -z-10 text-[#4EC9D4]" />
       </Suspense>
@@ -44,7 +44,7 @@ export default async function HomePage() {
 
       <PhilosophyBand />
 
-      {/* TODO: Designed For + Final CTA — user is supplying components */}
+      {/* TODO: Designed For + Final CTA - user is supplying components */}
     </ReactLenis>
   );
 }

@@ -10,7 +10,7 @@ const ACADEMY_TRACKS = [
 export function AboutAcademy() {
   return (
     <AboutMastraCard>
-      {/* Soft accent — bottom-right glow */}
+      {/* Soft accent - bottom-right glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-trouve-yellow/10 blur-3xl"
@@ -26,7 +26,7 @@ export function AboutAcademy() {
 
           <div className="mt-8 space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             <p>
-              We support early talent through learning, mentorship, and applied research — recruiting students early and helping them strengthen their skills in applied mathematics, AI, machine learning, and deep-tech development.
+              We support early talent through learning, mentorship, and applied research - recruiting students early and helping them strengthen their skills in applied mathematics, AI, machine learning, and deep-tech development.
             </p>
             <p>
               The future of technology depends not only on better tools, but on better access to knowledge.

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type CardType = {
@@ -46,12 +47,21 @@ export const Card = React.memo(
             hovered !== null && hovered !== index && "blur-[2px] opacity-60 scale-[0.98]",
             isHovered && "scale-[1.05]",
           )}>
-          <Image
-            src={card.src}
-            alt={card.title}
-            fill
-            className={cn("object-cover transition-all duration-500", isHovered ? "grayscale-0" : "grayscale")}
-          />
+          {card.src ? (
+            <Image
+              src={card.src}
+              alt={card.title}
+              fill
+              sizes="(min-width: 768px) 96px, 64px"
+              className={cn("object-cover transition-all duration-500", isHovered ? "grayscale-0" : "grayscale")}
+            />
+          ) : (
+            <div
+              aria-label={card.title}
+              className="flex h-full w-full items-center justify-center bg-trouve-navy/50">
+              <UserRound className="h-1/2 w-1/2 text-muted-foreground" strokeWidth={1.5} />
+            </div>
+          )}
         </div>
 
         {/* Hover Text Popup overlay (centered above or below) */}

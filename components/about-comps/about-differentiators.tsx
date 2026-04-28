@@ -16,7 +16,7 @@ const DIFFERENTIATORS: Differentiator[] = [
     label: "Talent",
     title: "Leading talent across applied disciplines.",
     description:
-      "Specialists in applied mathematics, operations research, machine learning, and blockchain — building solutions for cognitive cities across energy, water, traffic, housing, waste, finance, and telecommunications.",
+      "Specialists in applied mathematics, operations research, machine learning, and blockchain - building solutions for cognitive cities across energy, water, traffic, housing, waste, finance, and telecommunications.",
     tags: ["Applied Math", "Operations Research", "ML", "Blockchain"],
   },
   {
@@ -24,7 +24,7 @@ const DIFFERENTIATORS: Differentiator[] = [
     label: "Algorithms",
     title: "Industry-agnostic by construction.",
     description:
-      "Our algorithms are built to be agnostic — designed once, deployed across industries and scales of application without rewriting the core logic for every new domain.",
+      "Our algorithms are built to be agnostic - designed once, deployed across industries and scales of application without rewriting the core logic for every new domain.",
     tags: ["Cross-domain", "Composable", "Production-ready"],
   },
 ];

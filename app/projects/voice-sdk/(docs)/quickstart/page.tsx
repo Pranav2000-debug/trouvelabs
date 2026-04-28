@@ -2,11 +2,11 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { DocsPage } from "@/components/docs/docs-page";
 import type { TocItem } from "@/components/docs/table-of-contents";
 
-// TODO: Replace with real API reference. TOC will be populated when
-// methods/types/errors sections are written.
+// TODO: Replace with real quickstart content. TOC and scroll-spy entries
+// will be added once each section has a heading + id.
 const TOC: TocItem[] = [];
 
-export default function VisionSdkApiReferencePage() {
+export default function VoiceSdkQuickstartPage() {
   return (
     <>
       <Breadcrumb
@@ -14,19 +14,19 @@ export default function VisionSdkApiReferencePage() {
         items={[
           { label: "Home", href: "/" },
           { label: "Projects", href: "/projects" },
-          { label: "Vision SDK", href: "/projects/vision-sdk" },
-          { label: "API Reference" },
+          { label: "Voice SDK", href: "/projects/voice-sdk" },
+          { label: "Quickstart" },
         ]}
       />
 
       <DocsPage toc={TOC}>
         <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
-          Vision SDK
+          Voice SDK
         </p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">API Reference</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">Quickstart</h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-          API reference documentation coming soon.
+          Quickstart documentation coming soon.
         </p>
       </DocsPage>
     </>

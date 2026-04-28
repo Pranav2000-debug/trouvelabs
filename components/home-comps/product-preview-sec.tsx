@@ -105,16 +105,19 @@ export default function SmoothStackScroll(): React.JSX.Element {
 
           <div className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
             {USE_CASES.map((uc) => (
-              <Link
-                prefetch={false}
+              <a
                 key={uc.slug}
-                href={`/use-cases/${uc.slug}`}
+                href={uc.href}
+                target={uc.external ? "_blank" : undefined}
+                rel={uc.external ? "noopener noreferrer" : undefined}
                 className="group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer">
                 <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">{uc.builtWith}</span>
                 <h3 className="text-xl sm:text-2xl font-bold">{uc.name}.</h3>
                 <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
-                <span className="pt-3 text-xs font-medium text-trouve-teal opacity-0 transition-opacity group-hover:opacity-100">Explore →</span>
-              </Link>
+                <span className="pt-3 text-xs font-medium text-trouve-teal opacity-0 transition-opacity group-hover:opacity-100">
+                  {uc.external ? "Open →" : "Explore →"}
+                </span>
+              </a>
             ))}
           </div>
         </div>

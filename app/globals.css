@@ -8,8 +8,9 @@
   /* ── Active theme mappings ── */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
-  --font-mono: var(--font-poppins);
+  --font-sans: var(--font-roboto), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-condensed: var(--font-roboto-condensed), var(--font-roboto), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-primary-foreground: var(--primary-foreground);
@@ -90,7 +91,7 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
-/* Dark-only site — Trouve brand palette */
+/* Dark-only site - Trouve brand palette */
 :root {
   --radius: 0.625rem;
 
@@ -102,15 +103,15 @@
   --card: var(--color-trouve-surface);
   --card-foreground: var(--color-trouve-offwhite);
 
-  /* Primary — teal accent (buttons, active states) */
+  /* Primary - teal accent (buttons, active states) */
   --primary: var(--color-trouve-teal);
   --primary-foreground: #09090b;
 
-  /* Secondary — subtle dark surface for cards/sections */
+  /* Secondary - subtle dark surface for cards/sections */
   --secondary: var(--color-trouve-navy);
   --secondary-foreground: var(--color-trouve-offwhite);
 
-  /* Muted — softer surface */
+  /* Muted - softer surface */
   --muted: var(--color-trouve-navy);
   --muted-foreground: #8891a4;
 
@@ -165,7 +166,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-poppins), sans-serif;
+    font-family: var(--font-roboto), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

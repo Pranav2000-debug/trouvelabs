@@ -14,7 +14,7 @@ interface AboutSection {
 
 const WHY_SECTION: AboutSection = {
   title: "About Trouve Labs",
-  body: "Trouve Labs is a research and development organization focused on core technology and deep-tech innovation. We combine applied mathematics, AI, machine learning, operations research, and decentralized infrastructure to create solutions that are technically strong, commercially relevant, and built for real-world impact. Complex problems do not always need complicated solutions — they need the right models, the right infrastructure, and the right research discipline.",
+  body: "Trouve Labs is a research and development organization focused on core technology and deep-tech innovation. We combine applied mathematics, AI, machine learning, operations research, and decentralized infrastructure to create solutions that are technically strong, commercially relevant, and built for real-world impact. Complex problems do not always need complicated solutions - they need the right models, the right infrastructure, and the right research discipline.",
 };
 
 const TAB_SECTIONS: AboutSection[] = [
@@ -24,7 +24,7 @@ const TAB_SECTIONS: AboutSection[] = [
   },
   {
     title: "Our Philosophy",
-    body: "Through a relentless focus on research and development, Trouve Labs believes in the power of movement to drive progress in an all-encompassing sense. Trouve Labs takes generic mathematical algorithms and transforms them to enable the wellness of smart – or otherwise – cities, among other functions.",
+    body: "Through a relentless focus on research and development, Trouve Labs believes in the power of movement to drive progress in an all-encompassing sense. Trouve Labs takes generic mathematical algorithms and transforms them to enable the wellness of smart - or otherwise - cities, among other functions.",
   },
   {
     title: "Our Vision",

@@ -1,11 +1,14 @@
 import { Eye, Lock, Network, Sparkles } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
+import { VoiceAiLineIcon } from "@/components/icons/ri-voice-ai-line";
+
+type ProjectIcon = ComponentType<{ className?: string }>;
 
 export type Project = {
   title: string;
   slug: string;
   description: string;
-  icon: LucideIcon;
+  icon: ProjectIcon;
   comingSoon?: boolean;
 };
 
@@ -26,7 +29,7 @@ export const PROJECTS: Project[] = [
     title: "Voice SDK",
     slug: "voice-sdk",
     description: "Advanced voice processing and understanding capabilities.",
-    icon: Sparkles,
+    icon: VoiceAiLineIcon,
   },
   {
     title: "Tokenization SDK",

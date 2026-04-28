@@ -9,7 +9,7 @@ interface DocsPageProps {
  * Inner shell for a docs page. Renders content on the left and a
  * scroll-spy TOC sticky on the right.
  *
- * Typography is intentionally not styled here — pages apply Tailwind
+ * Typography is intentionally not styled here - pages apply Tailwind
  * classes directly on each element. Will be revisited when the docs
  * typography system is finalised.
  */

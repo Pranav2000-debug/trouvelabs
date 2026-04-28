@@ -29,7 +29,7 @@ const USE_CASES: UseCase[] = [
     title: "Voice Agent",
     href: "/use-cases/voice-agent",
     description: "Intelligent voice interactions with real-time understanding.",
-    sdks: "LLM Service + GenAI SDK",
+    sdks: "Voice SDK",
   },
 ];
 
@@ -80,7 +80,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-transparent px-8 py-0.5 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[#0e1015]/40 px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />

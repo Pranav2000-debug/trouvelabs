@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function PhilosophyBand() {
   return (
     <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-      {/* BG pattern mask — topographic contour lines, darkened & faded */}
+      {/* BG pattern mask - topographic contour lines, darkened & faded */}
       <Image
         src="/BG PATTERN MASK.png"
         alt=""
@@ -23,7 +23,7 @@ export default function PhilosophyBand() {
               At Trouve Labs, innovation is not just about adopting the latest technology. It is about asking better questions, building better models, and creating systems that solve real problems.
             </p>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Our work spans research papers, active projects, applied prototypes, and industry-facing solutions — with a continuous focus on learning, experimentation, and collaboration.
+              Our work spans research papers, active projects, applied prototypes, and industry-facing solutions - with a continuous focus on learning, experimentation, and collaboration.
             </p>
           </div>
 

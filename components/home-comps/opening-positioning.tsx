@@ -38,7 +38,7 @@ export default function OpeningPositioning() {
     <section className="relative bg-trouve-navy/40 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left — heading + closing line */}
+          {/* Left - heading + closing line */}
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">Deep Tech R&amp;D for Smarter Systems</p>
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -49,7 +49,7 @@ export default function OpeningPositioning() {
             </p>
           </div>
 
-          {/* Right — 4 movement cards stacked */}
+          {/* Right - 4 movement cards stacked */}
           <ul className="flex flex-col gap-4">
             {MOVEMENTS.map((m) => {
               const Icon = m.icon;

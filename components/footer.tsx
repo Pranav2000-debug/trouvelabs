@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
+import { PROJECTS } from "@/lib/projects";
 
 interface FooterLinkItem {
   href: string;
@@ -12,26 +13,14 @@ interface FooterColumnProps {
   links: FooterLinkItem[];
 }
 
-const PRODUCT_LINKS: FooterLinkItem[] = [
-  { href: "/projects/vision-sdk", label: "Vision SDK" },
-  { href: "/projects/data-intelligence-sdk", label: "Data Intelligence SDK" },
-  { href: "/projects/tokenization-sdk", label: "Tokenization SDK" },
-  { href: "/projects/genai-sdk", label: "GenAI SDK" },
-  { href: "/projects/llm-service", label: "LLM Service" },
-];
-
 const RESOURCE_LINKS: FooterLinkItem[] = [
   { href: "/projects", label: "Documentation" },
-  { href: "/blog", label: "Blog" },
   { href: "/roadmap", label: "Roadmap" },
-  { href: "/architecture", label: "Architecture" },
 ];
 
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
   { href: "https://example.com", label: "Contact" },
-  { href: "/enterprise", label: "Enterprise" },
-  { href: "/benchmarks", label: "Benchmarks" },
 ];
 
 function FooterColumn({ title, links }: FooterColumnProps) {
@@ -53,6 +42,10 @@ function FooterColumn({ title, links }: FooterColumnProps) {
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const productLinks: FooterLinkItem[] = PROJECTS.map((p) => ({
+    href: `/projects/${p.slug}`,
+    label: p.title,
+  }));
   return (
     <footer className="border-t border-white/6 bg-[#0e1015]">
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -73,7 +66,7 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <FooterColumn title="Projects" links={PRODUCT_LINKS} />
+          <FooterColumn title="Projects" links={productLinks} />
           <FooterColumn title="Resources" links={RESOURCE_LINKS} />
           <FooterColumn title="Company" links={COMPANY_LINKS} />
         </div>

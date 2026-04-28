@@ -1,27 +1,53 @@
-import Link from "next/link";
-import { Eye } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { DocsPage } from "@/components/docs/docs-page";
+import type { TocItem } from "@/components/docs/table-of-contents";
 
-// TODO: Replace # with the Vision frontend URL when available.
+const TOC: TocItem[] = [
+  { id: "try-the-platform", title: "Try the platform", depth: 2 },
+];
 
-export default function VisionSdkPage() {
+export default function VisionSdkOverviewPage() {
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center px-6">
-      <div className="text-center max-w-md">
-        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-trouve-teal/10">
-          <Eye className="h-7 w-7 text-trouve-teal" />
-        </div>
-        <p className="text-xs font-medium uppercase tracking-wider text-trouve-teal mb-2">Project</p>
-        <h1 className="text-3xl font-bold mb-4">Vision SDK</h1>
-        <p className="text-muted-foreground mb-8">
-          Computer vision capabilities for intelligent visual processing.
+    <>
+      <Breadcrumb
+        className="mb-8"
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+          { label: "Vision SDK" },
+        ]}
+      />
+
+      <DocsPage toc={TOC}>
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+          SDK Overview
         </p>
-        {/* TODO: Replace href="#" with the Vision frontend URL */}
-        <Link
-          href="#"
-          className="inline-flex h-10 items-center justify-center rounded-full bg-trouve-teal px-6 text-sm font-semibold text-black transition-all hover:bg-trouve-teal/90">
-          Open Vision Platform →
-        </Link>
-      </div>
-    </main>
+
+        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">Vision SDK</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+          Computer vision capabilities for intelligent visual processing. Full SDK documentation is on its way - for now, you can try the live platform below.
+        </p>
+
+        <h2 id="try-the-platform" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Try the platform</h2>
+        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+          The Vision platform is live. Explore it directly in your browser.
+        </p>
+
+        <div className="mt-4 flex flex-col gap-3">
+          <a
+            href="https://visionsdk.trouvelabs.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-surface/70 p-5 transition-colors hover:border-trouve-teal/40">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-foreground">Vision Platform</p>
+              <p className="mt-1 text-xs text-muted-foreground">visionsdk.trouvelabs.io</p>
+            </div>
+            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-trouve-teal" />
+          </a>
+        </div>
+      </DocsPage>
+    </>
   );
 }

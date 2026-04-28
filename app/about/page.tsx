@@ -24,7 +24,7 @@ export default async function AboutPage() {
 
         <AboutCoreValues />
 
-        <JourneyConnector from="right" to="left" height={140} variant="dashed" />
+        <JourneyConnector from="right" to="left" height={140} />
 
         <AboutDifferentiators />
 

@@ -95,7 +95,7 @@ console.log(answer);`}</code>
         <h2 id="ingest-data" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Ingest data</h2>
         <p className="text-[15px] text-muted-foreground leading-7 mb-4">
           Excepteur sint occaecat cupidatat non proident. Point the ingestion
-          API at any structured or unstructured source — the SDK takes care
+          API at any structured or unstructured source - the SDK takes care
           of chunking, entity extraction, and edge inference.
         </p>
         <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">

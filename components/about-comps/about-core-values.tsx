@@ -11,7 +11,7 @@ const VALUE_CHIPS = [
 export function AboutCoreValues() {
   return (
     <AboutMastraCard>
-      {/* Soft accent — left-side glow */}
+      {/* Soft accent - left-side glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-trouve-teal/10 blur-3xl"
@@ -37,7 +37,7 @@ export function AboutCoreValues() {
 
           <div className="mt-8 space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
             <p>
-              We provide infrastructure for the next generation of tech where people are the custodians of their own data, and privacy is preserved at every level — while still catering to the demands of modern data-rich digital experiences.
+              We provide infrastructure for the next generation of tech where people are the custodians of their own data, and privacy is preserved at every level - while still catering to the demands of modern data-rich digital experiences.
             </p>
             <p>
               Imagine personalization at every layer of the digital landscape, but with a twist: you keep your privacy and sovereignty over your data, and still get things the way you like them.

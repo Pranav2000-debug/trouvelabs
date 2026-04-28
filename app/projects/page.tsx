@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
 
 export const metadata = {
-  title: "Projects — Trouve Labs",
+  title: "Projects - Trouve Labs",
   description: "Explore Trouve Labs' modular AI SDKs for next-generation mobility intelligence.",
 };
 

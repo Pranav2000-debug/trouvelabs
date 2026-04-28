@@ -6,7 +6,7 @@ import type { TocItem } from "@/components/docs/table-of-contents";
 // methods/types/errors sections are written.
 const TOC: TocItem[] = [];
 
-export default function VisionSdkApiReferencePage() {
+export default function VoiceSdkApiReferencePage() {
   return (
     <>
       <Breadcrumb
@@ -14,14 +14,14 @@ export default function VisionSdkApiReferencePage() {
         items={[
           { label: "Home", href: "/" },
           { label: "Projects", href: "/projects" },
-          { label: "Vision SDK", href: "/projects/vision-sdk" },
+          { label: "Voice SDK", href: "/projects/voice-sdk" },
           { label: "API Reference" },
         ]}
       />
 
       <DocsPage toc={TOC}>
         <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
-          Vision SDK
+          Voice SDK
         </p>
 
         <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">API Reference</h1>

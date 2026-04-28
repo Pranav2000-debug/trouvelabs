@@ -61,16 +61,16 @@ interface GraphRAGOptions {
         <h3 id="query-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">question</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">question</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">topK</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">number</code>, optional. Maximum number of subgraph paths to return. Defaults to <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">8</code>.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">topK</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">number</code>, optional. Maximum number of subgraph paths to return. Defaults to <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">8</code>.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">filters</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">Record&lt;string, unknown&gt;</code>, optional. Restricts traversal to matching node attributes.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">filters</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">Record&lt;string, unknown&gt;</code>, optional. Restricts traversal to matching node attributes.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">stream</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">boolean</code>, optional. When true, returns an async iterable of tokens.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">stream</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">boolean</code>, optional. When true, returns an async iterable of tokens.
           </li>
         </ul>
 
@@ -93,13 +93,13 @@ interface GraphRAGOptions {
         <h3 id="ingest-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">source</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string | ReadableStream</code>. Path, URL, or stream of records.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">source</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string | ReadableStream</code>. Path, URL, or stream of records.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">onProgress</code> — <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">(p: Progress) =&gt; void</code>, optional. Called as records are committed.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">onProgress</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">(p: Progress) =&gt; void</code>, optional. Called as records are committed.
           </li>
         </ul>
 
@@ -110,16 +110,16 @@ interface GraphRAGOptions {
         </p>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">auth_failed</code> — invalid or expired API key.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">auth_failed</code> - invalid or expired API key.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">rate_limited</code> — workspace quota exceeded.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">rate_limited</code> - workspace quota exceeded.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema_mismatch</code> — ingested record does not match the declared schema.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema_mismatch</code> - ingested record does not match the declared schema.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">internal</code> — fall-through error; safe to retry with backoff.
+            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">internal</code> - fall-through error; safe to retry with backoff.
           </li>
         </ul>
       </DocsPage>

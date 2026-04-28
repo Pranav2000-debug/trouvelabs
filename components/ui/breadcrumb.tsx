@@ -11,7 +11,7 @@ interface BreadcrumbProps {
 }
 
 /**
- * Breadcrumb — renders a slash-separated trail of links.
+ * Breadcrumb - renders a slash-separated trail of links.
  * The last item (no `href`) is treated as the current page and rendered as plain text.
  *
  * @example

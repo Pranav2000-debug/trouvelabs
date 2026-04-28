@@ -9,7 +9,7 @@ interface CapabilityShowcaseCardProps {
 
 /**
  * Reusable detail card for the Capability Showcase UI on the homepage.
- * Tied to that interaction pattern (tab row + paired detail cards) — not a
+ * Tied to that interaction pattern (tab row + paired detail cards) - not a
  * generic surface card. Use only inside <CapabilityShowcase />.
  */
 export function CapabilityShowcaseCard({ title, subtitle, children, className }: CapabilityShowcaseCardProps) {

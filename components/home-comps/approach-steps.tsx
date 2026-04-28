@@ -46,7 +46,7 @@ export default function ApproachSteps() {
       <TimelineContent className="pr-6">
         <TimelineHeader>
           <TimelineTitle className="text-base font-semibold text-foreground">
-            <span className="mr-2 text-trouve-teal">0{i + 1}</span>
+            <span className="mr-2 text-trouve-yellow">0{i + 1}</span>
             {step.title}
           </TimelineTitle>
           <TimelineDescription className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
@@ -67,12 +67,12 @@ export default function ApproachSteps() {
           </h2>
         </div>
 
-        {/* Desktop — horizontal */}
+        {/* Desktop - horizontal */}
         <Timeline orientation="horizontal" activeIndex={STEPS.length} className="mt-14 hidden md:flex">
           {items}
         </Timeline>
 
-        {/* Mobile — vertical */}
+        {/* Mobile - vertical */}
         <Timeline orientation="vertical" activeIndex={STEPS.length} className="mt-10 md:hidden">
           {items}
         </Timeline>

@@ -199,14 +199,14 @@ export default function CapabilityShowcase() {
   return (
     <section className="relative bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        {/* Header — left-aligned, asymmetric to break centred-heading rhythm */}
+        {/* Header - left-aligned, asymmetric to break centred-heading rhythm */}
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">What we do</p>
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
             We transform research into working technology.
           </h2>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Six capability surfaces — from foundational AI research to deployed cognitive infrastructure — that turn complex problems into systems that actually run.
+            Six capability surfaces - from foundational AI research to deployed cognitive infrastructure - that turn complex problems into systems that actually run.
           </p>
         </div>
 
@@ -242,7 +242,7 @@ export default function CapabilityShowcase() {
                   {c.label}
                 </span>
 
-                {/* Connector — bridges active tab to the card row below */}
+                {/* Connector - bridges active tab to the card row below */}
                 <span
                   aria-hidden="true"
                   className={cn(

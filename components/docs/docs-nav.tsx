@@ -2,23 +2,30 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PROJECTS } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
-const ITEMS = [
-  { href: "/projects/data-intelligence-sdk", label: "Overview" },
-  { href: "/projects/data-intelligence-sdk/quickstart", label: "Quickstart" },
-  { href: "/projects/data-intelligence-sdk/api-reference", label: "API Reference" },
-];
+interface DocsNavProps {
+  slug: string;
+}
 
-export function DocsNav() {
+export function DocsNav({ slug }: DocsNavProps) {
   const pathname = usePathname();
+  const project = PROJECTS.find((p) => p.slug === slug);
+  const title = project?.title ?? slug;
+
+  const items = [
+    { href: `/projects/${slug}`, label: "Overview" },
+    { href: `/projects/${slug}/quickstart`, label: "Quickstart" },
+    { href: `/projects/${slug}/api-reference`, label: "API Reference" },
+  ];
 
   return (
     <nav className="flex flex-col gap-1 text-sm">
       <span className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-        Data Intelligence SDK
+        {title}
       </span>
-      {ITEMS.map((item) => {
+      {items.map((item) => {
         const isActive = pathname === item.href;
         return (
           <Link

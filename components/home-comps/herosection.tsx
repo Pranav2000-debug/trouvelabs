@@ -35,7 +35,7 @@ export default async function HeroSection() {
               prefetch={false}
               href="#contact"
               className="group inline-flex h-11 items-center justify-center rounded-md bg-trouve-teal px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-trouve-teal/90">
-              <span>Work With Us</span>
+              <span>Get in Touch</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
                   <ArrowUpRight className="h-3.5 w-3.5" />

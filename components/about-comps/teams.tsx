@@ -10,98 +10,42 @@ export type TeamMember = {
   src: string;
 };
 
-const teamMembers: TeamMember[] = [
-  {
-    title: "Hood Khizer",
-    jobTitle: "CEO",
-    src: "/team/team-5.png",
-  },
-  {
-    title: "Ilya Klyuev",
-    jobTitle: "Entrepreneur in Residence",
-    src: "/team/team-7.png",
-  },
-  {
-    title: "Muhammad Ibrahim",
-    jobTitle: "CTO",
-    src: "/team/team-17.png",
-  },
-  {
-    title: "Misbah Hareem",
-    jobTitle: "Project Coordinator",
-    src: "/team/team-15.png",
-  },
-  {
-    title: "Ahmed Ali",
-    jobTitle: "Senior AI Engineer",
-    src: "/team/team-10.png",
-  },
-  {
-    title: "Talha Yousuf",
-    jobTitle: "Senior AI Software Engineer",
-    src: "/team/team-9.png",
-  },
-  {
-    title: "Usama Bin Asif",
-    jobTitle: "Frontend Engineer",
-    src: "/team/team-1.png",
-  },
-  {
-    title: "Muhammad Zara",
-    jobTitle: "AI/ML Engineer",
-    src: "/team/team-2.png",
-  },
-  {
-    title: "Muhammad Asim Latif",
-    jobTitle: "AI Engineer",
-    src: "/team/team-3.png",
-  },
-  {
-    title: "Abdul Munim",
-    jobTitle: "Blockchain Developer",
-    src: "/team/team-4.png",
-  },
+// Members without a photo render a silhouette fallback inside <Card />.
+// Drop a real /team/<member>.png in and update the entry's `src` once available.
+const PLACEHOLDER = "";
 
-  {
-    title: "Huzaifah Bin Khawar",
-    jobTitle: "AI/ML Engineer",
-    src: "/team/team-6.png",
-  },
-  {
-    title: "Pranav Chandra",
-    jobTitle: "Fullstack Developer",
-    src: "/team/team-14.png",
-  },
-  {
-    title: "Kazi Ikram",
-    jobTitle: "Research Assistant",
-    src: "/team/team-8.png",
-  },
-  {
-    title: "Khoula Ali Sheikh",
-    jobTitle: "AI/ML Engineer",
-    src: "/team/team-18.png",
-  },
-  {
-    title: "Syed Ahmed",
-    jobTitle: "Research Assistant",
-    src: "/team/team-11.png",
-  },
-  {
-    title: "liasghar Huzaifa",
-    jobTitle: "AI Engineer",
-    src: "/team/team-12.png",
-  },
-  {
-    title: "Salman Hassan",
-    jobTitle: "AI Engineer",
-    src: "/team/team-13.png",
-  },
-  {
-    title: "Mirza Shaharyar Ali Baig",
-    jobTitle: "Data Scientist",
-    src: "/team/team-16.png",
-  },
+const teamMembers: TeamMember[] = [
+  { title: "Hood Khizer", jobTitle: "CEO", src: "/team/Hood%20Khizer.png" },
+  { title: "Muhammad Ibrahim", jobTitle: "Director Research & EM", src: "/team/Muhammad-ibrahim.png" },
+  { title: "Ilya Klyuev", jobTitle: "Business Development Manager", src: "/team/Ilya-Klyuev.png" },
+  { title: "Misbah Hareem", jobTitle: "Performance Evaluation Manager", src: "/team/misbah-hareem.png" },
+  { title: "Ahmad Ali", jobTitle: "Researcher", src: "/team/Ahmad-ali.png" },
+  { title: "Huzaifa Bin Khawar", jobTitle: "Researcher", src: "/team/Huzaifa-bin-khawar.png" },
+  { title: "Muhammad Kashif", jobTitle: "Researcher", src: PLACEHOLDER },
+  { title: "Talha Yousuf", jobTitle: "Researcher", src: "/team/Talha-Yousuf.png" },
+  { title: "Umair Pervaiz Butt", jobTitle: "Dev SDK", src: PLACEHOLDER },
+  { title: "Talha Nadeem", jobTitle: "SDK Dev", src: PLACEHOLDER },
+  { title: "Hafiz Hassan Sadiq", jobTitle: "SDK Dev", src: PLACEHOLDER },
+  { title: "Haider Asad", jobTitle: "Researcher", src: PLACEHOLDER },
+  { title: "Ali Asghar Huzaifa", jobTitle: "Researcher", src: "/team/aliashgar-huzaifa.png" },
+  { title: "Muhammad Asim Latif", jobTitle: "Researcher", src: "/team/Muhammad-asim-latif.png" },
+  { title: "Abdul Munem", jobTitle: "Tokenization", src: "/team/abdul-munem.png" },
+  { title: "Mehboob Raza", jobTitle: "Tokenization", src: PLACEHOLDER },
+  { title: "Syed Sam", jobTitle: "Tokenization", src: "/team/syed-sam.png" },
+  { title: "Fatimah Emad Eldin", jobTitle: "Researcher", src: PLACEHOLDER },
+  { title: "Kazi Ikram", jobTitle: "Front-end", src: "/team/Kazi-Ikram.png" },
+  { title: "Muhammad Zarar", jobTitle: "Full-stack Engineer + AI", src: "/team/Muhammad-zarar.png" },
+  { title: "Salman Hassan", jobTitle: "Backend + Researcher", src: "/team/salman-hassan.png" },
+  { title: "Khoula", jobTitle: "Researcher", src: "/team/khoula.png" },
+  { title: "Usama Bin Asif", jobTitle: "Full-stack Engineer + AI", src: "/team/usama-bin-asif.png" },
+  { title: "Wahaj", jobTitle: "Staff AI Researcher", src: PLACEHOLDER },
+  { title: "M. Waqas Afzal", jobTitle: "Office Manager", src: PLACEHOLDER },
+  { title: "Kaab Gazdar", jobTitle: "GenAI SDK / Intern", src: PLACEHOLDER },
+  { title: "Pranav Chandra", jobTitle: "Frontend/Backend (Intern)", src: "/team/pranav-chandra.png" },
+  { title: "M. Yasir Saleem", jobTitle: "Principal Product Engineer", src: PLACEHOLDER },
+  { title: "Talha Ejaz", jobTitle: "AI Engineer", src: PLACEHOLDER },
+  { title: "Shah Nawaz", jobTitle: "Senior AI Engineer", src: PLACEHOLDER },
+  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: PLACEHOLDER },
 ];
 
 export default function Teams() {
