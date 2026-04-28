@@ -8,7 +8,7 @@ interface StatItem {
 const STATS: StatItem[] = [
   { value: "20+", label: "Projects Delivered" },
   { value: "10+", label: "Research Papers" },
-  { value: "4", label: "Core SDKs" },
+  { value: "5", label: "Core SDKs" },
 ];
 
 export function StatsSection() {

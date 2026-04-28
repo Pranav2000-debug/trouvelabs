@@ -89,9 +89,8 @@ trouvelabs/
 │   │   ├── product-preview-sec.tsx
 │   │   └── mobilitycontextsection.tsx
 │   ├── about-comps/            # /about page sections
-│   │   ├── combinedAboutSection.tsx
 │   │   ├── aboutTabbedSection.tsx
-│   │   ├── pillarsSection.tsx
+│   │   ├── pillarsSection.tsx     # NOTE: orphan — not imported on /about (homepage WhyTrouve owns pillars)
 │   │   ├── statsSection.tsx
 │   │   └── teams.tsx
 │   ├── docs/                   # Docs-page primitives (used by /projects/[slug]/(docs)/)

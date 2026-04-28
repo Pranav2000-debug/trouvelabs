@@ -1,15 +1,21 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home-comps/herosection";
-import AboutBento from "@/components/home-comps/about-bento";
-import MobilityContextSection from "@/components/home-comps/mobilitycontextsection";
+import OpeningPositioning from "@/components/home-comps/opening-positioning";
+import CapabilityShowcase from "@/components/home-comps/capability-showcase";
+import WhyTrouve from "@/components/home-comps/why-trouve";
+import ApproachSteps from "@/components/home-comps/approach-steps";
+import PhilosophyBand from "@/components/home-comps/philosophy-band";
 import { BackgroundPaths } from "@/components/ui/gradient-flow";
-import {ReactLenis} from "lenis/react";
+import { ReactLenis } from "lenis/react";
 
 // Lazy load heavy interactive scroll component, SSR comp.
-const SmoothStackScroll = dynamic(() => import("@/components/home-comps/product-preview-sec"), {
-  loading: () => <div className="min-h-screen w-full bg-background/80" />,
-});
+const SmoothStackScroll = dynamic(
+  () => import("@/components/home-comps/product-preview-sec"),
+  {
+    loading: () => <div className="min-h-screen w-full bg-background/80" />,
+  },
+);
 
 export default async function HomePage() {
   "use cache";
@@ -23,16 +29,22 @@ export default async function HomePage() {
 
       <HeroSection />
 
-      <AboutBento />
+      <OpeningPositioning />
 
-      {/* Interactive scroll section — streams in via Suspense */}
-      {/* SmoothStackScroll showcases product cards and use-cases cards */}
+      <CapabilityShowcase />
+
+      {/* Locked: Core SDKs + Use Cases sticky stack */}
       <Suspense fallback={null}>
-        <SmoothStackScroll /> 
+        <SmoothStackScroll />
       </Suspense>
 
-      <MobilityContextSection />
+      <WhyTrouve />
 
+      <ApproachSteps />
+
+      <PhilosophyBand />
+
+      {/* TODO: Designed For + Final CTA — user is supplying components */}
     </ReactLenis>
   );
 }

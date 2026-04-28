@@ -13,17 +13,17 @@ interface AboutSection {
 }
 
 const WHY_SECTION: AboutSection = {
-  title: "Why Trouve Labs",
-  body: "Trouve Labs was born to redefine what's possible in mobility and tech, by pioneering AI-driven solutions that transcend traditional boundaries. Our commitment to modern mobility is all about making it more efficient, sustainable, and valuable for everyone. As we optimize supply chains, enhance urban traffic flow, and streamline logistics, we empower the world to move smarter.",
+  title: "About Trouve Labs",
+  body: "Trouve Labs is a research and development organization focused on core technology and deep-tech innovation. We combine applied mathematics, AI, machine learning, operations research, and decentralized infrastructure to create solutions that are technically strong, commercially relevant, and built for real-world impact. Complex problems do not always need complicated solutions — they need the right models, the right infrastructure, and the right research discipline.",
 };
 
 const TAB_SECTIONS: AboutSection[] = [
   {
     title: "Our Mission",
-    body: "Trouve Labs is driven by the philosophy that everything in motion creates value, and we innovate solutions that fulfil this ethos. Dedicated to designing innovative mobility solutions that enable progress, we go beyond the conventional.",
+    body: "To pioneer the next iteration of technology by building tools that empower people, organizations, and developers to create solutions aligned with privacy, security, and intelligent progress.",
   },
   {
-    title: "Our Approach",
+    title: "Our Philosophy",
     body: "Through a relentless focus on research and development, Trouve Labs believes in the power of movement to drive progress in an all-encompassing sense. Trouve Labs takes generic mathematical algorithms and transforms them to enable the wellness of smart – or otherwise – cities, among other functions.",
   },
   {
@@ -32,7 +32,7 @@ const TAB_SECTIONS: AboutSection[] = [
   },
   {
     title: "Innovation First",
-    body: "At Trouve Labs, innovation is at the heart of everything we do. With 20+ projects and 10+ papers, we constantly explore and redefine the boundaries of advanced mobility through innovation, cutting-edge research and revolutionary ideas.",
+    body: "At Trouve Labs, innovation is at the heart of everything we do. We constantly explore and redefine the boundaries of advanced mobility through innovation, cutting-edge research and revolutionary ideas.",
   },
   {
     title: "Continuous Learning & Open Collaboration",

@@ -25,7 +25,7 @@ export default async function HeroSection() {
 
         <FadeIn delay={0.3}>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Building intelligent mobility systems through modular AI SDKs.
+            We research, design, and build intelligent systems that improve how people, data, goods, and infrastructure move.
           </p>
         </FadeIn>
 
@@ -33,9 +33,9 @@ export default async function HeroSection() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row z-20">
             <Link
               prefetch={false}
-              href=""
+              href="#contact"
               className="group inline-flex h-11 items-center justify-center rounded-md bg-trouve-teal px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-trouve-teal/90">
-              <span>Request a Demo</span>
+              <span>Work With Us</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -46,7 +46,7 @@ export default async function HeroSection() {
               prefetch={false}
               href="/projects"
               className="group inline-flex h-11 items-center justify-center rounded-md border bg-background/40 backdrop-blur-3xl border-trouve-teal/40 px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
-              <span>Explore Docs</span>
+              <span>Explore Our Research</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
                   <ArrowUpRight className="h-3.5 w-3.5" />
