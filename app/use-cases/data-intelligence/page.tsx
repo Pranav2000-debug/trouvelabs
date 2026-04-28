@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 // TODO: Replace # with the Data Intelligence platform URL when available.
 
 export default function DataIntelligencePage() {
@@ -12,11 +10,13 @@ export default function DataIntelligencePage() {
           Intelligent data processing and analysis with graph-based retrieval. Powered by Graph RAG SDK.
         </p>
         {/* TODO: Replace href="#" with the Data Intelligence platform URL */}
-        <Link
-          href="#"
+        <a
+          href="https://dataintelligence.trouve.works"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex h-10 items-center justify-center rounded-full bg-trouve-teal px-6 text-sm font-semibold text-black transition-all hover:bg-trouve-teal/90">
           Open Data Intelligence Platform →
-        </Link>
+        </a>
       </div>
     </main>
   );

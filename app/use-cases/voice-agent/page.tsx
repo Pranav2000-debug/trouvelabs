@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 // TODO: Replace # with the Voice Agent platform URL when available.
 
@@ -12,11 +11,13 @@ export default function VoiceAgentPage() {
           Intelligent voice interactions with real-time language understanding and response.
         </p>
         {/* TODO: Replace href="#" with the Voice Agent platform URL */}
-        <Link
-          href="#"
+        <a
+          href="https://voiceai.trouve.works"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex h-10 items-center justify-center rounded-full bg-trouve-teal px-6 text-sm font-semibold text-black transition-all hover:bg-trouve-teal/90">
           Open Voice Agent Platform →
-        </Link>
+        </a>
       </div>
     </main>
   );
