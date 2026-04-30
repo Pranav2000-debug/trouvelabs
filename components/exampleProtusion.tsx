@@ -17,7 +17,7 @@ import {
   PieChart,
   LineChart,
 } from "lucide-react";
-import { BentoProtrusion, TabData } from "./BentoProtrusion";
+import { BentoProtrusion, type TabData } from "@/components/ui/bentoProtusion";
 
 // --- EXAMPLE 1: Marketing / SaaS Features ---
 const MARKETING_LEFT: TabData[] = [
