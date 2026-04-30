@@ -47,7 +47,7 @@ export function AboutTabbedSection() {
   const activeSection = useMemo(() => TAB_SECTIONS.find((section) => section.title === activeTab) ?? TAB_SECTIONS[0], [activeTab]);
 
   return (
-    <section className="overflow-hidden border-b border-trouve-border py-20 sm:py-24 relative">
+    <section className="overflow-hidden border-b border-border py-20 sm:py-24 relative">
       <div className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/3 z-0 pointer-events-none opacity-5 xl:-translate-x-1/4">
         <Image src="/image 22.png" alt="About Background" width={400} height={400} className="object-contain" />
       </div>
@@ -76,8 +76,8 @@ export function AboutTabbedSection() {
                       className={cn(
                         "shrink-0 snap-start whitespace-nowrap rounded-xl border px-4 py-3 text-left text-sm font-semibold transition-colors sm:shrink sm:whitespace-normal sm:text-base",
                         isActive
-                          ? "border-trouve-teal bg-trouve-teal text-primary-foreground shadow-[0_0_0_1px_var(--color-trouve-teal)]"
-                          : "border-trouve-border bg-trouve-navy/30 text-foreground hover:border-trouve-teal/60 hover:text-trouve-teal",
+                          ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_1px_var(--primary)]"
+                          : "border-border bg-secondary/30 text-foreground hover:border-primary/60 hover:text-primary",
                       )}
                       aria-pressed={isActive}>
                       {section.title}
@@ -96,7 +96,7 @@ export function AboutTabbedSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="rounded-xl border bg-background/50 p-5 sm:p-6 border-trouve-teal/60 hover:text-trouve-teal">
+                  className="rounded-xl border bg-background/40 p-5 sm:p-6 border-primary/60 hover:text-primary">
                   <h2 className="text-xl font-bold sm:text-2xl">{activeSection?.title}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">{activeSection?.body}</p>
                 </m.div>

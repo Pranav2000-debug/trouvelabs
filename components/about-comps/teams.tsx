@@ -70,7 +70,7 @@ export default function Teams() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(280px,1fr)_minmax(420px,1.4fr)] lg:gap-16">
           <div className="lg:pt-4">
-            <span className="inline-flex rounded-md bg-muted px-4 py-1.5 text-sm font-medium text-trouve-teal">Team</span>
+            <span className="inline-flex rounded-md bg-muted px-4 py-1.5 text-sm font-medium text-primary">Team</span>
             <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">Our Creative Minds</h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">The team behind Trouve Labs.</p>
           </div>
@@ -93,7 +93,7 @@ export default function Teams() {
                 type="button"
                 onClick={() => goToPage(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
-                className="rounded-md border border-trouve-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-trouve-teal hover:text-trouve-teal disabled:cursor-not-allowed disabled:opacity-40">
+                className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40">
                 Prev
               </button>
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -103,8 +103,8 @@ export default function Teams() {
                   onClick={() => goToPage(page)}
                   className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
                     page === currentPage
-                      ? "bg-trouve-teal/15 text-trouve-teal"
-                      : "border border-trouve-border text-muted-foreground hover:border-trouve-teal hover:text-trouve-teal"
+                      ? "bg-primary/10 text-primary"
+                      : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
                   }`}>
                   {page}
                 </button>
@@ -113,7 +113,7 @@ export default function Teams() {
                 type="button"
                 onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
-                className="rounded-md border border-trouve-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-trouve-teal hover:text-trouve-teal disabled:cursor-not-allowed disabled:opacity-40">
+                className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40">
                 Next
               </button>
             </div>

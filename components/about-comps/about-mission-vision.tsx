@@ -1,15 +1,15 @@
 import { Target, Telescope } from "lucide-react";
-import { AboutMastraCard, AboutMastraEyebrow } from "./about-mastra-card";
+import { AboutTrouveCard, AboutTrouveEyebrow } from "./about-trouve-card";
 
 export function AboutMissionVision() {
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* Mission */}
-      <AboutMastraCard>
+      <AboutTrouveCard>
         <div className="flex items-start justify-between gap-4">
-          <AboutMastraEyebrow>Mission</AboutMastraEyebrow>
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-trouve-teal/10">
-            <Target className="h-5 w-5 text-trouve-teal" />
+          <AboutTrouveEyebrow>Mission</AboutTrouveEyebrow>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            <Target className="h-5 w-5 text-primary" />
           </div>
         </div>
 
@@ -20,14 +20,14 @@ export function AboutMissionVision() {
         <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
           A research firm that wants to pioneer the next iteration of technology by providing tools and empowering people to build solutions that are in-tune with their security and privacy.
         </p>
-      </AboutMastraCard>
+      </AboutTrouveCard>
 
       {/* Vision */}
-      <AboutMastraCard>
+      <AboutTrouveCard>
         <div className="flex items-start justify-between gap-4">
-          <AboutMastraEyebrow>Vision</AboutMastraEyebrow>
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-trouve-teal/10">
-            <Telescope className="h-5 w-5 text-trouve-teal" />
+          <AboutTrouveEyebrow>Vision</AboutTrouveEyebrow>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            <Telescope className="h-5 w-5 text-primary" />
           </div>
         </div>
 
@@ -38,7 +38,7 @@ export function AboutMissionVision() {
         <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
           To become the MENA region&rsquo;s leading innovation firm that creates simple solutions for the most complex of problems.
         </p>
-      </AboutMastraCard>
+      </AboutTrouveCard>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Award, Workflow } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { AboutMastraCard, AboutMastraEyebrow } from "./about-mastra-card";
+import { AboutTrouveCard, AboutTrouveEyebrow } from "./about-trouve-card";
 
 type Differentiator = {
   icon: LucideIcon;
@@ -31,9 +31,9 @@ const DIFFERENTIATORS: Differentiator[] = [
 
 export function AboutDifferentiators() {
   return (
-    <AboutMastraCard>
+    <AboutTrouveCard>
       <div className="max-w-3xl">
-        <AboutMastraEyebrow>What makes us different</AboutMastraEyebrow>
+        <AboutTrouveEyebrow>What makes us different</AboutTrouveEyebrow>
         <h2 className="mt-6 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
           The combination is what compounds.
         </h2>
@@ -48,11 +48,11 @@ export function AboutDifferentiators() {
           return (
             <div
               key={d.label}
-              className="flex flex-col rounded-2xl border border-trouve-border bg-trouve-navy/40 p-6 sm:p-8">
+              className="flex flex-col rounded-2xl border border-border bg-secondary/40 p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
-                <span className="text-xs font-medium uppercase tracking-wider text-trouve-teal">{d.label}</span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-trouve-teal/10">
-                  <Icon className="h-5 w-5 text-trouve-teal" />
+                <span className="text-xs font-medium uppercase tracking-wider text-primary">{d.label}</span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+                  <Icon className="h-5 w-5 text-primary" />
                 </div>
               </div>
 
@@ -63,7 +63,7 @@ export function AboutDifferentiators() {
                 {d.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-trouve-border bg-trouve-surface/70 px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+                    className="rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
                     {t}
                   </span>
                 ))}
@@ -72,6 +72,6 @@ export function AboutDifferentiators() {
           );
         })}
       </div>
-    </AboutMastraCard>
+    </AboutTrouveCard>
   );
 }

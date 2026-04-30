@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, type ComponentType } from "react";
+import type { ComponentType } from "react";
 import { Brain, Sigma, Cpu, Lock, Building2 } from "lucide-react";
 import { PathThinIcon } from "@/components/icons/ph-path-thin";
-import { CapabilityShowcaseCard } from "./capability-showcase-card";
-import { cn } from "@/lib/utils";
+import { BentoProtrusion, type TabData } from "@/components/ui/bentoProtusion";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 type CardContent = {
   title: string;
@@ -16,6 +16,7 @@ type CardContent = {
 type CapabilityIcon = ComponentType<{ className?: string }>;
 
 type Capability = {
+  id: string;
   icon: CapabilityIcon;
   label: string;
   cards: [CardContent, CardContent];
@@ -23,6 +24,7 @@ type Capability = {
 
 const CAPABILITIES: Capability[] = [
   {
+    id: "ai-rd",
     icon: Brain,
     label: "AI R&D",
     cards: [
@@ -51,6 +53,7 @@ const CAPABILITIES: Capability[] = [
     ],
   },
   {
+    id: "optimization",
     icon: Sigma,
     label: "Optimization",
     cards: [
@@ -79,6 +82,7 @@ const CAPABILITIES: Capability[] = [
     ],
   },
   {
+    id: "mobility",
     icon: PathThinIcon,
     label: "Mobility",
     cards: [
@@ -107,6 +111,7 @@ const CAPABILITIES: Capability[] = [
     ],
   },
   {
+    id: "compute",
     icon: Cpu,
     label: "Compute",
     cards: [
@@ -135,6 +140,7 @@ const CAPABILITIES: Capability[] = [
     ],
   },
   {
+    id: "privacy",
     icon: Lock,
     label: "Privacy",
     cards: [
@@ -163,6 +169,7 @@ const CAPABILITIES: Capability[] = [
     ],
   },
   {
+    id: "smart-city",
     icon: Building2,
     label: "Smart City",
     cards: [
@@ -192,14 +199,81 @@ const CAPABILITIES: Capability[] = [
   },
 ];
 
-export default function CapabilityShowcase() {
-  const [active, setActive] = useState(0);
-  const cap = CAPABILITIES[active];
+const DEFAULT_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
 
+interface CapabilityFacetProps {
+  prefix: string;
+  card: CardContent;
+}
+
+function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
+  return (
+    <div>
+      <div className="mb-3">
+        <p className="font-mono text-sm font-semibold text-foreground tracking-tight">
+          {card.title}
+        </p>
+        <p className="mt-0.5 font-mono text-xs text-trouve-teal">
+          {card.subtitle}
+        </p>
+      </div>
+      <div className="text-sm leading-relaxed text-muted-foreground">
+        <DecryptedText
+          key={`${prefix}-desc`}
+          text={card.description}
+          animateOn="view"
+          sequential
+          speed={8}
+          characters={DEFAULT_CHARS}
+          className="font-mono"
+          encryptedClassName="font-mono text-trouve-teal/50"
+        />
+      </div>
+      <ul className="mt-4 space-y-2.5">
+        {card.bullets.map((b, i) => (
+          <li key={`${prefix}-b-${i}`} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
+            <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-trouve-teal" />
+            <DecryptedText
+              key={`${prefix}-b-text-${i}`}
+              text={b}
+              animateOn="view"
+              sequential
+              speed={20}
+              characters={DEFAULT_CHARS}
+              className="font-mono"
+              encryptedClassName="font-mono text-trouve-teal/50"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function buildTab(cap: Capability): TabData {
+  return {
+    id: cap.id,
+    label: cap.label,
+    icon: cap.icon,
+    title: cap.label,
+    subtitle: cap.cards[0].subtitle,
+    content: (
+      <div className="flex flex-col gap-6">
+        <CapabilityFacet prefix={`${cap.id}-0`} card={cap.cards[0]} />
+        <div className="border-t border-trouve-border" />
+        <CapabilityFacet prefix={`${cap.id}-1`} card={cap.cards[1]} />
+      </div>
+    ),
+  };
+}
+
+const LEFT_TABS: TabData[] = CAPABILITIES.slice(0, 3).map(buildTab);
+const RIGHT_TABS: TabData[] = CAPABILITIES.slice(3, 6).map(buildTab);
+
+export default function CapabilityShowcase() {
   return (
     <section className="relative bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        {/* Header - left-aligned, asymmetric to break centred-heading rhythm */}
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">What we do</p>
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -210,70 +284,7 @@ export default function CapabilityShowcase() {
           </p>
         </div>
 
-        {/* Tab row */}
-        <div className="mt-12 grid grid-cols-3 gap-3 sm:grid-cols-6">
-          {CAPABILITIES.map((c, i) => {
-            const Icon = c.icon;
-            const isActive = active === i;
-            return (
-              <button
-                key={c.label}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-pressed={isActive}
-                className={cn(
-                  "group relative aspect-square rounded-2xl border transition-all",
-                  "flex flex-col items-center justify-center gap-2",
-                  isActive
-                    ? "border-trouve-teal/60 bg-trouve-surface/80 shadow-lg shadow-trouve-teal/10"
-                    : "border-trouve-border bg-trouve-surface/30 hover:bg-trouve-surface/60",
-                )}>
-                <Icon
-                  className={cn(
-                    "h-7 w-7 transition-colors",
-                    isActive ? "text-trouve-teal" : "text-muted-foreground group-hover:text-foreground",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "text-xs font-medium transition-colors",
-                    isActive ? "text-foreground" : "text-muted-foreground",
-                  )}>
-                  {c.label}
-                </span>
-
-                {/* Connector - bridges active tab to the card row below */}
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "pointer-events-none absolute left-1/2 top-full h-6 w-0.5 -translate-x-1/2 bg-trouve-teal transition-opacity",
-                    isActive ? "opacity-100" : "opacity-0",
-                  )}
-                />
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Detail cards */}
-        <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {cap.cards.map((card, i) => (
-            <CapabilityShowcaseCard
-              key={`${active}-${i}`}
-              title={card.title}
-              subtitle={card.subtitle}>
-              <p className="text-sm leading-relaxed text-muted-foreground">{card.description}</p>
-              <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground">
-                {card.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5">
-                    <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-trouve-teal" />
-                    <span className="leading-relaxed">{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </CapabilityShowcaseCard>
-          ))}
-        </div>
+        <BentoProtrusion leftTabs={LEFT_TABS} rightTabs={RIGHT_TABS} />
       </div>
     </section>
   );

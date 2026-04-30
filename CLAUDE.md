@@ -57,7 +57,7 @@ trouvelabs/
 │   ├── page.tsx                # Homepage (/)
 │   ├── globals.css             # Global CSS + Tailwind tokens
 │   ├── about/
-│   │   └── page.tsx            # /about - Mastra-style vertical journey of cards + JourneyConnectors
+│   │   └── page.tsx            # /about - Trouve-style vertical journey of cards + JourneyConnectors
 │   ├── projects/               # SDK docs hub (URL stays `/projects`; navbar label is "Documentation")
 │   │   ├── page.tsx            # /projects - SDK picker/hub page
 │   │   ├── data-intelligence-sdk/
@@ -86,14 +86,14 @@ trouvelabs/
 │   ├── home-comps/             # Homepage sections (rendered top-to-bottom from app/page.tsx)
 │   │   ├── herosection.tsx              # Hero with AuroraText + Work With Us / Explore Our Research CTAs
 │   │   ├── opening-positioning.tsx      # Asymmetric split - 4 movement cards (Goods/People/Data/Decisions)
-│   │   ├── capability-showcase.tsx      # Mastra-style 6-tab capability picker
+│   │   ├── capability-showcase.tsx      # Trouve-style 6-tab capability picker
 │   │   ├── capability-showcase-card.tsx # Reusable detail card primitive (only for the showcase)
 │   │   ├── product-preview-sec.tsx      # Sticky-stack: Core SDKs grid + Use Cases grid (LOCKED)
 │   │   ├── why-trouve.tsx               # 12-col split - sticky H2 + 5 pillar list
 │   │   ├── approach-steps.tsx           # 5-step Timeline (horizontal md+, vertical mobile). Step numbers in trouve-yellow.
 │   │   └── philosophy-band.tsx          # 8/4 split text band over BG PATTERN MASK.png
 │   ├── about-comps/            # /about page sections
-│   │   ├── about-mastra-card.tsx        # Reusable rounded-3xl card shell + AboutMastraEyebrow pill primitive
+│   │   ├── about-trouve-card.tsx        # Reusable rounded-3xl card shell + AboutTrouveEyebrow pill primitive
 │   │   ├── about-lead.tsx               # Lead card - h1 + 3 paragraphs + animated motif (right column)
 │   │   ├── about-lead-motif.tsx         # Client component - sonar-pulse rings, useInView gates animation
 │   │   ├── about-mission-vision.tsx     # Paired Mission + Vision cards

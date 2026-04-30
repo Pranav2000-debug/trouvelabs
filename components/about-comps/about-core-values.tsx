@@ -1,6 +1,6 @@
 import { ShieldCheck, KeyRound } from "lucide-react";
 import { PersonalPrivacyIcon } from "@/components/icons/icon-park-solid-personal-privacy";
-import { AboutMastraCard, AboutMastraEyebrow } from "./about-mastra-card";
+import { AboutTrouveCard, AboutTrouveEyebrow } from "./about-trouve-card";
 
 const VALUE_CHIPS = [
   { icon: ShieldCheck, label: "Privacy by design" },
@@ -10,26 +10,26 @@ const VALUE_CHIPS = [
 
 export function AboutCoreValues() {
   return (
-    <AboutMastraCard>
+    <AboutTrouveCard>
       {/* Soft accent - left-side glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-trouve-teal/10 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
       />
 
       <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left visual */}
         <div className="hidden items-center justify-center lg:col-span-4 lg:flex">
-          <div className="relative flex h-56 w-56 items-center justify-center rounded-3xl border border-trouve-teal/30 bg-trouve-navy/40">
-            <ShieldCheck className="h-20 w-20 text-trouve-teal" />
-            <div className="absolute -inset-2 rounded-3xl border border-trouve-teal/10" />
-            <div className="absolute -inset-5 rounded-3xl border border-trouve-teal/5" />
+          <div className="relative flex h-56 w-56 items-center justify-center rounded-3xl border border-primary/30 bg-secondary/40">
+            <ShieldCheck className="h-20 w-20 text-primary" />
+            <div className="absolute -inset-2 rounded-3xl border border-primary/10" />
+            <div className="absolute -inset-5 rounded-3xl border border-primary/10" />
           </div>
         </div>
 
         {/* Right text */}
         <div className="lg:col-span-8">
-          <AboutMastraEyebrow>Core Values</AboutMastraEyebrow>
+          <AboutTrouveEyebrow>Core Values</AboutTrouveEyebrow>
 
           <h2 className="mt-6 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             People should remain custodians of their own data.
@@ -50,8 +50,8 @@ export function AboutCoreValues() {
               return (
                 <span
                   key={chip.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-trouve-border bg-trouve-navy/40 px-3 py-1.5 text-xs font-medium text-foreground">
-                  <Icon className="h-3.5 w-3.5 text-trouve-teal" />
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-foreground">
+                  <Icon className="h-3.5 w-3.5 text-primary" />
                   {chip.label}
                 </span>
               );
@@ -59,6 +59,6 @@ export function AboutCoreValues() {
           </div>
         </div>
       </div>
-    </AboutMastraCard>
+    </AboutTrouveCard>
   );
 }

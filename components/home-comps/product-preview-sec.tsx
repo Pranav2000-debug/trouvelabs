@@ -7,7 +7,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
   return (
     <div className="w-full">
       {/* ── Section 1: SDK Cards ── */}
-      <section className="text-white h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-trouve-navy/70">
+      <section className="text-foreground h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-secondary/60">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Core SDKs.</h2>
@@ -28,10 +28,10 @@ export default function SmoothStackScroll(): React.JSX.Element {
               return product.comingSoon ? (
                 <div
                   key={product.slug}
-                  className={cn(span, "relative flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
-                  <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
-                    <IconComponent className="h-5 w-5 text-trouve-teal" />
+                  className={cn(span, "relative flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
+                  <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <IconComponent className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold">{product.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
@@ -41,13 +41,13 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   prefetch={false}
                   key={product.slug}
                   href={`/projects/${product.slug}`}
-                  className={cn(span, "group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer")}>
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-trouve-teal/10">
-                    <IconComponent className="h-5 w-5 text-trouve-teal" />
+                  className={cn(span, "group flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer")}>
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                    <IconComponent className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold">{product.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-                  <span className="mt-auto pt-3 text-xs font-medium text-trouve-teal opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="mt-auto pt-3 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
                     Learn more →
                   </span>
                 </Link>
@@ -65,10 +65,10 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 return product.comingSoon ? (
                   <div
                     key={product.slug}
-                    className="relative flex h-full flex-col snap-center rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
-                    <span className="absolute top-3 right-3 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">Coming Soon</span>
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
-                      <IconComponent className="h-4 w-4 text-trouve-teal" />
+                    className="relative flex h-full flex-col snap-center rounded-xl border bg-card/90 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
+                    <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                      <IconComponent className="h-4 w-4 text-primary" />
                     </div>
                     <h3 className="text-base font-semibold">{product.title}</h3>
                     <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{product.description}</p>
@@ -78,9 +78,9 @@ export default function SmoothStackScroll(): React.JSX.Element {
                     prefetch={false}
                     key={product.slug}
                     href={`/projects/${product.slug}`}
-                    className="flex h-full flex-col snap-center rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-5 transition-all cursor-pointer">
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-trouve-teal/10">
-                      <IconComponent className="h-4 w-4 text-trouve-teal" />
+                    className="flex h-full flex-col snap-center rounded-xl border bg-card/90 backdrop-blur-sm p-5 transition-all cursor-pointer">
+                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+                      <IconComponent className="h-4 w-4 text-primary" />
                     </div>
                     <h3 className="text-base font-semibold">{product.title}</h3>
                     <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{product.description}</p>
@@ -94,7 +94,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
       </section>
 
       {/* ── Section 2: Use Cases ── */}
-      <section className="text-white h-dvh w-full bg-trouve-navy/80 backdrop-blur-sm sticky top-0 rounded-t-2xl overflow-hidden">
+      <section className="text-foreground h-dvh w-full bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl overflow-hidden">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Built with our SDKs.</h2>
@@ -110,11 +110,11 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 href={uc.href}
                 target={uc.external ? "_blank" : undefined}
                 rel={uc.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col rounded-xl border bg-trouve-surface/90 backdrop-blur-sm p-6 transition-all hover:border-trouve-teal/30 hover:shadow-lg hover:shadow-trouve-teal/15 cursor-pointer">
-                <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">{uc.builtWith}</span>
+                className="group flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
+                <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
                 <h3 className="text-xl sm:text-2xl font-bold">{uc.name}.</h3>
                 <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
-                <span className="pt-3 text-xs font-medium text-trouve-teal opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="pt-3 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
                   {uc.external ? "Open →" : "Explore →"}
                 </span>
               </a>

@@ -1,18 +1,18 @@
-import { AboutMastraCard, AboutMastraEyebrow } from "./about-mastra-card";
+import { AboutTrouveCard, AboutTrouveEyebrow } from "./about-trouve-card";
 import { AboutLeadMotif } from "./about-lead-motif";
 
 export function AboutLead() {
   return (
-    <AboutMastraCard>
+    <AboutTrouveCard>
       {/* Soft accent - top-right radial glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-trouve-teal/10 blur-3xl"
+        className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl"
       />
 
       <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-8">
-          <AboutMastraEyebrow>About Trouve Labs</AboutMastraEyebrow>
+          <AboutTrouveEyebrow>About Trouve Labs</AboutTrouveEyebrow>
 
           <h1 className="mt-6 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             We turn deep research into systems that actually run.
@@ -36,6 +36,6 @@ export function AboutLead() {
           <AboutLeadMotif />
         </div>
       </div>
-    </AboutMastraCard>
+    </AboutTrouveCard>
   );
 }

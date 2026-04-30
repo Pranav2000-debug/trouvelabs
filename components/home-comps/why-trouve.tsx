@@ -48,7 +48,7 @@ export default function WhyTrouve() {
           {/* Left - sticky-ish heading column */}
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
-              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">Why Trouve Labs</p>
+              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">Why Trouve Labs</p>
               <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
                 Research depth. Practical execution. Real-world impact.
               </h2>
@@ -65,10 +65,10 @@ export default function WhyTrouve() {
               return (
                 <li
                   key={p.title}
-                  className="group rounded-2xl border border-trouve-border bg-trouve-surface/70 p-6 backdrop-blur-sm transition-all hover:border-trouve-teal/30">
+                  className="group rounded-2xl border border-border bg-card p-6 backdrop-blur-sm transition-all hover:border-primary/30">
                   <div className="flex items-start gap-5">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-trouve-teal/10">
-                      <Icon className="h-5 w-5 text-trouve-teal" />
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                      <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-base font-semibold text-foreground">{p.title}</h3>

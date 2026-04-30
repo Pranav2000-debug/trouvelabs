@@ -34,7 +34,7 @@ export function AboutLeadMotif() {
             repeat: Infinity,
             ease: "easeOut",
           }}
-          className="absolute inset-0 rounded-full border-2 border-trouve-teal/70"
+          className="absolute inset-0 rounded-full border-2 border-primary/60"
         />
       ))}
 
@@ -42,8 +42,8 @@ export function AboutLeadMotif() {
       <m.div
         animate={isInView ? { scale: [1, 1.05, 1] } : { scale: 1 }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-12 z-10 flex items-center justify-center rounded-full bg-trouve-teal/20 backdrop-blur-sm">
-        <BreenoMemoryIcon className="h-10 w-10 text-trouve-teal" />
+        className="absolute inset-12 z-10 flex items-center justify-center rounded-full bg-primary/10 backdrop-blur-sm">
+        <BreenoMemoryIcon className="h-10 w-10 text-primary" />
       </m.div>
     </div>
   );

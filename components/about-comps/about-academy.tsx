@@ -1,5 +1,5 @@
 import { GraduationCap, BookOpen, Users, Compass } from "lucide-react";
-import { AboutMastraCard, AboutMastraEyebrow } from "./about-mastra-card";
+import { AboutTrouveCard, AboutTrouveEyebrow } from "./about-trouve-card";
 
 const ACADEMY_TRACKS = [
   { icon: BookOpen, label: "Applied Mathematics" },
@@ -9,7 +9,7 @@ const ACADEMY_TRACKS = [
 
 export function AboutAcademy() {
   return (
-    <AboutMastraCard>
+    <AboutTrouveCard>
       {/* Soft accent - bottom-right glow */}
       <div
         aria-hidden="true"
@@ -18,7 +18,7 @@ export function AboutAcademy() {
 
       <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-7">
-          <AboutMastraEyebrow>Trouve Labs Academy</AboutMastraEyebrow>
+          <AboutTrouveEyebrow>Trouve Labs Academy</AboutTrouveEyebrow>
 
           <h2 className="mt-6 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
             Building the next generation of deep-tech talent.
@@ -39,8 +39,8 @@ export function AboutAcademy() {
               return (
                 <li
                   key={t.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-trouve-border bg-trouve-navy/40 px-3 py-1.5 text-xs font-medium text-foreground">
-                  <Icon className="h-3.5 w-3.5 text-trouve-teal" />
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-foreground">
+                  <Icon className="h-3.5 w-3.5 text-primary" />
                   {t.label}
                 </li>
               );
@@ -51,15 +51,15 @@ export function AboutAcademy() {
         {/* Right visual */}
         <div className="hidden items-center justify-center lg:col-span-5 lg:flex">
           <div className="relative flex h-56 w-56 items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-trouve-teal/5" />
-            <div className="absolute inset-6 rounded-full border border-trouve-teal/30" />
-            <div className="absolute inset-12 rounded-full border border-trouve-teal/40" />
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-trouve-teal/15">
-              <GraduationCap className="h-12 w-12 text-trouve-teal" />
+            <div className="absolute inset-0 rounded-full bg-primary/10" />
+            <div className="absolute inset-6 rounded-full border border-primary/30" />
+            <div className="absolute inset-12 rounded-full border border-primary/60" />
+            <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-primary/10">
+              <GraduationCap className="h-12 w-12 text-primary" />
             </div>
           </div>
         </div>
       </div>
-    </AboutMastraCard>
+    </AboutTrouveCard>
   );
 }

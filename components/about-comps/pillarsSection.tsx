@@ -30,8 +30,8 @@ export function PillarsSection() {
         <FadeInStagger className="mt-16 grid gap-8 sm:grid-cols-3">
           {PILLARS.map((pillar) => (
             <FadeInStaggerItem key={pillar.title} className="h-full">
-              <div className="h-full rounded-xl border border-trouve-border bg-card p-6">
-                <h3 className="text-lg font-semibold text-trouve-teal">{pillar.title}</h3>
+              <div className="h-full rounded-xl border border-border bg-card p-6">
+                <h3 className="text-lg font-semibold text-primary">{pillar.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
               </div>
             </FadeInStaggerItem>
