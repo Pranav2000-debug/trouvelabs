@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PROJECTS } from "@/lib/projects";
-import { USE_CASES } from "@/lib/use-cases";
+import { SANDBOXES } from "@/lib/sandboxes";
 import { cn } from "@/lib/utils";
 
 export default function SmoothStackScroll(): React.JSX.Element {
@@ -93,7 +93,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
         </div>
       </section>
 
-      {/* ── Section 2: Use Cases ── */}
+      {/* ── Section 2: Sandboxes ── */}
       <section className="text-foreground h-dvh w-full bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl overflow-hidden">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
@@ -104,7 +104,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
           </div>
 
           <div className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
-            {USE_CASES.map((uc) => (
+            {SANDBOXES.map((uc) => (
               <a
                 key={uc.slug}
                 href={uc.href}

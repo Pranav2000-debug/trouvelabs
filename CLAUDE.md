@@ -70,7 +70,7 @@ trouvelabs/
 │   │   ├── voice-sdk/(docs)/          # Live route - overview links to 3 voiceai.trouve.works surfaces
 │   │   ├── tokenization-sdk/(docs)/   # comingSoon - transparent shell layout
 │   │   └── genai-sdk/(docs)/          # comingSoon - transparent shell layout
-│   ├── use-cases/                     # Internal pages still exist; nav still links here. Cards on homepage now open external platforms (see lib/use-cases.ts).
+│   ├── sandboxes/                     # Internal pages still exist; nav still links here. Cards on homepage now open external platforms (see lib/sandboxes.ts).
 │   │   ├── data-intelligence/
 │   │   └── voice-agent/
 │   ├── (blogs)/                # placeholder
@@ -81,14 +81,14 @@ trouvelabs/
 │   └── roadmap/                # placeholder
 │
 ├── components/
-│   ├── navbar.tsx              # Floating pill navbar (client). Items: Home, About, Documentation ▾, Use Cases ▾
+│   ├── navbar.tsx              # Floating pill navbar (client). Items: Home, About, Documentation ▾, Sandboxes ▾
 │   ├── footer.tsx              # Footer; Products column auto-renders from PROJECTS
 │   ├── home-comps/             # Homepage sections (rendered top-to-bottom from app/page.tsx)
 │   │   ├── herosection.tsx              # Hero with AuroraText + Work With Us / Explore Our Research CTAs
 │   │   ├── opening-positioning.tsx      # Asymmetric split - 4 movement cards (Goods/People/Data/Decisions)
 │   │   ├── capability-showcase.tsx      # Trouve-style 6-tab capability picker
 │   │   ├── capability-showcase-card.tsx # Reusable detail card primitive (only for the showcase)
-│   │   ├── product-preview-sec.tsx      # Sticky-stack: Core SDKs grid + Use Cases grid (LOCKED)
+│   │   ├── product-preview-sec.tsx      # Sticky-stack: Core SDKs grid + Sandboxes grid (LOCKED)
 │   │   ├── why-trouve.tsx               # 12-col split - sticky H2 + 5 pillar list
 │   │   ├── approach-steps.tsx           # 5-step Timeline (horizontal md+, vertical mobile). Step numbers in trouve-yellow.
 │   │   └── philosophy-band.tsx          # 8/4 split text band over BG PATTERN MASK.png
@@ -131,7 +131,7 @@ trouvelabs/
 │
 ├── lib/
 │   ├── projects.ts             # PROJECTS array - single source of truth for SDKs
-│   ├── use-cases.ts            # USE_CASES array - drives Use Cases dropdown + homepage cards (now external URLs)
+│   ├── sandboxes.ts            # SANDBOXES array - drives Sandboxes dropdown + homepage cards (now external URLs)
 │   ├── compose-refs.ts         # used by timeline.tsx
 │   └── utils.ts                # cn() helper
 │
@@ -174,7 +174,7 @@ The `PROJECTS` array drives:
 - Footer "Projects" column (auto-renders from PROJECTS)
 - Homepage `product-preview-sec.tsx` Section 1 SDK grid
 
-### `lib/use-cases.ts` - USE_CASES
+### `lib/sandboxes.ts` - SANDBOXES
 
 ```ts
 {
@@ -187,20 +187,20 @@ The `PROJECTS` array drives:
 }
 ```
 
-Both current entries (`Data Intelligence`, `Voice Agent`) point at external platforms (`https://dataintelligence.trouvelabs.works`, `https://voiceai.trouve.works`). The internal `/use-cases/*` routes still exist and the navbar Use Cases dropdown still routes to them, but the **homepage** "Built with our SDKs" cards open the external URLs.
+Both current entries (`Data Intelligence`, `Voice Agent`) point at external platforms (`https://dataintelligence.trouvelabs.works`, `https://voiceai.trouve.works`). The internal `/sandboxes/*` routes still exist and the navbar Sandboxes dropdown still routes to them, but the **homepage** "Built with our SDKs" cards open the external URLs.
 
 ---
 
 ## Navbar Architecture (`components/navbar.tsx`)
 
 - **Floating pill** fixed to top of viewport, centered, `max-w-7xl`
-- Desktop nav items: Home, About, Documentation ▾, Use Cases ▾
+- Desktop nav items: Home, About, Documentation ▾, Sandboxes ▾
 - **Dropdown component** (internal):
-  - `dropdownType?: "docs" | "use-cases"` controls panel alignment via `cn()`
-  - Use Cases: `dropdownType="use-cases"` → `left-1/3 -translate-x-1/2`
+  - `dropdownType?: "docs" | "sandboxes"` controls panel alignment via `cn()`
+  - Sandboxes: `dropdownType="sandboxes"` → `left-1/3 -translate-x-1/2`
   - Default (Documentation): `left-1/2 -translate-x-1/2`
   - The `"docs"` branch (`-right-5`) is currently unused - kept on the type union for future panels
-- Mobile nav: collapsible accordion for Documentation and Use Cases - both driven by `PROJECTS` and the navbar's local `USE_CASES` (separate list, not yet consolidated with `lib/use-cases.ts`)
+- Mobile nav: collapsible accordion for Documentation and Sandboxes - both driven by `PROJECTS` and the navbar's local `SANDBOXES` (separate list, not yet consolidated with `lib/sandboxes.ts`)
 - Logo uses `priority` (`loading="eager"`) for LCP
 
 ---
@@ -281,7 +281,7 @@ See `docs/typography.md` for the full role table (eyebrow, badge, lead, body, co
 - [ ] **Placeholder package names** - `data-intelligence-sdk/(docs)/quickstart/page.tsx` code samples reference fictional `@trouve/graph-rag-sdk` package; replace when real SDK ships
 - [ ] **Team photos** - 14 of 31 members in `teams.tsx` use the `<UserRound>` silhouette fallback. Drop a photo at `/public/team/<slug>.png` and update the entry's `src`.
 - [ ] **Hood Khizer.png filename** - the only photo with a space + mixed case (URL-encoded as `/team/Hood%20Khizer.png`). Optional rename to `hood-khizer.png` for consistency.
-- [ ] **Navbar Use Cases dropdown** - still uses local `USE_CASES` with internal `/use-cases/*` hrefs; doesn't honor the external URLs in `lib/use-cases.ts`. Consolidate when ready.
+- [ ] **Navbar Sandboxes dropdown** - still uses local `SANDBOXES` with internal `/sandboxes/*` hrefs; doesn't honor the external URLs in `lib/sandboxes.ts`. Consolidate when ready.
 - [ ] **Homepage Designed For + Final CTA** - reserved sections per the plan; not yet built. User will supply components.
 - [ ] **Hero "Work With Us" CTA** - currently `href="#contact"` (no anchor exists yet)
 - [ ] **External URLs** - replace `href="#"` placeholders in coming-soon SDK pages
@@ -309,7 +309,7 @@ See `docs/typography.md` for the full role table (eyebrow, badge, lead, body, co
 - Do not add a new SDK page without adding the corresponding entry to `lib/projects.ts` - the navbar, footer, hub page, and homepage Core SDKs grid all derive from that array
 - Do not use `min-h-screen` on section components (causes layout issues with natural-height sections)
 - Do not add `loading="eager"` or `priority` to images that are not above the fold
-- Do not modify `components/home-comps/product-preview-sec.tsx` - the Core SDKs + Use Cases sticky-stack section is locked
+- Do not modify `components/home-comps/product-preview-sec.tsx` - the Core SDKs + Sandboxes sticky-stack section is locked
 - `test.jsx` and `test.css` at root are scratch/reference content - do not treat them as production
 - Do not create route groups that conflict with existing URL patterns
 - Do not import `motion` directly from `motion/react` for animation components - use `m` from `motion/react-m` so the LazyMotion provider applies

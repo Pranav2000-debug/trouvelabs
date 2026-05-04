@@ -1,4 +1,4 @@
-export interface UseCaseData {
+export interface SandboxData {
   name: string;
   slug: string;
   builtWith: string;
@@ -9,7 +9,7 @@ export interface UseCaseData {
   external?: boolean;
 }
 
-export const USE_CASES: UseCaseData[] = [
+export const SANDBOXES: SandboxData[] = [
   {
     name: "Data Intelligence",
     slug: "data-intelligence",

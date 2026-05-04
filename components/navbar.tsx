@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 /* ──────── Types ──────── */
 
-type UseCase = {
+type Sandbox = {
   title: string;
   href: string;
   description: string;
@@ -18,16 +18,16 @@ type UseCase = {
 
 /* ──────── Data ──────── */
 
-const USE_CASES: UseCase[] = [
+const SANDBOXES: Sandbox[] = [
   {
     title: "Data Intelligence",
-    href: "/use-cases/data-intelligence",
+    href: "/sandboxes/data-intelligence",
     description: "Intelligent data processing and analysis with graph-based retrieval.",
     sdks: "Graph RAG SDK",
   },
   {
     title: "Voice Agent",
-    href: "/use-cases/voice-agent",
+    href: "/sandboxes/voice-agent",
     description: "Intelligent voice interactions with real-time understanding.",
     sdks: "Voice SDK",
   },
@@ -35,7 +35,7 @@ const USE_CASES: UseCase[] = [
 
 /* ──────── Dropdown ──────── */
 
-function Dropdown({ label, children, dropdownType }: { label: string; children: React.ReactNode; dropdownType?: "docs" | "use-cases" }) {
+function Dropdown({ label, children, dropdownType }: { label: string; children: React.ReactNode; dropdownType?: "docs" | "sandboxes" }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -53,7 +53,7 @@ function Dropdown({ label, children, dropdownType }: { label: string; children: 
           className={cn(
             "absolute top-full z-50 pt-5",
             dropdownType === "docs" && "-right-5",
-            dropdownType === "use-cases" && "left-1/3 -translate-x-1/2",
+            dropdownType === "sandboxes" && "left-1/3 -translate-x-1/2",
             !dropdownType && "left-1/2 -translate-x-1/2",
           )}>
           <div className="w-max rounded-xl border border-white/10 bg-card p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
@@ -68,12 +68,12 @@ function Dropdown({ label, children, dropdownType }: { label: string; children: 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
-  const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
+  const [mobileSandboxesOpen, setMobileSandboxesOpen] = useState(false);
 
   const closeMobile = () => {
     setMobileOpen(false);
     setMobileProjectsOpen(false);
-    setMobileUseCasesOpen(false);
+    setMobileSandboxesOpen(false);
   };
 
   const toggleMobile = () => {
@@ -136,9 +136,9 @@ export function Navbar() {
             </div>
           </Dropdown>
 
-          <Dropdown label="Use Cases" dropdownType="use-cases">
+          <Dropdown label="Sandboxes" dropdownType="sandboxes">
             <div className="grid gap-1 w-[320px]">
-              {USE_CASES.map((uc) => (
+              {SANDBOXES.map((uc) => (
                 <Link
                   prefetch={false}
                   key={uc.title}
@@ -209,14 +209,14 @@ export function Navbar() {
             <li>
               <button
                 type="button"
-                onClick={() => setMobileUseCasesOpen(!mobileUseCasesOpen)}
+                onClick={() => setMobileSandboxesOpen(!mobileSandboxesOpen)}
                 className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-primary">
-                Use Cases
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileUseCasesOpen ? "rotate-180" : ""}`} />
+                Sandboxes
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileSandboxesOpen ? "rotate-180" : ""}`} />
               </button>
-              {mobileUseCasesOpen && (
+              {mobileSandboxesOpen && (
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
-                  {USE_CASES.map((uc) => (
+                  {SANDBOXES.map((uc) => (
                     <li key={uc.href}>
                       <Link prefetch={false} href={uc.href} onClick={closeMobile} className="text-sm text-white/50 hover:text-white">
                         {uc.title}

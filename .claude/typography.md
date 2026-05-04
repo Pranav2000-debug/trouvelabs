@@ -222,7 +222,7 @@ For icon-led lists (no bullet), use a flex layout instead and prefix each item w
 | Top-level nav link | `text-sm text-white/60 transition-colors hover:text-white` |
 | Dropdown item title | `text-sm font-medium text-white` |
 | Dropdown item description | `text-xs text-white/40` |
-| Dropdown eyebrow (e.g. SDK group label in use cases) | `text-xs font-medium uppercase tracking-wider text-primary` |
+| Dropdown eyebrow (e.g. SDK group label in sandboxes) | `text-xs font-medium uppercase tracking-wider text-primary` |
 | Mobile accordion section header | `text-xs font-semibold uppercase tracking-wider text-primary` |
 
 > The `text-white/X` palette in nav links is documented as-is pending a separate alignment pass on white-opacity drift. Colour rules in `.claude/design.md` will eventually replace these with `text-muted-foreground` / `text-foreground`.

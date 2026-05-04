@@ -14,13 +14,14 @@ export default function Teams() {
 
   return (
     <section id="team" className="relative overflow-hidden bg-background px-6 py-20 scroll-mt-24">
-      <div className="absolute top-20 left-0 xl:left-50 right-0 bottom-0 z-0">
+      <div className="absolute top-20 left-0  right-0 bottom-0 z-0">
         <Image
           src="/gradient-mesh.png"
           alt="About Background"
           width={2000}
           height={2000}
-          className="max-w-none h-auto w-full xl:w-[2000px] object-cover opacity-50 md:opacity-30"
+          style={{ height: "auto" }}
+          className="max-w-none w-full object-cover opacity-50 md:opacity-30"
         />
       </div>
 
@@ -33,7 +34,7 @@ export default function Teams() {
 
         <div
           role="tablist"
-          className="mt-12 -mx-6 flex gap-x-4 overflow-x-auto px-6 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-y-2 sm:overflow-visible sm:px-0 sm:pb-0">
+          className="relative mt-12 -mx-6 flex gap-x-4 overflow-x-auto px-6 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-y-2 sm:overflow-visible sm:px-0 sm:pb-0">
           {TEAM_GROUPS.map((group) => {
             const isActive = activeTab === group.id;
             return (

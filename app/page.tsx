@@ -33,7 +33,7 @@ export default async function HomePage() {
 
       <CapabilityShowcase />
 
-      {/* Locked: Core SDKs + Use Cases sticky stack */}
+      {/* Locked: Core SDKs + Sandboxes sticky stack */}
       <Suspense fallback={null}>
         <SmoothStackScroll />
       </Suspense>
