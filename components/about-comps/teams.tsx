@@ -1,122 +1,85 @@
 "use client";
 
-import { useState } from "react";
-import { Card } from "@/components/ui/focus-cards";
 import Image from "next/image";
-
-export type TeamMember = {
-  title: string;
-  jobTitle: string;
-  src: string;
-};
-
-// Members without a photo render a silhouette fallback inside <Card />.
-// Drop a real /team/<member>.png in and update the entry's `src` once available.
-const PLACEHOLDER = "";
-
-const teamMembers: TeamMember[] = [
-  { title: "Hood Khizer", jobTitle: "CEO", src: "/team/Hood%20Khizer.png" },
-  { title: "Muhammad Ibrahim", jobTitle: "Director Research & EM", src: "/team/Muhammad-ibrahim.png" },
-  { title: "Ilya Klyuev", jobTitle: "Business Development Manager", src: "/team/Ilya-Klyuev.png" },
-  { title: "Misbah Hareem", jobTitle: "Performance Evaluation Manager", src: "/team/misbah-hareem.png" },
-  { title: "Ahmad Ali", jobTitle: "Researcher", src: "/team/Ahmad-ali.png" },
-  { title: "Huzaifa Bin Khawar", jobTitle: "Researcher", src: "/team/Huzaifa-bin-khawar.png" },
-  { title: "Muhammad Kashif", jobTitle: "Researcher", src: PLACEHOLDER },
-  { title: "Talha Yousuf", jobTitle: "Researcher", src: "/team/Talha-Yousuf.png" },
-  { title: "Umair Pervaiz Butt", jobTitle: "Dev SDK", src: PLACEHOLDER },
-  { title: "Talha Nadeem", jobTitle: "SDK Dev", src: PLACEHOLDER },
-  { title: "Hafiz Hassan Sadiq", jobTitle: "SDK Dev", src: PLACEHOLDER },
-  { title: "Haider Asad", jobTitle: "Researcher", src: PLACEHOLDER },
-  { title: "Ali Asghar Huzaifa", jobTitle: "Researcher", src: "/team/aliashgar-huzaifa.png" },
-  { title: "Muhammad Asim Latif", jobTitle: "Researcher", src: "/team/Muhammad-asim-latif.png" },
-  { title: "Abdul Munem", jobTitle: "Tokenization", src: "/team/abdul-munem.png" },
-  { title: "Mehboob Raza", jobTitle: "Tokenization", src: PLACEHOLDER },
-  { title: "Syed Sam", jobTitle: "Tokenization", src: "/team/syed-sam.png" },
-  { title: "Fatimah Emad Eldin", jobTitle: "Researcher", src: PLACEHOLDER },
-  { title: "Kazi Ikram", jobTitle: "Front-end", src: "/team/Kazi-Ikram.png" },
-  { title: "Muhammad Zarar", jobTitle: "Full-stack Engineer + AI", src: "/team/Muhammad-zarar.png" },
-  { title: "Salman Hassan", jobTitle: "Backend + Researcher", src: "/team/salman-hassan.png" },
-  { title: "Khoula", jobTitle: "Researcher", src: "/team/khoula.png" },
-  { title: "Usama Bin Asif", jobTitle: "Full-stack Engineer + AI", src: "/team/usama-bin-asif.png" },
-  { title: "Wahaj", jobTitle: "Staff AI Researcher", src: "/team/wahaj.png" },
-  { title: "M. Waqas Afzal", jobTitle: "Office Manager", src: PLACEHOLDER },
-  { title: "Kaab Gazdar", jobTitle: "GenAI SDK / Intern", src: PLACEHOLDER },
-  { title: "Pranav Chandra", jobTitle: "Frontend/Backend (Intern)", src: "/team/pranav-chandra.png" },
-  { title: "M. Yasir Saleem", jobTitle: "Principal Product Engineer", src: "/team/yasir.jpg" },
-  { title: "Talha Ejaz", jobTitle: "AI Engineer", src: PLACEHOLDER },
-  { title: "Shah Nawaz", jobTitle: "Senior AI Engineer", src: "/team/shah-nawaz-khan.jpg"  },
-  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: PLACEHOLDER },
-];
+import { useState } from "react";
+import { UserRound } from "lucide-react";
+import * as motion from "motion/react-m";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { TEAM_GROUPS, TEAM_MEMBERS, type TeamGroup } from "@/lib/teams";
+import { cn } from "@/lib/utils";
 
 export default function Teams() {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const membersPerPage = 6;
-  const totalPages = Math.ceil(teamMembers.length / membersPerPage);
-  const start = (currentPage - 1) * membersPerPage;
-  const paginatedMembers = teamMembers.slice(start, start + membersPerPage);
-
-  const goToPage = (page: number) => {
-    setCurrentPage(page);
-    setHovered(null);
-  };
+  const [activeTab, setActiveTab] = useState<TeamGroup>(TEAM_GROUPS[0].id);
+  const members = TEAM_MEMBERS.filter((member) => member.teams.includes(activeTab));
 
   return (
-    <section className="relative overflow-hidden bg-background px-6 py-20">
-      <div className="absolute inset-0 z-0">
-        <Image src="/gradient-mesh.png" alt="About Background" width={2000} height={2000} className="object-cover opacity-40" />
+    <section id="team" className="relative overflow-hidden bg-background px-6 py-20 scroll-mt-24">
+      <div className="absolute top-20 left-0 xl:left-50 right-0 bottom-0 z-0">
+        <Image
+          src="/gradient-mesh.png"
+          alt="About Background"
+          width={2000}
+          height={2000}
+          className="max-w-none h-auto w-full xl:w-[2000px] object-cover opacity-50 md:opacity-30"
+        />
       </div>
+
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(280px,1fr)_minmax(420px,1.4fr)] lg:gap-16">
-          <div className="lg:pt-4">
-            <span className="inline-flex rounded-md bg-muted px-4 py-1.5 text-sm font-medium text-primary">Team</span>
-            <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">Our Creative Minds</h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">The team behind Trouve Labs.</p>
-          </div>
+        <div className="text-center">
+          <span className="inline-flex rounded-md bg-muted px-4 py-1.5 text-sm font-medium text-primary">Team</span>
+          <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">Our Creative Minds</h2>
+          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-muted-foreground">The team behind Trouve Labs.</p>
+        </div>
 
-          <div>
-            <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-10">
-              {paginatedMembers.map((member, index) => (
-                <div key={member.title} className="flex items-center gap-4">
-                  <Card card={member} index={index} hovered={hovered} setHovered={setHovered} />
-                  <div className="min-w-0">
-                    <h3 className="text-base font-semibold leading-tight text-foreground md:text-xl">{member.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground md:text-base">{member.jobTitle}</p>
-                  </div>
+        <div
+          role="tablist"
+          className="mt-12 -mx-6 flex gap-x-4 overflow-x-auto px-6 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-y-2 sm:overflow-visible sm:px-0 sm:pb-0">
+          {TEAM_GROUPS.map((group) => {
+            const isActive = activeTab === group.id;
+            return (
+              <button
+                key={group.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveTab(group.id)}
+                className={cn(
+                  "relative shrink-0 whitespace-nowrap px-2 py-1 text-sm font-medium transition-colors",
+                  isActive ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                )}>
+                {group.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="team-tab-underline"
+                    className="absolute -bottom-1 inset-x-0 h-0.5 rounded-full bg-primary"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                  />
+                )}
+              </button>
+            );
+          })}
+        </div>
+        <p className="mt-2 text-center text-xs text-muted-foreground/60 sm:hidden">Swipe to explore →</p>
+
+        <div role="tabpanel" className="mt-12 w-full min-h-80">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 md:gap-x-6 md:gap-y-7 lg:grid-cols-4">
+            {members.map((member) => (
+              <div key={member.title} className="flex items-center gap-3 md:gap-4">
+                <Avatar className="size-12 shrink-0 ring-2 ring-border md:size-20">
+                  {member.src ? (
+                    <Image src={member.src} alt={member.title} fill sizes="(min-width: 768px) 80px, 48px" className="object-cover" />
+                  ) : (
+                    <AvatarFallback>
+                      <UserRound className="size-5 text-muted-foreground md:size-7" strokeWidth={1.5} />
+                    </AvatarFallback>
+                  )}
+                </Avatar>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-semibold leading-tight text-foreground md:text-xl">{member.title}</h3>
+                  <p className="mt-0.5 text-xs text-muted-foreground md:mt-1 md:text-base">{member.jobTitle}</p>
                 </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={() => goToPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-                className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40">
-                Prev
-              </button>
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <button
-                  key={page}
-                  type="button"
-                  onClick={() => goToPage(page)}
-                  className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
-                    page === currentPage
-                      ? "bg-primary/10 text-primary"
-                      : "border border-border text-muted-foreground hover:border-primary hover:text-primary"
-                  }`}>
-                  {page}
-                </button>
-              ))}
-              <button
-                type="button"
-                onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
-                disabled={currentPage === totalPages}
-                className="rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40">
-                Next
-              </button>
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

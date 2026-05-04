@@ -21,14 +21,14 @@ const RESOURCE_LINKS: FooterLinkItem[] = [
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
   { href: "https://example.com", label: "Contact" },
-  { href: "/team", label: "Trouve Team" },
+  { href: "/about#team", label: "Trouve Team" },
 
 ];
 
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-xs font-medium text-primary uppercase tracking-wider">{title}</h3>
+      <h3 className="mb-4 text-sm font-medium text-primary uppercase tracking-wider">{title}</h3>
       <ul className="flex flex-col gap-2">
         {links.map((link) => (
           <li key={link.href}>
