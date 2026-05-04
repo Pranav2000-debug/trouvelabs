@@ -17,7 +17,7 @@ Every `trouve-*` color has a semantic alias in `app/globals.css`. **Always reach
 | Page background | `bg-background` | `#0e1024` (dark) |
 | Body text | `text-foreground` | `--color-trouve-offwhite` |
 | Secondary text (paragraphs, captions) | `text-muted-foreground` | grey |
-| Card surface (the lifted thing) | `bg-card` | `--color-trouve-surface` |
+| Card surface (the lifted thing) | `bg-card` | `--color-trouve-card` |
 | Section / recessed surface | `bg-secondary` or `bg-muted` | `--color-trouve-navy` |
 | Brand accent (primary/teal) | `bg-primary` / `text-primary` | `--color-trouve-teal` |
 | Brand accent (alt name, same colour) | `bg-accent` / `text-accent` | `--color-trouve-teal` |
@@ -135,7 +135,7 @@ This is the canonical answer to "which class do I use here?"
 ## 5. What NOT to do
 
 - ❌ `/15`, `/20`, `/40` (except the documented `bg-secondary/40` inner panel), `/50`, `/70`, `/90` — pick `/10`, `/30`, `/60`, `/80`, or solid.
-- ❌ `bg-trouve-surface` when `bg-card` says the same thing.
+- ❌ `bg-trouve-card` when `bg-card` says the same thing.
 - ❌ `text-trouve-teal` when `text-primary` says the same thing.
 - ❌ `border-trouve-border` when `border-border` says the same thing.
 - ❌ Mixing `/10` and `/15` in the same component (or codebase). One scale.

@@ -28,7 +28,7 @@ export default function ProjectsIndexPage() {
             return project.comingSoon ? (
               <div
                 key={project.slug}
-                className="relative flex flex-col rounded-xl border border-trouve-border bg-trouve-surface/90 p-6 opacity-55 cursor-not-allowed select-none">
+                className="relative flex flex-col rounded-xl border border-trouve-border bg-trouve-card/90 p-6 opacity-55 cursor-not-allowed select-none">
                 <span className="absolute top-4 right-4 rounded-full bg-white/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-white/50">
                   Coming Soon
                 </span>
@@ -45,7 +45,7 @@ export default function ProjectsIndexPage() {
                 key={project.slug}
                 prefetch={false}
                 href={`/projects/${project.slug}`}
-                className="group relative flex flex-col rounded-xl border border-trouve-border bg-trouve-surface/90 p-6 transition-all hover:border-trouve-teal/40 hover:shadow-lg hover:shadow-trouve-teal/10 cursor-pointer">
+                className="group relative flex flex-col rounded-xl border border-trouve-border bg-trouve-card/90 p-6 transition-all hover:border-trouve-teal/40 hover:shadow-lg hover:shadow-trouve-teal/10 cursor-pointer">
                 <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-trouve-teal/10">
                   <Icon className="h-5 w-5 text-trouve-teal" />
                 </div>

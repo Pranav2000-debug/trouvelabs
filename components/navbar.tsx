@@ -42,7 +42,7 @@ function Dropdown({ label, children, dropdownType }: { label: string; children: 
     <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         type="button"
-        className="flex items-center gap-1 text-sm text-white/60 transition-colors hover:text-trouve-teal"
+        className="flex items-center gap-1 text-sm text-white/60 transition-colors hover:text-primary"
         onClick={() => setOpen(!open)}>
         {label}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
@@ -80,7 +80,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-[#0e1015]/40 px-8 py-0.5 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-background/80 px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
@@ -88,10 +88,10 @@ export function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-6 md:flex">
-          <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-trouve-teal">
+          <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-primary">
             Home
           </Link>
-          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-trouve-teal">
+          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-primary">
             About
           </Link>
           <Dropdown label="Documentation" >
@@ -100,8 +100,8 @@ export function Navbar() {
                 const Icon = p.icon;
                 return p.comingSoon ? (
                   <div key={p.slug} className="flex gap-3 rounded-lg p-2.5 opacity-50 cursor-default select-none">
-                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
-                      <Icon className="h-3.5 w-3.5 text-trouve-teal" />
+                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10">
+                      <Icon className="h-3.5 w-3.5 text-primary" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
@@ -119,8 +119,8 @@ export function Navbar() {
                     key={p.slug}
                     href={`/projects/${p.slug}`}
                     className="flex gap-3 rounded-lg p-2.5 transition-colors hover:bg-white/5">
-                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-trouve-teal/10">
-                      <Icon className="h-3.5 w-3.5 text-trouve-teal" />
+                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10">
+                      <Icon className="h-3.5 w-3.5 text-primary" />
                     </div>
                     <div>
                       <div className="text-sm font-medium text-white">{p.title}</div>
@@ -140,7 +140,7 @@ export function Navbar() {
                   key={uc.title}
                   href={uc.href}
                   className="flex flex-col gap-1 rounded-lg p-2.5 transition-colors hover:bg-white/5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-trouve-teal">{uc.sdks}</span>
+                  <span className="text-[10px] font-medium uppercase tracking-wider text-primary">{uc.sdks}</span>
                   <div className="text-sm font-medium text-white">{uc.title}</div>
                   <p className="text-xs text-white/40">{uc.description}</p>
                 </Link>
@@ -162,7 +162,7 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-white/10 bg-[#111318]/98 p-6 backdrop-blur-xl md:hidden">
+        <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-white/10 bg-background p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-4">
             <li>
               <Link prefetch={false} href="/" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
@@ -173,7 +173,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
-                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
+                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-primary">
                 Documentation
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileProjectsOpen ? "rotate-180" : ""}`} />
               </button>
@@ -206,7 +206,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileUseCasesOpen(!mobileUseCasesOpen)}
-                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-trouve-teal">
+                className="flex w-full items-center justify-between text-xs font-semibold uppercase tracking-wider text-primary">
                 Use Cases
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${mobileUseCasesOpen ? "rotate-180" : ""}`} />
               </button>
@@ -237,7 +237,7 @@ export function Navbar() {
               prefetch={false}
               href="mailto:Hood@MailAhoy.com"
               onClick={() => setMobileOpen(false)}
-              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-trouve-teal text-sm font-semibold text-primary-foreground hover:bg-trouve-teal/90">
+              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/80">
               Request a Demo
             </Link>
           </div>

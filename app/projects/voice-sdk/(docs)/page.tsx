@@ -65,7 +65,7 @@ export default function VoiceSdkOverviewPage() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-surface/70 p-5 transition-colors hover:border-trouve-teal/40">
+              className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-card/70 p-5 transition-colors hover:border-trouve-teal/40">
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-foreground">{link.title}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{link.display}</p>

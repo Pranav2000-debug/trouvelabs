@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
@@ -21,16 +21,18 @@ const RESOURCE_LINKS: FooterLinkItem[] = [
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
   { href: "https://example.com", label: "Contact" },
+  { href: "/team", label: "Trouve Team" },
+
 ];
 
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-semibold text-trouve-teal uppercase tracking-wider">{title}</h3>
-      <ul className="flex flex-col gap-3">
+      <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wider">{title}</h3>
+      <ul className="flex flex-col gap-2">
         {links.map((link) => (
           <li key={link.href}>
-            <Link prefetch={false} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-trouve-teal">
+            <Link prefetch={false} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
               {link.label}
             </Link>
           </li>
@@ -47,7 +49,7 @@ export function Footer() {
     label: p.title,
   }));
   return (
-    <footer className="border-t border-white/6 bg-[#0e1015]">
+    <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
@@ -59,7 +61,7 @@ export function Footer() {
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
+              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-primary">
                 example.com
               </Link> */}
             </p>
@@ -72,11 +74,18 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-trouve-border pt-8 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">© {year} Trouve Labs. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">
-            Part of the <span className="font-medium text-trouve-teal"><a target="_blank" href="https://ahoy.technology/">AHOY Ecosystem</a></span>
-          </p>
+          <a
+            href="https://ahoy.technology/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-card/30 px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground">
+            <Image src="/ahoy-logo-colored.png" alt="AHOY" width={16} height={16} className="shrink-0" />
+            <span>
+              Part of the <span className="font-medium text-primary">AHOY Ecosystem</span>
+            </span>
+          </a>
         </div>
       </div>
     </footer>

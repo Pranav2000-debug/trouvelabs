@@ -28,8 +28,10 @@
   --radius-2xl: calc(var(--radius) + 8px);
 
   /* Trouve brand tokens */
-  --color-trouve-navy: #1c2233; /* used for larger backgrounds and can be paired with opacity*/
-  --color-trouve-surface: #141821; /* used for cards (usually also paired with navy) and can be paired with opacity*/
+  --color-trouve-base: #09090b; /* dark text on accent fills (buttons, primary chips). Consumed via *-foreground tokens */
+  --color-trouve-shell: #0e1015; /* page background. Consumed via --background — use bg-background, not bg-trouve-shell */
+  --color-trouve-card: #141821; /* card surface. Consumed via bg-card / --popover. Avoid bg-trouve-card directly when bg-card says the same thing — see design.md §1 */
+  --color-trouve-navy: #1c2233; /* recessed/secondary surface. Consumed via bg-secondary, bg-muted (and rarely bg-trouve-navy/40 for tinted sections) */
   --color-trouve-teal: #4ec9d4; /* primary color */
   --color-trouve-yellow: #f5e642;
   --color-trouve-red: #ef4444;
@@ -98,14 +100,14 @@
   /* ── Active variables ── */
 
   /* Core surfaces */
-  --background: #09090b;
+  --background: var(--color-trouve-shell);
   --foreground: var(--color-trouve-offwhite);
-  --card: var(--color-trouve-surface);
+  --card: var(--color-trouve-card);
   --card-foreground: var(--color-trouve-offwhite);
 
   /* Primary - teal accent (buttons, active states) */
   --primary: var(--color-trouve-teal);
-  --primary-foreground: #09090b;
+  --primary-foreground: var(--color-trouve-base);
 
   /* Secondary - subtle dark surface for cards/sections */
   --secondary: var(--color-trouve-navy);
@@ -128,12 +130,12 @@
    */
 
   /* Popover */
-  --popover: var(--color-trouve-surface);
+  --popover: var(--color-trouve-card);
   --popover-foreground: var(--color-trouve-offwhite);
 
   /* Accent */
   --accent: var(--color-trouve-teal);
-  --accent-foreground: #09090b;
+  --accent-foreground: var(--color-trouve-base);
 
   /* Destructive */
   --destructive: var(--color-trouve-red);
@@ -152,7 +154,7 @@
   --sidebar: #0e0f14;
   --sidebar-foreground: var(--color-trouve-offwhite);
   --sidebar-primary: var(--color-trouve-yellow);
-  --sidebar-primary-foreground: #09090b;
+  --sidebar-primary-foreground: var(--color-trouve-base);
   --sidebar-accent: var(--color-trouve-navy);
   --sidebar-accent-foreground: var(--color-trouve-offwhite);
   --sidebar-border: var(--color-trouve-border);

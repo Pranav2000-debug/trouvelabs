@@ -39,7 +39,7 @@ export default function VisionSdkOverviewPage() {
             href="https://visionsdk.trouvelabs.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-surface/70 p-5 transition-colors hover:border-trouve-teal/40">
+            className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-card/70 p-5 transition-colors hover:border-trouve-teal/40">
             <div className="min-w-0">
               <p className="text-sm font-semibold text-foreground">Vision Platform</p>
               <p className="mt-1 text-xs text-muted-foreground">visionsdk.trouvelabs.io</p>

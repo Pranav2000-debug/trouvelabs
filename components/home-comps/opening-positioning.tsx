@@ -56,7 +56,7 @@ export default function OpeningPositioning() {
               return (
                 <li
                   key={m.label}
-                  className="flex items-center gap-5 rounded-2xl border border-trouve-border bg-trouve-surface/70 p-5 backdrop-blur-sm transition-colors hover:border-trouve-teal/30">
+                  className="flex items-center gap-5 rounded-2xl border border-trouve-border bg-trouve-card/70 p-5 backdrop-blur-sm transition-colors hover:border-trouve-teal/30">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-trouve-teal/10">
                     <Icon className="h-6 w-6 text-trouve-teal" />
                   </div>
