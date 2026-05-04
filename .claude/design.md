@@ -143,13 +143,8 @@ Default to native Tailwind tiers (`text-xs` 12px, `text-sm` 14px, `text-base` 16
 
 ## 5. What NOT to do
 
-<<<<<<< HEAD
 - ❌ `/15`, `/20`, `/40`, `/50`, `/70`, `/90` — pick `/10`, `/30`, `/60`, `/80`, or solid. **No exceptions.**
 - ❌ `bg-trouve-surface` when `bg-card` says the same thing.
-=======
-- ❌ `/15`, `/20`, `/40` (except the documented `bg-secondary/40` inner panel), `/50`, `/70`, `/90` — pick `/10`, `/30`, `/60`, `/80`, or solid.
-- ❌ `bg-trouve-card` when `bg-card` says the same thing.
->>>>>>> ui/update-color-tokens
 - ❌ `text-trouve-teal` when `text-primary` says the same thing.
 - ❌ `border-trouve-border` when `border-border` says the same thing.
 - ❌ Mixing `/10` and `/15` in the same component (or codebase). One scale.
