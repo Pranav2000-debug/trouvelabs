@@ -28,7 +28,7 @@ export default function ApiReferencePage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">Data Intelligence SDK</p>
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">Data Intelligence SDK</p>
 
         <h1 id="api-reference" className="text-4xl font-bold tracking-tight text-foreground mb-4">API Reference</h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
@@ -37,11 +37,11 @@ export default function ApiReferencePage() {
 
         <h2 id="client" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Client</h2>
         <p className="text-[15px] text-muted-foreground leading-7 mb-4">
-          The <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">GraphRAG</code> class is the single entry point for ingestion and retrieval. Sed do eiusmod tempor incididunt ut labore.
+          The <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">GraphRAG</code> class is the single entry point for ingestion and retrieval. Sed do eiusmod tempor incididunt ut labore.
         </p>
 
         <h3 id="constructor" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Constructor</h3>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`new GraphRAG(options: GraphRAGOptions)
 
 interface GraphRAGOptions {
@@ -61,21 +61,21 @@ interface GraphRAGOptions {
         <h3 id="query-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">question</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">question</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">string</code>. Lorem ipsum dolor sit amet.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">topK</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">number</code>, optional. Maximum number of subgraph paths to return. Defaults to <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">8</code>.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">topK</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">number</code>, optional. Maximum number of subgraph paths to return. Defaults to <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">8</code>.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">filters</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">Record&lt;string, unknown&gt;</code>, optional. Restricts traversal to matching node attributes.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">filters</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">Record&lt;string, unknown&gt;</code>, optional. Restricts traversal to matching node attributes.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">stream</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">boolean</code>, optional. When true, returns an async iterable of tokens.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">stream</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">boolean</code>, optional. When true, returns an async iterable of tokens.
           </li>
         </ul>
 
         <h3 id="query-returns" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Returns</h3>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`interface QueryResult {
   answer: string;
   subgraph: {
@@ -93,33 +93,33 @@ interface GraphRAGOptions {
         <h3 id="ingest-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">source</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string | ReadableStream</code>. Path, URL, or stream of records.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">source</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">string | ReadableStream</code>. Path, URL, or stream of records.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">string</code>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">schema</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">string</code>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">onProgress</code> - <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">(p: Progress) =&gt; void</code>, optional. Called as records are committed.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">onProgress</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">(p: Progress) =&gt; void</code>, optional. Called as records are committed.
           </li>
         </ul>
 
         <h2 id="errors" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Errors</h2>
         <p className="text-[15px] text-muted-foreground leading-7 mb-4">
-          Excepteur sint occaecat cupidatat non proident. All errors thrown by the SDK extend <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">GraphRAGError</code> and expose a stable{" "}
-          <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">code</code> field.
+          Excepteur sint occaecat cupidatat non proident. All errors thrown by the SDK extend <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">GraphRAGError</code> and expose a stable{" "}
+          <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">code</code> field.
         </p>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">auth_failed</code> - invalid or expired API key.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">auth_failed</code> - invalid or expired API key.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">rate_limited</code> - workspace quota exceeded.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">rate_limited</code> - workspace quota exceeded.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">schema_mismatch</code> - ingested record does not match the declared schema.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">schema_mismatch</code> - ingested record does not match the declared schema.
           </li>
           <li>
-            <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">internal</code> - fall-through error; safe to retry with backoff.
+            <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">internal</code> - fall-through error; safe to retry with backoff.
           </li>
         </ul>
       </DocsPage>

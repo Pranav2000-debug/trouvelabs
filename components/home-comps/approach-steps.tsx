@@ -58,10 +58,10 @@ export default function ApproachSteps() {
   ));
 
   return (
-    <section className="relative bg-trouve-navy/40 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">Our Approach</p>
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">Our Approach</p>
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
             From mathematical models to intelligent infrastructure.
           </h2>

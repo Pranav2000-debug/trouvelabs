@@ -13,7 +13,7 @@ export default function PhilosophyBand() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-8">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">
               Innovation that moves beyond buzzwords
             </p>
             <h2 className="text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">

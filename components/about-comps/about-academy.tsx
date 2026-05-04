@@ -39,7 +39,7 @@ export function AboutAcademy() {
               return (
                 <li
                   key={t.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-foreground">
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground">
                   <Icon className="h-3.5 w-3.5 text-primary" />
                   {t.label}
                 </li>

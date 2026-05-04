@@ -20,7 +20,7 @@ export function AboutCoreValues() {
       <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left visual */}
         <div className="hidden items-center justify-center lg:col-span-4 lg:flex">
-          <div className="relative flex h-56 w-56 items-center justify-center rounded-3xl border border-primary/30 bg-secondary/40">
+          <div className="relative flex h-56 w-56 items-center justify-center rounded-3xl border border-primary/30 bg-secondary/60">
             <ShieldCheck className="h-20 w-20 text-primary" />
             <div className="absolute -inset-2 rounded-3xl border border-primary/10" />
             <div className="absolute -inset-5 rounded-3xl border border-primary/10" />
@@ -50,7 +50,7 @@ export function AboutCoreValues() {
               return (
                 <span
                   key={chip.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-foreground">
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground">
                   <Icon className="h-3.5 w-3.5 text-primary" />
                   {chip.label}
                 </span>

@@ -49,7 +49,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
       <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
         On this page
       </p>
-      <ul className="flex flex-col border-l border-trouve-border">
+      <ul className="flex flex-col border-l border-border">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -62,7 +62,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
                   item.depth === 2 && "pl-6",
                   item.depth === 3 && "pl-9",
                   isActive
-                    ? "border-trouve-teal text-trouve-teal"
+                    ? "border-primary text-primary"
                     : "border-transparent text-muted-foreground hover:text-foreground",
                 )}
               >

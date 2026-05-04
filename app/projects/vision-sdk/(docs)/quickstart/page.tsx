@@ -20,7 +20,7 @@ export default function VisionSdkQuickstartPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
           Vision SDK
         </p>
 

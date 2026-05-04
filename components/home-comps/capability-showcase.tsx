@@ -213,7 +213,7 @@ function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
         <p className="font-mono text-sm font-semibold text-foreground tracking-tight">
           {card.title}
         </p>
-        <p className="mt-0.5 font-mono text-xs text-trouve-teal">
+        <p className="mt-0.5 font-mono text-xs text-primary">
           {card.subtitle}
         </p>
       </div>
@@ -226,13 +226,13 @@ function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
           speed={8}
           characters={DEFAULT_CHARS}
           className="font-mono"
-          encryptedClassName="font-mono text-trouve-teal/50"
+          encryptedClassName="font-mono text-primary/60"
         />
       </div>
       <ul className="mt-4 space-y-2.5">
         {card.bullets.map((b, i) => (
           <li key={`${prefix}-b-${i}`} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
-            <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-trouve-teal" />
+            <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-primary" />
             <DecryptedText
               key={`${prefix}-b-text-${i}`}
               text={b}
@@ -241,7 +241,7 @@ function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
               speed={20}
               characters={DEFAULT_CHARS}
               className="font-mono"
-              encryptedClassName="font-mono text-trouve-teal/50"
+              encryptedClassName="font-mono text-primary/60"
             />
           </li>
         ))}
@@ -260,7 +260,7 @@ function buildTab(cap: Capability): TabData {
     content: (
       <div className="flex flex-col gap-6">
         <CapabilityFacet prefix={`${cap.id}-0`} card={cap.cards[0]} />
-        <div className="border-t border-trouve-border" />
+        <div className="border-t border-border" />
         <CapabilityFacet prefix={`${cap.id}-1`} card={cap.cards[1]} />
       </div>
     ),
@@ -275,7 +275,7 @@ export default function CapabilityShowcase() {
     <section className="relative bg-background px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">What we do</p>
+          <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">What we do</p>
           <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
             We transform research into working technology.
           </h2>

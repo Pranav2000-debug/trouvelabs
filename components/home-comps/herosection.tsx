@@ -34,7 +34,7 @@ export default async function HeroSection() {
             <Link
               prefetch={false}
               href="#contact"
-              className="group inline-flex h-11 items-center justify-center rounded-md bg-trouve-teal px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-trouve-teal/90">
+              className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/80">
               <span>Get in Touch</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
@@ -45,7 +45,7 @@ export default async function HeroSection() {
             <Link
               prefetch={false}
               href="/projects"
-              className="group inline-flex h-11 items-center justify-center rounded-md border bg-background/40 backdrop-blur-3xl border-trouve-teal/40 px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-trouve-teal hover:text-trouve-teal">
+              className="group inline-flex h-11 items-center justify-center rounded-md border bg-background/30 backdrop-blur-3xl border-primary/30 px-6 text-sm font-medium text-muted-foreground transition-all duration-300 ease-out hover:border-primary hover:text-primary">
               <span>Explore Our Research</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
                 <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">

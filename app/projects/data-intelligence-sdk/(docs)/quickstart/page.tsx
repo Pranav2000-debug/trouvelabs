@@ -26,7 +26,7 @@ export default function QuickstartPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
           Data Intelligence SDK
         </p>
 
@@ -51,7 +51,7 @@ export default function QuickstartPage() {
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           The SDK ships as an ES module and works in Node and edge runtimes.
         </p>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`npm install @trouve/graph-rag-sdk`}</code>
         </pre>
 
@@ -61,11 +61,11 @@ export default function QuickstartPage() {
           Set your API key as an environment variable, then construct the
           client.
         </p>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`# .env
 TROUVE_API_KEY=sk_live_...`}</code>
         </pre>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`import { GraphRAG } from "@trouve/graph-rag-sdk";
 
 const client = new GraphRAG({
@@ -78,7 +78,7 @@ const client = new GraphRAG({
           Duis aute irure dolor in reprehenderit. Run a query against the
           default workspace graph to confirm everything is wired up.
         </p>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`const { answer, subgraph } = await client.query({
   question: "Which routes had the highest delay variance last week?",
   topK: 5,
@@ -88,8 +88,8 @@ console.log(answer);`}</code>
         </pre>
         <p className="text-[15px] text-muted-foreground leading-7 mb-4">
           You should see a grounded answer along with the subgraph the model
-          used to generate it. <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">subgraph.nodes</code> and{" "}
-          <code className="rounded bg-trouve-surface px-1.5 py-0.5 text-[13px] text-trouve-teal font-mono border border-trouve-border">subgraph.edges</code> are returned as plain JSON.
+          used to generate it. <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">subgraph.nodes</code> and{" "}
+          <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">subgraph.edges</code> are returned as plain JSON.
         </p>
 
         <h2 id="ingest-data" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Ingest data</h2>
@@ -98,7 +98,7 @@ console.log(answer);`}</code>
           API at any structured or unstructured source - the SDK takes care
           of chunking, entity extraction, and edge inference.
         </p>
-        <pre className="rounded-xl border border-trouve-border bg-trouve-surface p-4 overflow-x-auto mb-6 text-[13px] leading-6">
+        <pre className="rounded-xl border border-border bg-card p-4 overflow-x-auto mb-6 text-sm leading-6">
           <code className="text-foreground font-mono">{`await client.ingest({
   source: "s3://trouve-demo/fleet-logs/",
   schema: "mobility/incident.v2",
@@ -110,11 +110,11 @@ console.log(answer);`}</code>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
             Browse the{" "}
-            <a href="/projects/data-intelligence-sdk/api-reference" className="text-trouve-teal underline-offset-4 hover:underline">API Reference</a>{" "}
+            <a href="/projects/data-intelligence-sdk/api-reference" className="text-primary underline-offset-4 hover:underline">API Reference</a>{" "}
             for every method, option, and return type.
           </li>
           <li>
-            Read the <a href="/projects/data-intelligence-sdk" className="text-trouve-teal underline-offset-4 hover:underline">Overview</a> for
+            Read the <a href="/projects/data-intelligence-sdk" className="text-primary underline-offset-4 hover:underline">Overview</a> for
             a deeper look at how Data Intelligence works under the hood.
           </li>
         </ul>

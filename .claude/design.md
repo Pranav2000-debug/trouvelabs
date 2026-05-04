@@ -56,10 +56,8 @@ This is the canonical answer to "which class do I use here?"
 | Page / section root | `bg-background` |
 | Big card on a section | `bg-card` |
 | Card with frosted blur over busy backdrop | `bg-card/80 backdrop-blur-sm` |
-| Inner panel inside a card (recessed) | `bg-secondary/40` *(exception — see note)* |
+| Inner panel inside a card (recessed) | `bg-secondary/60` |
 | Section that wants a slight navy tint | `bg-secondary` (full strength) |
-
-> **Exception note on `/40`:** `bg-secondary/40` is the *only* place the scale allows `/40`, because the inner panel needs to sit between the card (`bg-card` solid) and the "fully recessed" feel. We accept the half-tier here. Everywhere else, round to `/30` or `/60`.
 
 ### Borders
 
@@ -78,6 +76,17 @@ This is the canonical answer to "which class do I use here?"
 | Headings, strong | `text-foreground` |
 | Brand eyebrow / link | `text-primary` (solid) |
 | Faded brand emphasis (e.g. encrypted glyph state) | `text-primary/60` |
+
+### Text sizes
+
+Default to native Tailwind tiers (`text-xs` 12px, `text-sm` 14px, `text-base` 16px, `text-lg`+). Avoid arbitrary `text-[Npx]` values — round to the nearest preset.
+
+| Role | Class |
+|---|---|
+| Code blocks (`<pre>`) and inline `<code>` chips in docs | `text-sm` |
+| Tiny "SOON" / "NEW" pill badges (uppercase, tracked) | `text-[9px]` *(only sanctioned arbitrary size — to be tokenised later)* |
+
+> **Note on `text-[9px]`:** The "Coming Soon" / "Soon" pill badges in the navbar dropdown, homepage SDK cards, and `/projects` hub use `text-[9px]` because `text-xs` (12px) is too large for the tight pill geometry. This is the only place an arbitrary `text-[Npx]` is allowed in production code. Will be replaced with a `text-badge` (or similar) preset/utility once we add it to `globals.css`.
 
 ### Icon chips (the colored square holding a Lucide icon)
 
@@ -116,7 +125,7 @@ This is the canonical answer to "which class do I use here?"
 </li>
 
 // Inner content panel inside a big card — bentoProtusion.tsx
-<div className="bg-secondary/40 rounded-3xl p-8">…</div>
+<div className="bg-secondary/60 rounded-3xl p-8">…</div>
 
 // Active button vs inactive — bentoProtusion.tsx tab
 <button className={isActive ? "bg-card" : "bg-transparent hover:bg-card/30"}>…</button>
@@ -134,7 +143,7 @@ This is the canonical answer to "which class do I use here?"
 
 ## 5. What NOT to do
 
-- ❌ `/15`, `/20`, `/40` (except the documented `bg-secondary/40` inner panel), `/50`, `/70`, `/90` — pick `/10`, `/30`, `/60`, `/80`, or solid.
+- ❌ `/15`, `/20`, `/40`, `/50`, `/70`, `/90` — pick `/10`, `/30`, `/60`, `/80`, or solid. **No exceptions.**
 - ❌ `bg-trouve-surface` when `bg-card` says the same thing.
 - ❌ `text-trouve-teal` when `text-primary` says the same thing.
 - ❌ `border-trouve-border` when `border-border` says the same thing.
@@ -148,6 +157,6 @@ This is the canonical answer to "which class do I use here?"
 1. **What does this element represent?** → Look up the role in §3.
 2. **Is it a hover, active, or default state?** → `/30`, `/60`, or solid.
 3. **Did you use a `trouve-*` token?** → Replace with the semantic if §1 lists one.
-4. **Did you reach for `/40` or `/70` or `/90`?** → Round to the nearest tier in §2 unless you're working on the `bg-secondary/40` inner panel.
+4. **Did you reach for `/40` or `/70` or `/90`?** → Round to the nearest tier in §2. No exceptions.
 
 If you can't find your case in this doc, **add a row to §3 in this file** before you ship the change. Document, then build.

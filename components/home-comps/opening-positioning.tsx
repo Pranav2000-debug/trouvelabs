@@ -35,12 +35,12 @@ const MOVEMENTS: Movement[] = [
 
 export default function OpeningPositioning() {
   return (
-    <section className="relative bg-trouve-navy/40 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - heading + closing line */}
           <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-trouve-teal">Deep Tech R&amp;D for Smarter Systems</p>
+            <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">Deep Tech R&amp;D for Smarter Systems</p>
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Every system has movement.
             </h2>
@@ -56,9 +56,9 @@ export default function OpeningPositioning() {
               return (
                 <li
                   key={m.label}
-                  className="flex items-center gap-5 rounded-2xl border border-trouve-border bg-trouve-surface/70 p-5 backdrop-blur-sm transition-colors hover:border-trouve-teal/30">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-trouve-teal/10">
-                    <Icon className="h-6 w-6 text-trouve-teal" />
+                  className="flex items-center gap-5 rounded-2xl border border-border bg-card/80 p-5 backdrop-blur-sm transition-colors hover:border-primary/30">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <div className="min-w-0">
                     <p className="text-lg font-semibold text-foreground">{m.label}</p>

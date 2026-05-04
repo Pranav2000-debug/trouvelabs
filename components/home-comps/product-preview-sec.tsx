@@ -28,7 +28,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
               return product.comingSoon ? (
                 <div
                   key={product.slug}
-                  className={cn(span, "relative flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
+                  className={cn(span, "relative flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
                   <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                     <IconComponent className="h-5 w-5 text-primary" />
@@ -41,7 +41,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   prefetch={false}
                   key={product.slug}
                   href={`/projects/${product.slug}`}
-                  className={cn(span, "group flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer")}>
+                  className={cn(span, "group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer")}>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                     <IconComponent className="h-5 w-5 text-primary" />
                   </div>
@@ -65,7 +65,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 return product.comingSoon ? (
                   <div
                     key={product.slug}
-                    className="relative flex h-full flex-col snap-center rounded-xl border bg-card/90 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
+                    className="relative flex h-full flex-col snap-center rounded-xl border bg-card/80 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
                     <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                       <IconComponent className="h-4 w-4 text-primary" />
@@ -78,7 +78,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                     prefetch={false}
                     key={product.slug}
                     href={`/projects/${product.slug}`}
-                    className="flex h-full flex-col snap-center rounded-xl border bg-card/90 backdrop-blur-sm p-5 transition-all cursor-pointer">
+                    className="flex h-full flex-col snap-center rounded-xl border bg-card/80 backdrop-blur-sm p-5 transition-all cursor-pointer">
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                       <IconComponent className="h-4 w-4 text-primary" />
                     </div>
@@ -110,7 +110,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 href={uc.href}
                 target={uc.external ? "_blank" : undefined}
                 rel={uc.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col rounded-xl border bg-card/90 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
+                className="group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
                 <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
                 <h3 className="text-xl sm:text-2xl font-bold">{uc.name}.</h3>
                 <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>

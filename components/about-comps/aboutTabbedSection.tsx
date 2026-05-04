@@ -96,7 +96,7 @@ export function AboutTabbedSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="rounded-xl border bg-background/40 p-5 sm:p-6 border-primary/60 hover:text-primary">
+                  className="rounded-xl border bg-background/30 p-5 sm:p-6 border-primary/60 hover:text-primary">
                   <h2 className="text-xl font-bold sm:text-2xl">{activeSection?.title}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">{activeSection?.body}</p>
                 </m.div>

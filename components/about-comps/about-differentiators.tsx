@@ -48,7 +48,7 @@ export function AboutDifferentiators() {
           return (
             <div
               key={d.label}
-              className="flex flex-col rounded-2xl border border-border bg-secondary/40 p-6 sm:p-8">
+              className="flex flex-col rounded-2xl border border-border bg-secondary/60 p-6 sm:p-8">
               <div className="flex items-start justify-between gap-4">
                 <span className="text-xs font-medium uppercase tracking-wider text-primary">{d.label}</span>
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
@@ -63,7 +63,7 @@ export function AboutDifferentiators() {
                 {d.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-border bg-card px-2.5 py-1 text-[11px] font-medium text-muted-foreground">
+                    className="rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium text-muted-foreground">
                     {t}
                   </span>
                 ))}

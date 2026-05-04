@@ -69,7 +69,7 @@ export function JourneyConnector({
     <div
       ref={ref}
       aria-hidden="true"
-      className={cn("pointer-events-none relative w-full text-trouve-teal", className)}
+      className={cn("pointer-events-none relative w-full text-primary", className)}
       style={{ height }}>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-full w-full">
         <m.path

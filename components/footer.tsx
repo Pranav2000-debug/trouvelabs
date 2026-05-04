@@ -26,11 +26,11 @@ const COMPANY_LINKS: FooterLinkItem[] = [
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-semibold text-trouve-teal uppercase tracking-wider">{title}</h3>
+      <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wider">{title}</h3>
       <ul className="flex flex-col gap-3">
         {links.map((link) => (
           <li key={link.href}>
-            <Link prefetch={false} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-trouve-teal">
+            <Link prefetch={false} href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-primary">
               {link.label}
             </Link>
           </li>
@@ -47,7 +47,7 @@ export function Footer() {
     label: p.title,
   }));
   return (
-    <footer className="border-t border-white/6 bg-[#0e1015]">
+    <footer className="border-t border-border bg-card">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
@@ -59,7 +59,7 @@ export function Footer() {
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-trouve-teal">
+              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-primary">
                 example.com
               </Link> */}
             </p>
@@ -72,10 +72,10 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-trouve-border pt-8 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">© {year} Trouve Labs. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">
-            Part of the <span className="font-medium text-trouve-teal"><a target="_blank" href="https://ahoy.technology/">AHOY Ecosystem</a></span>
+            Part of the <span className="font-medium text-primary"><a target="_blank" href="https://ahoy.technology/">AHOY Ecosystem</a></span>
           </p>
         </div>
       </div>

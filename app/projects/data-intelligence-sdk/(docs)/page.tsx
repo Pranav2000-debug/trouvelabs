@@ -30,7 +30,7 @@ export default function GraphRagSdkOverviewPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
           SDK Overview
         </p>
 
@@ -329,14 +329,14 @@ export default function GraphRagSdkOverviewPage() {
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
           <li>
             <strong className="text-foreground font-semibold">
-              <a href="/projects/data-intelligence-sdk/quickstart" className="text-trouve-teal underline-offset-4 hover:underline">Quickstart</a>
+              <a href="/projects/data-intelligence-sdk/quickstart" className="text-primary underline-offset-4 hover:underline">Quickstart</a>
             </strong>{" "}
             - install the SDK, authenticate, ingest your first document, and
             run a query in under ten minutes
           </li>
           <li>
             <strong className="text-foreground font-semibold">
-              <a href="/projects/data-intelligence-sdk/api-reference" className="text-trouve-teal underline-offset-4 hover:underline">API Reference</a>
+              <a href="/projects/data-intelligence-sdk/api-reference" className="text-primary underline-offset-4 hover:underline">API Reference</a>
             </strong>{" "}
             - full endpoint documentation, request and response shapes, and
             authentication flows

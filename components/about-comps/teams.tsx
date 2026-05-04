@@ -81,7 +81,7 @@ export default function Teams() {
                 <div key={member.title} className="flex items-center gap-4">
                   <Card card={member} index={index} hovered={hovered} setHovered={setHovered} />
                   <div className="min-w-0">
-                    <h3 className="text-md font-semibold leading-tight text-foreground md:text-[20px]">{member.title}</h3>
+                    <h3 className="text-md font-semibold leading-tight text-foreground md:text-xl">{member.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground md:text-base">{member.jobTitle}</p>
                   </div>
                 </div>

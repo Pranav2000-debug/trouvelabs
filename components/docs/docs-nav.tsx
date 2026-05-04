@@ -35,7 +35,7 @@ export function DocsNav({ slug }: DocsNavProps) {
             className={cn(
               "rounded-md px-3 py-1.5 transition-colors",
               isActive
-                ? "bg-trouve-teal/10 text-trouve-teal"
+                ? "bg-primary/10 text-primary"
                 : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
             )}
           >

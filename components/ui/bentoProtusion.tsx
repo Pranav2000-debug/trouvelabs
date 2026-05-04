@@ -32,7 +32,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       transition={{ duration: 0.2 }}
       className="h-full flex flex-col p-10 pt-6"
     >
-      <div className="flex-1 font-mono text-[14px] text-muted-foreground bg-secondary/40 rounded-3xl p-8 mb-8 overflow-hidden">
+      <div className="flex-1 font-mono text-sm text-muted-foreground bg-secondary/60 rounded-3xl p-8 mb-8 overflow-hidden">
         {typeof tab.content === 'string' ? (
           <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
         ) : (
@@ -97,7 +97,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       <div className="flex flex-col relative">
         {renderTabs(leftTabs, activeLeft, setActiveLeft)}
         <div className={`
-          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/40
+          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/30
           ${activeLeft === 0 ? 'rounded-tl-none' : ''}
         `}>
           <AnimatePresence mode="wait">
@@ -110,7 +110,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       <div className="flex flex-col relative">
         {renderTabs(rightTabs, activeRight, setActiveRight)}
         <div className={`
-          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/40
+          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/30
           ${activeRight === 0 ? 'rounded-tl-none' : ''}
         `}>
           <AnimatePresence mode="wait">

@@ -20,7 +20,7 @@ export default function VisionSdkOverviewPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-trouve-teal">
+        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
           SDK Overview
         </p>
 
@@ -39,12 +39,12 @@ export default function VisionSdkOverviewPage() {
             href="https://visionsdk.trouvelabs.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-xl border border-trouve-border bg-trouve-surface/70 p-5 transition-colors hover:border-trouve-teal/40">
+            className="group flex items-center justify-between rounded-xl border border-border bg-card/80 p-5 transition-colors hover:border-primary/30">
             <div className="min-w-0">
               <p className="text-sm font-semibold text-foreground">Vision Platform</p>
               <p className="mt-1 text-xs text-muted-foreground">visionsdk.trouvelabs.io</p>
             </div>
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-trouve-teal" />
+            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
           </a>
         </div>
       </DocsPage>
