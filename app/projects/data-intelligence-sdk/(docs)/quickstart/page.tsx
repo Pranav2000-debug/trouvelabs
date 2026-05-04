@@ -37,7 +37,7 @@ export default function QuickstartPage() {
         </p>
 
         <h2 id="prerequisites" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Prerequisites</h2>
-        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
           <li>Node.js 20 or newer.</li>
           <li>
             A Trouve workspace with an active API key. Lorem ipsum dolor sit
@@ -47,7 +47,7 @@ export default function QuickstartPage() {
         </ul>
 
         <h2 id="install" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Install the SDK</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           The SDK ships as an ES module and works in Node and edge runtimes.
         </p>
@@ -56,7 +56,7 @@ export default function QuickstartPage() {
         </pre>
 
         <h2 id="authenticate" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Authenticate</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
           Set your API key as an environment variable, then construct the
           client.
@@ -74,7 +74,7 @@ const client = new GraphRAG({
         </pre>
 
         <h2 id="first-query" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Your first query</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Duis aute irure dolor in reprehenderit. Run a query against the
           default workspace graph to confirm everything is wired up.
         </p>
@@ -86,14 +86,14 @@ const client = new GraphRAG({
 
 console.log(answer);`}</code>
         </pre>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           You should see a grounded answer along with the subgraph the model
           used to generate it. <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">subgraph.nodes</code> and{" "}
           <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">subgraph.edges</code> are returned as plain JSON.
         </p>
 
         <h2 id="ingest-data" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Ingest data</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Excepteur sint occaecat cupidatat non proident. Point the ingestion
           API at any structured or unstructured source - the SDK takes care
           of chunking, entity extraction, and edge inference.
@@ -107,7 +107,7 @@ console.log(answer);`}</code>
         </pre>
 
         <h2 id="next-steps" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Next steps</h2>
-        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
           <li>
             Browse the{" "}
             <a href="/projects/data-intelligence-sdk/api-reference" className="text-primary underline-offset-4 hover:underline">API Reference</a>{" "}

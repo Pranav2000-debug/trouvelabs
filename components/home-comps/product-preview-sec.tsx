@@ -112,7 +112,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 rel={uc.external ? "noopener noreferrer" : undefined}
                 className="group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
                 <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
-                <h3 className="text-xl sm:text-2xl font-bold">{uc.name}.</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold">{uc.name}.</h3>
                 <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
                 <span className="pt-3 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
                   {uc.external ? "Open →" : "Explore →"}

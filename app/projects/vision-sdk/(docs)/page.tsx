@@ -30,7 +30,7 @@ export default function VisionSdkOverviewPage() {
         </p>
 
         <h2 id="try-the-platform" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Try the platform</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           The Vision platform is live. Explore it directly in your browser.
         </p>
 

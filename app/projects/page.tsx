@@ -15,7 +15,7 @@ export default function ProjectsIndexPage() {
           <p className="text-xs font-medium uppercase tracking-wider text-primary mb-3">
             SDK Platform
           </p>
-          <h1 className="text-4xl font-bold sm:text-5xl lg:text-6xl">Our Projects.</h1>
+          <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">Our Projects.</h1>
           <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Modular, composable AI building blocks designed for mobility intelligence.
           </p>

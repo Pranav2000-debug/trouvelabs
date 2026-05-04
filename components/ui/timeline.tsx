@@ -175,27 +175,28 @@ function Timeline(props: TimelineProps) {
   }));
 
   const store = React.useMemo<Store>(() => {
+    const notify = () => {
+      for (const cb of listenersRef.current) {
+        cb();
+      }
+    };
     return {
       subscribe: (cb) => {
         listenersRef.current.add(cb);
         return () => listenersRef.current.delete(cb);
       },
       getState: () => stateRef.current,
-      notify: () => {
-        for (const cb of listenersRef.current) {
-          cb();
-        }
-      },
+      notify,
       onItemRegister: (
         id: string,
         ref: React.RefObject<ItemElement | null>,
       ) => {
         stateRef.current.items.set(id, ref);
-        store.notify();
+        notify();
       },
       onItemUnregister: (id: string) => {
         stateRef.current.items.delete(id);
-        store.notify();
+        notify();
       },
       getNextItemStatus: (id: string, activeIndex?: number) => {
         const entries = Array.from(stateRef.current.items.entries());
@@ -234,7 +235,6 @@ function Timeline(props: TimelineProps) {
       <TimelineContext.Provider value={contextValue}>
         <RootPrimitive
           role="list"
-          aria-orientation={orientation}
           data-slot="timeline"
           data-orientation={orientation}
           data-variant={variant}

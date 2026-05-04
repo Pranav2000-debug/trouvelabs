@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -56,7 +56,7 @@ function Dropdown({ label, children, dropdownType }: { label: string; children: 
             dropdownType === "use-cases" && "left-1/3 -translate-x-1/2",
             !dropdownType && "left-1/2 -translate-x-1/2",
           )}>
-          <div className="w-max rounded-xl border border-white/10 bg-background p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
+          <div className="w-max rounded-xl border border-white/10 bg-card p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
         </div>
       )}
     </div>
@@ -70,17 +70,21 @@ export function Navbar() {
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
   const [mobileUseCasesOpen, setMobileUseCasesOpen] = useState(false);
 
-  useEffect(() => {
-    if (!mobileOpen) {
-      setMobileProjectsOpen(false);
-      setMobileUseCasesOpen(false);
-    }
-  }, [mobileOpen]);
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileProjectsOpen(false);
+    setMobileUseCasesOpen(false);
+  };
+
+  const toggleMobile = () => {
+    if (mobileOpen) closeMobile();
+    else setMobileOpen(true);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-background/80 px-8 py-0.5 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-card/80 px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
           <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
@@ -140,7 +144,7 @@ export function Navbar() {
                   key={uc.title}
                   href={uc.href}
                   className="flex flex-col gap-1 rounded-lg p-2.5 transition-colors hover:bg-white/5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-primary">{uc.sdks}</span>
+                  <span className="text-xs font-medium uppercase text-primary">{uc.sdks}</span>
                   <div className="text-sm font-medium text-white">{uc.title}</div>
                   <p className="text-xs text-white/40">{uc.description}</p>
                 </Link>
@@ -153,7 +157,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           type="button"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={toggleMobile}
           className="inline-flex h-8 w-8 items-center justify-center rounded-full text-white/60 transition-colors hover:text-white md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}>
           {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -162,10 +166,10 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-white/10 bg-background p-6 backdrop-blur-xl md:hidden">
+        <div className="absolute left-4 right-4 top-[calc(100%+8px)] rounded-2xl border border-white/10 bg-card p-6 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col gap-4">
             <li>
-              <Link prefetch={false} href="/" onClick={() => setMobileOpen(false)} className="text-base font-medium text-white/70 hover:text-white">
+              <Link prefetch={false} href="/" onClick={closeMobile} className="text-base font-medium text-white/70 hover:text-white">
                 Home
               </Link>
             </li>
@@ -192,7 +196,7 @@ export function Navbar() {
                         <Link
                           prefetch={false}
                           href={`/projects/${p.slug}`}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={closeMobile}
                           className="text-sm text-white/50 hover:text-white">
                           {p.title}
                         </Link>
@@ -214,7 +218,7 @@ export function Navbar() {
                 <ul className="mt-2 flex flex-col gap-2 pl-3">
                   {USE_CASES.map((uc) => (
                     <li key={uc.href}>
-                      <Link prefetch={false} href={uc.href} onClick={() => setMobileOpen(false)} className="text-sm text-white/50 hover:text-white">
+                      <Link prefetch={false} href={uc.href} onClick={closeMobile} className="text-sm text-white/50 hover:text-white">
                         {uc.title}
                       </Link>
                     </li>
@@ -226,7 +230,7 @@ export function Navbar() {
               <Link
                 prefetch={false}
                 href="/about"
-                onClick={() => setMobileOpen(false)}
+                onClick={closeMobile}
                 className="text-base font-medium text-white/70 hover:text-white">
                 About
               </Link>
@@ -236,7 +240,7 @@ export function Navbar() {
             <Link
               prefetch={false}
               href="mailto:Hood@MailAhoy.com"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
               className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/80">
               Request a Demo
             </Link>

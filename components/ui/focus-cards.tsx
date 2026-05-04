@@ -71,7 +71,7 @@ export const Card = React.memo(
             isHovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none",
           )}>
           <span className="text-sm font-bold text-foreground">{card.title}</span>
-          <span className="text-xs text-primary font-poppins uppercase tracking-wider">{card.jobTitle}</span>
+          <span className="text-xs font-medium uppercase tracking-wider text-primary">{card.jobTitle}</span>
         </div>
       </div>
     );

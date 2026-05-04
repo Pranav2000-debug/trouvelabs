@@ -18,7 +18,7 @@ export default function ScrollHorizontal() {
   return (
     <div id="example">
       <section className="intro-section">
-        <h1 className="impact">Tokyo Nights</h1>
+        <h1 className="impact text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-foreground">Tokyo Nights</h1>
       </section>
 
       <div ref={containerRef} className="scroll-container">
@@ -35,8 +35,8 @@ export default function ScrollHorizontal() {
                   } as React.CSSProperties
                 }>
                 <div className="item-content">
-                  <span className="item-number">0{item.id}</span>
-                  <h2>{item.label}</h2>
+                  <span className="item-number text-sm font-mono">0{item.id}</span>
+                  <h2 className="text-2xl font-bold tracking-tight text-foreground">{item.label}</h2>
                 </div>
               </div>
             ))}
@@ -45,7 +45,7 @@ export default function ScrollHorizontal() {
       </div>
 
       <section className="outro-section">
-        <p className="big">Fin</p>
+        <p className="big text-4xl sm:text-6xl font-bold uppercase tracking-tight text-foreground">Fin</p>
       </section>
 
       <StyleSheet />
@@ -80,10 +80,7 @@ function StyleSheet() {
             }
 
             .intro-section h1 {
-                font-size: clamp(36px, 8vw, 72px);
-                color: #f5f5f5;
                 margin: 0;
-                text-transform: uppercase;
             }
 
             .scroll-container {
@@ -141,17 +138,12 @@ function StyleSheet() {
             }
 
             .item-number {
-                font-size: 14px;
                 color: var(--item-color);
-                font-family: "Azeret Mono", monospace;
                 display: block;
                 margin-bottom: 8px;
             }
 
             .gallery-item h2 {
-                font-size: 28px;
-                font-weight: 600;
-                color: #f5f5f5;
                 margin: 0;
             }
 

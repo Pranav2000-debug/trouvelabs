@@ -11,7 +11,6 @@ export default async function HeroSection() {
         <FadeIn>
           <div className="mb-2">
             <Image src="/image 51.png" alt="Trouve logo" width={120} height={78} className="mx-auto" priority />
-            <span className="text-sm font-bold">Trouve Labs.</span>
           </div>
         </FadeIn>
         <FadeIn delay={0.2}>

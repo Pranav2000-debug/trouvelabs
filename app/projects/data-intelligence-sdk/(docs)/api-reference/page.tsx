@@ -36,7 +36,7 @@ export default function ApiReferencePage() {
         </p>
 
         <h2 id="client" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Client</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           The <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">GraphRAG</code> class is the single entry point for ingestion and retrieval. Sed do eiusmod tempor incididunt ut labore.
         </p>
 
@@ -53,13 +53,13 @@ interface GraphRAGOptions {
         </pre>
 
         <h2 id="query" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">client.query</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Ut enim ad minim veniam, quis nostrud exercitation. Issues a retrieval-augmented query against the workspace graph and returns a grounded
           answer.
         </p>
 
         <h3 id="query-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
-        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
           <li>
             <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">question</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">string</code>. Lorem ipsum dolor sit amet.
           </li>
@@ -88,10 +88,10 @@ interface GraphRAGOptions {
         </pre>
 
         <h2 id="ingest" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">client.ingest</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">Duis aute irure dolor in reprehenderit. Streams a source into the ingestion pipeline and materialises the resulting graph delta.</p>
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">Duis aute irure dolor in reprehenderit. Streams a source into the ingestion pipeline and materialises the resulting graph delta.</p>
 
         <h3 id="ingest-params" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Parameters</h3>
-        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
           <li>
             <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">source</code> - <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">string | ReadableStream</code>. Path, URL, or stream of records.
           </li>
@@ -104,11 +104,11 @@ interface GraphRAGOptions {
         </ul>
 
         <h2 id="errors" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Errors</h2>
-        <p className="text-[15px] text-muted-foreground leading-7 mb-4">
+        <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Excepteur sint occaecat cupidatat non proident. All errors thrown by the SDK extend <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">GraphRAGError</code> and expose a stable{" "}
           <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">code</code> field.
         </p>
-        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-[15px] leading-7">
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
           <li>
             <code className="rounded bg-card px-1.5 py-0.5 text-sm text-primary font-mono border border-border">auth_failed</code> - invalid or expired API key.
           </li>

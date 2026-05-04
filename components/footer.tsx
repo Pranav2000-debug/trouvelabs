@@ -28,7 +28,7 @@ const COMPANY_LINKS: FooterLinkItem[] = [
 function FooterColumn({ title, links }: FooterColumnProps) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wider">{title}</h3>
+      <h3 className="mb-4 text-xs font-medium text-primary uppercase tracking-wider">{title}</h3>
       <ul className="flex flex-col gap-2">
         {links.map((link) => (
           <li key={link.href}>
@@ -49,7 +49,7 @@ export function Footer() {
     label: p.title,
   }));
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-border bg-card/80 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
