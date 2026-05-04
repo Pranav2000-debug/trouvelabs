@@ -250,7 +250,8 @@ Custom tokens defined in `app/globals.css`:
 - `bg-trouve-teal` / `text-trouve-teal` - primary accent
 - `bg-trouve-yellow` / `text-trouve-yellow` - reserved for numbers / stats / step indices
 - `border-trouve-border` - subtle card borders (`rgba(255,255,255,0.06)`)
-- `bg-trouve-surface` - card surface
+- `bg-card` - card surface (use this; `--card` aliases `--color-trouve-card`)
+- `bg-background` - page background (aliases `--color-trouve-shell`)
 - `bg-trouve-navy` - subtle dark surface for sections
 - `text-muted-foreground` - secondary text
 
