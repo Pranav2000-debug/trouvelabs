@@ -41,7 +41,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Ali Asghar Huzaifa", jobTitle: "Researcher", src: "/team/aliashgar-huzaifa.png", teams: ["llm", "vision"] },
   { title: "Fatimah Emad Eldin", jobTitle: "Researcher", src: PLACEHOLDER, teams: ["llm", "vision"] },
 
-  { title: "Wahaj", jobTitle: "Staff AI Researcher", src: "/team/wahaj.png", teams: ["ai-research"] },
+  { title: "Wahaj", jobTitle: "Staff AI Researcher", src: "/team/Wahaj.png", teams: ["ai-research"] },
   { title: "Talha Ejaz", jobTitle: "AI Engineer", src: PLACEHOLDER, teams: ["ai-research"] },
   { title: "Shah Nawaz", jobTitle: "Senior AI Engineer", src: "/team/shah-nawaz-khan.jpg", teams: ["ai-research"] },
   { title: "Kaab Gazdar", jobTitle: "GenAI SDK / Intern", src: PLACEHOLDER, teams: ["ai-research"] },
@@ -51,7 +51,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Mehboob Raza", jobTitle: "Tokenization", src: PLACEHOLDER, teams: ["decentralization"] },
   { title: "Syed Sam", jobTitle: "Tokenization", src: "/team/syed-sam.png", teams: ["decentralization"] },
 
-  { title: "Haider Asad", jobTitle: "Researcher", src: PLACEHOLDER, teams: ["vision"] },
+  { title: "Haider Asad", jobTitle: "Researcher", src: "/team/haider-asad.png", teams: ["vision"] },
   { title: "Muhammad Asim Latif", jobTitle: "Researcher", src: "/team/Muhammad-asim-latif.png", teams: ["vision"] },
 
   { title: "M. Yasir Saleem", jobTitle: "Principal Product Engineer", src: "/team/yasir.jpg", teams: ["fullstack", "product-engineers"] },
