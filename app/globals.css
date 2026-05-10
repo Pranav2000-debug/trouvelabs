@@ -183,3 +183,17 @@
   display: none;
 }
 
+/*
+ * Shiki dual-theme output (github-light + github-dark) emits per-token CSS
+ * vars but no `color` rule. Site is always dark, so map the `--shiki-dark-*`
+ * vars onto the real properties.
+ */
+.shiki,
+.shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}
+

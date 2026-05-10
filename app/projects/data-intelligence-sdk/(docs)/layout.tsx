@@ -1,4 +1,5 @@
 import { DocsNav } from "@/components/docs/docs-nav";
+import { DocsFabNav } from "@/components/docs/docs-fab-nav";
 
 export default function GraphRagDocsLayout({
   children,
@@ -12,6 +13,8 @@ export default function GraphRagDocsLayout({
       </aside>
 
       <main className="min-w-0 md:col-span-4">{children}</main>
+
+      <DocsFabNav slug="data-intelligence-sdk" />
     </div>
   );
 }

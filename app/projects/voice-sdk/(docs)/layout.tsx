@@ -1,4 +1,5 @@
 import { DocsNav } from "@/components/docs/docs-nav";
+import { DocsFabNav } from "@/components/docs/docs-fab-nav";
 
 export default function VoiceSdkDocsLayout({
   children,
@@ -12,6 +13,8 @@ export default function VoiceSdkDocsLayout({
       </aside>
 
       <main className="min-w-0 md:col-span-4">{children}</main>
+
+      <DocsFabNav slug="voice-sdk" />
     </div>
   );
 }

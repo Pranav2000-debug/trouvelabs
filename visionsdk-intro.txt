@@ -1,0 +1,59 @@
+Introduction
+Vision SDK is a YAML-driven video analytics SDK by Trouve Labs. Define your input streams, AI models, object tracker, and outputs in a single config file, then run everything with one command on NVIDIA DeepStream.
+Video analytics, configured in YAML.
+Vision SDK turns a single config file into a production video pipeline — inputs, models, tracking, and outputs — running on NVIDIA DeepStream.
+
+Where to next
+Prerequisites — what you need installed
+Installation — drop the wheel into DeepStream
+Quick start — your first pipeline in five lines
+
+
+Quickstart page:-
+
+Prerequisites
+Before installing the SDK, make sure your environment meets these requirements.
+
+NVIDIA DeepStream 8.0 container (nvcr.io/nvidia/deepstream:8.0-triton-multiarch)
+NVIDIA GPU with driver support for DeepStream 8.0
+Access to input media files or camera streams
+
+Installation
+Copy the wheel into the DeepStream container and install:
+pip install /path/to/vision_sdk-*.whl
+This installs the vision-runner CLI command and all required native libraries.
+
+Quick start
+Spin up your first pipeline in three steps.
+
+1. Create a config file
+Save this as pipeline.yaml:
+
+pipeline:
+  name: "My First Pipeline"
+
+streams:
+  - uri: "file:///path/to/video.mp4"
+    source_id: 0
+
+models:
+  - name: "my-detector"
+    type: "detector"
+    architecture: "yolo11"
+    onnx_file: /path/to/model.onnx
+    label_file: /path/to/labels.txt
+
+sinks:
+  width: 1280
+  height: 720
+  outputs:
+    - type: "display"
+
+2. Run it
+vision-runner pipeline.yaml
+
+3. Stop the pipeline
+Press Ctrl+C.
+
+
+

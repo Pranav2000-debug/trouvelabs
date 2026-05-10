@@ -1,11 +1,25 @@
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { DocsPage } from "@/components/docs/docs-page";
 import type { TocItem } from "@/components/docs/table-of-contents";
+import { ReleaseBadge, type GitHubReleaseData } from "@/components/release-badge";
 
 const TOC: TocItem[] = [
-  { id: "try-the-platform", title: "Try the platform", depth: 2 },
+  { id: "Intro", title: "Intro", depth: 2 },
+  { id: "where-to-next", title: "Where to next", depth: 2 },
 ];
+
+const visionSdkRelease: GitHubReleaseData = {
+  tag: "v1.0",
+  name: "Vision SDK",
+  preRelease: false,
+  draft: false,
+  publishedAt: new Date(0).toISOString(),
+  url: "https://visionsdk.trouvelabs.io",
+  body: "",
+  assetCount: 0,
+};
 
 export default function VisionSdkOverviewPage() {
   return (
@@ -20,33 +34,81 @@ export default function VisionSdkOverviewPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
-          SDK Overview
+        <p id="Intro" className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
+          Introduction
         </p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">Vision SDK</h1>
-        <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-          Computer vision capabilities for intelligent visual processing. Full SDK documentation is on its way - for now, you can try the live platform below.
-        </p>
-
-        <h2 id="try-the-platform" className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Try the platform</h2>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          The Vision platform is live. Explore it directly in your browser.
-        </p>
-
-        <div className="mt-4 flex flex-col gap-3">
-          <a
-            href="https://visionsdk.trouvelabs.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-xl border border-border bg-card/80 p-5 transition-colors hover:border-primary/30">
-            <div className="min-w-0">
-              <p className="text-sm font-semibold text-foreground">Vision Platform</p>
-              <p className="mt-1 text-xs text-muted-foreground">visionsdk.trouvelabs.io</p>
-            </div>
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-primary" />
-          </a>
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Vision SDK
+          </h1>
+          <ReleaseBadge
+            owner=""
+            repo=""
+            data={visionSdkRelease}
+            layout="inline"
+            variant="subtle"
+            size="sm"
+          />
         </div>
+
+        <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+          Vision SDK turns a single config file into a production video pipeline - inputs, models, tracking, and outputs - running on NVIDIA DeepStream.
+        </p>
+        <p className="text-base text-muted-foreground leading-relaxed mb-10">
+          Define your input streams, AI models, object tracker, and outputs in a single YAML config file, then run everything with one command.
+        </p>
+
+        <figure className="mb-10 rounded-xl border border-border overflow-hidden">
+          <Image
+            src="/projects/vision-sdk/visionsdk-pipe.png"
+            alt="Vision SDK pipeline overview - inputs (live streams, video files) flow through models (detector, tracker, classifier) into outputs (display, file recording, RTSP/RTMP streams, Kafka, FPS counter), all configured via a single YAML file."
+            width={1280}
+            height={800}
+            loading="lazy"
+            className="h-auto w-full"
+            sizes="(min-width: 1280px) 768px, 100vw"
+          />
+        </figure>
+
+        <h2
+          id="where-to-next"
+          className="text-2xl font-semibold text-primary tracking-tight mt-14 mb-4 scroll-mt-28"
+        >
+          Where to next
+        </h2>
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
+          <li>
+            <Link
+              prefetch={false}
+              href="/projects/vision-sdk/quickstart#prerequisites"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              Prerequisites
+            </Link>{" "}
+            - what you need installed
+          </li>
+          <li>
+            <Link
+              prefetch={false}
+              href="/projects/vision-sdk/quickstart#installation"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              Installation
+            </Link>{" "}
+            - drop the wheel into DeepStream
+          </li>
+          <li>
+            <Link
+              prefetch={false}
+              href="/projects/vision-sdk/quickstart#quick-start"
+              className="text-primary underline-offset-4 hover:underline"
+            >
+              Quick start
+            </Link>{" "}
+            - your first pipeline in three steps
+          </li>
+        </ul>
       </DocsPage>
     </>
   );

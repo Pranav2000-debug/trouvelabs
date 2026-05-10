@@ -25,19 +25,31 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`flex items-center gap-1.5 text-xs text-muted-foreground ${className ?? ""}`}>
+      className={`flex min-w-0 flex-nowrap items-center gap-1.5 overflow-hidden text-xs text-muted-foreground ${className ?? ""}`}>
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
         return (
-          <span key={item.label} className="flex items-center gap-1.5">
-            {i > 0 && <span className="text-muted-foreground/30">/</span>}
+          <span
+            key={item.label}
+            className="flex min-w-0 items-center gap-1.5"
+          >
+            {i > 0 && (
+              <span className="shrink-0 text-muted-foreground/30">/</span>
+            )}
             {isLast || !item.href ? (
-              <span className="text-foreground">{item.label}</span>
+              <span
+                title={item.label}
+                className="block max-w-[12rem] truncate text-foreground"
+              >
+                {item.label}
+              </span>
             ) : (
               <Link
                 prefetch={false}
                 href={item.href}
-                className="hover:text-foreground transition-colors">
+                title={item.label}
+                className="block max-w-[10rem] truncate transition-colors hover:text-foreground sm:max-w-[14rem]"
+              >
                 {item.label}
               </Link>
             )}

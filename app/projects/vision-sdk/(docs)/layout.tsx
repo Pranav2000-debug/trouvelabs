@@ -1,4 +1,5 @@
 import { DocsNav } from "@/components/docs/docs-nav";
+import { DocsFabNav } from "@/components/docs/docs-fab-nav";
 
 export default function VisionSdkDocsLayout({
   children,
@@ -12,6 +13,8 @@ export default function VisionSdkDocsLayout({
       </aside>
 
       <main className="min-w-0 md:col-span-4">{children}</main>
+
+      <DocsFabNav slug="vision-sdk" />
     </div>
   );
 }
