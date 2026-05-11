@@ -56,36 +56,21 @@ export default function GraphRagSdkOverviewPage() {
           disconnected chunks, it builds a knowledge graph from your data
           first - entities, relationships, themes - and uses that graph at
           query time to deliver answers that are coherent, grounded, and
-          traceable.
-        </p>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          The result: less hallucination, fewer fragmented responses, and
-          answers that reflect how the information actually relates.
+          traceable, with less hallucination and fewer fragmented responses.
         </p>
 
         <h2 id="what-makes-it-different" className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">What makes it different</h2>
 
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Multi-hop reasoning</h3>
+        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Reasons across documents, not just within them</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Standard RAG retrieves chunks that match keywords. Data Intelligence
-          traverses relationships. When a question requires connecting facts
-          across multiple documents - &ldquo;which clauses in contract A
-          reference obligations defined in contract B?&rdquo; - the graph
-          makes those links first-class.
-        </p>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Semantic continuity across chunks</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Chunks from different documents stay connected through the graph.
-          The model sees how concepts relate, not just what words appeared
-          near each other. Responses come back coherent, not stitched.
-        </p>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Concise, non-redundant outputs</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Because the SDK understands which chunks are conceptually related,
-          it stops retrieving the same idea three times in three different
-          phrasings. Answers are tighter and more useful.
+          traverses relationships - chunks from different documents stay
+          connected through the graph, and the model sees how concepts relate,
+          not just what words appeared near each other. When a question
+          requires connecting facts across multiple documents - &ldquo;which
+          clauses in contract A reference obligations defined in contract
+          B?&rdquo; - the graph makes those links first-class, and the SDK
+          stops re-retrieving the same idea in different phrasings.
         </p>
 
         <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Domain-adaptive</h3>
@@ -110,20 +95,14 @@ export default function GraphRagSdkOverviewPage() {
 
         <h3 id="ingestion" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">1. Dataset ingestion</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Data enters Data Intelligence through three paths.{" "}
-          <strong className="text-foreground font-semibold">Batch upload</strong> accepts files - PDF, Word, PowerPoint,
-          Markdown, HTML, plain text, spreadsheets (CSV, Excel), and images
-          (PNG, JPG, TIFF, WebP, BMP, GIF) routed through OCR - with metadata
-          attached for project, confidentiality, and ownership.{" "}
-          <strong className="text-foreground font-semibold">Live connectors </strong> bind directly to operational
-          systems - PostgreSQL, MySQL, Slack, and arbitrary REST APIs - so the
-          graph stays in step with data that&rsquo;s still being produced.{" "}
-          <strong className="text-foreground font-semibold">MCP integrations</strong> pull from SaaS content services -
-          Google Drive, Notion, and any other MCP-compliant source - through
-          the same ingestion pipeline. From any of these paths, the system
-          reads the content and identifies the entities that matter - people,
-          places, organizations, concepts - along with the relationships
-          between them.
+          Data enters through batch upload, live connectors, or MCP-compliant
+          SaaS sources - see{" "}
+          <a href="#programmatic-ingestion" className="text-primary underline-offset-4 hover:underline">Programmatic ingestion</a>,{" "}
+          <a href="#live-connectors" className="text-primary underline-offset-4 hover:underline">Live connectors</a>, and{" "}
+          <a href="#mcp-integrations" className="text-primary underline-offset-4 hover:underline">MCP integrations</a>{" "}
+          below for the full surface. From any path, the system reads the
+          content and identifies the entities that matter - people, places,
+          organizations, concepts - along with the relationships between them.
         </p>
 
         <h3 id="graph-construction" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">2. Knowledge graph construction</h3>
@@ -146,27 +125,22 @@ export default function GraphRagSdkOverviewPage() {
         <h3 id="query-augmentation" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">4. Query-time augmentation</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
           At inference, the user&rsquo;s query triggers retrieval across both
-          the graph structure and the original source content. Retrieval
-          spans every connected source in scope - uploaded files and live
-          connectors alike - concurrently, so a single question can pivot
-          from a clause in a contract to a row in a database to a paragraph
-          in a Slack thread without the application steering it. The LLM
-          receives the relevant subgraph plus source passages and generates
-          an answer grounded in both.
+          the graph structure and the original source content. Retrieval spans
+          every connected source in scope - uploaded files and live connectors
+          alike - concurrently, and the LLM receives the relevant subgraph
+          plus source passages to generate an answer grounded in both.
         </p>
 
         <h2 id="multi-tenant" className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">Multi-tenant by design</h2>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Data Intelligence is built to serve multiple isolated tenants from
-          a single deployment.
-        </p>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Every document, graph, and query is scoped to an organization, and
-          within that, to a project. Users belong to organizations and have
-          roles that determine what they can read, ingest, or modify. Tokens
-          carry the tenant context, so a query issued by one tenant can never
-          traverse another tenant&rsquo;s graph - isolation happens at the
-          data layer, not just the application layer.
+          Data Intelligence is built to serve multiple isolated tenants from a
+          single deployment. Every document, graph, and query is scoped to an
+          organization, and within that, to a project. Users belong to
+          organizations and have roles that determine what they can read,
+          ingest, or modify. Tokens carry the tenant context, so a query
+          issued by one tenant can never traverse another tenant&rsquo;s
+          graph - isolation happens at the data layer, not just the
+          application layer.
         </p>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">This means:</p>
         <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
@@ -187,11 +161,6 @@ export default function GraphRagSdkOverviewPage() {
             clean
           </li>
         </ul>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          For teams building B2B AI products, this removes the most painful
-          part of going to production: the multi-tenancy plumbing is already
-          done.
-        </p>
 
         <h2 id="built-for-production" className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">Built for production</h2>
 
@@ -211,7 +180,7 @@ export default function GraphRagSdkOverviewPage() {
           laptop&rdquo; or for security teams cutting off compromised devices.
         </p>
 
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Programmatic ingestion</h3>
+        <h3 id="programmatic-ingestion" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Programmatic ingestion</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Upload files in bulk through the SDK or API across the supported
           document, spreadsheet, and image formats. Attach metadata, assign
@@ -222,7 +191,7 @@ export default function GraphRagSdkOverviewPage() {
           rows that don&rsquo;t make it through.
         </p>
 
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Live connectors</h3>
+        <h3 id="live-connectors" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Live connectors</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
           Beyond batch upload, Data Intelligence connects directly to
           operational data sources - PostgreSQL, MySQL, Slack, and arbitrary
@@ -234,7 +203,7 @@ export default function GraphRagSdkOverviewPage() {
           before queries start returning stale answers.
         </p>
 
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">MCP integrations</h3>
+        <h3 id="mcp-integrations" className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">MCP integrations</h3>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">
           For SaaS content sources - Google Drive, Notion, and any
           MCP-compliant service - the SDK speaks Model Context Protocol
@@ -273,34 +242,20 @@ export default function GraphRagSdkOverviewPage() {
         </p>
 
         <h2 id="where-it-fits" className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">Where it fits</h2>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Financial services</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Real-time transaction analysis, fraud detection, and regulatory
-          reporting where tracing every claim back to source data is
-          non-negotiable.
-        </p>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Healthcare</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          HIPAA-bound document processing, clinical reference retrieval, and
-          patient record analysis where terminology precision and access
-          control define correctness.
-        </p>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Legal and compliance</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Contract review, regulatory tracking, and case research across
-          document corpora where the relationships between clauses, parties,
-          and obligations carry the meaning.
-        </p>
-
-        <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Research and scientific work</h3>
-        <p className="text-base text-muted-foreground leading-relaxed mb-4">
-          Literature synthesis, citation traversal, and hypothesis
-          exploration where multi-hop reasoning across thousands of papers is
-          the work itself.
-        </p>
+        <ul className="list-disc pl-6 mb-4 text-muted-foreground space-y-2 text-base leading-relaxed">
+          <li>
+            <strong className="text-foreground font-semibold">Financial services</strong> - real-time transaction analysis, fraud detection, and regulatory reporting where tracing every claim back to source data is non-negotiable.
+          </li>
+          <li>
+            <strong className="text-foreground font-semibold">Healthcare</strong> - HIPAA-bound document processing, clinical reference retrieval, and patient record analysis where terminology precision and access control define correctness.
+          </li>
+          <li>
+            <strong className="text-foreground font-semibold">Legal and compliance</strong> - contract review, regulatory tracking, and case research across document corpora where the relationships between clauses, parties, and obligations carry the meaning.
+          </li>
+          <li>
+            <strong className="text-foreground font-semibold">Research and scientific work</strong> - literature synthesis, citation traversal, and hypothesis exploration where multi-hop reasoning across thousands of papers is the work itself.
+          </li>
+        </ul>
 
         <h2 id="whats-next" className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">What&rsquo;s next</h2>
         <p className="text-base text-muted-foreground leading-relaxed mb-4">

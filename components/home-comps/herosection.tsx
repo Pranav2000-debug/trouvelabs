@@ -32,7 +32,7 @@ export default async function HeroSection() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row z-20">
             <Link
               prefetch={false}
-              href="#contact"
+              href="mailto:hood@mailahoy.com"
               className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/80">
               <span>Get in Touch</span>
               <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">

@@ -1,7 +1,7 @@
-import * as React from "react"
-import { CodeBlockCopyButton, CodeBlockWrapper } from "@/components/code-block-client"
-import { highlightCode } from "@/lib/highlight-code"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { CodeBlockCopyButton, CodeBlockWrapper } from "@/components/code-block-client";
+import { highlightCode } from "@/lib/highlight-code";
+import { cn } from "@/lib/utils";
 
 const languageTitleMap: Record<string, string> = {
   ts: "TypeScript",
@@ -32,7 +32,7 @@ const languageTitleMap: Record<string, string> = {
   bash: "Bash",
   sh: "Bash",
   json: "JSON",
-}
+};
 
 const languageIcons: Record<string, string> = {
   TypeScript: `<svg viewBox="0 0 256 256" width="256" height="256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M20 0h216c11.046 0 20 8.954 20 20v216c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20V20C0 8.954 8.954 0 20 0Z" fill="#3178C6"/><path d="M150.518 200.475v27.62c4.492 2.302 9.805 4.028 15.938 5.179 6.133 1.151 12.597 1.726 19.393 1.726 6.622 0 12.914-.633 18.874-1.899 5.96-1.266 11.187-3.352 15.678-6.257 4.492-2.906 8.048-6.704 10.669-11.394 2.62-4.689 3.93-10.486 3.93-17.391 0-5.006-.749-9.394-2.246-13.163a30.748 30.748 0 0 0-6.479-10.055c-2.821-2.935-6.205-5.567-10.149-7.898-3.945-2.33-8.394-4.531-13.347-6.602-3.628-1.497-6.881-2.949-9.761-4.359-2.879-1.41-5.327-2.848-7.342-4.316-2.016-1.467-3.571-3.021-4.665-4.661-1.094-1.64-1.641-3.495-1.641-5.567 0-1.899.489-3.61 1.468-5.135s2.362-2.834 4.147-3.927c1.785-1.094 3.973-1.942 6.565-2.547 2.591-.604 5.471-.906 8.638-.906 2.304 0 4.737.173 7.299.518 2.563.345 5.14.877 7.732 1.597a53.669 53.669 0 0 1 7.558 2.719 41.7 41.7 0 0 1 6.781 3.797v-25.807c-4.204-1.611-8.797-2.805-13.778-3.582-4.981-.777-10.697-1.165-17.147-1.165-6.565 0-12.784.705-18.658 2.115-5.874 1.409-11.043 3.61-15.506 6.602-4.463 2.993-7.99 6.805-10.582 11.437-2.591 4.632-3.887 10.17-3.887 16.615 0 8.228 2.375 15.248 7.127 21.06 4.751 5.811 11.963 10.731 21.638 14.759a291.458 291.458 0 0 1 10.625 4.575c3.283 1.496 6.119 3.049 8.509 4.66 2.39 1.611 4.276 3.366 5.658 5.265 1.382 1.899 2.073 4.057 2.073 6.474a9.901 9.901 0 0 1-1.296 4.963c-.863 1.524-2.174 2.848-3.93 3.97-1.756 1.122-3.945 1.999-6.565 2.632-2.62.633-5.687.95-9.2.95-5.989 0-11.92-1.05-17.794-3.151-5.875-2.1-11.317-5.25-16.327-9.451Zm-46.036-68.733H140V109H41v22.742h35.345V233h28.137V131.742Z" fill="#FFF"/></svg>`,
@@ -52,28 +52,28 @@ const languageIcons: Record<string, string> = {
   Rust: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 224 224"><path fill="#000" d="M218.46 109.358l-9.062-5.614c-.076-.882-.162-1.762-.258-2.642l7.803-7.265a3.107 3.107 0 00.933-2.89 3.093 3.093 0 00-1.967-2.312l-9.97-3.715c-.25-.863-.512-1.72-.781-2.58l6.214-8.628a3.114 3.114 0 00-.592-4.263 3.134 3.134 0 00-1.431-.637l-10.507-1.709a80.869 80.869 0 00-1.263-2.353l4.417-9.7a3.12 3.12 0 00-.243-3.035 3.106 3.106 0 00-2.705-1.385l-10.671.372a85.152 85.152 0 00-1.685-2.044l2.456-10.381a3.125 3.125 0 00-3.762-3.763l-10.384 2.456a88.996 88.996 0 00-2.047-1.684l.373-10.671a3.11 3.11 0 00-1.385-2.704 3.127 3.127 0 00-3.034-.246l-9.681 4.417c-.782-.429-1.567-.854-2.353-1.265l-1.713-10.506a3.098 3.098 0 00-1.887-2.373 3.108 3.108 0 00-3.014.35l-8.628 6.213c-.85-.27-1.703-.53-2.56-.778l-3.716-9.97a3.111 3.111 0 00-2.311-1.97 3.134 3.134 0 00-2.89.933l-7.266 7.802a93.746 93.746 0 00-2.643-.258l-5.614-9.082A3.125 3.125 0 00111.97 4c-1.09 0-2.085.56-2.642 1.478l-5.615 9.081a93.32 93.32 0 00-2.642.259l-7.266-7.802a3.13 3.13 0 00-2.89-.933 3.106 3.106 0 00-2.312 1.97l-3.715 9.97c-.857.247-1.71.506-2.56.778L73.7 12.588a3.101 3.101 0 00-3.014-.35A3.127 3.127 0 0068.8 14.61l-1.713 10.506c-.79.41-1.575.832-2.353 1.265l-9.681-4.417a3.125 3.125 0 00-4.42 2.95l.372 10.67c-.69.553-1.373 1.115-2.048 1.685l-10.383-2.456a3.143 3.143 0 00-2.93.832 3.124 3.124 0 00-.833 2.93l2.436 10.383a93.897 93.897 0 00-1.68 2.043l-10.672-.372a3.138 3.138 0 00-2.704 1.385 3.126 3.126 0 00-.246 3.035l4.418 9.7c-.43.779-.855 1.563-1.266 2.353l-10.507 1.71a3.097 3.097 0 00-2.373 1.886 3.117 3.117 0 00.35 3.013l6.214 8.628a89.12 89.12 0 00-.78 2.58l-9.97 3.715a3.117 3.117 0 00-1.035 5.202l7.803 7.265c-.098.879-.184 1.76-.258 2.642l-9.062 5.614A3.122 3.122 0 004 112.021c0 1.092.56 2.084 1.478 2.642l9.062 5.614c.074.882.16 1.762.258 2.642l-7.803 7.265a3.117 3.117 0 001.034 5.201l9.97 3.716a110 110 0 00.78 2.58l-6.212 8.627a3.112 3.112 0 00.6 4.27c.419.33.916.547 1.443.63l10.507 1.709c.407.792.83 1.576 1.265 2.353l-4.417 9.68a3.126 3.126 0 002.95 4.42l10.65-.374c.553.69 1.115 1.372 1.685 2.047l-2.435 10.383a3.09 3.09 0 00.831 2.91 3.117 3.117 0 002.931.83l10.384-2.436a82.268 82.268 0 002.047 1.68l-.371 10.671a3.11 3.11 0 001.385 2.704 3.125 3.125 0 003.034.241l9.681-4.416c.779.432 1.563.854 2.353 1.265l1.713 10.505a3.147 3.147 0 001.887 2.395 3.111 3.111 0 003.014-.349l8.628-6.213c.853.271 1.71.535 2.58.783l3.716 9.969a3.112 3.112 0 002.312 1.967 3.112 3.112 0 002.89-.933l7.266-7.802c.877.101 1.761.186 2.642.264l5.615 9.061a3.12 3.12 0 002.642 1.478 3.165 3.165 0 002.663-1.478l5.614-9.061c.884-.078 1.765-.163 2.643-.264l7.265 7.802a3.106 3.106 0 002.89.933 3.105 3.105 0 002.312-1.967l3.716-9.969c.863-.248 1.719-.512 2.58-.783l8.629 6.213a3.12 3.12 0 004.9-2.045l1.713-10.506c.793-.411 1.577-.838 2.353-1.265l9.681 4.416a3.13 3.13 0 003.035-.241 3.126 3.126 0 001.385-2.704l-.372-10.671a81.794 81.794 0 002.046-1.68l10.383 2.436a3.123 3.123 0 003.763-3.74l-2.436-10.382a84.588 84.588 0 001.68-2.048l10.672.374a3.104 3.104 0 002.704-1.385 3.118 3.118 0 00.244-3.035l-4.417-9.68c.43-.779.852-1.563 1.263-2.353l10.507-1.709a3.08 3.08 0 002.373-1.886 3.11 3.11 0 00-.35-3.014l-6.214-8.627c.272-.857.532-1.717.781-2.58l9.97-3.716a3.109 3.109 0 001.967-2.311 3.107 3.107 0 00-.933-2.89l-7.803-7.265c.096-.88.182-1.761.258-2.642l9.062-5.614a3.11 3.11 0 001.478-2.642 3.157 3.157 0 00-1.476-2.663h-.064zm-60.687 75.337c-3.468-.747-5.656-4.169-4.913-7.637a6.412 6.412 0 017.617-4.933c3.468.741 5.676 4.169 4.933 7.637a6.414 6.414 0 01-7.617 4.933h-.02zm-3.076-20.847c-3.158-.677-6.275 1.334-6.936 4.5l-3.22 15.026c-9.929 4.5-21.055 7.018-32.614 7.018-11.89 0-23.12-2.622-33.234-7.328l-3.22-15.026c-.677-3.158-3.778-5.18-6.936-4.499l-13.273 2.848a80.222 80.222 0 01-6.853-8.091h64.61c.731 0 1.218-.132 1.218-.797v-22.91c0-.665-.487-.797-1.218-.797H94.133v-14.469h20.415c1.864 0 9.97.533 12.551 10.898.811 3.179 2.601 13.54 3.818 16.863 1.214 3.715 6.152 11.146 11.415 11.146h32.202c.365 0 .755-.041 1.166-.116a80.56 80.56 0 01-7.307 8.587l-13.583-2.911-.113.058zm-89.38 20.537a6.407 6.407 0 01-7.617-4.933c-.74-3.467 1.462-6.894 4.934-7.637a6.417 6.417 0 017.617 4.933c.74 3.468-1.464 6.894-4.934 7.637zm-24.564-99.28a6.438 6.438 0 01-3.261 8.484c-3.241 1.438-7.019-.025-8.464-3.261-1.445-3.237.025-7.039 3.262-8.483a6.416 6.416 0 018.463 3.26zM33.22 102.94l13.83-6.15c2.952-1.311 4.294-4.769 2.972-7.72l-2.848-6.44H58.36v50.362h-22.5a79.158 79.158 0 01-3.014-21.672c0-2.869.155-5.697.452-8.483l-.08.103zm60.687-4.892v-14.86h26.629c1.376 0 9.722 1.59 9.722 7.822 0 5.18-6.399 7.038-11.663 7.038h-24.77.082zm96.811 13.375c0 1.973-.072 3.922-.216 5.862h-8.113c-.811 0-1.137.532-1.137 1.327v3.715c0 8.752-4.934 10.671-9.268 11.146-4.129.464-8.691-1.726-9.248-4.252-2.436-13.684-6.482-16.595-12.881-21.672 7.948-5.036 16.204-12.487 16.204-22.498 0-10.753-7.369-17.523-12.385-20.847-7.059-4.644-14.862-5.572-16.968-5.572H52.899c11.374-12.673 26.835-21.673 44.174-24.975l9.887 10.361a5.849 5.849 0 008.278.19l11.064-10.568c23.119 4.314 42.729 18.721 54.082 38.598l-7.576 17.09c-1.306 2.951.027 6.419 2.973 7.72l14.573 6.48c.255 2.607.383 5.224.384 7.843l-.021.052z"/></svg>`,
   Bash: `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 32 32"><path fill="#1b1b1f" fill-rule="evenodd" d="M28.057 6.53 17.952.532a3.8 3.8 0 0 0-3.88 0L3.965 6.53A4.03 4.03 0 0 0 2 10.002v11.996a4.03 4.03 0 0 0 1.948 3.472l10.105 5.998a3.8 3.8 0 0 0 3.88 0L28.04 25.47a4.03 4.03 0 0 0 1.948-3.472V10.002a4.03 4.03 0 0 0-1.93-3.472zM20.23 25.262v.86a.318.318 0 0 1-.148.265l-.512.293c-.08.042-.148 0-.148-.113v-.847a1.66 1.66 0 0 1-1.164.113c-.062-.042-.086-.122-.056-.2l.183-.78a.322.322 0 0 1 .102-.17.18.18 0 0 1 .05-.035.11.11 0 0 1 .08 0 1.41 1.41 0 0 0 1.059-.134 1.41 1.41 0 0 0 .79-1.21c0-.438-.24-.62-.82-.625-.734 0-1.4-.14-1.43-1.224a3.137 3.137 0 0 1 1.186-2.4v-.872a.34.34 0 0 1 .148-.268l.494-.314c.08-.042.148 0 .148.116v.872a1.61 1.61 0 0 1 .967-.116c.07.04.098.128.064.2l-.173.773a.325.325 0 0 1-.138.195c-.02.012-.05.008-.074 0a1.28 1.28 0 0 0-.931.152 1.17 1.17 0 0 0-.706 1.037c0 .395.208.515.907.53.935 0 1.337.423 1.348 1.362a3.346 3.346 0 0 1-1.228 2.53zm5.293-1.45a.201.201 0 0 1-.078.194L22.9 25.558c-.024.02-.06.023-.087.007s-.04-.05-.033-.08v-.66a.184.184 0 0 1 .116-.162l2.516-1.507c.024-.02.06-.023.087-.007s.04.05.033.08v.582zM27.288 9.06l-9.562 5.906c-1.193.706-2.07 1.478-2.07 2.914v11.778c0 .86.353 1.4.882 1.58a3.14 3.14 0 0 1-.53.053 3.13 3.13 0 0 1-1.595-.441L4.308 24.853A3.3 3.3 0 0 1 2.706 22V10.002a3.304 3.304 0 0 1 1.602-2.858l10.105-5.998c.98-.58 2.196-.58 3.176 0l10.105 5.998c.833.504 1.4 1.35 1.552 2.3-.328-.713-1.083-.9-1.962-.395h.003z"/></svg>`,
   JSON: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 160"><defs><linearGradient id="a"><stop offset="0"/><stop offset="1" stop-color="#fff"/></linearGradient><linearGradient xlink:href="#a" id="c" x1="-553.27" x2="-666.12" y1="525.91" y2="413.05" gradientTransform="matrix(.99884 0 0 .9987 689.01 -388.84)" gradientUnits="userSpaceOnUse"/><linearGradient xlink:href="#a" id="b" x1="-666.12" x2="-553.27" y1="413.04" y2="525.91" gradientTransform="matrix(.99884 0 0 .9987 689.01 -388.84)" gradientUnits="userSpaceOnUse"/></defs><g fill-rule="evenodd" color="#000"><path fill="url(#b)" d="M79.865 119.1c35.398 48.255 70.04-13.469 69.989-50.587C149.794 24.627 105.313.099 79.836.099 38.944.099 0 33.895 0 80.135 0 131.531 44.64 160 79.836 160c-7.965-1.147-34.506-6.834-34.863-67.967-.24-41.347 13.488-57.866 34.805-50.599.477.177 23.514 9.265 23.514 38.951 0 29.56-23.427 38.715-23.427 38.715z"/><path fill="url(#c)" d="M79.823 41.401C56.433 33.339 27.78 52.617 27.78 91.23c0 63.048 46.721 68.77 52.384 68.77C121.056 160 160 126.204 160 79.964 160 28.568 115.36.099 80.164.099c9.748-1.35 52.541 10.55 52.541 69.037 0 38.141-31.953 58.905-52.735 50.033-.477-.177-23.514-9.264-23.514-38.951 0-29.56 23.367-38.818 23.367-38.818z"/></g></svg>`,
-}
+};
 
 function getLanguageIcon(language: string): string | null {
-  const title = languageTitleMap[language.toLowerCase()]
-  if (!title) return null
-  return languageIcons[title] ?? null
+  const title = languageTitleMap[language.toLowerCase()];
+  if (!title) return null;
+  return languageIcons[title] ?? null;
 }
 
 interface CodeBlockProps extends Omit<React.ComponentProps<"div">, "children"> {
-  code: string
-  language?: string
-  title?: string
+  code: string;
+  language?: string;
+  title?: string;
   /** Custom icon to replace the bundled language icon. Pass `null` to hide. */
-  icon?: React.ReactNode
-  overflow?: "default" | "scrollable" | "collapsible"
-  maxHeight?: number
-  muted?: boolean
+  icon?: React.ReactNode;
+  overflow?: "default" | "scrollable" | "collapsible";
+  maxHeight?: number;
+  muted?: boolean;
   /** Hide the header bar. Copy button floats inside the code area. */
-  compact?: boolean
+  compact?: boolean;
   /** Shiki theme name for single-theme rendering (e.g. "dracula", "nord"). */
-  theme?: string
-  className?: string
+  theme?: string;
+  className?: string;
 }
 
 export async function CodeBlock({
@@ -89,64 +89,44 @@ export async function CodeBlock({
   className,
   ...props
 }: CodeBlockProps) {
-  const highlighted = await highlightCode(code, language, theme)
+  const highlighted = await highlightCode(code, language, theme);
 
-  const resolvedIcon = icon !== undefined ? icon : (() => {
-    const svg = getLanguageIcon(language)
-    if (!svg) return null
-    return (
-      <span
-        className={cn(
-          "inline-flex size-4 shrink-0 [&>svg]:size-full",
-          muted && "grayscale opacity-50"
-        )}
-        aria-hidden="true"
-        dangerouslySetInnerHTML={{ __html: svg }}
-      />
-    )
-  })()
+  const resolvedIcon =
+    icon !== undefined
+      ? icon
+      : (() => {
+          const svg = getLanguageIcon(language);
+          if (!svg) return null;
+          return (
+            <span
+              className={cn("inline-flex size-4 shrink-0 [&>svg]:size-full", muted && "grayscale opacity-50")}
+              aria-hidden="true"
+              dangerouslySetInnerHTML={{ __html: svg }}
+            />
+          );
+        })();
 
   return (
     <div
       data-slot="code-block"
-      className={cn(
-        "overflow-hidden rounded-xl border shadow-sm",
-        muted
-          ? "border-border/40 bg-muted/30"
-          : "border-border/60 bg-card",
-        className
-      )}
-      {...props}
-    >
+      className={cn("overflow-hidden rounded-xl border shadow-sm", muted ? "border-border/40 bg-muted/30" : "border-border/60 bg-card", className)}
+      {...props}>
       {!compact && (
         <div
           className={cn(
             "flex items-center justify-between gap-3 border-b px-4 py-3",
-            muted
-              ? "border-border/40 bg-muted/20"
-              : "border-border/60 bg-muted/40"
-          )}
-        >
+            muted ? "border-border/40 bg-muted/20" : "border-border/60 bg-muted/40",
+          )}>
           <div className="flex min-w-0 items-center gap-2">
             {resolvedIcon}
             {title ? (
-              <p
-                className={cn(
-                  "truncate text-sm font-medium",
-                  muted ? "text-muted-foreground" : "text-foreground"
-                )}
-              >
-                {title}
-              </p>
+              <p className={cn("truncate text-sm font-medium", muted ? "text-muted-foreground" : "text-foreground")}>{title}</p>
             ) : (
               <span
                 className={cn(
                   "rounded-md border px-2 py-1 text-[11px] font-medium uppercase tracking-wide",
-                  muted
-                    ? "border-border/40 bg-muted/40 text-muted-foreground/70"
-                    : "border-border/60 bg-background text-muted-foreground"
-                )}
-              >
+                  muted ? "border-border/40 bg-muted/40 text-muted-foreground/70" : "border-border/60 bg-background text-muted-foreground",
+                )}>
                 {language}
               </span>
             )}
@@ -155,12 +135,7 @@ export async function CodeBlock({
         </div>
       )}
       <CodeBlockWrapper overflow={overflow} maxHeight={maxHeight} muted={muted}>
-        <div
-          className={cn(
-            "relative overflow-x-auto",
-            !muted && !theme && "bg-[var(--shiki-light-bg)] dark:bg-[var(--shiki-dark-bg)]"
-          )}
-        >
+        <div className={cn("relative overflow-x-auto", !muted && !theme && "bg-[var(--shiki-light-bg)] dark:bg-[var(--shiki-dark-bg)]")}>
           {compact && (
             <div className="absolute right-2 top-2 z-10">
               <CodeBlockCopyButton value={code} />
@@ -170,15 +145,13 @@ export async function CodeBlock({
             className={cn(
               "code-block [&_code]:font-mono [&_code]:text-[13px] [&_pre]:m-0 [&_pre]:overflow-x-auto [&_pre]:p-4 [&_pre]:sm:p-5",
               compact && "[&_pre]:pr-12 [&_pre]:sm:pr-12",
-              theme
-                ? "[&_pre]:rounded-b-xl"
-                : "[&_pre]:bg-transparent",
-              muted && "[&_code]:opacity-80"
+              theme ? "[&_pre]:rounded-b-xl" : "[&_pre]:bg-transparent",
+              muted && "[&_code]:opacity-80",
             )}
             dangerouslySetInnerHTML={{ __html: highlighted }}
           />
         </div>
       </CodeBlockWrapper>
     </div>
-  )
+  );
 }

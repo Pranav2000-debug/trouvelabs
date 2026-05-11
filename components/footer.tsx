@@ -15,12 +15,14 @@ interface FooterColumnProps {
 
 const RESOURCE_LINKS: FooterLinkItem[] = [
   { href: "/projects", label: "Documentation" },
-  { href: "/roadmap", label: "Roadmap" },
+  // { href: "/roadmap", label: "Roadmap" },
 ];
 
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
-  { href: "https://example.com", label: "Contact" },
+  { href: "mailto:hood@mailahoy.com", label: "Contact" },
+  { href: "https://ahoy.technology/privacy-policy", label: "Privacy Policy" },
+  { href: "https://ahoy.technology/policies", label: "Policies" },
   { href: "/about#team", label: "Trouve Team" },
 
 ];
