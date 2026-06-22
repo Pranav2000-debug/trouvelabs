@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import * as m from "motion/react-m";
 import { useScroll, useTransform } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 type Side = "left" | "center" | "right";
 
@@ -60,17 +60,10 @@ export function JourneyConnector({
   const x1 = SIDE_X[from];
   const x2 = SIDE_X[to];
 
-  const path =
-    x1 === x2
-      ? `M ${x1} 0 L ${x2} 100`
-      : `M ${x1} 0 C ${x1} 50, ${x2} 50, ${x2} 100`;
+  const path = x1 === x2 ? `M ${x1} 0 L ${x2} 100` : `M ${x1} 0 C ${x1} 50, ${x2} 50, ${x2} 100`;
 
   return (
-    <div
-      ref={ref}
-      aria-hidden="true"
-      className={cn("pointer-events-none relative w-full text-primary", className)}
-      style={{ height }}>
+    <div ref={ref} aria-hidden="true" className={cn("pointer-events-none relative w-full text-primary", className)} style={{ height }}>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-full w-full">
         <m.path
           d={path}

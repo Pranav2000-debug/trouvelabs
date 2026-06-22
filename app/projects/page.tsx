@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS } from "@/lib/constants/projects";
 
 export const metadata = {
   title: "Projects - Trouve Labs",
@@ -12,9 +12,7 @@ export default function ProjectsIndexPage() {
       <div className="mx-auto max-w-7xl px-6 py-32">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="text-xs font-medium uppercase tracking-wider text-primary mb-3">
-            SDK Platform
-          </p>
+          <p className="text-xs font-medium uppercase tracking-wider text-primary mb-3">SDK Platform</p>
           <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">Our Projects.</h1>
           <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Modular, composable AI building blocks designed for mobility intelligence.
@@ -36,9 +34,7 @@ export default function ProjectsIndexPage() {
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <h2 className="text-lg font-semibold text-white/70">{project.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground/70">
-                  {project.description}
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground/70">{project.description}</p>
               </div>
             ) : (
               <Link
@@ -50,12 +46,8 @@ export default function ProjectsIndexPage() {
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <h2 className="text-lg font-semibold">{project.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-                <span className="mt-auto pt-4 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  View SDK →
-                </span>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+                <span className="mt-auto pt-4 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">View SDK →</span>
               </Link>
             );
           })}

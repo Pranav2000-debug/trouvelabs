@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 interface BackdropProps {
   /** Whether the backdrop is shown. */
@@ -16,12 +16,7 @@ interface BackdropProps {
   inert?: boolean;
 }
 
-export function Backdrop({
-  open,
-  onClick,
-  className,
-  inert = false,
-}: BackdropProps) {
+export function Backdrop({ open, onClick, className, inert = false }: BackdropProps) {
   return (
     <AnimatePresence>
       {open && (
@@ -32,11 +27,7 @@ export function Backdrop({
           transition={{ duration: 0.18, ease: "easeOut" }}
           onClick={onClick}
           aria-hidden="true"
-          className={cn(
-            "fixed inset-0 z-40 bg-background/40 backdrop-blur-md",
-            inert && "pointer-events-none",
-            className,
-          )}
+          className={cn("fixed inset-0 z-40 bg-background/40 backdrop-blur-md", inert && "pointer-events-none", className)}
         />
       )}
     </AnimatePresence>

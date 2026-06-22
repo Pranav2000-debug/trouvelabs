@@ -3,23 +3,11 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { DocsPage } from "@/components/docs/docs-page";
 import type { TocItem } from "@/components/docs/table-of-contents";
-import { ReleaseBadge, type GitHubReleaseData } from "@/components/release-badge";
-
+import { Badge } from "@/components/ui/badge";
 const TOC: TocItem[] = [
   { id: "Intro", title: "Intro", depth: 2 },
   { id: "where-to-next", title: "Where to next", depth: 2 },
 ];
-
-const visionSdkRelease: GitHubReleaseData = {
-  tag: "v1.0",
-  name: "Vision SDK",
-  preRelease: false,
-  draft: false,
-  publishedAt: new Date(0).toISOString(),
-  url: "https://visionsdk.trouvelabs.io",
-  body: "",
-  assetCount: 0,
-};
 
 export default function VisionSdkOverviewPage() {
   return (
@@ -39,17 +27,10 @@ export default function VisionSdkOverviewPage() {
         </p>
 
         <div className="mb-4 flex flex-wrap items-center gap-3">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Vision SDK
           </h1>
-          <ReleaseBadge
-            owner=""
-            repo=""
-            data={visionSdkRelease}
-            layout="inline"
-            variant="subtle"
-            size="sm"
-          />
+          <Badge version="v1.0" />
         </div>
 
         <p className="text-lg text-muted-foreground leading-relaxed mb-6">

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 type EdgeTabEdge = "right" | "left" | "top" | "bottom";
 type EdgeTabSize = "sm" | "md" | "lg";
@@ -58,47 +58,34 @@ const sizeClass: Record<EdgeTabEdge, Record<EdgeTabSize, string>> = {
   },
 };
 
-export const EdgeTab = React.forwardRef<HTMLButtonElement, EdgeTabProps>(
-  function EdgeTab(
-    {
-      icon,
-      edge = "right",
-      size = "md",
-      variant = "default",
-      pressed = false,
-      offsetClass,
-      className,
-      type = "button",
-      ...props
-    },
-    ref,
-  ) {
-    const variantClass =
-      variant === "primary"
-        ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90"
-        : pressed
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-border/60 bg-card/80 text-foreground hover:border-primary/30";
+export const EdgeTab = React.forwardRef<HTMLButtonElement, EdgeTabProps>(function EdgeTab(
+  { icon, edge = "right", size = "md", variant = "default", pressed = false, offsetClass, className, type = "button", ...props },
+  ref,
+) {
+  const variantClass =
+    variant === "primary"
+      ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90"
+      : pressed
+        ? "border-primary bg-primary text-primary-foreground"
+        : "border-border/60 bg-card/80 text-foreground hover:border-primary/30";
 
-    return (
-      <button
-        ref={ref}
-        type={type}
-        data-slot="edge-tab"
-        data-pressed={pressed || undefined}
-        aria-pressed={pressed}
-        className={cn(
-          "z-50 inline-flex items-center justify-center border shadow-lg backdrop-blur-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          edgeBaseClass[edge],
-          offsetClass ?? defaultOffsetClass[edge],
-          sizeClass[edge][size],
-          variantClass,
-          className,
-        )}
-        {...props}
-      >
-        {icon}
-      </button>
-    );
-  },
-);
+  return (
+    <button
+      ref={ref}
+      type={type}
+      data-slot="edge-tab"
+      data-pressed={pressed || undefined}
+      aria-pressed={pressed}
+      className={cn(
+        "z-50 inline-flex items-center justify-center border shadow-lg backdrop-blur-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        edgeBaseClass[edge],
+        offsetClass ?? defaultOffsetClass[edge],
+        sizeClass[edge][size],
+        variantClass,
+        className,
+      )}
+      {...props}>
+      {icon}
+    </button>
+  );
+});

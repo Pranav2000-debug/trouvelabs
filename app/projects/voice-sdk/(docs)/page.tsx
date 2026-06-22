@@ -48,7 +48,7 @@ export default function VoiceSdkOverviewPage() {
           SDK Overview
         </p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">Voice SDK</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground mb-4 sm:text-4xl lg:text-5xl">Voice SDK</h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
           Advanced voice processing and understanding capabilities. Full SDK documentation is on its way - for now, you can try the live platforms below.
         </p>

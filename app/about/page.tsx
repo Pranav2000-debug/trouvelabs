@@ -1,10 +1,10 @@
-import Teams from "@/components/about-comps/teams";
-import { StatsSection } from "@/components/about-comps/statsSection";
-import { AboutLead } from "@/components/about-comps/about-lead";
-import { AboutMissionVision } from "@/components/about-comps/about-mission-vision";
-import { AboutCoreValues } from "@/components/about-comps/about-core-values";
-import { AboutDifferentiators } from "@/components/about-comps/about-differentiators";
-import { AboutAcademy } from "@/components/about-comps/about-academy";
+import Teams from "@/components/about/teams";
+import { StatsSection } from "@/components/about/statsSection";
+import { AboutLead } from "@/components/about/about-lead";
+import { AboutMissionVision } from "@/components/about/about-mission-vision";
+import { AboutCoreValues } from "@/components/about/about-core-values";
+import { AboutDifferentiators } from "@/components/about/about-differentiators";
+import { AboutAcademy } from "@/components/about/about-academy";
 import { JourneyConnector } from "@/components/ui/journey-connector";
 import ReactLenis from "lenis/react";
 

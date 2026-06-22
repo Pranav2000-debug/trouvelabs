@@ -2,7 +2,7 @@
 
 import * as m from "motion/react-m";
 import { useMemo } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 function FloatingPaths({ position }: { position: number }) {
   const paths = useMemo(
@@ -75,7 +75,6 @@ export function BackgroundPaths({ className, children }: BackgroundPathsProps) {
         style={{
           width: "min(60vw, 60vh)",
           height: "min(60vw, 60vh)",
-
         }}
       />
 

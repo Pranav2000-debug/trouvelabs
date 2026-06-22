@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import * as m from "motion/react-m";
 import { Backdrop } from "@/components/ui/backdrop";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 type RadialAnchor = "bottom-right" | "bottom-left" | "top-right" | "top-left" | "edge-right" | "edge-left" | "edge-top" | "edge-bottom";
 

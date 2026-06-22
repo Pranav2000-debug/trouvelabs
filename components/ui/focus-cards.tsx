@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { UserRound } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 export type CardType = {
   title: string;
@@ -56,9 +56,7 @@ export const Card = React.memo(
               className={cn("object-cover transition-all duration-500", isHovered ? "grayscale-0" : "grayscale")}
             />
           ) : (
-            <div
-              aria-label={card.title}
-              className="flex h-full w-full items-center justify-center bg-secondary/60">
+            <div aria-label={card.title} className="flex h-full w-full items-center justify-center bg-secondary/60">
               <UserRound className="h-1/2 w-1/2 text-muted-foreground" strokeWidth={1.5} />
             </div>
           )}

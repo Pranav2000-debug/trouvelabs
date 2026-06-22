@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PROJECTS } from "@/lib/projects";
-import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/constants/projects";
+import { cn } from "@/lib/constants/utils";
 
 interface DocsNavProps {
   slug: string;
@@ -22,9 +22,7 @@ export function DocsNav({ slug }: DocsNavProps) {
 
   return (
     <nav className="flex flex-col gap-1 text-sm">
-      <span className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-        {title}
-      </span>
+      <span className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">{title}</span>
       {items.map((item) => {
         const isActive = pathname === item.href;
         return (
@@ -34,11 +32,8 @@ export function DocsNav({ slug }: DocsNavProps) {
             href={item.href}
             className={cn(
               "rounded-md px-3 py-1.5 transition-colors",
-              isActive
-                ? "bg-primary/10 text-primary"
-                : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
-            )}
-          >
+              isActive ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground",
+            )}>
             {item.label}
           </Link>
         );

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECTS } from "@/lib/projects";
+import { PROJECTS } from "@/lib/constants/projects";
 
 interface FooterLinkItem {
   href: string;
@@ -24,7 +24,6 @@ const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "https://ahoy.technology/privacy-policy", label: "Privacy Policy" },
   { href: "https://ahoy.technology/policies", label: "Policies" },
   { href: "/about#team", label: "Trouve Team" },
-
 ];
 
 function FooterColumn({ title, links }: FooterColumnProps) {

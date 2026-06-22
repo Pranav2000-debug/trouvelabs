@@ -19,7 +19,7 @@ export function StatsSection() {
           {STATS.map((stat) => (
             <FadeInStaggerItem key={stat.label}>
               <div className="text-center">
-                <p className="text-5xl font-bold text-trouve-yellow sm:text-6xl">{stat.value}</p>
+                <p className="text-3xl font-bold text-trouve-yellow sm:text-5xl lg:text-6xl">{stat.value}</p>
                 <p className="mt-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">{stat.label}</p>
               </div>
             </FadeInStaggerItem>

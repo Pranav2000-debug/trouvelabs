@@ -240,7 +240,7 @@ For icon-led lists (no bullet), use a flex layout instead and prefix each item w
 | Property | Value |
 |---|---|
 | Font | Roboto (could swap to `font-condensed` per the brand spec) |
-| Class | `text-5xl font-bold text-trouve-yellow sm:text-6xl` |
+| Class | `text-3xl font-bold text-trouve-yellow sm:text-5xl lg:text-6xl` |
 | Label | `text-sm font-medium uppercase tracking-wider text-muted-foreground` |
 
 ---
@@ -309,6 +309,22 @@ For icon-led lists (no bullet), use a flex layout instead and prefix each item w
 {/* Link */}
 <a className="text-primary underline-offset-4 hover:underline">link</a>
 ```
+
+---
+
+## Responsive Sizing Rule
+
+Text scales **down** as the screen shrinks - never up. Write classes mobile-first (smallest size first, larger sizes behind breakpoint prefixes):
+
+```
+text-3xl sm:text-4xl lg:text-5xl   ✓ correct - mobile smallest, desktop largest
+text-5xl sm:text-3xl               ✗ wrong - mobile larger than desktop
+text-5xl                           ✗ wrong (for headings) - no responsive step-down, forces 48px on all screen sizes
+```
+
+- Base (no prefix) = mobile. Keep it sensible: `text-2xl` or `text-3xl` for section headings, `text-2xl` for the hero on smallest screens.
+- Do not add large text on small screens. `text-4xl` and above as a bare base class is only acceptable when the content is genuinely unreadable smaller (e.g., a standalone numeric stat where `text-3xl` is the floor).
+- `text-[Npx]` arbitrary sizes are prohibited (except the `text-[9px]` pill badge - see §3 of `.claude/design.md`).
 
 ---
 

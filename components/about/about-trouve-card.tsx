@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 interface AboutTrouveCardProps {
   className?: string;
@@ -12,12 +12,7 @@ interface AboutTrouveCardProps {
  */
 export function AboutTrouveCard({ className, children }: AboutTrouveCardProps) {
   return (
-    <div
-      className={cn(
-        "relative overflow-hidden rounded-3xl border border-border bg-card/80 backdrop-blur-sm",
-        "p-8 sm:p-12 lg:p-16",
-        className,
-      )}>
+    <div className={cn("relative overflow-hidden rounded-3xl border border-border bg-card/80 backdrop-blur-sm", "p-8 sm:p-12 lg:p-16", className)}>
       {children}
     </div>
   );

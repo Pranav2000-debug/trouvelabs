@@ -1,5 +1,8 @@
 # Trouve Labs — Design Token & Opacity Reference
 
+> **HARD RULE — applies to every contributor and every AI tool:**
+> Never write a `trouve-*` Tailwind class (`bg-trouve-teal`, `text-trouve-yellow`, `border-trouve-border`, etc.) when a semantic alias exists in `globals.css`. Use the semantic token instead. The brand tokens are CSS variables - editing them in `globals.css` is how the theme is changed; using them directly in components bypasses the abstraction and makes retheming impossible. The **only** allowed exceptions are `trouve-yellow` (stats/step numbers, no semantic alias) and `trouve-grey` (rare direct use). Every other `trouve-*` class in JSX/TSX is a bug.
+
 **Purpose:** answer two questions every time:
 1. Which **token** do I use? (`bg-card` vs `bg-secondary` vs `bg-primary`…)
 2. At what **opacity**? (`/10` vs `/30` vs `/60`…)

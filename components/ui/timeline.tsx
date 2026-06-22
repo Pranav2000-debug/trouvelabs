@@ -1,13 +1,10 @@
 "use client";
 
 import { cva } from "class-variance-authority";
-import {
-  Direction as DirectionPrimitive,
-  Slot as SlotPrimitive,
-} from "radix-ui";
+import { Direction as DirectionPrimitive, Slot as SlotPrimitive } from "radix-ui";
 import * as React from "react";
-import { useComposedRefs } from "@/lib/compose-refs";
-import { cn } from "@/lib/utils";
+import { useComposedRefs } from "@/lib/constants/compose-refs";
+import { cn } from "@/lib/constants/utils";
 import { useIsomorphicLayoutEffect } from "@/hooks/use-isomorphic-layout-effect";
 import { useLazyRef } from "@/hooks/use-lazy-ref";
 
@@ -35,9 +32,7 @@ function getItemStatus(itemIndex: number, activeIndex?: number): Status {
   return "pending";
 }
 
-function getSortedEntries(
-  entries: [string, React.RefObject<ItemElement | null>][],
-) {
+function getSortedEntries(entries: [string, React.RefObject<ItemElement | null>][]) {
   return entries.sort((a, b) => {
     const elementA = a[1].current;
     const elementB = b[1].current;
@@ -55,10 +50,7 @@ function useStore<T>(selector: (store: Store) => T): T {
     throw new Error(`\`useStore\` must be used within \`${ROOT_NAME}\``);
   }
 
-  const getSnapshot = React.useCallback(
-    () => selector(store),
-    [store, selector],
-  );
+  const getSnapshot = React.useCallback(() => selector(store), [store, selector]);
 
   return React.useSyncExternalStore(store.subscribe, getSnapshot, getSnapshot);
 }
@@ -71,10 +63,7 @@ interface Store {
   subscribe: (callback: () => void) => () => void;
   getState: () => StoreState;
   notify: () => void;
-  onItemRegister: (
-    id: string,
-    ref: React.RefObject<ItemElement | null>,
-  ) => void;
+  onItemRegister: (id: string, ref: React.RefObject<ItemElement | null>) => void;
   onItemUnregister: (id: string) => void;
   getNextItemStatus: (id: string, activeIndex?: number) => Status | undefined;
   getItemIndex: (id: string) => number;
@@ -107,47 +96,44 @@ function useTimelineContext(consumerName: string) {
   return context;
 }
 
-const timelineVariants = cva(
-  "relative flex [--timeline-connector-thickness:0.125rem] [--timeline-dot-size:0.875rem]",
-  {
-    variants: {
-      orientation: {
-        vertical: "flex-col",
-        horizontal: "flex-row items-start",
-      },
-      variant: {
-        default: "",
-        alternate: "",
-      },
+const timelineVariants = cva("relative flex [--timeline-connector-thickness:0.125rem] [--timeline-dot-size:0.875rem]", {
+  variants: {
+    orientation: {
+      vertical: "flex-col",
+      horizontal: "flex-row items-start",
     },
-    compoundVariants: [
-      {
-        orientation: "vertical",
-        variant: "default",
-        class: "gap-6",
-      },
-      {
-        orientation: "horizontal",
-        variant: "default",
-        class: "gap-8",
-      },
-      {
-        orientation: "vertical",
-        variant: "alternate",
-        class: "relative w-full gap-3",
-      },
-      {
-        orientation: "horizontal",
-        variant: "alternate",
-        class: "items-center gap-4",
-      },
-    ],
-    defaultVariants: {
-      orientation: "vertical",
-      variant: "default",
+    variant: {
+      default: "",
+      alternate: "",
     },
   },
-);
+  compoundVariants: [
+    {
+      orientation: "vertical",
+      variant: "default",
+      class: "gap-6",
+    },
+    {
+      orientation: "horizontal",
+      variant: "default",
+      class: "gap-8",
+    },
+    {
+      orientation: "vertical",
+      variant: "alternate",
+      class: "relative w-full gap-3",
+    },
+    {
+      orientation: "horizontal",
+      variant: "alternate",
+      class: "items-center gap-4",
+    },
+  ],
+  defaultVariants: {
+    orientation: "vertical",
+    variant: "default",
+  },
+});
 
 interface TimelineProps extends DivProps {
   dir?: Direction;
@@ -157,15 +143,7 @@ interface TimelineProps extends DivProps {
 }
 
 function Timeline(props: TimelineProps) {
-  const {
-    orientation = "vertical",
-    variant = "default",
-    dir: dirProp,
-    activeIndex,
-    asChild,
-    className,
-    ...rootProps
-  } = props;
+  const { orientation = "vertical", variant = "default", dir: dirProp, activeIndex, asChild, className, ...rootProps } = props;
 
   const dir = DirectionPrimitive.useDirection(dirProp);
 
@@ -187,10 +165,7 @@ function Timeline(props: TimelineProps) {
       },
       getState: () => stateRef.current,
       notify,
-      onItemRegister: (
-        id: string,
-        ref: React.RefObject<ItemElement | null>,
-      ) => {
+      onItemRegister: (id: string, ref: React.RefObject<ItemElement | null>) => {
         stateRef.current.items.set(id, ref);
         notify();
       },
@@ -253,8 +228,7 @@ interface TimelineItemContextValue {
   isAlternateRight: boolean;
 }
 
-const TimelineItemContext =
-  React.createContext<TimelineItemContextValue | null>(null);
+const TimelineItemContext = React.createContext<TimelineItemContextValue | null>(null);
 
 function useTimelineItemContext(consumerName: string) {
   const context = React.useContext(TimelineItemContext);
@@ -318,8 +292,7 @@ const timelineItemVariants = cva("relative flex", {
 function TimelineItem(props: DivProps) {
   const { asChild, className, id, ref, ...itemProps } = props;
 
-  const { dir, orientation, variant, activeIndex } =
-    useTimelineContext(ITEM_NAME);
+  const { dir, orientation, variant, activeIndex } = useTimelineContext(ITEM_NAME);
   const store = useStoreContext(ITEM_NAME);
 
   const instanceId = React.useId();
@@ -469,15 +442,13 @@ const timelineDotVariants = cva(
         variant: "alternate",
         orientation: "vertical",
         isAlternateRight: false,
-        class:
-          "absolute -right-[calc(var(--timeline-dot-size)/2-var(--timeline-connector-thickness)/2)] bg-background",
+        class: "absolute -right-[calc(var(--timeline-dot-size)/2-var(--timeline-connector-thickness)/2)] bg-background",
       },
       {
         variant: "alternate",
         orientation: "vertical",
         isAlternateRight: true,
-        class:
-          "absolute -left-[calc(var(--timeline-dot-size)/2-var(--timeline-connector-thickness)/2)] bg-background",
+        class: "absolute -left-[calc(var(--timeline-dot-size)/2-var(--timeline-connector-thickness)/2)] bg-background",
       },
       {
         variant: "alternate",
@@ -567,15 +538,13 @@ const timelineConnectorVariants = cva("absolute z-0", {
       orientation: "vertical",
       variant: "alternate",
       isAlternateRight: false,
-      class:
-        "top-2 -right-[calc(var(--timeline-connector-thickness)/2)] h-full w-[var(--timeline-connector-thickness)]",
+      class: "top-2 -right-[calc(var(--timeline-connector-thickness)/2)] h-full w-[var(--timeline-connector-thickness)]",
     },
     {
       orientation: "vertical",
       variant: "alternate",
       isAlternateRight: true,
-      class:
-        "top-2 -left-[calc(var(--timeline-connector-thickness)/2)] h-full w-[var(--timeline-connector-thickness)]",
+      class: "top-2 -left-[calc(var(--timeline-connector-thickness)/2)] h-full w-[var(--timeline-connector-thickness)]",
     },
     {
       orientation: "horizontal",
@@ -599,21 +568,16 @@ interface TimelineConnectorProps extends DivProps {
 function TimelineConnector(props: TimelineConnectorProps) {
   const { asChild, forceMount, className, ...connectorProps } = props;
 
-  const { orientation, variant, activeIndex } =
-    useTimelineContext(CONNECTOR_NAME);
-  const { id, status, isAlternateRight } =
-    useTimelineItemContext(CONNECTOR_NAME);
+  const { orientation, variant, activeIndex } = useTimelineContext(CONNECTOR_NAME);
+  const { id, status, isAlternateRight } = useTimelineItemContext(CONNECTOR_NAME);
 
-  const nextItemStatus = useStore((state) =>
-    state.getNextItemStatus(id, activeIndex),
-  );
+  const nextItemStatus = useStore((state) => state.getNextItemStatus(id, activeIndex));
 
   const isLastItem = nextItemStatus === undefined;
 
   if (!forceMount && isLastItem) return null;
 
-  const isConnectorCompleted =
-    nextItemStatus === "completed" || nextItemStatus === "active";
+  const isConnectorCompleted = nextItemStatus === "completed" || nextItemStatus === "active";
 
   const ConnectorPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
@@ -643,13 +607,7 @@ function TimelineHeader(props: DivProps) {
 
   const HeaderPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
-  return (
-    <HeaderPrimitive
-      data-slot="timeline-header"
-      {...headerProps}
-      className={cn("flex flex-col gap-1", className)}
-    />
-  );
+  return <HeaderPrimitive data-slot="timeline-header" {...headerProps} className={cn("flex flex-col gap-1", className)} />;
 }
 
 function TimelineTitle(props: DivProps) {
@@ -657,13 +615,7 @@ function TimelineTitle(props: DivProps) {
 
   const TitlePrimitive = asChild ? SlotPrimitive.Slot : "div";
 
-  return (
-    <TitlePrimitive
-      data-slot="timeline-title"
-      {...titleProps}
-      className={cn("font-semibold leading-none", className)}
-    />
-  );
+  return <TitlePrimitive data-slot="timeline-title" {...titleProps} className={cn("font-semibold leading-none", className)} />;
 }
 
 function TimelineDescription(props: DivProps) {
@@ -671,13 +623,7 @@ function TimelineDescription(props: DivProps) {
 
   const DescriptionPrimitive = asChild ? SlotPrimitive.Slot : "div";
 
-  return (
-    <DescriptionPrimitive
-      data-slot="timeline-description"
-      {...descriptionProps}
-      className={cn("text-muted-foreground text-sm", className)}
-    />
-  );
+  return <DescriptionPrimitive data-slot="timeline-description" {...descriptionProps} className={cn("text-muted-foreground text-sm", className)} />;
 }
 
 interface TimelineTimeProps extends React.ComponentProps<"time"> {
@@ -689,13 +635,7 @@ function TimelineTime(props: TimelineTimeProps) {
 
   const TimePrimitive = asChild ? SlotPrimitive.Slot : "time";
 
-  return (
-    <TimePrimitive
-      data-slot="timeline-time"
-      {...timeProps}
-      className={cn("text-muted-foreground text-xs", className)}
-    />
-  );
+  return <TimePrimitive data-slot="timeline-time" {...timeProps} className={cn("text-muted-foreground text-xs", className)} />;
 }
 
 export {

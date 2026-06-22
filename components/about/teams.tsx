@@ -5,8 +5,8 @@ import { useState } from "react";
 import { UserRound } from "lucide-react";
 import * as motion from "motion/react-m";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { TEAM_GROUPS, TEAM_MEMBERS, type TeamGroup } from "@/lib/teams";
-import { cn } from "@/lib/utils";
+import { TEAM_GROUPS, TEAM_MEMBERS, type TeamGroup } from "@/lib/constants/teams";
+import { cn } from "@/lib/constants/utils";
 
 export default function Teams() {
   const [activeTab, setActiveTab] = useState<TeamGroup>(TEAM_GROUPS[0].id);
@@ -28,7 +28,7 @@ export default function Teams() {
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="text-center">
           <span className="inline-flex rounded-md bg-muted px-4 py-1.5 text-sm font-medium text-primary">Team</span>
-          <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">Our Creative Minds</h2>
+          <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Our Creative Minds</h2>
           <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-muted-foreground">The team behind Trouve Labs.</p>
         </div>
 

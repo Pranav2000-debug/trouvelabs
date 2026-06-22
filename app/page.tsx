@@ -1,17 +1,17 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import HeroSection from "@/components/home-comps/herosection";
-import OpeningPositioning from "@/components/home-comps/opening-positioning";
-import CapabilityShowcase from "@/components/home-comps/capability-showcase";
-import WhyTrouve from "@/components/home-comps/why-trouve";
-import ApproachSteps from "@/components/home-comps/approach-steps";
-import PhilosophyBand from "@/components/home-comps/philosophy-band";
+import HeroSection from "@/components/home/herosection";
+import OpeningPositioning from "@/components/home/opening-positioning";
+import CapabilityShowcase from "@/components/home/capability-showcase";
+import WhyTrouve from "@/components/home/why-trouve";
+import ApproachSteps from "@/components/home/approach-steps";
+import PhilosophyBand from "@/components/home/philosophy-band";
 import { BackgroundPaths } from "@/components/ui/gradient-flow";
 import { ReactLenis } from "lenis/react";
 
 // Lazy load heavy interactive scroll component, SSR comp.
 const SmoothStackScroll = dynamic(
-  () => import("@/components/home-comps/product-preview-sec"),
+  () => import("@/components/home/product-preview-sec"),
   {
     loading: () => <div className="min-h-screen w-full bg-background/80" />,
   },

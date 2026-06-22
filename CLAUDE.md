@@ -73,7 +73,7 @@ trouvelabs/
 │   ├── sandboxes/                     # Internal pages still exist; nav still links here. Cards on homepage now open external platforms (see lib/sandboxes.ts).
 │   │   ├── data-intelligence/
 │   │   └── voice-agent/
-│   ├── (blogs)/                # placeholder
+│   ├── blog/                   # placeholder
 │   ├── architecture/           # placeholder
 │   ├── benchmarks/             # placeholder
 │   ├── enterprise/             # placeholder
@@ -301,6 +301,7 @@ See `docs/typography.md` for the full role table (eyebrow, badge, lead, body, co
 - **No emoji-presentation Unicode in UI text** (`↗ ✓ ⚠️` etc.) - use plain ASCII arrows or Lucide icons. The `↗` U+2197 character renders as a colored emoji on Windows.
 - **Prefer native Tailwind grid utilities** - `grid-cols-N` + `col-span-N`, not arbitrary tracks like `grid-cols-[220px_minmax(0,1fr)]`
 - For typography, follow `docs/typography.md` - it lists the canonical Tailwind class string for every text role
+- **Token rule (hard requirement):** always use semantic tokens from `globals.css`, never raw `trouve-*` Tailwind tokens. See the full mapping and opacity scale in `.claude/design.md`. The only allowed exceptions are `trouve-yellow` (stats/step-number highlights, no semantic alias) and `trouve-grey` (rare). Every other `trouve-*` use is a bug.
 
 ---
 
@@ -313,3 +314,4 @@ See `docs/typography.md` for the full role table (eyebrow, badge, lead, body, co
 - `test.jsx` and `test.css` at root are scratch/reference content - do not treat them as production
 - Do not create route groups that conflict with existing URL patterns
 - Do not import `motion` directly from `motion/react` for animation components - use `m` from `motion/react-m` so the LazyMotion provider applies
+- **Never write `bg-trouve-teal`, `text-trouve-teal`, `border-trouve-border`, `bg-trouve-card`, `bg-trouve-shell`, `bg-trouve-navy`, `text-trouve-offwhite`** - all have semantic aliases (`bg-primary`, `text-primary`, `border-border`, `bg-card`, `bg-background`, `bg-secondary`/`bg-muted`, `text-foreground`). Use the semantic. Violations will be caught in review.

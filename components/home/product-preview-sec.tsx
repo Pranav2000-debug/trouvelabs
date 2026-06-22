@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { PROJECTS } from "@/lib/projects";
-import { SANDBOXES } from "@/lib/sandboxes";
-import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/constants/projects";
+import { SANDBOXES } from "@/lib/constants/sandboxes";
+import { cn } from "@/lib/constants/utils";
 
 export default function SmoothStackScroll(): React.JSX.Element {
   return (
@@ -20,16 +20,17 @@ export default function SmoothStackScroll(): React.JSX.Element {
           <div className="hidden sm:grid w-full max-w-7xl gap-5 grid-cols-6">
             {PROJECTS.map((product, i) => {
               const IconComponent = product.icon;
-              const span = cn(
-                "col-span-3 md:col-span-2",
-                i === 3 && "md:col-start-2",
-                i === 4 && "col-span-6 md:col-span-2",
-              );
+              const span = cn("col-span-3 md:col-span-2", i === 3 && "md:col-start-2", i === 4 && "col-span-6 md:col-span-2");
               return product.comingSoon ? (
                 <div
                   key={product.slug}
-                  className={cn(span, "relative flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none")}>
-                  <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
+                  className={cn(
+                    span,
+                    "relative flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 opacity-60 cursor-not-allowed select-none",
+                  )}>
+                  <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">
+                    Coming Soon
+                  </span>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                     <IconComponent className="h-5 w-5 text-primary" />
                   </div>
@@ -41,7 +42,10 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   prefetch={false}
                   key={product.slug}
                   href={`/projects/${product.slug}`}
-                  className={cn(span, "group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer")}>
+                  className={cn(
+                    span,
+                    "group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer",
+                  )}>
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                     <IconComponent className="h-5 w-5 text-primary" />
                   </div>
@@ -66,7 +70,9 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   <div
                     key={product.slug}
                     className="relative flex h-full flex-col snap-center rounded-xl border bg-card/80 backdrop-blur-sm p-5 opacity-60 cursor-not-allowed select-none">
-                    <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">Coming Soon</span>
+                    <span className="absolute top-3 right-3 rounded-full bg-foreground/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-foreground/60">
+                      Coming Soon
+                    </span>
                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                       <IconComponent className="h-4 w-4 text-primary" />
                     </div>

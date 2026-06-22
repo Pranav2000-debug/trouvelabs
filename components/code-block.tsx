@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CodeBlockCopyButton, CodeBlockWrapper } from "@/components/code-block-client";
-import { highlightCode } from "@/lib/highlight-code";
-import { cn } from "@/lib/utils";
+import { highlightCode } from "@/lib/constants/highlight-code";
+import { cn } from "@/lib/constants/utils";
 
 const languageTitleMap: Record<string, string> = {
   ts: "TypeScript",

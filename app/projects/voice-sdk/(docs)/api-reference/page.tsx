@@ -24,7 +24,7 @@ export default function VoiceSdkApiReferencePage() {
           Voice SDK
         </p>
 
-        <h1 className="text-4xl font-bold tracking-tight text-foreground mb-4">API Reference</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground mb-4 sm:text-4xl lg:text-5xl">API Reference</h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10">
           API reference documentation coming soon.
         </p>

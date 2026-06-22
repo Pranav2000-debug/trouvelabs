@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 export type TocItem = {
   id: string;
@@ -21,9 +21,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) {
           setActiveId(visible[0].target.id);
         }
@@ -46,9 +44,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
   return (
     <nav className="text-sm">
-      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-        On this page
-      </p>
+      <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">On this page</p>
       <ul className="flex flex-col border-l border-border">
         {items.map((item) => {
           const isActive = activeId === item.id;
@@ -61,11 +57,8 @@ export function TableOfContents({ items }: TableOfContentsProps) {
                   item.depth === 1 && "pl-3",
                   item.depth === 2 && "pl-6",
                   item.depth === 3 && "pl-9",
-                  isActive
-                    ? "border-primary text-primary"
-                    : "border-transparent text-muted-foreground hover:text-foreground",
-                )}
-              >
+                  isActive ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground",
+                )}>
                 {item.title}
               </a>
             </li>

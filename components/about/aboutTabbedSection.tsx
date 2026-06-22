@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import * as m from "motion/react-m";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 import { FadeIn } from "../ui/motion-wrapper";
 import Image from "next/image";
 

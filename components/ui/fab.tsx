@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/constants/utils";
 
 type FabPosition = "bottom-right" | "bottom-left" | "top-right" | "top-left";
 type FabSize = "sm" | "md" | "lg";
@@ -27,16 +27,7 @@ const sizeClass: Record<FabSize, string> = {
 };
 
 export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(function Fab(
-  {
-    icon,
-    position = "bottom-right",
-    size = "md",
-    variant = "default",
-    pressed = false,
-    className,
-    type = "button",
-    ...props
-  },
+  { icon, position = "bottom-right", size = "md", variant = "default", pressed = false, className, type = "button", ...props },
   ref,
 ) {
   const variantClass =
@@ -60,8 +51,7 @@ export const Fab = React.forwardRef<HTMLButtonElement, FabProps>(function Fab(
         variantClass,
         className,
       )}
-      {...props}
-    >
+      {...props}>
       {icon}
     </button>
   );

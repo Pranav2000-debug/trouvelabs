@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { PROJECTS } from "@/lib/projects";
-import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/constants/projects";
+import { cn } from "@/lib/constants/utils";
 
 /* ──────── Types ──────── */
 
@@ -98,7 +98,7 @@ export function Navbar() {
           <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-primary">
             About
           </Link>
-          <Dropdown label="Documentation" >
+          <Dropdown label="Documentation">
             <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
               {PROJECTS.map((p) => {
                 const Icon = p.icon;
@@ -151,7 +151,6 @@ export function Navbar() {
               ))}
             </div>
           </Dropdown>
-
         </div>
 
         {/* Mobile toggle */}
@@ -193,11 +192,7 @@ export function Navbar() {
                       </li>
                     ) : (
                       <li key={p.slug}>
-                        <Link
-                          prefetch={false}
-                          href={`/projects/${p.slug}`}
-                          onClick={closeMobile}
-                          className="text-sm text-white/50 hover:text-white">
+                        <Link prefetch={false} href={`/projects/${p.slug}`} onClick={closeMobile} className="text-sm text-white/50 hover:text-white">
                           {p.title}
                         </Link>
                       </li>
@@ -227,11 +222,7 @@ export function Navbar() {
               )}
             </li>
             <li>
-              <Link
-                prefetch={false}
-                href="/about"
-                onClick={closeMobile}
-                className="text-base font-medium text-white/70 hover:text-white">
+              <Link prefetch={false} href="/about" onClick={closeMobile} className="text-base font-medium text-white/70 hover:text-white">
                 About
               </Link>
             </li>
