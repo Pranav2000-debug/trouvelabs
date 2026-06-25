@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CodeBlockCopyButton, CodeBlockWrapper } from "@/components/code-block-client";
+import { CodeBlockCopyButton, CodeBlockWrapper } from "@/components/ui/code-block-client";
 import { highlightCode } from "@/lib/constants/highlight-code";
 import { cn } from "@/lib/constants/utils";
 

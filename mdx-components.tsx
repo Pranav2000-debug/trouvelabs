@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { ComponentProps, ReactElement, ReactNode } from "react";
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { CodeBlock } from "@/components/code-block";
+import { CodeBlock } from "@/components/ui/code-block";
 import { CodeBlockSkeleton } from "@/components/docs/code-block-skeleton";
 import { LinkCard, LinkCardList } from "@/components/docs/link-card";
 

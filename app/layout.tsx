@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Condensed, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/common/navbar";
+import { Footer } from "@/components/common/footer";
 import { LazyMotionProvider } from "@/components/ui/lazy-motion-provider";
 import { Suspense } from "react";
 
