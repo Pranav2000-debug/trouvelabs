@@ -1,9 +1,10 @@
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { DocsPage } from "@/components/docs/docs-page";
 import type { TocItem } from "@/components/docs/table-of-contents";
+import Content from "./content.mdx";
 
-// TODO: Replace with real quickstart content. TOC and scroll-spy entries
-// will be added once each section has a heading + id.
+// TODO: Replace with real quickstart content. Add TOC entries (ids = heading
+// slugs) once each section has a heading in content.mdx.
 const TOC: TocItem[] = [];
 
 export default function VoiceSdkQuickstartPage() {
@@ -20,14 +21,7 @@ export default function VoiceSdkQuickstartPage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
-          Voice SDK
-        </p>
-
-        <h1 className="text-3xl font-bold tracking-tight text-foreground mb-4 sm:text-4xl lg:text-5xl">Quickstart</h1>
-        <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-          Quickstart documentation coming soon.
-        </p>
+        <Content />
       </DocsPage>
     </>
   );

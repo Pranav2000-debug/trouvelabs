@@ -69,9 +69,9 @@ Each role lists the **canonical Tailwind class string** to use. Copy verbatim. I
 | Property | Value |
 |---|---|
 | Font | Roboto |
-| Docs class | `text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28` |
+| Docs class | `text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28` |
 | Marketing class | `text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl` |
-| Notes | `scroll-mt-28` keeps anchor jumps clear of the floating navbar. |
+| Notes | Docs H2 uses `text-primary` (teal) - it suits the section-heading role on docs pages and is the canonical color there. `scroll-mt-28` keeps anchor jumps clear of the floating navbar. |
 
 ### H3 — subsection
 | Property | Value |
@@ -285,7 +285,7 @@ For icon-led lists (no bullet), use a flex layout instead and prefix each item w
 <p className="text-lg text-muted-foreground leading-relaxed">Intro paragraph just under the H1.</p>
 
 {/* H2 (docs) */}
-<h2 className="text-2xl font-semibold tracking-tight text-foreground mt-14 mb-4 scroll-mt-28">Section</h2>
+<h2 className="text-2xl font-semibold tracking-tight text-primary mt-14 mb-4 scroll-mt-28">Section</h2>
 
 {/* H3 */}
 <h3 className="text-lg font-semibold text-foreground mt-8 mb-3 scroll-mt-28">Subsection</h3>

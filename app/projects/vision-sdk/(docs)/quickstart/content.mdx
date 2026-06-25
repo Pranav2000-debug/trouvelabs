@@ -1,0 +1,61 @@
+<Eyebrow>Vision SDK</Eyebrow>
+
+# Quickstart
+
+<Lead>Spin up your first pipeline in three steps.</Lead>
+
+## Prerequisites
+
+Before installing the SDK, make sure your environment meets these requirements.
+
+- NVIDIA DeepStream 8.0 container (`nvcr.io/nvidia/deepstream:8.0-triton-multiarch`)
+- NVIDIA GPU with driver support for DeepStream 8.0
+- Access to input media files or camera streams
+
+## Installation
+
+Copy the wheel into the DeepStream container and install:
+
+```bash
+pip install /path/to/vision_sdk-*.whl
+```
+
+This installs the `vision-runner` CLI command and all required native libraries.
+
+## Quick start
+
+### 1. Create a config file
+
+Save this as `pipeline.yaml`:
+
+```yaml title="pipeline.yaml"
+pipeline:
+  name: "My First Pipeline"
+
+streams:
+  - uri: "file:///path/to/video.mp4"
+    source_id: 0
+
+models:
+  - name: "my-detector"
+    type: "detector"
+    architecture: "yolo11"
+    onnx_file: /path/to/model.onnx
+    label_file: /path/to/labels.txt
+
+sinks:
+  width: 1280
+  height: 720
+  outputs:
+    - type: "display"
+```
+
+### 2. Run it
+
+```bash
+vision-runner pipeline.yaml
+```
+
+### 3. Stop the pipeline
+
+Press `Ctrl+C`.

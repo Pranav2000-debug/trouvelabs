@@ -1,7 +1,10 @@
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { DocsPage } from "@/components/docs/docs-page";
 import type { TocItem } from "@/components/docs/table-of-contents";
+import Content from "./content.mdx";
 
+// TODO: Replace with real API reference. Add TOC entries (ids = heading slugs)
+// when methods/types/errors sections are written in content.mdx.
 const TOC: TocItem[] = [];
 
 export default function DataIntelligenceApiReferencePage() {
@@ -18,16 +21,7 @@ export default function DataIntelligenceApiReferencePage() {
       />
 
       <DocsPage toc={TOC}>
-        <p className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">
-          Data Intelligence SDK
-        </p>
-
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
-          API Reference
-        </h1>
-        <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-          Coming soon.
-        </p>
+        <Content />
       </DocsPage>
     </>
   );
