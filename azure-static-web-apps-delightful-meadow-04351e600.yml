@@ -1,4 +1,9 @@
-name: Azure Static Web Apps CI/CD
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+# Azure Static Web Apps CI/CD - static export deploy.
+# We build explicitly (npm ci + next build with output: "export") and hand the
+# finished `out/` folder to the deploy task with skip_app_build, so Oryx never
+# tries to auto-detect/re-build the Next app as an SSR/hybrid deployment.
 
 pr:
   branches:
@@ -20,13 +25,24 @@ jobs:
   steps:
   - checkout: self
     submodules: true
+
+  - task: NodeTool@0
+    displayName: Use Node.js 20
+    inputs:
+      versionSpec: '20.x'
+
+  - script: npm ci
+    displayName: Install dependencies
+
+  - script: npm run build
+    displayName: Build static export (next build -> out/)
+
   - task: AzureStaticWebApp@0
+    displayName: Deploy to Azure Static Web Apps
     inputs:
       azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_DELIGHTFUL_MEADOW_04351E600)
-###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-# For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-      app_location: "/" # App source code path
-      api_location: "" # Api source code path - optional
-      output_location: "" # Built app content directory - optional
-###### End of Repository/Build Configurations ######
-
+      app_location: "out"      # pre-built static output
+      api_location: ""         # no API
+      output_location: ""      # app_location already holds the built content
+      skip_app_build: true     # do not let Oryx build; we built above
+      skip_api_build: true

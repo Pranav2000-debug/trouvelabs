@@ -2,8 +2,12 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
+  // Static export for Azure Static Web Apps (no Node server at runtime).
+  output: "export",
+  // Emit per-route folders (about/index.html) so SWA serves deep links natively.
+  trailingSlash: true,
+  // No image optimizer server on SWA - assets are pre-optimized in /public.
+  images: { unoptimized: true },
   reactCompiler: true,
 };
 
