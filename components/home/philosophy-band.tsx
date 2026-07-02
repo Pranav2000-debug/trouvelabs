@@ -5,7 +5,7 @@ export default function PhilosophyBand() {
     <section className="relative overflow-hidden bg-background px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       {/* BG pattern mask - topographic contour lines, darkened & faded */}
       <Image
-        src="/BG PATTERN MASK.png"
+        src="/assets/bg-pattern-mask.webp"
         alt=""
         fill
         className="pointer-events-none object-cover object-center opacity-[0.07] invert-[1]"
@@ -29,7 +29,7 @@ export default function PhilosophyBand() {
 
           <div className="hidden items-center justify-center lg:col-span-4 lg:flex">
             <Image
-              src="/image 27.png"
+              src="/assets/image-27.webp"
               alt=""
               width={220}
               height={215}

@@ -49,13 +49,13 @@ export function AboutTabbedSection() {
   return (
     <section className="overflow-hidden border-b border-border py-20 sm:py-24 relative">
       <div className="hidden sm:block absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/3 z-0 pointer-events-none opacity-5 xl:-translate-x-1/4">
-        <Image src="/image 22.png" alt="About Background" width={400} height={400} className="object-contain" />
+        <Image src="/assets/image-22.webp" alt="About Background" width={400} height={400} className="object-contain" />
       </div>
       <div className="mx-auto flex max-w-7xl flex-col gap-12 lg:flex-row lg:gap-16 relative z-10">
         <FadeIn className="px-6 lg:w-[45%] lg:shrink-0">
           <div className="lg:sticky lg:top-28 h-fit">
             <div className="flex items-center gap-3 sm:block">
-              <Image src="/image 22.png" alt="Trouve Labs Icon" width={48} height={48} className="object-contain sm:hidden" />
+              <Image src="/assets/image-22.webp" alt="Trouve Labs Icon" width={48} height={48} className="object-contain sm:hidden" />
               <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{WHY_SECTION.title}</h1>
             </div>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">{WHY_SECTION.body}</p>

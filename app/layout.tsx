@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     images: [
       {
         // TODO: replace with a purpose-built 1200x630 OG image; currently using the brand logo as a placeholder
-        url: "/FULL LOGO.png",
+        url: "/assets/full-logo.png",
         width: 1200,
         height: 630,
         alt: "Trouve Labs - AI SDK Platform",
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     title: "Trouve Labs - AI SDK Platform for Intelligent Mobility",
     description:
       "AI SDKs for knowledge graphs, voice, vision, and data intelligence. Built for enterprise teams shipping next-generation mobility systems.",
-    images: ["/FULL LOGO.png"],
+    images: ["/assets/full-logo.png"],
   },
   robots: {
     index: true,

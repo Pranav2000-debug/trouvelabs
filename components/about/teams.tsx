@@ -16,7 +16,7 @@ export default function Teams() {
     <section id="team" className="relative overflow-hidden bg-background px-6 py-20 scroll-mt-24">
       <div className="absolute top-20 left-0  right-0 bottom-0 z-0">
         <Image
-          src="/gradient-mesh.png"
+          src="/assets/gradient-mesh.webp"
           alt="About Background"
           width={2000}
           height={2000}
