@@ -33,11 +33,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Trouve Labs - AI SDK Platform for Intelligent Mobility",
+    default: "Trouve Labs - R&D Engine for Intelligent Mobility Systems",
     template: "%s | Trouve Labs",
   },
   description:
-    "Trouve Labs builds AI SDKs - knowledge graphs, voice, vision, and data intelligence - that power next-generation mobility systems and enterprise AI.",
+    "Trouve Labs is the R&D engine behind AHOY. We de-risk deep technology to build sovereign infrastructure systems for mobility, smart cities, and critical infrastructure - shipping AI SDKs as one output of that research.",
   applicationName: "Trouve Labs",
   authors: [{ name: "Trouve Labs", url: SITE_URL }],
   creator: "Trouve Labs",
@@ -45,6 +45,13 @@ export const metadata: Metadata = {
   category: "technology",
   keywords: [
     "Trouve Labs",
+    "R&D lab",
+    "deep tech research",
+    "sovereign infrastructure",
+    "intelligent mobility",
+    "smart cities",
+    "critical infrastructure",
+    "AHOY ecosystem",
     "AI SDK",
     "knowledge graph",
     "retrieval-augmented generation",
@@ -54,10 +61,7 @@ export const metadata: Metadata = {
     "vision AI SDK",
     "tokenization SDK",
     "generative AI SDK",
-    "multi-tenant AI platform",
     "enterprise AI",
-    "intelligent mobility",
-    "AHOY ecosystem",
   ],
   alternates: {
     canonical: "/",
@@ -65,9 +69,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Trouve Labs",
-    title: "Trouve Labs - AI SDK Platform for Intelligent Mobility",
+    title: "Trouve Labs - R&D Engine for Intelligent Mobility Systems",
     description:
-      "AI SDKs for knowledge graphs, voice, vision, and data intelligence. Built for enterprise teams shipping next-generation mobility systems.",
+      "We de-risk deep technology and build sovereign infrastructure systems for mobility, smart cities, and critical infrastructure - the R&D engine behind AHOY.",
     url: SITE_URL,
     locale: "en_US",
     images: [
@@ -76,15 +80,15 @@ export const metadata: Metadata = {
         url: "/assets/full-logo.png",
         width: 1200,
         height: 630,
-        alt: "Trouve Labs - AI SDK Platform",
+        alt: "Trouve Labs - R&D Engine for Intelligent Mobility",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trouve Labs - AI SDK Platform for Intelligent Mobility",
+    title: "Trouve Labs - R&D Engine for Intelligent Mobility Systems",
     description:
-      "AI SDKs for knowledge graphs, voice, vision, and data intelligence. Built for enterprise teams shipping next-generation mobility systems.",
+      "We de-risk deep technology and build sovereign infrastructure systems for mobility, smart cities, and critical infrastructure - the R&D engine behind AHOY.",
     images: ["/assets/full-logo.png"],
   },
   robots: {
