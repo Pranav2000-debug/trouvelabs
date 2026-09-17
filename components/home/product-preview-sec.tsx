@@ -116,7 +116,8 @@ export default function SmoothStackScroll(): React.JSX.Element {
             </div>
           </div>
 
-          <div className="grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          {/* Tablet & desktop: 3-up grid */}
+          <div className="hidden w-full max-w-6xl sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-6">
             {SANDBOXES.map((uc) => (
               <a
                 key={uc.slug}
@@ -124,19 +125,48 @@ export default function SmoothStackScroll(): React.JSX.Element {
                 target={uc.external ? "_blank" : undefined}
                 rel={uc.external ? "noopener noreferrer" : undefined}
                 className="flex h-full flex-col rounded-xl border bg-card/80 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
-                <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-t-xl sm:h-44">
+                <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-t-xl lg:h-44">
                   <Image src={uc.image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
                 </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
-                  <h3 className="text-xl sm:text-2xl font-semibold">{uc.name}.</h3>
-                  <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
+                <div className="flex flex-1 flex-col p-4 lg:p-6">
+                  <span className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
+                  <h3 className="text-2xl font-semibold">{uc.name}.</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
                   <span className="mt-auto pt-3 text-xs font-medium text-primary">
                     {uc.external ? "Get Started →" : "Explore →"}
                   </span>
                 </div>
               </a>
             ))}
+          </div>
+
+          {/* Mobile: horizontal snap-scroll carousel */}
+          <div className="w-full sm:hidden">
+            <div
+              className="flex gap-3 overflow-x-scroll snap-x snap-mandatory pb-4 px-1"
+              style={{ WebkitOverflowScrolling: "touch" }}>
+              {SANDBOXES.map((uc) => (
+                <a
+                  key={uc.slug}
+                  href={uc.href}
+                  target={uc.external ? "_blank" : undefined}
+                  rel={uc.external ? "noopener noreferrer" : undefined}
+                  className="flex w-[80vw] shrink-0 snap-center flex-col rounded-xl border bg-card/80 backdrop-blur-sm cursor-pointer">
+                  <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-t-xl">
+                    <Image src={uc.image} alt="" fill sizes="80vw" className="object-cover" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
+                    <span className="mb-1 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
+                    <h3 className="text-lg font-semibold">{uc.name}.</h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{uc.description}</p>
+                    <span className="mt-auto pt-2 text-xs font-medium text-primary">
+                      {uc.external ? "Get Started →" : "Explore →"}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-2 text-center text-xs text-muted-foreground/60">Swipe to explore →</p>
           </div>
         </div>
       </section>

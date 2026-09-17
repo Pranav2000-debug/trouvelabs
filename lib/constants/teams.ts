@@ -55,7 +55,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Ahmad Mansoor", jobTitle: "Senior Researcher", src: "/team/ahmad-mansoor.webp", teams: ["ai-research"] },
 
   { title: "Abdul Munem", jobTitle: "Decentralization", src: "/team/abdul-munem.webp", teams: ["decentralization"] },
-  { title: "Mehboob Raza", jobTitle: "Data Engineer", src: PLACEHOLDER, teams: ["llm"] },
+  { title: "Mehboob Raza", jobTitle: "Data Engineer", src: "/team/mehboob-raza.webp", teams: ["llm"] },
   { title: "Syed Sam", jobTitle: "Software Engineer", src: "/team/syed-sam.webp", teams: ["devops"] },
 
   { title: "Haider Asad", jobTitle: "AI Engineer", src: "/team/haider-asad.webp", teams: ["perception-sdk"] },

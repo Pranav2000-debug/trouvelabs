@@ -28,9 +28,9 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-full flex flex-col p-10 pt-6"
+      className="h-full flex flex-col p-4 pt-4 sm:p-6 sm:pt-5 lg:p-10 lg:pt-6"
     >
-      <div className="flex-1 font-mono text-sm text-muted-foreground bg-card rounded-3xl p-8 overflow-hidden">
+      <div className="flex-1 font-mono text-sm text-muted-foreground bg-card rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden">
         {typeof tab.content === 'string' ? (
           <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
         ) : (

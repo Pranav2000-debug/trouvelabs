@@ -20,8 +20,6 @@ const RESOURCE_LINKS: FooterLinkItem[] = [
 
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
-  { href: "mailto:hood@mailahoy.com", label: "Contact" },
-  { href: "https://ahoy.technology/privacy-policy", label: "Privacy Policy" },
   { href: "https://ahoy.technology/policies", label: "Policies" },
   { href: "/about#team", label: "Trouve Team" },
 ];
@@ -61,10 +59,8 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-primary">
-                example.com
-              </Link> */}
+            <p className="mt-4 text-sm text-foreground">
+              Reach out to us at research@trouve.works
             </p>
           </div>
 

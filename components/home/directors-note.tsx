@@ -21,7 +21,7 @@ export default function DirectorsNote() {
             </p>
 
             <figcaption className="mt-8 border-t border-border pt-6">
-              <p className="text-base font-semibold text-foreground">Hood Khizer</p>
+              <p className="text-base font-semibold text-primary">Hood Khizer</p>
               <p className="text-sm text-muted-foreground">Director of Innovation &amp; Research | CEO, Trouve Labs</p>
             </figcaption>
           </div>

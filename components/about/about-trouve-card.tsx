@@ -26,7 +26,7 @@ interface AboutTrouveEyebrowProps {
 /** Eyebrow label for the top of an AboutTrouveCard. */
 export function AboutTrouveEyebrow({ children, className }: AboutTrouveEyebrowProps) {
   return (
-    <span className={cn("font-mono text-xs uppercase tracking-[0.25em] text-primary", className)}>
+    <span className={cn("text-xs font-medium uppercase tracking-wider text-primary", className)}>
       {children}
     </span>
   );
