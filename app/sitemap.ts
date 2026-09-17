@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { PROJECTS } from "@/lib/constants/projects";
 import { SANDBOXES } from "@/lib/constants/sandboxes";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://trouvelabs.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://trouvelabs.io";
 
 // Required for output: "export" - emit a static sitemap.xml at build time.
 export const dynamic = "force-static";

@@ -6,7 +6,7 @@ import { Footer } from "@/components/common/footer";
 import { LazyMotionProvider } from "@/components/ui/lazy-motion-provider";
 import { Suspense } from "react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://trouvelabs.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://trouvelabs.io";
 
 const roboto = Roboto({
   variable: "--font-roboto",
