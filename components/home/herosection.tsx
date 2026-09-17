@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/motion-wrapper";
 import { BackgroundCardPlate } from "@/components/ui/background-card-plate";
@@ -82,6 +83,10 @@ export default async function HeroSection() {
         {/* Left column: copy, CTAs, stats */}
         <div className="flex flex-col justify-center lg:col-span-6">
           <FadeIn>
+            <Image src="/assets/image-51.webp" alt="Trouve logo" width={90} height={59} className="mb-4" priority />
+          </FadeIn>
+
+          <FadeIn delay={0.05}>
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground">
               RESEARCH &times; SYSTEMS &times; REAL-WORLD IMPACT
             </span>
