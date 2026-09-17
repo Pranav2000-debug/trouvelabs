@@ -8,8 +8,6 @@ export interface TabData {
   id: string;
   label: string;
   icon: ComponentType<{ className?: string }>;
-  title: React.ReactNode;
-  subtitle: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -32,16 +30,12 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       transition={{ duration: 0.2 }}
       className="h-full flex flex-col p-10 pt-6"
     >
-      <div className="flex-1 font-mono text-sm text-muted-foreground bg-secondary/60 rounded-3xl p-8 mb-8 overflow-hidden">
+      <div className="flex-1 font-mono text-sm text-muted-foreground bg-card rounded-3xl p-8 overflow-hidden">
         {typeof tab.content === 'string' ? (
           <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
         ) : (
           tab.content
         )}
-      </div>
-      <div className="px-2">
-        <h3 className="text-lg font-semibold text-foreground tracking-tight leading-tight mb-1">{tab.title}</h3>
-        <p className="text-muted-foreground text-sm leading-tight">{tab.subtitle}</p>
       </div>
     </m.div>
   );
