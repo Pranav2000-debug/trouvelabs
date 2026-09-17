@@ -8,9 +8,23 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TEAM_GROUPS, TEAM_MEMBERS, type TeamGroup } from "@/lib/constants/teams";
 import { cn } from "@/lib/constants/utils";
 
+// CEO outranks Staff outranks Senior outranks a plain title outranks Intern. The
+// management tab is an org chart, not an AI-role hierarchy, so "Staff" shouldn't
+// jump someone above manually-ordered leadership peers there - only CEO is pinned.
+function seniorityRank(jobTitle: string, tab: TeamGroup): number {
+  if (/\bceo\b/i.test(jobTitle)) return 0;
+  if (tab === "management") return 1;
+  if (/^staff\b/i.test(jobTitle)) return 1;
+  if (/^senior\b/i.test(jobTitle)) return 2;
+  if (/intern/i.test(jobTitle)) return 4;
+  return 3;
+}
+
 export default function Teams() {
   const [activeTab, setActiveTab] = useState<TeamGroup>(TEAM_GROUPS[0].id);
-  const members = TEAM_MEMBERS.filter((member) => member.teams.includes(activeTab));
+  const members = TEAM_MEMBERS.filter((member) => member.teams.includes(activeTab)).sort(
+    (a, b) => seniorityRank(a.jobTitle, activeTab) - seniorityRank(b.jobTitle, activeTab),
+  );
 
   return (
     <section id="team" className="relative overflow-hidden bg-background px-6 py-20 scroll-mt-24">
@@ -66,18 +80,18 @@ export default function Teams() {
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 md:gap-x-6 md:gap-y-7 lg:grid-cols-4">
             {members.map((member) => (
               <div key={member.title} className="flex items-center gap-3 md:gap-4">
-                <Avatar className="size-12 shrink-0 ring-2 ring-border md:size-20">
+                <Avatar className="size-10 shrink-0 ring-2 ring-border md:size-16">
                   {member.src ? (
-                    <Image src={member.src} alt={member.title} fill sizes="(min-width: 768px) 80px, 48px" className="object-cover" />
+                    <Image src={member.src} alt={member.title} fill sizes="(min-width: 768px) 64px, 40px" className="object-cover" />
                   ) : (
                     <AvatarFallback>
-                      <UserRound className="size-5 text-muted-foreground md:size-7" strokeWidth={1.5} />
+                      <UserRound className="size-4 text-muted-foreground md:size-6" strokeWidth={1.5} />
                     </AvatarFallback>
                   )}
                 </Avatar>
                 <div className="min-w-0">
-                  <h3 className="text-sm font-semibold leading-tight text-foreground md:text-xl">{member.title}</h3>
-                  <p className="mt-0.5 text-xs text-muted-foreground md:mt-1 md:text-base">{member.jobTitle}</p>
+                  <h3 className="text-xs font-semibold leading-tight text-foreground md:text-base">{member.title}</h3>
+                  <p className="mt-0.5 text-xs text-muted-foreground md:mt-1 md:text-sm">{member.jobTitle}</p>
                 </div>
               </div>
             ))}

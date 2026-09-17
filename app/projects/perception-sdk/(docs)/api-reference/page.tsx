@@ -5,7 +5,7 @@ import Content from "./content.mdx";
 
 const TOC: TocItem[] = [{ id: "sections", title: "Sections", depth: 2 }];
 
-export default function VisionSdkApiReferencePage() {
+export default function PerceptionSdkApiReferencePage() {
   return (
     <>
       <Breadcrumb
@@ -13,7 +13,7 @@ export default function VisionSdkApiReferencePage() {
         items={[
           { label: "Home", href: "/" },
           { label: "Projects", href: "/projects" },
-          { label: "Vision SDK", href: "/projects/vision-sdk" },
+          { label: "Perception SDK", href: "/projects/perception-sdk" },
           { label: "API Reference" },
         ]}
       />
