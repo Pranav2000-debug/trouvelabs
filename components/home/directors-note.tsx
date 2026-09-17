@@ -10,7 +10,7 @@ export default function DirectorsNote() {
             <div className="relative w-full max-w-sm">
               <div aria-hidden="true" className="absolute -bottom-3 -right-3 aspect-4/5 w-full rounded-3xl border-2 border-primary/70" />
               <div className="relative aspect-4/5 w-full overflow-hidden rounded-3xl border border-border">
-                <Image src="/team/hood-khizer.webp" alt="Hood Khizer" fill sizes="(min-width: 1024px) 400px, 100vw" className="object-cover" loading="lazy" />
+                <Image src="/team/hood-hq.jpg" alt="Hood Khizer" fill sizes="(min-width: 1024px) 400px, 100vw" className="object-cover" loading="lazy" />
               </div>
             </div>
           </div>
