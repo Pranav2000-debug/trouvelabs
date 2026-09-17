@@ -27,7 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (project.comingSoon) return [overview];
     return [
       overview,
-      { url: `${base}/quickstart`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
       { url: `${base}/api-reference`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
     ];
   });

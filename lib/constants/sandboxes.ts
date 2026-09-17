@@ -23,7 +23,7 @@ export const SANDBOXES: SandboxData[] = [
     slug: "voice-agent",
     builtWith: "Voice SDK",
     description: "Intelligent voice interactions with real-time language understanding and response.",
-    href: "https://voiceai.trouve.works",
+    href: "https://denoise.trouve.works/",
     external: true,
   },
 ];

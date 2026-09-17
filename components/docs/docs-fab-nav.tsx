@@ -16,7 +16,6 @@ export function DocsFabNav({ slug }: DocsFabNavProps) {
 
   const items = [
     { href: `/projects/${slug}`, label: "Overview" },
-    { href: `/projects/${slug}/quickstart`, label: "Quickstart" },
     { href: `/projects/${slug}/api-reference`, label: "API Reference" },
   ];
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CodeBlock } from "@/components/ui/code-block";
 import { CodeBlockSkeleton } from "@/components/docs/code-block-skeleton";
 import { LinkCard, LinkCardList } from "@/components/docs/link-card";
+import { PackageCard, PackageCardList } from "@/components/docs/package-card";
 
 /**
  * Global MDX element map for the docs system. Maps Markdown elements to the
@@ -156,6 +157,8 @@ const components: MDXComponents = {
   Lead,
   LinkCard,
   LinkCardList,
+  PackageCard,
+  PackageCardList,
 };
 
 export function useMDXComponents(existing: MDXComponents): MDXComponents {

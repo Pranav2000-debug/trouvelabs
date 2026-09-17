@@ -12,7 +12,7 @@ export default function VoiceAgentPage() {
         </p>
         {/* TODO: Replace href="#" with the Voice Agent platform URL */}
         <a
-          href="https://voiceai.trouve.works"
+          href="https://denoise.trouve.works/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-10 items-center justify-center rounded-full bg-trouve-teal px-6 text-sm font-semibold text-black transition-all hover:bg-trouve-teal/90">

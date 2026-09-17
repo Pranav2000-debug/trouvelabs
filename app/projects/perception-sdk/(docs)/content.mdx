@@ -1,0 +1,171 @@
+<Eyebrow>SDK Overview</Eyebrow>
+
+# Perception SDK
+
+<Lead>**Cameras in, detections, tracks, counts and events out.** An SDK for the whole life of a vision system: govern the data, train and approve the model, and run it on your own GPUs, with every stage tied to the one before it.</Lead>
+
+## Why Perception SDK
+
+Vision projects rarely fail at the model. They fail at the joins. Data sits in folders on a shared drive, training happens on someone's laptop, the model arrives as a file, and the pipeline running it was hand-written on a box at the site. Each part works. Nothing connects them - so when accuracy slips three months in, nobody can say what changed.
+
+Perception SDK makes the joins the product. Data is frozen into numbered versions. Models train against a version and ship only if they clear a bar you set. An approved model drops straight into the runtime, and what the runtime sees in the field comes back as the next version of the data. Every step knows what produced it - and all of it runs on your footage, your GPUs, your account.
+
+## What makes it different
+
+### One lifecycle, not three disconnected stages
+
+A data version makes a model version makes a running pipeline, each pinned to the last. Ask what is serving on camera 12 and you can walk back to the model, the data it learned from and the files inside it - months later, from the record rather than from memory.
+
+### Shipping is a rule, not a judgement call
+
+A new model replaces the live one only if it clears rules you declared in advance. The gate separates a real improvement from a lucky test set, checks the model holds up for every group in the data rather than only on average, and throws out any result where the test data overlapped the training data. It also enforces the speed, size and memory budget of the device the model is headed for.
+
+### The runtime comes with it
+
+Most platforms hand you a trained model and stop. Here the Perception Engine is part of the SDK: it turns one configuration file into a whole running pipeline, and an approved model loads into it with no conversion step - and a check that proves the exported model still agrees with the one you trained.
+
+### It tells you when it is going wrong
+
+Point the monitor at a batch of live data - labelled or not - and it reports how far that data has moved from what the model learned, and what that has likely done to accuracy. The answer comes back as one word anyone can act on: **fresh**, **aging** or **stale**.
+
+## How it works
+
+Four stages. The first two produce a candidate, the third decides whether it ships, and the fourth runs in production and feeds the first one back.
+
+<figure className="my-7">
+  <div className="overflow-x-auto">
+    <svg viewBox="0 0 930 258" role="img" className="block h-auto w-full min-w-[720px]"
+      aria-label="The lifecycle: cameras and images feed a frozen dataset version, which trains a model version, which is submitted to the gate; the gate ships it to the Perception Engine or holds it back, and approved predictions from the Engine return as the next dataset version.">
+      <defs>
+        <marker id="ps-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" className="fill-muted-foreground" />
+        </marker>
+        <marker id="ps-arrow-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" className="fill-primary" />
+        </marker>
+      </defs>
+
+      <rect x="20" y="4" width="170" height="28" rx="14" className="fill-secondary stroke-border" />
+      <text x="105" y="23" textAnchor="middle" className="fill-foreground font-sans text-[11px]">Cameras · video · images</text>
+      <line x1="105" y1="32" x2="105" y2="66" className="stroke-muted-foreground" strokeWidth="1.4" markerEnd="url(#ps-arrow)" />
+
+      <path d="M 585 70 L 585 46 L 345 46 L 345 66" fill="none" className="stroke-muted-foreground" strokeWidth="1.4" strokeDasharray="5 4" markerEnd="url(#ps-arrow)" />
+      <text x="465" y="39" textAnchor="middle" className="fill-muted-foreground font-sans text-[11px]">held back if it fails</text>
+
+      <rect x="20" y="70" width="170" height="92" rx="10" className="fill-card stroke-border" />
+      <text x="36" y="95" className="fill-muted-foreground font-mono text-[9px] tracking-wider">PERCEPTION-DATA</text>
+      <text x="36" y="119" className="fill-foreground font-sans text-sm font-semibold">Dataset version</text>
+      <text x="36" y="139" className="fill-muted-foreground font-sans text-[11px]">frozen and numbered</text>
+
+      <line x1="190" y1="116" x2="256" y2="116" className="stroke-muted-foreground" strokeWidth="1.4" markerEnd="url(#ps-arrow)" />
+      <text x="225" y="107" textAnchor="middle" className="fill-muted-foreground font-sans text-[11px]">trains on</text>
+
+      <rect x="260" y="70" width="170" height="92" rx="10" className="fill-card stroke-border" />
+      <text x="276" y="95" className="fill-muted-foreground font-mono text-[9px] tracking-wider">PERCEPTION-MODEL</text>
+      <text x="276" y="119" className="fill-foreground font-sans text-sm font-semibold">Model version</text>
+      <text x="276" y="139" className="fill-muted-foreground font-sans text-[11px]">pinned to that data</text>
+
+      <line x1="430" y1="116" x2="496" y2="116" className="stroke-muted-foreground" strokeWidth="1.4" markerEnd="url(#ps-arrow)" />
+      <text x="465" y="107" textAnchor="middle" className="fill-muted-foreground font-sans text-[11px]">submits</text>
+
+      <rect x="500" y="70" width="170" height="92" rx="10" className="fill-primary/10 stroke-primary/60" />
+      <text x="516" y="95" className="fill-primary font-mono text-[9px] tracking-wider">GATE</text>
+      <text x="516" y="119" className="fill-primary font-sans text-sm font-semibold">Rules you set</text>
+      <text x="516" y="139" className="fill-muted-foreground font-sans text-[11px]">accuracy, speed, size</text>
+
+      <line x1="670" y1="116" x2="736" y2="116" className="stroke-primary" strokeWidth="1.6" markerEnd="url(#ps-arrow-t)" />
+      <text x="703" y="107" textAnchor="middle" className="fill-primary font-sans text-[11px]">ships</text>
+
+      <rect x="740" y="70" width="170" height="92" rx="10" className="fill-card stroke-border" />
+      <text x="756" y="95" className="fill-muted-foreground font-mono text-[9px] tracking-wider">RUNTIME</text>
+      <text x="756" y="119" className="fill-foreground font-sans text-sm font-semibold">Perception Engine</text>
+      <text x="756" y="139" className="fill-muted-foreground font-sans text-[10px]">NVIDIA · Qualcomm · Huawei</text>
+
+      <path d="M 825 162 L 825 236 L 105 236 L 105 166" fill="none" className="stroke-muted-foreground" strokeWidth="1.4" markerEnd="url(#ps-arrow)" />
+      <text x="465" y="228" textAnchor="middle" className="fill-muted-foreground font-sans text-[11px]">approved predictions become the next dataset version</text>
+    </svg>
+  </div>
+  <figcaption className="mt-3 text-sm text-muted-foreground">
+    Every stage is pinned to the one before it, and the last one feeds the first. The gate is the only way through: a model that fails it goes back rather than out.
+  </figcaption>
+</figure>
+
+### 1. Bring the data in
+
+Point the SDK at a folder of images, video frames or tables. It imports them into a governed store, drops duplicates, recognises the annotation layout already there, and records where every file came from. Before any GPU time is spent you can see what is actually in the set, what changed since the last version and which files are broken - and repair them in one recorded step. Commit, and the set freezes into a numbered version.
+
+### 2. Train and score
+
+Train from the built-in catalogue, or from your own code, in a single call - the settings that normally need a specialist are chosen for you. Scoring runs through one engine covering every kind of model the platform supports, so numbers stay comparable between models and over time. It ranks what data to fix first, and picking any pair of classes the model confused gives you back the exact examples.
+
+### 3. Gate and ship
+
+The gate decides. Past it, the model exports as a bundle the runtime runs as it stands, alongside smaller variants for camera-class devices. From there a deployment record tracks what is live: point a target at a version, roll it back, retire it - every move written to a log nothing can be edited out of.
+
+### 4. Run and close the loop
+
+The Perception Engine takes one file: your video sources, a detector, a tracker to hold identities across frames, and whatever else the job needs - body pose, exact outlines, a second model classifying what the first one found, text recognition for numbers and plates. Rules you define count what crosses a line or sits inside a marked area. Output goes to a screen, a file, a stream or your event system, several at once, from one pass over the footage.
+
+What it sees in production is written down and sampled for review. Approve a batch and it becomes the next data version, which goes back through stage two and the same gate. The model improves from the field, but only ever through the bar a human release would have to clear.
+
+## Three packages, one lifecycle
+
+Perception SDK ships as three installable packages, designed to work as one lifecycle and usable on their own.
+
+<PackageCardList>
+  <PackageCard role="Data" name="perception-data">
+    The governed dataset store: import with duplicates removed, inspection and repair, splits, versions that cannot be altered once written, tags, version-to-version comparison, activity log, erasure and backup.
+  </PackageCard>
+  <PackageCard role="Model" name="perception-model">
+    The model side: a registry of everything you have ever trained, training in one call or with your own code, one scoring engine, label review, the gate, monitoring, exports and the deployment record.
+  </PackageCard>
+  <PackageCard role="Runtime" name="Perception Engine" named>
+    The video runtime: it turns your configuration file into a running pipeline - sources, detection, tracking, rules, overlays, tiling and outputs - and ships as a container you drop onto the hardware already at the site. Deployed on NVIDIA, Qualcomm and Huawei.
+  </PackageCard>
+</PackageCardList>
+
+## Built for production
+
+### A record that holds up
+
+A version cannot be altered once written, so any result can be reproduced from the exact data behind it. An activity log turns "who broke this dataset" into a query rather than an investigation. Holds stop anything under audit being cleaned up, and an erasure request deletes the bytes for real and leaves proof it happened.
+
+### Fixing the data, not just the model
+
+A handful of bad labels usually caps accuracy more than the choice of model does. The platform finds the examples that look mislabelled and the ones that are genuinely hard, and hands you a folder to review; corrections come back as a new version and a gated retrain. It also picks which unlabelled samples are worth labelling next, so you pay only for the ones that move the model.
+
+### Retraining with a handbrake
+
+Retraining fires on a schedule, when the incoming data has visibly moved, or when accuracy drops. Two safeguards keep it honest: a cap on how often it may run, and a check that holds back any new model which got worse on data the old one handled fine.
+
+### Room to grow, and room to shrink
+
+Training spreads across several GPUs and hosts, so a big job finishes in a day rather than a week, and it can run on a managed fleet without your data leaving your infrastructure. The same model also exports small enough for camera-class hardware - the Perception Engine is deployed on NVIDIA, Qualcomm and Huawei - and the result is verified on the target before a pipeline relies on it.
+
+### Enterprise from the start
+
+Single sign-on and role-based access plug into the identity system you already have, and residency rules pin a workspace's data to a region. Storage and GPU time are allocated per tenant, so one heavy user cannot crowd out the rest. Each version is signed and checked on the way out, so a shipped model can be proven to be the one that was approved.
+
+### Drive it the way you work
+
+Everything is available three ways: the Python SDK, a command-line tool, and versioned HTTP APIs. A whole data or model job can also be written as a single file and run unattended in your build system, so other teams and non-Python services drive the platform without embedding anything.
+
+## Where it fits
+
+- **Sports and broadcast** - hold identity on every player across a multi-camera feed, read numbers off the video, and turn positions into the counts an analyst reports on.
+- **Retail, venues and public space** - occupancy, queues, dwell and line crossings, counted at the edge and published as events other systems can use.
+- **Industrial safety and quality** - posture and gesture, exact outlines where contact and area matter, and a second model reading grade or defect off each object found.
+- **Transport and traffic** - plates and labels read off the stream, with a site's whole camera set running as one job on one GPU.
+- **Regulated environments** - where a model has to arrive with a paper trail, an erasure request has to be provable, and licences have to be cleared before anything ships.
+
+## What's next
+
+Perception SDK ships today with everything above. Next on the roadmap:
+
+- **Marketplace distribution and usage metering** - the hooks for licence checking and usage reporting are in place and switched off by default; the connector follows.
+- **Automated data policies** - datasets that version themselves when their contents actually change, and per-workspace limits.
+- **Broader runtime coverage** - more model types validated end to end, from export through to a running pipeline.
+
+## Get started
+
+- **[API Reference](/projects/perception-sdk/api-reference)** - full endpoint documentation, request and response shapes, and authentication flows
