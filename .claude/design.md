@@ -61,6 +61,7 @@ This is the canonical answer to "which class do I use here?"
 | Card with frosted blur over busy backdrop | `bg-card/80 backdrop-blur-sm` |
 | Inner panel inside a card (recessed) | `bg-secondary/60` |
 | Section that wants a slight navy tint | `bg-secondary` (full strength) |
+| Full-bleed section over the animated homepage background | `bg-background/80 backdrop-blur-sm` - never a bare `/30` or `/60` here, the blur is load-bearing: without it the WebGL lines stay sharp behind the text and tank muted-text contrast |
 
 ### Borders
 

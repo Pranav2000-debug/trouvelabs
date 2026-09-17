@@ -82,7 +82,13 @@ export default function Teams() {
               <div key={member.title} className="flex items-center gap-3 md:gap-4">
                 <Avatar className="size-10 shrink-0 ring-2 ring-border md:size-16">
                   {member.src ? (
-                    <Image src={member.src} alt={member.title} fill sizes="(min-width: 768px) 64px, 40px" className="object-cover" />
+                    <Image
+                      src={member.src}
+                      alt={member.title}
+                      fill
+                      sizes="(min-width: 768px) 64px, 40px"
+                      className={cn("object-cover", member.imgClassName)}
+                    />
                   ) : (
                     <AvatarFallback>
                       <UserRound className="size-4 text-muted-foreground md:size-6" strokeWidth={1.5} />

@@ -65,7 +65,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
             `}
           >
             <Icon className={`w-8 h-8 md:w-10 md:h-10 transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
-            <span className={`text-xs font-medium transition-opacity ${isActive ? 'text-foreground opacity-100' : 'text-muted-foreground opacity-0 group-hover:opacity-100'}`}>
+            <span className={`text-xs font-medium transition-colors ${isActive ? 'text-foreground' : 'text-muted-foreground/60 group-hover:text-muted-foreground'}`}>
               {tab.label}
             </span>
 

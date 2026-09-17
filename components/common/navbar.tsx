@@ -20,7 +20,7 @@ type Sandbox = {
 
 const SANDBOXES: Sandbox[] = [
   {
-    title: "Data Intelligence",
+    title: "Data Intelligence Platform",
     href: "/sandboxes/data-intelligence",
     description: "Intelligent data processing and analysis with graph-based retrieval.",
     sdks: "Graph RAG SDK",

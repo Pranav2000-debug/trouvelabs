@@ -58,7 +58,7 @@ export default function ApproachSteps() {
   ));
 
   return (
-    <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative bg-background/80 backdrop-blur-sm px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
           <p className="mb-3 text-xs font-medium uppercase tracking-wider text-primary">Our Approach</p>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/ui/motion-wrapper";
+import { AnimatedCornerFrame } from "@/components/home/animated-corner-frame";
 import { BackgroundCardPlate } from "@/components/ui/background-card-plate";
 import { HeroFeatureCard } from "@/components/home/hero-feature-card";
 import { HeroTerminalCard, type TerminalLine } from "@/components/home/hero-terminal-card";
@@ -106,9 +107,11 @@ export default async function HeroSection() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="mb-8 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-              We research, design, and build intelligent systems that improve how people, data, goods, and infrastructure move.
-            </p>
+            <AnimatedCornerFrame className="mb-8 max-w-md bg-background/60 px-4 py-3 -mx-4 backdrop-blur-md">
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Trouve Labs is the R&amp;D engine behind AHOY. We de-risk deep technology to build sovereign infrastructure systems that improve how people, data, goods, and infrastructure move.
+              </p>
+            </AnimatedCornerFrame>
           </FadeIn>
 
           <FadeIn delay={0.3}>

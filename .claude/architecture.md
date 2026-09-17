@@ -30,9 +30,9 @@ trouvelabs/
 │   ├── navbar.tsx              # Floating pill navbar (client). Items: Home, About, Documentation, Sandboxes
 │   ├── footer.tsx              # Footer; Products column auto-renders from PROJECTS
 │   ├── home/                   # Homepage sections (rendered top-to-bottom from app/page.tsx)
-│   │   ├── herosection.tsx, opening-positioning.tsx, capability-showcase.tsx,
+│   │   ├── herosection.tsx, directors-note.tsx, capability-showcase.tsx,
 │   │   ├── product-preview-sec.tsx  # Core SDKs + Sandboxes sticky-stack (LOCKED - do not modify)
-│   │   ├── why-trouve.tsx, approach-steps.tsx, philosophy-band.tsx
+│   │   ├── research-focus.tsx, approach-steps.tsx, directors-note.tsx
 │   ├── about/                  # /about page sections (about-lead, mission-vision, core-values,
 │   │                           # differentiators, academy, statsSection, teams, ...)
 │   ├── docs/                   # Docs-page primitives
