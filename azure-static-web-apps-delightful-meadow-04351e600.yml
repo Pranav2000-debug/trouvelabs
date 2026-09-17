@@ -36,6 +36,8 @@ jobs:
 
   - script: npm run build
     displayName: Build static export (next build -> out/)
+    env:
+      DEPLOY_TARGET: azure-static
 
   - task: AzureStaticWebApp@0
     displayName: Deploy to Azure Static Web Apps
