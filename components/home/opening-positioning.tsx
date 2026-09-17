@@ -35,7 +35,7 @@ const MOVEMENTS: Movement[] = [
 
 export default function OpeningPositioning() {
   return (
-    <section className="relative bg-secondary/30 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+    <section className="relative bg-secondary/60 px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - heading + closing line */}

@@ -155,7 +155,7 @@ export default async function HeroSection() {
         <div className="relative flex h-full min-h-[500px] w-full items-center justify-center sm:min-h-[560px] lg:col-span-6 lg:min-h-[640px]">
           {/* Desktop: hand-placed diagonal composition */}
           <div className="relative hidden h-[620px] w-full lg:block">
-            <div className="absolute left-[4%] top-[2%] z-20">
+            <div className="absolute left-[8%] top-[8%] z-20">
               <HeroFeatureCard
                 category="PERCEPTION"
                 title={
@@ -177,7 +177,6 @@ export default async function HeroSection() {
                   </>
                 }
                 icon={<DataIntelligenceIcon />}
-                footer="SYNAPSE v2.4"
                 outerEyebrow="MULTIMODAL UNDERSTANDING"
                 depth="foreground"
               />
@@ -235,7 +234,6 @@ export default async function HeroSection() {
                 </>
               }
               icon={<DataIntelligenceIcon />}
-              footer="SYNAPSE v2.4"
               depth="foreground"
               className="w-full sm:w-auto"
             />
