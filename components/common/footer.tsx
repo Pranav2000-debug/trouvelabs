@@ -56,7 +56,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link prefetch={false} href="/" className="inline-flex items-center gap-2">
-              <Image src="/image 44.png" alt="Trouve Labs" width={100} height={100} className="h-22 w-20" />
+              <Image src="/assets/image-44.webp" alt="Trouve Labs" width={100} height={100} className="h-22 w-20" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
@@ -82,7 +82,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-card/30 px-3.5 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground">
-            <Image src="/ahoy-logo-colored.png" alt="AHOY" width={16} height={16} className="shrink-0" />
+            <Image src="/assets/ahoy-logo-colored.webp" alt="AHOY" width={16} height={16} className="shrink-0" />
             <span>
               Part of the <span className="font-medium text-primary">AHOY Ecosystem</span>
             </span>

@@ -17,8 +17,6 @@ export async function highlightCode(
   language: string = "tsx",
   theme?: string
 ) {
-  "use cache"
-
   if (theme) {
     return codeToHtml(code, {
       lang: language,

@@ -9,8 +9,6 @@ import { JourneyConnector } from "@/components/ui/journey-connector";
 import ReactLenis from "lenis/react";
 
 export default async function AboutPage() {
-  "use cache";
-
   return (
     <ReactLenis root>
       <div className="mx-auto flex max-w-7xl flex-col px-4 pt-32 pb-12 sm:px-6 lg:px-8">

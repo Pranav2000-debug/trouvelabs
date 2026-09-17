@@ -18,8 +18,6 @@ const SmoothStackScroll = dynamic(
 );
 
 export default async function HomePage() {
-  "use cache";
-
   return (
     <ReactLenis root>
       {/* Fixed gradient background - client-only animation, doesn't block static shell */}
