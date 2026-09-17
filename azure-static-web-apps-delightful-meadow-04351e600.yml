@@ -38,6 +38,7 @@ jobs:
     displayName: Build static export (next build -> out/)
     env:
       DEPLOY_TARGET: azure-static
+      NEXT_PUBLIC_SITE_URL: https://delightful-meadow-04351e600.7.azurestaticapps.net
 
   - task: AzureStaticWebApp@0
     displayName: Deploy to Azure Static Web Apps
