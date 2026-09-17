@@ -19,25 +19,33 @@ export function TableOfContents({ items }: TableOfContentsProps) {
   useEffect(() => {
     if (items.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-96px 0px -70% 0px",
-        threshold: 0,
-      },
-    );
+    // Recompute straight from live DOM positions on every scroll, rather than tracking
+    // IntersectionObserver crossing events. A fast scroll (e.g. dragging the scrollbar)
+    // can jump a heading from "above the trigger line" straight to "below the viewport"
+    // without ever firing an event in between (isIntersecting never flips), which leaves
+    // an event-based tracker stuck on stale state.
+    function update() {
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (atBottom) {
+        setActiveId(items[items.length - 1].id);
+        return;
+      }
 
-    items.forEach((item) => {
-      const el = document.getElementById(item.id);
-      if (el) observer.observe(el);
-    });
+      let current = items[0].id;
+      for (const item of items) {
+        const el = document.getElementById(item.id);
+        if (el && el.getBoundingClientRect().top < 112) current = item.id;
+      }
+      setActiveId(current);
+    }
 
-    return () => observer.disconnect();
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, [items]);
 
   if (items.length === 0) return null;

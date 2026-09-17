@@ -1,20 +1,20 @@
 import { DocsNav } from "@/components/docs/docs-nav";
 import { DocsFabNav } from "@/components/docs/docs-fab-nav";
 
-export default function VisionSdkDocsLayout({
+export default function PerceptionSdkDocsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 pt-32 md:grid-cols-5">
+    <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-64 pt-32 md:grid-cols-5">
       <aside className="sticky top-28 hidden h-fit md:col-span-1 md:block">
-        <DocsNav slug="vision-sdk" />
+        <DocsNav slug="perception-sdk" />
       </aside>
 
       <main className="min-w-0 md:col-span-4">{children}</main>
 
-      <DocsFabNav slug="vision-sdk" />
+      <DocsFabNav slug="perception-sdk" />
     </div>
   );
 }

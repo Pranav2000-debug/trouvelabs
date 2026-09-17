@@ -2,14 +2,112 @@
 
 # Voice SDK
 
-<Lead>Advanced voice processing and understanding capabilities. Full SDK documentation is on its way - for now, you can try the live platforms below.</Lead>
+<Lead>**Every stage of the voice pipeline, self-hosted.** A containerized SDK that takes audio from raw microphone input to a spoken answer - cleaning, transcribing, identifying, reasoning, and synthesizing - without a single byte leaving your infrastructure.</Lead>
 
-## Try the platform
+## Why Voice SDK
 
-Three live surfaces are available - the main Voice AI workspace plus two specialised tools.
+Building a voice product today means assembling it from other people's APIs. Transcription from one vendor, synthesis from another, noise suppression from a third, speaker identification from a fourth - each with its own SDK, its own auth, its own rate limits, its own latency profile, and its own terms about what happens to your audio after you send it. The integration surface grows faster than the product does, and the one thing you cannot buy back is control over the recordings themselves.
+
+Voice SDK collapses that surface into one platform. Five capability modules - noise suppression, speech-to-text, text-to-speech, speaker biometrics, and a real-time conversational agent - ship as Docker containers that run anywhere: your cloud, your datacenter, an edge box on a factory floor. Each module stands alone behind a REST or WebSocket API, and each one composes with the others through a unified web platform and a shared pipeline. Every model is self-hosted, so audio that enters the system stays in it.
+
+## What makes it different
+
+### One pipeline, not five integrations
+
+Denoising, transcription, diarization, reasoning, and synthesis are not separate products stitched together at the application layer - they are stages of one pipeline. Clean audio before you transcribe it and word error rate drops. Diarize before you identify and every transcript segment carries a speaker name. The SDK makes those handoffs native, so you write the product logic, not the plumbing between four vendors.
+
+### Self-hosted, with no exceptions
+
+Whisper Large V3, Kokoro, XTTS v2, DeepFilterNet3, Qwen2.5-7B-Instruct, ECAPA-TDNN, pyannote 3.1, Silero - every model in the stack runs on your own GPUs. There is no fallback path to a hosted API, no telemetry channel, no "we only send it for quality improvement." For voice biometrics and call recordings in particular, that is the difference between a deployment your compliance team signs off on and one it does not.
+
+### Drop-in compatible with what you already wrote
+
+The transcription and synthesis endpoints implement the OpenAI audio API format exactly. Point your existing client at a different base URL and it works - same multipart upload for `/audio/transcriptions`, same JSON body for `/audio/speech`, same response shapes including `verbose_json` with segment timestamps. Migration is a configuration change, not a rewrite.
+
+## How it works
+
+Voice SDK runs audio through four stages. Each stage is independently callable, and the conversational agent chains all four in a continuous real-time loop.
+
+### 1. Capture and clean
+
+Audio arrives as an uploaded file in any of eleven-plus formats, or as a live microphone stream over WebSocket. DeepFilterNet3 strips background noise on the GPU - statelessly, so a single loaded model serves unlimited concurrent connections with no per-session memory. Streaming runs at 48 kHz natively, matching the browser's own sample rate, and turns around in roughly 150 ms end to end (70 ms of model inference plus an 80 ms jitter buffer). Everything downstream sees clean audio.
+
+### 2. Understand
+
+Cleaned audio splits down two paths that can run together. Whisper Large V3 transcribes across 90+ languages, with a Wav2Vec2 XLSR-53 model fine-tuned for Arabic when that accuracy matters more than breadth, and a HuggingFace adapter that loads any other ASR model on demand. In parallel, the biometrics module answers *who* is speaking: pyannote 3.1 segments the audio into speaker turns, ECAPA-TDNN renders each turn as a 192-dimensional voice fingerprint, and cosine similarity matches it against your enrolled speaker gallery - returning a name and a confidence score, or `UNKNOWN` below threshold.
+
+### 3. Reason
+
+For conversational use, transcribed text goes to a self-hosted Qwen2.5-7B-Instruct served through vLLM. Silero VAD detects when the speaker starts and stops, multilingual turn detection handles the natural rhythm of conversation, and preemptive generation starts forming a response while the user is still talking - so the reply is ready the moment they finish. The model can call tools mid-conversation: query a database, hit an internal API, look something up. The agent acts, rather than only answering.
+
+### 4. Respond
+
+Kokoro synthesizes English quickly and naturally; XTTS v2 handles Arabic and clones any voice from a short reference clip. Output comes back as MP3, WAV, or Opus, with voice selection and 0.5x-2.0x speed control. In agent mode the whole loop - capture, clean, transcribe, reason, synthesize - runs over WebRTC via LiveKit Agents SDK v1.4 at sub-second latency.
+
+## Self-hosted by design
+
+Voice SDK is built to run entirely inside your perimeter. Every module ships as a Docker container, GPU allocation is explicit and configurable per service, and Nginx handles path-based routing and TLS in front of the whole platform. There is no managed control plane to phone home to and no vendor account to provision.
+
+This means:
+
+- Voice recordings, biometric embeddings, and transcripts never leave infrastructure you control - which is what makes the SDK viable for regulated environments and for biometric data specifically
+- The same compose files run on a laptop with one GPU, a multi-GPU server, or an air-gapped edge deployment, with no code changes
+- Speaker enrollments, embeddings, and job history persist to your own PostgreSQL instance
+- Each module is independently deployable - take only noise suppression, or only STT and TTS, without standing up the rest
+- Cost is GPU capacity, not per-minute metering, so batch workloads that would be prohibitive on a hosted API become routine
+
+## Built for production
+
+### Real-time conversational agent
+
+A complete self-hosted voice assistant: the user speaks, the agent listens, thinks, and answers aloud. Voice activity detection, turn-taking, preemptive generation, and tool calling are built in, with RAG available for knowledge-grounded conversation. The React reference frontend ships with five audio visualizer styles, theming, and branding hooks, and the LiveKit client SDKs extend the same agent to iOS/macOS, Android, Flutter, React Native, web embeds, and telephony.
+
+### Transcription and synthesis, as APIs or as a studio
+
+Both services are exposed as OpenAI-compatible endpoints and through VoiceLab, a browser studio that needs no code. Record from the microphone or upload a file, watch the live waveform and VU meter, and copy the transcript out; or type up to 5,000 characters, pick a voice and speed, preview, and download. A settings panel repoints the UI at any backend URL or model, which makes it equally useful for evaluating a new model as for day-to-day work.
+
+### Noise suppression, batch and live
+
+File mode accepts WAV, MP3, OGG, FLAC, M4A, AAC, WebM, Opus, AIFF, WMA and anything else ffmpeg decodes, up to 50 MB, and returns WAV, MP3, OGG, or FLAC at the original sample rate. Real-time mode opens a WebSocket, streams Float32 LE PCM in both directions, and transparently resamples if the client is not at 48 kHz. Use it standalone for podcast and call-center cleanup, or as the preprocessing step that lifts transcription and biometric accuracy on noisy input.
+
+### Speaker identification and diarization
+
+Enroll a speaker from one or more samples of at least ten seconds each; multiple samples are averaged for accuracy. Submit any later recording and the system diarizes it, embeds each segment, and matches against the gallery - returning speaker names, confidence scores, and time ranges, with optional per-speaker WAV clips extracted. Diarization also works cold, with no enrollment, labelling turns as `SPEAKER_00`, `SPEAKER_01`, and so on; pyannote 3.1 is the primary engine, with a SpeechBrain clustering fallback that needs no HuggingFace token. Long files process asynchronously with job-status polling, and a cached gallery keeps identification queries fast.
+
+### Deployment and hardware
+
+Docker Compose brings up each service, with CPU and CUDA variants where both make sense and health checks wired in. GPU assignment is per-service and explicit. A single 8 GB GPU, 16 GB of RAM, and 50 GB of storage is enough to get running; four or more 24 GB GPUs with 64 GB of RAM and 200 GB for the model cache is the recommended production footprint. Ubuntu 22.04 or later, CUDA 12.1+, Docker 24.x, Python 3.10+, Node 18+.
+
+### Protocols and interfaces
+
+REST over FastAPI for request/response work, WebSocket with binary Float32 LE PCM for real-time audio, and WebRTC through LiveKit for voice rooms. Nginx dispatches by path: `/services/` for STT and TTS, `/noise/api/` and `/noise/ws/` for suppression, `/biometric/api/` for speaker work, `/livekit` for WebRTC. Every module carries its own OpenAPI docs and a health endpoint.
+
+## Where it fits
+
+- **Contact centers** - clean inbound audio, transcribe and diarize the call, identify repeat callers by voice, and deploy the conversational agent as tier-one support or as an IVR replacement. Every component of that stack is in the SDK.
+- **Regulated and sensitive environments** - healthcare, finance, defense, legal: anywhere voice data cannot be sent to a third-party API, and biometric templates in particular have to stay under your own control.
+- **Meetings and media** - transcription with speaker labels, searchable archives of recorded audio, and content indexing that answers who said what and when.
+- **Multilingual and accessibility products** - 90+ languages through Whisper with dedicated Arabic models on both the STT and TTS sides, voice cloning for brand-consistent output, and STT/TTS pairs that make interfaces usable without sight or without a keyboard.
+- **Voice authentication** - enrollment, verification, and confidence-scored identification as a factor in access control, running on hardware you own.
+
+## What's next
+
+Voice SDK ships today with everything above. On the near-term roadmap:
+
+- **Audio processing** - gain and volume normalization, echo cancellation, and deeper VAD integration in the suppression path
+- **Speech intelligence** - automatic language detection, real-time keyword spotting, and word-level timestamps on transcripts
+- **Voice generation** - tone and emotion control, SSML support, and multi-speaker synthesis
+- **Voice bioinformatics** - vocal biomarkers for stress and fatigue, and age/gender estimation from voice
+- **Conversational layer** - intent recognition, richer function calling, and explicit dialogue management
+- **Observability** - end-to-end latency metrics, audio quality monitoring (SNR, MOS), pipeline health dashboards, and usage analytics
+- **Infrastructure** - API gateway with auth and rate limiting, a job queue for long-running tasks, and per-client usage metering
+
+## Get started
+
+- **[Try it live](https://denoise.trouve.works/)** - the full platform is running.
 
 <LinkCardList>
-  <LinkCard title="Voice AI Platform" href="https://voiceai.trouve.works" subtitle="voiceai.trouve.works" />
-  <LinkCard title="Noise Cancellation" href="https://voiceai.trouve.works/noise" subtitle="voiceai.trouve.works/noise" />
-  <LinkCard title="Voice Biometrics" href="https://voiceai.trouve.works/biometric/" subtitle="voiceai.trouve.works/biometric" />
+  <LinkCard title="Voice AI Platform" href="https://denoise.trouve.works/" subtitle="denoise.trouve.works" />
 </LinkCardList>
+
+- **[API Reference](/projects/voice-sdk/api-reference)** - endpoint documentation, request and response shapes, and the WebSocket streaming protocol.

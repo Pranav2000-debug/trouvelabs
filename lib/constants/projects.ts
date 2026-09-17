@@ -14,8 +14,8 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "Vision SDK",
-    slug: "vision-sdk",
+    title: "Perception SDK",
+    slug: "perception-sdk",
     description: "Computer vision capabilities for intelligent visual processing.",
     icon: Eye,
   },
