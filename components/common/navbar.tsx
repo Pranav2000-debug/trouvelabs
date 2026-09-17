@@ -53,7 +53,7 @@ function Dropdown({ label, children, dropdownType }: { label: string; children: 
           className={cn(
             "absolute top-full z-50 pt-5",
             dropdownType === "docs" && "-right-5",
-            dropdownType === "sandboxes" && "left-1/3 -translate-x-1/2",
+            dropdownType === "sandboxes" && "right-0",
             !dropdownType && "left-1/2 -translate-x-1/2",
           )}>
           <div className="w-max rounded-xl border border-white/10 bg-card p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">{children}</div>
@@ -84,10 +84,10 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
       {/* Floating pill */}
-      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-card/80 px-8 py-0.5 backdrop-blur-xl">
+      <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-card/80 px-4 sm:px-6 lg:px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/assets/TROUVE-LOGO-W-08.webp" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
+          <Image src="/assets/TROUVE-LOGO-W-08.webp" alt="Trouve Labs" width={120} height={24} className="h-9 w-auto sm:h-10 lg:h-12" priority />
         </Link>
 
         {/* Desktop links */}
@@ -98,8 +98,8 @@ export function Navbar() {
           <Link prefetch={false} href="/about" className="text-sm text-white/60 transition-colors hover:text-primary">
             About
           </Link>
-          <Dropdown label="Documentation">
-            <div className="grid gap-1 md:w-[420px] md:grid-cols-2">
+          <Dropdown label="Documentation" dropdownType="docs">
+            <div className="grid gap-1 md:w-[min(26rem,calc(100vw-2rem))] md:grid-cols-2">
               {PROJECTS.map((p) => {
                 const Icon = p.icon;
                 return p.comingSoon ? (
@@ -137,7 +137,7 @@ export function Navbar() {
           </Dropdown>
 
           <Dropdown label="Sandboxes" dropdownType="sandboxes">
-            <div className="grid gap-1 w-[320px]">
+            <div className="grid gap-1 w-[min(20rem,calc(100vw-2rem))]">
               {SANDBOXES.map((uc) => (
                 <Link
                   prefetch={false}
@@ -151,6 +151,13 @@ export function Navbar() {
               ))}
             </div>
           </Dropdown>
+
+          <Link
+            prefetch={false}
+            href="mailto:research@trouve.works"
+            className="inline-flex h-8 items-center justify-center rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/80">
+            Contact Us
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -227,6 +234,16 @@ export function Navbar() {
               </Link>
             </li>
           </ul>
+
+          <div className="mt-6 border-t border-white/10 pt-6">
+            <Link
+              prefetch={false}
+              href="mailto:research@trouve.works"
+              onClick={closeMobile}
+              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/80">
+              Contact Us
+            </Link>
+          </div>
         </div>
       )}
     </header>

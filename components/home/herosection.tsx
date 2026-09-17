@@ -6,7 +6,6 @@ import { AnimatedCornerFrame } from "@/components/home/animated-corner-frame";
 import { BackgroundCardPlate } from "@/components/ui/background-card-plate";
 import { HeroFeatureCard } from "@/components/home/hero-feature-card";
 import { HeroTerminalCard, type TerminalLine } from "@/components/home/hero-terminal-card";
-import { CopyButton } from "@/components/ui/copy-button";
 import { cn } from "@/lib/constants/utils";
 
 const STATS = [
@@ -82,7 +81,7 @@ function LlmInfraIcon() {
 export default async function HeroSection() {
   return (
     <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 pb-12 pt-24 sm:px-10 sm:pb-16 sm:pt-28 lg:px-16 lg:pb-20 lg:pt-32">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-8">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Left column: copy, CTAs, stats */}
         <div className="flex flex-col justify-center lg:col-span-6">
           <FadeIn>
@@ -96,7 +95,7 @@ export default async function HeroSection() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <h1 className="mb-6 mt-5 text-4xl font-bold leading-[1.06] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="mb-6 mt-5 text-2xl font-bold leading-[1.06] tracking-tight text-foreground sm:text-4xl lg:text-6xl">
               <span className="block">Finding</span>
               <span className="block">efficiencies</span>
               <span className="block">
@@ -118,22 +117,27 @@ export default async function HeroSection() {
 
           <FadeIn delay={0.3}>
             <div className="mb-12 flex flex-col items-start gap-3 sm:mb-16">
-              <Link
-                prefetch={false}
-                href="/projects"
-                className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/80"
-              >
-                <span>Explore Our Research</span>
-                <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  prefetch={false}
+                  href="/projects"
+                  className="group inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:bg-primary/80"
+                >
+                  <span>Explore Our Research</span>
+                  <div className="w-0 overflow-hidden transition-all duration-300 ease-out group-hover:ml-2 group-hover:w-7">
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current">
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </div>
                   </div>
-                </div>
-              </Link>
-              <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
-                Reach out to us at research@trouve.works
-                <CopyButton value="research@trouve.works" />
-              </span>
+                </Link>
+                <Link
+                  prefetch={false}
+                  href="mailto:research@trouve.works"
+                  className="inline-flex h-11 items-center justify-center rounded-md border border-primary/30 bg-background/30 px-6 text-sm font-medium text-muted-foreground backdrop-blur-3xl transition-all duration-300 ease-out hover:border-primary hover:text-primary"
+                >
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </FadeIn>
 
@@ -160,11 +164,7 @@ export default async function HeroSection() {
             <div className="absolute left-[8%] top-[8%] z-20">
               <HeroFeatureCard
                 category="PERCEPTION"
-                title={
-                  <>
-                    From pixels <br /> to perception
-                  </>
-                }
+                title="Systems never see the whole picture. They must reason probabilistically over missing data."
                 icon={<PerceptionIcon />}
                 depth="foreground"
               />
@@ -173,18 +173,14 @@ export default async function HeroSection() {
             <div className="absolute right-0 top-[20%] z-30">
               <HeroFeatureCard
                 category="DATA INTELLIGENCE"
-                title={
-                  <>
-                    Connecting <br /> knowledge
-                  </>
-                }
+                title="Data often cannot leave the device or premise. Intelligence must come to the data."
                 icon={<DataIntelligenceIcon />}
                 depth="foreground"
               />
             </div>
 
             <div className="absolute left-[2%] top-[46%] z-20">
-              <div className="pointer-events-none absolute -left-5 -top-7 z-10 h-[190px] w-full sm:w-[320px] md:w-[350px] lg:w-[360px]">
+              <div className="pointer-events-none absolute -left-5 -top-7 z-10 h-[190px] w-full lg:w-[360px]">
                 <BackgroundCardPlate />
               </div>
               <div className="relative z-20">
@@ -195,11 +191,7 @@ export default async function HeroSection() {
             <div className="absolute bottom-[4%] right-[2%] z-30 flex items-end gap-5">
               <HeroFeatureCard
                 category="LLM INFRA"
-                title={
-                  <>
-                    Models in <br /> motion
-                  </>
-                }
+                title="Decisions must be made in milliseconds, not seconds. Latency is a failure mode."
                 icon={<LlmInfraIcon />}
                 footer="99.98% OPS"
                 depth="mid"
@@ -218,38 +210,28 @@ export default async function HeroSection() {
           <div className="z-20 grid w-full grid-cols-1 gap-6 py-4 sm:grid-cols-2 lg:hidden">
             <HeroFeatureCard
               category="PERCEPTION"
-              title={
-                <>
-                  From pixels <br /> to perception
-                </>
-              }
+              title="Systems never see the whole picture. They must reason probabilistically over missing data."
               icon={<PerceptionIcon />}
               depth="foreground"
               tilted={true}
+              tiltDirection="right"
               className="w-full"
             />
             <HeroFeatureCard
               category="DATA INTELLIGENCE"
-              title={
-                <>
-                  Connecting <br /> knowledge
-                </>
-              }
+              title="Data often cannot leave the device or premise. Intelligence must come to the data."
               icon={<DataIntelligenceIcon />}
               depth="foreground"
               tilted={true}
+              tiltDirection="left"
               className="w-full"
             />
             <div className="relative pt-4 sm:col-span-2">
-              <HeroTerminalCard lines={TERMINAL_LINES} fadeBottom tilted={true} className="w-full sm:w-full md:w-full" />
+              <HeroTerminalCard lines={TERMINAL_LINES} fadeBottom tilted={true} className="w-full" />
             </div>
             <HeroFeatureCard
               category="LLM INFRA"
-              title={
-                <>
-                  Models in <br /> motion
-                </>
-              }
+              title="Decisions must be made in milliseconds, not seconds. Latency is a failure mode."
               icon={<LlmInfraIcon />}
               footer="99.98% OPS"
               depth="mid"

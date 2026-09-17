@@ -1,4 +1,4 @@
-import { FloatingCard, type CardDepth } from "@/components/ui/floating-card";
+import { FloatingCard, type CardDepth, type TiltDirection } from "@/components/ui/floating-card";
 import { cn } from "@/lib/constants/utils";
 
 export interface TerminalLine {
@@ -12,6 +12,7 @@ export interface HeroTerminalCardProps {
   /** Index of the line rendered as highlighted. Defaults to the last line. */
   activeIndex?: number;
   tilted?: boolean;
+  tiltDirection?: TiltDirection;
   depth?: CardDepth;
   fadeBottom?: boolean;
   onClick?: () => void;
@@ -24,6 +25,7 @@ export function HeroTerminalCard({
   lines,
   activeIndex,
   tilted = true,
+  tiltDirection = "default",
   depth = "mid",
   fadeBottom = true,
   onClick,
@@ -34,11 +36,12 @@ export function HeroTerminalCard({
     <FloatingCard
       id={id}
       tilted={tilted}
+      tiltDirection={tiltDirection}
       depth={depth}
       fadeBottom={fadeBottom}
       onClick={onClick}
       aria-label="System pipeline terminal output"
-      className={cn("w-full sm:w-[320px] md:w-[350px] lg:w-[360px]", className)}
+      className={cn("w-full lg:w-[360px]", className)}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="select-none space-y-1.5 font-mono text-xs leading-relaxed">

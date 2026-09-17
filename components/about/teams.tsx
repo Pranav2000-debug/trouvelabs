@@ -27,7 +27,7 @@ export default function Teams() {
   );
 
   return (
-    <section id="team" className="relative overflow-hidden bg-background px-6 py-20 scroll-mt-24">
+    <section id="team" className="relative overflow-hidden bg-background px-4 py-14 sm:px-6 sm:py-20 scroll-mt-24">
       <div className="absolute top-20 left-0  right-0 bottom-0 z-0">
         <Image
           src="/assets/gradient-mesh.webp"
@@ -48,7 +48,7 @@ export default function Teams() {
 
         <div
           role="tablist"
-          className="relative mt-12 -mx-6 flex gap-x-4 overflow-x-auto px-6 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-y-2 sm:overflow-visible sm:px-0 sm:pb-0">
+          className="relative mt-8 -mx-4 flex gap-x-4 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:mt-12 sm:flex-wrap sm:justify-center sm:gap-y-2 sm:overflow-visible sm:px-0 sm:pb-0">
           {TEAM_GROUPS.map((group) => {
             const isActive = activeTab === group.id;
             return (
@@ -76,7 +76,7 @@ export default function Teams() {
         </div>
         <p className="mt-2 text-center text-xs text-muted-foreground/60 sm:hidden">Swipe to explore →</p>
 
-        <div role="tabpanel" className="mt-12 w-full min-h-80">
+        <div role="tabpanel" className="mt-8 sm:mt-12 w-full min-h-80">
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 md:gap-x-6 md:gap-y-7 lg:grid-cols-4">
             {members.map((member) => (
               <div key={member.title} className="flex items-center gap-3 md:gap-4">
