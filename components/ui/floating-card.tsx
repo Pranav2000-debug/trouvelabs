@@ -126,7 +126,8 @@ export function FloatingCard({
       }}
       className={cn(
         "relative select-none rounded-2xl border backdrop-blur-xl transition-all duration-300",
-        interactive ? "group cursor-pointer" : "pointer-events-none cursor-default",
+        interactive ? "group" : "pointer-events-none",
+        interactive && onClick ? "cursor-pointer" : "cursor-default",
         className,
       )}
     >
