@@ -166,6 +166,12 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Root scroll container: non-static so Framer Motion useScroll (target-based,
+     e.g. JourneyConnector) can measure scroll offset without warning. */
+  html {
+    position: relative;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-roboto), system-ui, sans-serif;

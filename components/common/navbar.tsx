@@ -87,7 +87,7 @@ export function Navbar() {
       <nav className="flex w-full max-w-7xl items-center justify-between rounded-full border border-white/10 bg-card/80 px-8 py-0.5 backdrop-blur-xl">
         {/* Logo */}
         <Link prefetch={false} href="/" className="flex items-center gap-2 shrink-0">
-          <Image src="/TROUVE-LOGO-W-08.png" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
+          <Image src="/assets/TROUVE-LOGO-W-08.webp" alt="Trouve Labs" width={120} height={24} className="h-12 w-auto" priority />
         </Link>
 
         {/* Desktop links */}
@@ -95,7 +95,7 @@ export function Navbar() {
           <Link prefetch={false} href="/" className="text-sm text-white/60 transition-colors hover:text-primary">
             Home
           </Link>
-          <Link href="/about" className="text-sm text-white/60 transition-colors hover:text-primary">
+          <Link prefetch={false} href="/about" className="text-sm text-white/60 transition-colors hover:text-primary">
             About
           </Link>
           <Dropdown label="Documentation">

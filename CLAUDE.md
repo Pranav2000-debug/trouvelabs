@@ -36,6 +36,7 @@ npm run lint    # ESLint (next core-web-vitals + TS)
 ```
 
 > Run `npm run lint` before every commit. No test runner yet.
+> Do **not** run `npm audit fix --force` - it downgrades `next` and breaks the build (see `9aceae3`).
 
 ---
 
