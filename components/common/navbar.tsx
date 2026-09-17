@@ -20,10 +20,10 @@ type Sandbox = {
 
 const SANDBOXES: Sandbox[] = [
   {
-    title: "Data Intelligence",
+    title: "Data Intelligence Platform",
     href: "/sandboxes/data-intelligence",
     description: "Intelligent data processing and analysis with graph-based retrieval.",
-    sdks: "Graph RAG SDK",
+    sdks: "Data Intelligence SDK",
   },
   {
     title: "Voice Agent",
@@ -227,15 +227,6 @@ export function Navbar() {
               </Link>
             </li>
           </ul>
-          <div className="mt-6 border-t border-white/10 pt-6">
-            <Link
-              prefetch={false}
-              href="mailto:Hood@MailAhoy.com"
-              onClick={closeMobile}
-              className="inline-flex h-10 w-full items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/80">
-              Request a Demo
-            </Link>
-          </div>
         </div>
       )}
     </header>

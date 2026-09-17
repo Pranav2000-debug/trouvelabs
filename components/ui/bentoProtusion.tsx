@@ -8,8 +8,6 @@ export interface TabData {
   id: string;
   label: string;
   icon: ComponentType<{ className?: string }>;
-  title: React.ReactNode;
-  subtitle: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -30,18 +28,14 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-full flex flex-col p-10 pt-6"
+      className="h-full flex flex-col p-4 pt-4 sm:p-6 sm:pt-5 lg:p-10 lg:pt-6"
     >
-      <div className="flex-1 font-mono text-sm text-muted-foreground bg-secondary/60 rounded-3xl p-8 mb-8 overflow-hidden">
+      <div className="flex-1 font-mono text-sm text-muted-foreground bg-card rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden">
         {typeof tab.content === 'string' ? (
           <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
         ) : (
           tab.content
         )}
-      </div>
-      <div className="px-2">
-        <h3 className="text-lg font-semibold text-foreground tracking-tight leading-tight mb-1">{tab.title}</h3>
-        <p className="text-muted-foreground text-sm leading-tight">{tab.subtitle}</p>
       </div>
     </m.div>
   );
@@ -65,7 +59,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
             `}
           >
             <Icon className={`w-8 h-8 md:w-10 md:h-10 transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
-            <span className={`text-xs font-medium transition-opacity ${isActive ? 'text-foreground opacity-100' : 'text-muted-foreground opacity-0 group-hover:opacity-100'}`}>
+            <span className={`text-xs font-medium transition-colors ${isActive ? 'text-foreground' : 'text-muted-foreground/60 group-hover:text-muted-foreground'}`}>
               {tab.label}
             </span>
 

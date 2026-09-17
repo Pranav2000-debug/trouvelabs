@@ -10,6 +10,8 @@ export type Project = {
   description: string;
   icon: ProjectIcon;
   comingSoon?: boolean;
+  /** Overrides the "API Reference" docs nav label for this project. */
+  apiReferenceLabel?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -18,6 +20,7 @@ export const PROJECTS: Project[] = [
     slug: "perception-sdk",
     description: "Computer vision capabilities for intelligent visual processing.",
     icon: Eye,
+    apiReferenceLabel: "User Guide",
   },
   {
     title: "Data Intelligence SDK",

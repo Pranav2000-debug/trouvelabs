@@ -1,11 +1,10 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import HeroSection from "@/components/home/herosection";
-import OpeningPositioning from "@/components/home/opening-positioning";
 import CapabilityShowcase from "@/components/home/capability-showcase";
-import WhyTrouve from "@/components/home/why-trouve";
+import ResearchFocus from "@/components/home/research-focus";
 import ApproachSteps from "@/components/home/approach-steps";
-import PhilosophyBand from "@/components/home/philosophy-band";
+import DirectorsNote from "@/components/home/directors-note";
 import { BackgroundPaths } from "@/components/ui/gradient-flow";
 import { ReduceMotionToggle } from "@/components/ui/reduce-motion-toggle";
 import { ReactLenis } from "lenis/react";
@@ -29,7 +28,7 @@ export default async function HomePage() {
 
       <HeroSection />
 
-      <OpeningPositioning />
+      <DirectorsNote />
 
       <CapabilityShowcase />
 
@@ -38,11 +37,9 @@ export default async function HomePage() {
         <SmoothStackScroll />
       </Suspense>
 
-      <WhyTrouve />
+      <ResearchFocus />
 
       <ApproachSteps />
-
-      <PhilosophyBand />
 
       {/* TODO: Designed For + Final CTA - user is supplying components */}
     </ReactLenis>

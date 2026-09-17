@@ -16,7 +16,7 @@ export function DocsNav({ slug }: DocsNavProps) {
 
   const items = [
     { href: `/projects/${slug}`, label: "Overview" },
-    { href: `/projects/${slug}/api-reference`, label: "API Reference" },
+    { href: `/projects/${slug}/api-reference`, label: project?.apiReferenceLabel ?? "API Reference" },
   ];
 
   return (

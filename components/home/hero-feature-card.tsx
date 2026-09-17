@@ -58,7 +58,7 @@ export function HeroFeatureCard({
         onClick={onClick}
         aria-label={typeof title === "string" ? title : category}
         className={cn(
-          "w-full sm:w-[270px] md:w-[290px]",
+          "w-full sm:w-[270px] md:w-[290px] lg:w-[220px] xl:w-[290px]",
           dimmed && "opacity-45 transition-opacity duration-300 hover:opacity-90",
           className,
         )}

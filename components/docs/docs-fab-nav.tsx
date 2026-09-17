@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { EdgeTab } from "@/components/ui/edge-tab";
 import { RadialMenu, RadialMenuItem, RadialMenuTrigger } from "@/components/ui/radial-menu";
+import { PROJECTS } from "@/lib/constants/projects";
 
 interface DocsFabNavProps {
   slug: string;
@@ -13,10 +14,11 @@ interface DocsFabNavProps {
 
 export function DocsFabNav({ slug }: DocsFabNavProps) {
   const pathname = usePathname();
+  const project = PROJECTS.find((p) => p.slug === slug);
 
   const items = [
     { href: `/projects/${slug}`, label: "Overview" },
-    { href: `/projects/${slug}/api-reference`, label: "API Reference" },
+    { href: `/projects/${slug}/api-reference`, label: project?.apiReferenceLabel ?? "API Reference" },
   ];
 
   return (

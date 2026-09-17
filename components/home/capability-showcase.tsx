@@ -5,6 +5,7 @@ import { Brain, Sigma, Cpu, Lock, Building2 } from "lucide-react";
 import { PathThinIcon } from "@/components/icons/ph-path-thin";
 import { BentoProtrusion, type TabData } from "@/components/ui/bentoProtusion";
 import DecryptedText from "@/components/ui/DecryptedText";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 type CardContent = {
   title: string;
@@ -36,7 +37,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Foundation model fine-tuning and evaluation",
           "Reinforcement learning over operational telemetry",
-          "Sub-second inference on production traffic",
         ],
       },
       {
@@ -47,7 +47,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Predictive maintenance and anomaly detection",
           "Workflow automation with human-in-the-loop",
-          "Streaming inference at scale",
         ],
       },
     ],
@@ -65,7 +64,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Mixed-integer and constraint optimization",
           "Stochastic and combinatorial methods",
-          "Custom solver pipelines",
         ],
       },
       {
@@ -76,7 +74,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Last-mile and multi-depot routing",
           "Resource and shift scheduling",
-          "Capacity and inventory allocation",
         ],
       },
     ],
@@ -94,7 +91,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Live traffic and demand modeling",
           "Multi-modal route synthesis",
-          "Fleet telemetry ingestion",
         ],
       },
       {
@@ -105,7 +101,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Predictive ETA and dwell-time models",
           "Adaptive signal control prototypes",
-          "Driver and dispatcher copilots",
         ],
       },
     ],
@@ -123,7 +118,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Edge / cloud / on-prem scheduling",
           "Cost-aware placement policies",
-          "Failure and drift recovery",
         ],
       },
       {
@@ -134,7 +128,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Federated training pipelines",
           "Confidential compute enclaves",
-          "Verifiable workload audit logs",
         ],
       },
     ],
@@ -152,7 +145,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Local-first storage primitives",
           "Encrypted compute and key custody",
-          "Auditable consent and access trails",
         ],
       },
       {
@@ -163,7 +155,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Differential privacy in training loops",
           "On-device personalization models",
-          "Zero-knowledge attestation surfaces",
         ],
       },
     ],
@@ -181,7 +172,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Cross-utility data fusion",
           "Demand-responsive infrastructure",
-          "Citizen-scale digital twins",
         ],
       },
       {
@@ -192,7 +182,6 @@ const CAPABILITIES: Capability[] = [
         bullets: [
           "Equity-aware resource allocation",
           "Anomaly detection on utility grids",
-          "Cross-domain policy simulation",
         ],
       },
     ],
@@ -207,6 +196,7 @@ interface CapabilityFacetProps {
 }
 
 function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
+  const { reduced } = useReducedMotion();
   return (
     <div>
       <div className="mb-3">
@@ -218,31 +208,39 @@ function CapabilityFacet({ prefix, card }: CapabilityFacetProps) {
         </p>
       </div>
       <div className="text-sm leading-relaxed text-muted-foreground">
-        <DecryptedText
-          key={`${prefix}-desc`}
-          text={card.description}
-          animateOn="view"
-          sequential
-          speed={8}
-          characters={DEFAULT_CHARS}
-          className="font-mono"
-          encryptedClassName="font-mono text-primary/60"
-        />
+        {reduced ? (
+          <span className="font-mono">{card.description}</span>
+        ) : (
+          <DecryptedText
+            key={`${prefix}-desc`}
+            text={card.description}
+            animateOn="view"
+            sequential
+            speed={8}
+            characters={DEFAULT_CHARS}
+            className="font-mono"
+            encryptedClassName="font-mono text-primary/60"
+          />
+        )}
       </div>
       <ul className="mt-4 space-y-2.5">
         {card.bullets.map((b, i) => (
           <li key={`${prefix}-b-${i}`} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
             <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-primary" />
-            <DecryptedText
-              key={`${prefix}-b-text-${i}`}
-              text={b}
-              animateOn="view"
-              sequential
-              speed={20}
-              characters={DEFAULT_CHARS}
-              className="font-mono"
-              encryptedClassName="font-mono text-primary/60"
-            />
+            {reduced ? (
+              <span className="font-mono">{b}</span>
+            ) : (
+              <DecryptedText
+                key={`${prefix}-b-text-${i}`}
+                text={b}
+                animateOn="view"
+                sequential
+                speed={20}
+                characters={DEFAULT_CHARS}
+                className="font-mono"
+                encryptedClassName="font-mono text-primary/60"
+              />
+            )}
           </li>
         ))}
       </ul>
@@ -255,13 +253,12 @@ function buildTab(cap: Capability): TabData {
     id: cap.id,
     label: cap.label,
     icon: cap.icon,
-    title: cap.label,
-    subtitle: cap.cards[0].subtitle,
     content: (
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-5">
         <CapabilityFacet prefix={`${cap.id}-0`} card={cap.cards[0]} />
-        <div className="border-t border-border" />
-        <CapabilityFacet prefix={`${cap.id}-1`} card={cap.cards[1]} />
+        <div className="rounded-xl bg-card p-4">
+          <CapabilityFacet prefix={`${cap.id}-1`} card={cap.cards[1]} />
+        </div>
       </div>
     ),
   };

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PROJECTS } from "@/lib/constants/projects";
 import { SANDBOXES } from "@/lib/constants/sandboxes";
 import { cn } from "@/lib/constants/utils";
@@ -7,7 +8,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
   return (
     <div className="w-full">
       {/* ── Section 1: SDK Cards ── */}
-      <section className="text-foreground h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-secondary/60">
+      <section className="text-foreground h-dvh w-full bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-secondary/60">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Core SDKs.</h2>
@@ -51,7 +52,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
                   </div>
                   <h3 className="text-lg font-semibold">{product.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
-                  <span className="mt-auto pt-3 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="mt-auto pt-3 text-xs font-medium text-primary">
                     Learn more →
                   </span>
                 </Link>
@@ -100,31 +101,72 @@ export default function SmoothStackScroll(): React.JSX.Element {
       </section>
 
       {/* ── Section 2: Sandboxes ── */}
-      <section className="text-foreground h-dvh w-full bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl overflow-hidden">
+      <section className="text-foreground h-dvh w-full bg-background/80 backdrop-blur-sm sticky top-0 rounded-t-2xl overflow-hidden">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
-          <div className="mb-6 sm:mb-12 text-center">
+          <div className="relative mb-6 w-full max-w-6xl text-center sm:mb-12">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Built with our SDKs.</h2>
             <p className="mx-auto mt-2 sm:mt-4 max-w-2xl text-sm sm:text-base text-muted-foreground">
               Real-world capabilities demonstrating what composable AI infrastructure can achieve.
             </p>
+            <div className="absolute right-0 top-0 hidden text-right lg:block">
+              <span className="mb-1 block h-px w-6 bg-primary/60" />
+              <span className="block text-xs font-medium uppercase leading-relaxed tracking-[0.2em] text-muted-foreground/60">
+                Build<br />Integrate<br />Deploy<br />Scale
+              </span>
+            </div>
           </div>
 
-          <div className="grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
+          {/* Tablet & desktop: 3-up grid */}
+          <div className="hidden w-full max-w-6xl sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-6">
             {SANDBOXES.map((uc) => (
               <a
                 key={uc.slug}
                 href={uc.href}
                 target={uc.external ? "_blank" : undefined}
                 rel={uc.external ? "noopener noreferrer" : undefined}
-                className="group flex flex-col rounded-xl border bg-card/80 backdrop-blur-sm p-6 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
-                <span className="mb-1 sm:mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
-                <h3 className="text-xl sm:text-2xl font-semibold">{uc.name}.</h3>
-                <p className="mt-2 sm:mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
-                <span className="pt-3 text-xs font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  {uc.external ? "Open →" : "Explore →"}
-                </span>
+                className="flex h-full flex-col rounded-xl border bg-card/80 backdrop-blur-sm transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 cursor-pointer">
+                <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-t-xl lg:h-44">
+                  <Image src={uc.image} alt="" fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+                </div>
+                <div className="flex flex-1 flex-col p-4 lg:p-6">
+                  <span className="mb-2 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
+                  <h3 className="text-2xl font-semibold">{uc.name}.</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{uc.description}</p>
+                  <span className="mt-auto pt-3 text-xs font-medium text-primary">
+                    {uc.external ? "Get Started →" : "Explore →"}
+                  </span>
+                </div>
               </a>
             ))}
+          </div>
+
+          {/* Mobile: horizontal snap-scroll carousel */}
+          <div className="w-full sm:hidden">
+            <div
+              className="flex gap-3 overflow-x-scroll snap-x snap-mandatory pb-4 px-1"
+              style={{ WebkitOverflowScrolling: "touch" }}>
+              {SANDBOXES.map((uc) => (
+                <a
+                  key={uc.slug}
+                  href={uc.href}
+                  target={uc.external ? "_blank" : undefined}
+                  rel={uc.external ? "noopener noreferrer" : undefined}
+                  className="flex w-[80vw] shrink-0 snap-center flex-col rounded-xl border bg-card/80 backdrop-blur-sm cursor-pointer">
+                  <div className="relative h-28 w-full shrink-0 overflow-hidden rounded-t-xl">
+                    <Image src={uc.image} alt="" fill sizes="80vw" className="object-cover" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4">
+                    <span className="mb-1 text-xs font-medium uppercase tracking-wider text-primary">{uc.builtWith}</span>
+                    <h3 className="text-lg font-semibold">{uc.name}.</h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{uc.description}</p>
+                    <span className="mt-auto pt-2 text-xs font-medium text-primary">
+                      {uc.external ? "Get Started →" : "Explore →"}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <p className="mt-2 text-center text-xs text-muted-foreground/60">Swipe to explore →</p>
           </div>
         </div>
       </section>

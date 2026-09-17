@@ -23,14 +23,10 @@ interface AboutTrouveEyebrowProps {
   className?: string;
 }
 
-/** Pill-style label for the top of an AboutTrouveCard. */
+/** Eyebrow label for the top of an AboutTrouveCard. */
 export function AboutTrouveEyebrow({ children, className }: AboutTrouveEyebrowProps) {
   return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground",
-        className,
-      )}>
+    <span className={cn("text-xs font-medium uppercase tracking-wider text-primary", className)}>
       {children}
     </span>
   );
