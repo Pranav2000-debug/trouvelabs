@@ -22,19 +22,19 @@ export function BackgroundPaths({ className, children }: BackgroundPathsProps) {
           color2="#1c2233"
           color3="#4ec9d4"
           backgroundColor="#0e1024"
-          fanMode="right"
+          fanMode="center"
           threadCount={10}
           speed={0.2}
           frequency={9.5}
-          spread={0.05}
+          spread={0.06}
           taper={1.05}
           position={0.47}
           glow={0.015}
           falloff={0.63}
           thickness={1.15}
           brightness={0.55}
-          opacity={0.30}
-          mirror
+          opacity={0.25}
+          mirror={false}
           shimmer
           grain={false}
           mouseInteraction

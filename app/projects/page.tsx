@@ -3,7 +3,7 @@ import { PROJECTS } from "@/lib/constants/projects";
 
 export const metadata = {
   title: "Projects - Trouve Labs",
-  description: "Explore Trouve Labs' modular AI SDKs for next-generation mobility intelligence.",
+  description: "Modular AI SDKs born out of Trouve Labs' R&D - built for next-generation mobility intelligence.",
 };
 
 export default function ProjectsIndexPage() {

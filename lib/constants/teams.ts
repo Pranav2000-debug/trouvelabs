@@ -65,7 +65,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Pranav Chandra", jobTitle: "Frontend / Backend", src: "/team/pranav-chandra.webp", teams: ["fullstack"] },
   { title: "Kazi Ikram", jobTitle: "Frontend Developer", src: "/team/Kazi-Ikram.webp", teams: ["fullstack"] },
   { title: "Usama Bin Asif", jobTitle: "Frontend Developer", src: "/team/usama-bin-asif.webp", teams: ["fullstack"] },
-  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: PLACEHOLDER, teams: ["fullstack", "product-engineers"] },
+  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: PLACEHOLDER, teams: ["product-engineers"] },
 
   { title: "Muhammad Zarar", jobTitle: "AI Engineer (RnD)", src: "/team/Muhammad-zarar.webp", teams: ["perception-sdk"] },
   { title: "Salman Hassan", jobTitle: "AI Engineer", src: "/team/salman-hassan.webp", teams: ["ai-research"] },
