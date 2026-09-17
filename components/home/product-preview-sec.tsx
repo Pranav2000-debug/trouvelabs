@@ -8,7 +8,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
   return (
     <div className="w-full">
       {/* ── Section 1: SDK Cards ── */}
-      <section className="text-foreground h-dvh w-full bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-secondary/60">
+      <section className="text-foreground h-dvh w-full overflow-hidden bg-secondary/80 backdrop-blur-sm sticky top-0 rounded-t-2xl border-t border-secondary/60">
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 py-10 sm:px-6 sm:py-16">
           <div className="mb-6 sm:mb-12 text-center">
             <h2 className="text-2xl font-bold sm:text-4xl lg:text-5xl">Core SDKs.</h2>
@@ -18,7 +18,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
           </div>
 
           {/* Desktop: 3 + 2 grid (5 cards centered) */}
-          <div className="hidden sm:grid w-full max-w-7xl gap-5 grid-cols-6">
+          <div className="hidden md:grid w-full max-w-7xl gap-5 grid-cols-6">
             {PROJECTS.map((product, i) => {
               const IconComponent = product.icon;
               const span = cn("col-span-3 md:col-span-2", i === 3 && "md:col-start-2", i === 4 && "col-span-6 md:col-span-2");
@@ -61,7 +61,7 @@ export default function SmoothStackScroll(): React.JSX.Element {
           </div>
 
           {/* Mobile: 2-row horizontal snap-scroll grid */}
-          <div className="sm:hidden w-full">
+          <div className="md:hidden w-full">
             <div
               className="grid grid-flow-col grid-rows-2 auto-cols-[70vw] gap-3 overflow-x-scroll snap-x snap-mandatory pb-4 px-1"
               style={{ WebkitOverflowScrolling: "touch" }}>

@@ -68,12 +68,12 @@ export default function ApproachSteps() {
         </div>
 
         {/* Desktop - horizontal */}
-        <Timeline orientation="horizontal" activeIndex={STEPS.length} className="mt-14 hidden md:flex">
+        <Timeline orientation="horizontal" activeIndex={STEPS.length} className="mt-10 sm:mt-14 hidden lg:flex lg:gap-6 xl:gap-8">
           {items}
         </Timeline>
 
         {/* Mobile - vertical */}
-        <Timeline orientation="vertical" activeIndex={STEPS.length} className="mt-10 md:hidden">
+        <Timeline orientation="vertical" activeIndex={STEPS.length} className="mt-10 lg:hidden">
           {items}
         </Timeline>
       </div>

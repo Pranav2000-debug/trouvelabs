@@ -6,10 +6,22 @@ import { cn } from "@/lib/constants/utils";
 
 export type CardDepth = "foreground" | "mid" | "deep" | "background";
 
+export type TiltDirection = "default" | "up" | "down" | "left" | "right";
+
+export const TILT_PRESETS: Record<TiltDirection, { x: number; y: number; z: number }> = {
+  default: { x: 15, y: -18, z: 3 },
+  up: { x: -14, y: -4, z: -1 },
+  down: { x: 14, y: 4, z: 1 },
+  left: { x: 6, y: -22, z: -2 },
+  right: { x: 6, y: 22, z: 2 },
+};
+
 export interface FloatingCardProps {
   id?: string;
   className?: string;
   tilted?: boolean;
+  /** Named tilt preset; ignored if `tiltAngle` is also passed. Defaults to the original isometric tilt. */
+  tiltDirection?: TiltDirection;
   tiltAngle?: { x?: number; y?: number; z?: number };
   depth?: CardDepth;
   fadeBottom?: boolean;
@@ -54,7 +66,8 @@ export function FloatingCard({
   id,
   className = "",
   tilted = true,
-  tiltAngle = { x: 15, y: -18, z: 3 },
+  tiltDirection = "default",
+  tiltAngle,
   depth = "mid",
   fadeBottom = false,
   interactive = true,
@@ -79,9 +92,10 @@ export function FloatingCard({
     [interactive],
   );
 
-  const rx = tiltAngle.x ?? 15;
-  const ry = tiltAngle.y ?? -18;
-  const rz = tiltAngle.z ?? 3;
+  const resolvedAngle = tiltAngle ?? TILT_PRESETS[tiltDirection];
+  const rx = resolvedAngle.x ?? 15;
+  const ry = resolvedAngle.y ?? -18;
+  const rz = resolvedAngle.z ?? 3;
 
   const tiltTransform = tilted
     ? interactive && isHovered

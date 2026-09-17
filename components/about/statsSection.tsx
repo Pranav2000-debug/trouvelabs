@@ -13,7 +13,7 @@ const STATS: StatItem[] = [
 
 export function StatsSection() {
   return (
-    <section className="border-y border-border px-6 py-24">
+    <section className="border-y border-border px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <FadeInStagger className="grid gap-8 sm:grid-cols-3">
           {STATS.map((stat) => (

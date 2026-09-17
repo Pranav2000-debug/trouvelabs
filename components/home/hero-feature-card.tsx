@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { FloatingCard, type CardDepth } from "@/components/ui/floating-card";
+import { FloatingCard, type CardDepth, type TiltDirection } from "@/components/ui/floating-card";
 import { cn } from "@/lib/constants/utils";
 
 export interface HeroFeatureCardProps {
@@ -14,14 +13,15 @@ export interface HeroFeatureCardProps {
   outerEyebrow?: string;
   dimmed?: boolean;
   tilted?: boolean;
+  tiltDirection?: TiltDirection;
   depth?: CardDepth;
   fadeBottom?: boolean;
   onClick?: () => void;
 }
 
 /**
- * Reusable hero card: category label + title + icon on top, arrow + footer
- * metric on the bottom. Swap category/title/icon/footer per instance.
+ * Reusable hero card: category label + title + icon on top, footer metric
+ * (if any) on the bottom. Swap category/title/icon/footer per instance.
  */
 export function HeroFeatureCard({
   id,
@@ -33,6 +33,7 @@ export function HeroFeatureCard({
   outerEyebrow,
   dimmed = false,
   tilted = true,
+  tiltDirection = "default",
   depth = "foreground",
   fadeBottom = false,
   onClick,
@@ -53,12 +54,13 @@ export function HeroFeatureCard({
       <FloatingCard
         id={id}
         tilted={tilted}
+        tiltDirection={tiltDirection}
         depth={depth}
         fadeBottom={fadeBottom}
         onClick={onClick}
         aria-label={typeof title === "string" ? title : category}
         className={cn(
-          "w-full sm:w-[270px] md:w-[290px] lg:w-[220px] xl:w-[290px]",
+          "w-full lg:w-[220px] xl:w-[290px]",
           dimmed && "opacity-45 transition-opacity duration-300 hover:opacity-90",
           className,
         )}
@@ -66,12 +68,12 @@ export function HeroFeatureCard({
         <div className="flex h-full min-h-[135px] flex-col justify-between">
           <div className="flex items-start justify-between">
             <div>
-              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-foreground">
                 {category}
               </span>
-              <h3 className="mt-1 text-lg font-medium leading-snug tracking-tight text-foreground md:text-xl">
+              <p className="mt-1 text-base leading-snug text-muted-foreground">
                 {title}
-              </h3>
+              </p>
             </div>
 
             <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] transition-colors duration-300 group-hover:border-primary/40">
@@ -79,12 +81,11 @@ export function HeroFeatureCard({
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-between pt-2">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary">
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
-            {footer && <span className="text-xs font-mono text-muted-foreground">{footer}</span>}
-          </div>
+          {footer && (
+            <div className="mt-4 flex items-center justify-between pt-2">
+              <span className="text-xs font-mono text-muted-foreground">{footer}</span>
+            </div>
+          )}
         </div>
       </FloatingCard>
     </div>
