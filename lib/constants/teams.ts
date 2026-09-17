@@ -44,9 +44,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Talha Yousuf", jobTitle: "Senior AI Engineer (RnD)", src: "/team/Talha-Yousuf.webp", teams: ["ai-research"] },
   { title: "Umair Pervaiz Butt", jobTitle: "Backend Developer - Python", src: "/team/umair-pervaiz.webp", teams: ["llm"] },
   { title: "Ali Asghar Huzaifa", jobTitle: "AI Engineer (RnD)", src: "/team/aliashgar-huzaifa.webp", teams: ["ai-research"] },
-  { title: "Fatimah Emad Eldin", jobTitle: "Researcher", src: "/team/fatima-emad-eldin.webp", teams: ["ai-research"] },
+  { title: "Fatimah Emad Eldin", jobTitle: "Researcher", src: "/team/fatima-emad-eldin.webp", imgClassName: "object-[50%_10%]", teams: ["ai-research"] },
 
-  { title: "Talha Ejaz", jobTitle: "AI Engineer", src: "/team/talha-ejaz.webp", teams: ["ai-research"] },
+  { title: "Talha Ejaz", jobTitle: "AI Engineer", src: "/team/talha-ejaz.webp", imgClassName: "object-[50%_18%]", teams: ["ai-research"] },
   { title: "Shah Nawaz Khan", jobTitle: "Senior AI Engineer (RnD)", src: "/team/shah-nawaz-khan.webp", teams: ["ai-research"] },
   { title: "Kaab Gazdar", jobTitle: "AI Intern", src: "/team/kaab-gazdar.webp", teams: ["ai-research"] },
   { title: "Khoula Ali Sheikh", jobTitle: "AI Engineer (RnD)", src: "/team/khoula.webp", teams: ["ai-research"] },
@@ -61,7 +61,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Haider Asad", jobTitle: "AI Engineer", src: "/team/haider-asad.webp", teams: ["perception-sdk"] },
   { title: "Muhammad Asim Latif", jobTitle: "AI Engineer (RnD)", src: "/team/Muhammad-asim-latif.webp", teams: ["ai-research"] },
 
-  { title: "Muhammad Yasir Saleem", jobTitle: "Principal Product Engineer", src: "/team/yasir.webp", teams: ["product-engineers"] },
+  { title: "Muhammad Yasir Saleem", jobTitle: "Principal Product Engineer", src: "/team/yasir-saleem.jpg", imgClassName: "object-[35%_30%]", teams: ["product-engineers"] },
   { title: "Pranav Chandra", jobTitle: "Frontend / Backend", src: "/team/pranav-chandra.webp", teams: ["fullstack"] },
   { title: "Kazi Ikram", jobTitle: "Frontend Developer", src: "/team/Kazi-Ikram.webp", teams: ["fullstack"] },
   { title: "Usama Bin Asif", jobTitle: "Frontend Developer", src: "/team/usama-bin-asif.webp", teams: ["fullstack"] },
