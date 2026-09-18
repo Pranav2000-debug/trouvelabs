@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Roboto, Roboto_Condensed, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/common/navbar";
@@ -127,6 +128,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-3S4KKH6EDF" />
+        <Script id="ga-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-3S4KKH6EDF');
+          `}
+        </Script>
+      </head>
       <body className={`${roboto.variable} ${robotoCondensed.variable} ${jetbrainsMono.variable}`}>
         <LazyMotionProvider>
           <Navbar />
