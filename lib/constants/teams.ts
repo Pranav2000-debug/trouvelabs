@@ -51,7 +51,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Kaab Gazdar", jobTitle: "AI Intern", src: "/team/kaab-gazdar.webp", teams: ["ai-research"] },
   { title: "Khoula Ali Sheikh", jobTitle: "AI Engineer (RnD)", src: "/team/khoula.webp", teams: ["ai-research"] },
   { title: "Hasnain Ahmad", jobTitle: "Senior AI Engineer", src: "/team/hasnain-ahmed.webp", teams: ["perception-sdk"] },
-  { title: "Muhammad Ijlal Baig", jobTitle: "Senior Researcher", src: PLACEHOLDER, teams: ["ai-research"] },
+  { title: "Muhammad Ijlal Baig", jobTitle: "Senior Researcher", src: "/team/ijal-baig.webp", teams: ["ai-research"] },
   { title: "Ahmad Mansoor", jobTitle: "Senior Researcher", src: "/team/ahmad-mansoor.webp", teams: ["ai-research"] },
 
   { title: "Abdul Munem", jobTitle: "Decentralization", src: "/team/abdul-munem.webp", teams: ["decentralization"] },
@@ -70,7 +70,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Muhammad Zarar", jobTitle: "AI Engineer (RnD)", src: "/team/Muhammad-zarar.webp", teams: ["perception-sdk"] },
   { title: "Salman Hassan", jobTitle: "AI Engineer", src: "/team/salman-hassan.webp", teams: ["ai-research"] },
   { title: "Hafiz Muhammad Hassan Sadiq", jobTitle: "Computer Vision Engineer", src: PLACEHOLDER, teams: ["perception-sdk"] },
-  { title: "Talha Nadeem", jobTitle: "Data Scientist", src: PLACEHOLDER, teams: ["ai-research"] },
+  { title: "Talha Nadeem", jobTitle: "Data Scientist", src: "/team/talha-nadeem.webp", teams: ["ai-research"] },
 
   { title: "Zerq Jehan Ahmed", jobTitle: "Senior DevOps Engineer", src: PLACEHOLDER, teams: ["devops"] },
 ];
