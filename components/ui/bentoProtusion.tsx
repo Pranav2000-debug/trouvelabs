@@ -28,11 +28,11 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-full flex flex-col p-4 pt-4 sm:p-6 sm:pt-5 lg:p-10 lg:pt-6"
+      className="h-full w-full"
     >
-      <div className="flex-1 font-mono text-sm text-muted-foreground bg-card rounded-3xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+      <div className="relative h-full w-full font-mono text-sm text-muted-foreground rounded-3xl overflow-hidden">
         {typeof tab.content === 'string' ? (
-          <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
+          <pre className="whitespace-pre-wrap break-all leading-relaxed p-4 sm:p-5 lg:p-6">{tab.content}</pre>
         ) : (
           tab.content
         )}
@@ -86,7 +86,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
   );
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 pt-8 sm:pt-12 ${className}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-8 pt-8 sm:pt-12 ${className}`}>
       {/* Left Column */}
       <div className="flex flex-col relative">
         {renderTabs(leftTabs, activeLeft, setActiveLeft)}
