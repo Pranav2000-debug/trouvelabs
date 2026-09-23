@@ -28,8 +28,6 @@ export const TEAM_GROUPS: { id: TeamGroup; label: string }[] = [
   { id: "devops", label: "Software & DevOps" },
 ];
 
-const PLACEHOLDER = "";
-
 export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Hood Khizer", jobTitle: "CEO / Founder", src: "/team/hood-khizer.webp", teams: ["management"] },
   { title: "Muhammad Ibrahim", jobTitle: "Engineering Management & Director of Research", src: "/team/Muhammad-ibrahim.webp", teams: ["management"] },
@@ -65,11 +63,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Pranav Chandra", jobTitle: "Frontend / Backend", src: "/team/pranav-chandra.webp", teams: ["fullstack"] },
   { title: "Kazi Ikram", jobTitle: "Frontend Developer", src: "/team/Kazi-Ikram.webp", teams: ["fullstack"] },
   { title: "Usama Bin Asif", jobTitle: "Frontend Developer", src: "/team/usama-bin-asif.webp", teams: ["fullstack"] },
-  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: PLACEHOLDER, teams: ["product-engineers"] },
+  { title: "Malik Umar Daraz", jobTitle: "Senior Product Engineer", src: "/team/malik-umar.webp", teams: ["product-engineers"] },
 
   { title: "Muhammad Zarar", jobTitle: "AI Engineer (RnD)", src: "/team/Muhammad-zarar.webp", teams: ["perception-sdk"] },
   { title: "Salman Hassan", jobTitle: "AI Engineer", src: "/team/salman-hassan.webp", teams: ["ai-research"] },
-  { title: "Hafiz Muhammad Hassan Sadiq", jobTitle: "Computer Vision Engineer", src: PLACEHOLDER, teams: ["perception-sdk"] },
+  { title: "Hafiz Muhammad Hassan Sadiq", jobTitle: "Computer Vision Engineer", src: "/team/hafiz-hassan.webp", teams: ["perception-sdk"] },
   { title: "Talha Nadeem", jobTitle: "Data Scientist", src: "/team/talha-nadeem.webp", teams: ["ai-research"] },
 
   { title: "Zerq Jehan Ahmed", jobTitle: "Senior DevOps Engineer", src: "/team/zerq-ahmed.webp", teams: ["devops"] },
