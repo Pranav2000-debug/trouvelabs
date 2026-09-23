@@ -30,7 +30,7 @@ export const TEAM_GROUPS: { id: TeamGroup; label: string }[] = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Hood Khizer", jobTitle: "CEO / Founder", src: "/team/hood-khizer.webp", teams: ["management"] },
-  { title: "Muhammad Ibrahim", jobTitle: "Engineering Management & Director of Research", src: "/team/Muhammad-ibrahim.webp", teams: ["management"] },
+  { title: "Muhammad Ibrahim", jobTitle: "Director of Research and Engineering Management", src: "/team/Muhammad-ibrahim.webp", teams: ["management"] },
   { title: "Wahaj Ahmad", jobTitle: "Staff AI Researcher", src: "/team/Wahaj.webp", teams: ["llm"] },
   { title: "Misbah Hareem", jobTitle: "Operations Coordinator (People & Culture)", src: "/team/misbah-hareem.webp", teams: ["management"] },
   { title: "Muhammad Waqas Afzal", jobTitle: "Office Manager", src: "/team/waqas-afzal.webp", teams: ["management"] },
