@@ -1,6 +1,6 @@
 /** Grid of package cards (data/model/runtime style breakdowns). */
 export function PackageCardList({ children }: { children: React.ReactNode }) {
-  return <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">{children}</div>;
+  return <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">{children}</div>;
 }
 
 interface PackageCardProps {

@@ -8,8 +8,6 @@ export interface TabData {
   id: string;
   label: string;
   icon: ComponentType<{ className?: string }>;
-  title: React.ReactNode;
-  subtitle: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -30,24 +28,20 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-full flex flex-col p-10 pt-6"
+      className="h-full w-full"
     >
-      <div className="flex-1 font-mono text-sm text-muted-foreground bg-secondary/60 rounded-3xl p-8 mb-8 overflow-hidden">
+      <div className="relative h-full w-full font-mono text-sm text-muted-foreground rounded-3xl overflow-hidden">
         {typeof tab.content === 'string' ? (
-          <pre className="whitespace-pre-wrap break-all leading-relaxed">{tab.content}</pre>
+          <pre className="whitespace-pre-wrap break-all leading-relaxed p-4 sm:p-5 lg:p-6">{tab.content}</pre>
         ) : (
           tab.content
         )}
-      </div>
-      <div className="px-2">
-        <h3 className="text-lg font-semibold text-foreground tracking-tight leading-tight mb-1">{tab.title}</h3>
-        <p className="text-muted-foreground text-sm leading-tight">{tab.subtitle}</p>
       </div>
     </m.div>
   );
 
   const renderTabs = (tabs: TabData[], activeIndex: number, setActiveIndex: (i: number) => void) => (
-    <div className="flex gap-4 -mb-px pl-0 pr-8 relative z-20">
+    <div className="flex gap-2 sm:gap-4 -mb-px pl-0 pr-6 sm:pr-8 relative z-20">
       {tabs.map((tab, idx) => {
         const Icon = tab.icon;
         const isActive = activeIndex === idx;
@@ -60,12 +54,12 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
             aria-pressed={isActive}
             className={`
               relative group flex flex-col items-center justify-center gap-1.5
-              w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-t-3xl transition-all duration-300 outline-none
+              w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-t-3xl transition-all duration-300 outline-none
               ${isActive ? 'bg-card cursor-default' : 'bg-transparent hover:bg-card/30 rounded-b-3xl cursor-pointer'}
             `}
           >
             <Icon className={`w-8 h-8 md:w-10 md:h-10 transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
-            <span className={`text-xs font-medium transition-opacity ${isActive ? 'text-foreground opacity-100' : 'text-muted-foreground opacity-0 group-hover:opacity-100'}`}>
+            <span className={`text-[10px] sm:text-xs font-medium transition-colors ${isActive ? 'text-foreground' : 'text-muted-foreground/60 group-hover:text-muted-foreground'}`}>
               {tab.label}
             </span>
 
@@ -92,12 +86,12 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
   );
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pt-12 ${className}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-8 pt-8 sm:pt-12 ${className}`}>
       {/* Left Column */}
       <div className="flex flex-col relative">
         {renderTabs(leftTabs, activeLeft, setActiveLeft)}
         <div className={`
-          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/30
+          flex-1 bg-card rounded-3xl min-h-[420px] sm:min-h-[520px] lg:min-h-[580px] relative shadow-2xl shadow-black/30
           ${activeLeft === 0 ? 'rounded-tl-none' : ''}
         `}>
           <AnimatePresence mode="wait">
@@ -110,7 +104,7 @@ export function BentoProtrusion({ leftTabs, rightTabs, className = "" }: BentoPr
       <div className="flex flex-col relative">
         {renderTabs(rightTabs, activeRight, setActiveRight)}
         <div className={`
-          flex-1 bg-card rounded-3xl min-h-[580px] relative shadow-2xl shadow-black/30
+          flex-1 bg-card rounded-3xl min-h-[420px] sm:min-h-[520px] lg:min-h-[580px] relative shadow-2xl shadow-black/30
           ${activeRight === 0 ? 'rounded-tl-none' : ''}
         `}>
           <AnimatePresence mode="wait">

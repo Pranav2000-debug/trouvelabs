@@ -14,7 +14,7 @@ export default function PerceptionSdkApiReferencePage() {
           { label: "Home", href: "/" },
           { label: "Projects", href: "/projects" },
           { label: "Perception SDK", href: "/projects/perception-sdk" },
-          { label: "API Reference" },
+          { label: "User Guide" },
         ]}
       />
 

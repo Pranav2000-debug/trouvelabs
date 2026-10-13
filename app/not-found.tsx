@@ -5,7 +5,7 @@ import { ArrowUpRight, Home } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-screen items-center justify-center px-6 pt-32 pb-20">
+    <section className="flex min-h-screen items-center justify-center px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:pt-32 lg:pb-20">
       <div className="relative mx-auto max-w-2xl text-center z-20">
         <FadeIn>
           <AuroraText

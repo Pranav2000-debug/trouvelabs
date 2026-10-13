@@ -3,13 +3,13 @@ import { PROJECTS } from "@/lib/constants/projects";
 
 export const metadata = {
   title: "Projects - Trouve Labs",
-  description: "Explore Trouve Labs' modular AI SDKs for next-generation mobility intelligence.",
+  description: "Modular AI SDKs born out of Trouve Labs' R&D - built for next-generation mobility intelligence.",
 };
 
 export default function ProjectsIndexPage() {
   return (
     <main className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-6 py-32">
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:py-32">
         {/* Header */}
         <div className="mb-16 text-center">
           <p className="text-xs font-medium uppercase tracking-wider text-primary mb-3">SDK Platform</p>

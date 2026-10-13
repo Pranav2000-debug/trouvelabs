@@ -11,22 +11,22 @@ import ReactLenis from "lenis/react";
 export default async function AboutPage() {
   return (
     <ReactLenis root>
-      <div className="mx-auto flex max-w-7xl flex-col px-4 pt-32 pb-12 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col px-4 pt-24 pb-12 sm:px-6 sm:pt-28 lg:px-8 lg:pt-32">
         <AboutLead />
 
-        <JourneyConnector from="center" to="left" height={120} />
+        <JourneyConnector from="center" to="left" height={90} />
 
         <AboutMissionVision />
 
-        <JourneyConnector from="center" to="right" height={120} />
+        <JourneyConnector from="center" to="right" height={90} />
 
         <AboutCoreValues />
 
-        <JourneyConnector from="right" to="left" height={140} />
+        <JourneyConnector from="right" to="left" height={105} />
 
         <AboutDifferentiators />
 
-        <JourneyConnector from="left" to="center" height={120} />
+        <JourneyConnector from="left" to="center" height={90} />
 
         <AboutAcademy />
       </div>

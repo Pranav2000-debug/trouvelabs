@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/constants/projects";
 
 interface FooterLinkItem {
@@ -20,8 +21,6 @@ const RESOURCE_LINKS: FooterLinkItem[] = [
 
 const COMPANY_LINKS: FooterLinkItem[] = [
   { href: "/about", label: "About" },
-  { href: "mailto:hood@mailahoy.com", label: "Contact" },
-  { href: "https://ahoy.technology/privacy-policy", label: "Privacy Policy" },
   { href: "https://ahoy.technology/policies", label: "Policies" },
   { href: "/about#team", label: "Trouve Team" },
 ];
@@ -51,21 +50,23 @@ export function Footer() {
   }));
   return (
     <footer className="border-t border-border bg-card/80 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link prefetch={false} href="/" className="inline-flex items-center gap-2">
-              <Image src="/assets/image-44.webp" alt="Trouve Labs" width={100} height={100} className="h-22 w-20" />
+              <Image src="/assets/image-44.webp" alt="Trouve Labs" width={80} height={96} className="h-20 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Finding efficiencies at every curve. AI SDKs that power next-generation mobility systems.
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              {/* <Link prefetch={false} href="mailto:example.com" className="transition-colors hover:text-primary">
-                example.com
-              </Link> */}
-            </p>
+            <Link
+              prefetch={false}
+              href="mailto:research@trouve.works"
+              className="group mt-4 inline-block text-sm text-foreground transition-colors hover:text-primary">
+              Reach out to us at research@trouve.works
+              <ArrowUpRight className="ml-1 inline-block h-3.5 w-3.5 align-middle transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </div>
 
           {/* Link columns */}
@@ -75,7 +76,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+        <div className="mt-10 sm:mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:pt-8 sm:flex-row">
           <p className="text-xs text-muted-foreground">© {year} Trouve Labs. All rights reserved.</p>
           <a
             href="https://ahoy.technology/"
