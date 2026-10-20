@@ -36,6 +36,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { title: "Muhammad Waqas Afzal", jobTitle: "Office Manager", src: "/team/waqas-afzal.webp", teams: ["management"] },
   { title: "Zuhad Bin Nisar", jobTitle: "Project Coordinator", src: "/team/zuhad-nisar.webp", teams: ["management"] },
 
+  { title: "Muhammad Tilal", jobTitle: "R&D Lead", src: "/team/muhammad-tilal.webp", teams: ["llm"] },
   { title: "Ahmad Ali", jobTitle: "Senior AI Engineer (RnD)", src: "/team/Ahmad-ali.webp", teams: ["llm"] },
   { title: "Huzaifah Bin Khawar", jobTitle: "AI Engineer (RnD)", src: "/team/Huzaifa-bin-khawar.webp", teams: ["llm"] },
   { title: "Muhammad Kashif", jobTitle: "AI Engineer (RnD)", src: "/team/muhammad-kashif.webp", teams: ["llm"] },
@@ -46,7 +47,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
 
   { title: "Talha Ejaz", jobTitle: "AI Engineer", src: "/team/talha-ejaz.webp", imgClassName: "object-[50%_18%]", teams: ["ai-research"] },
   { title: "Shah Nawaz Khan", jobTitle: "Senior AI Engineer (RnD)", src: "/team/shah-nawaz-khan.webp", teams: ["ai-research"] },
-  { title: "Kaab Gazdar", jobTitle: "AI Intern", src: "/team/kaab-gazdar.webp", teams: ["ai-research"] },
   { title: "Khoula Ali Sheikh", jobTitle: "AI Engineer (RnD)", src: "/team/khoula.webp", teams: ["ai-research"] },
   { title: "Hasnain Ahmad", jobTitle: "Senior AI Engineer", src: "/team/hasnain-ahmed.webp", teams: ["perception-sdk"] },
   { title: "Muhammad Ijlal Baig", jobTitle: "Senior Researcher", src: "/team/ijal-baig.webp", teams: ["ai-research"] },
