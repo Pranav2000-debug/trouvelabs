@@ -15,6 +15,7 @@ function seniorityRank(jobTitle: string, tab: TeamGroup): number {
   if (/\bceo\b/i.test(jobTitle)) return 0;
   if (tab === "management") return 1;
   if (/^staff\b/i.test(jobTitle)) return 1;
+  if (/\blead\b/i.test(jobTitle)) return 1.5;
   if (/^senior\b/i.test(jobTitle)) return 2;
   if (/intern/i.test(jobTitle)) return 4;
   return 3;
